@@ -1,3 +1,50 @@
+function normalizeQuestion(q) {
+    // Supports BOTH formats:
+    // { q, a:[...], c }
+    // { q, options:[...], a:"correct answer" }
+
+    if (q.options && q.a) {
+        const correctIndex = q.options.indexOf(q.a);
+        return {
+            q: q.q,
+            a: q.options,
+            c: correctIndex >= 0 ? correctIndex : 0,
+            d: q.d || "Easy"
+        };
+    }
+    return q;
+}
+
+function generateInfiniteQuestion(category) {
+    return {
+        q: `Bonus ${category} challenge`,
+        a: ["Option A", "Option B", "Option C", "Option D"],
+        c: 0,
+        d: "Easy"
+    };
+}
+
+function getShuffledQuestions(categoryName, difficultyMode = "all", count = 12) {
+    let pool = (QUIZ_BANKS[categoryName] || []).map(normalizeQuestion);
+
+    if (difficultyMode !== "all") {
+        const filtered = pool.filter(q => q.d === difficultyMode);
+        if (filtered.length > 0) pool = filtered;
+    }
+
+    for (let i = pool.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+
+    let selected = pool.slice(0, Math.min(count, pool.length));
+
+    while (selected.length < count) {
+        selected.push(generateInfiniteQuestion(categoryName));
+    }
+
+    return selected;
+}
 /**
  * QuizzyBrain Core Application Architecture Module
  */
@@ -396,31 +443,44 @@ function renderParticleBackground() {
 
 // ================= RENDER DYNAMIC COMPONENT INTERFACES =================
 function renderCategoryGrid(filterTerm = "", diffFilter = "all") {
-    const targetGrid = document.getElementById("categories-grid");
+    const targetGrid = document.getElementById("category-grid");
     targetGrid.innerHTML = "";
-    
+
     Object.keys(QUIZ_BANKS).forEach(catName => {
+
+        // ⭐ STEP 5 (safe category fallback injection)
+        if (!CATEGORY_METADATA[catName]) {
+            CATEGORY_METADATA[catName] = {
+                icon: "🧠",
+                desc: "Fresh new quiz category added!",
+                time: "3 mins"
+            };
+        }
+
         const meta = CATEGORY_METADATA[catName];
-        
-        // Search Filter Execution
-        if (filterTerm && !catName.toLowerCase().includes(filterTerm.toLowerCase()) && !meta.desc.toLowerCase().includes(filterTerm.toLowerCase())) {
+
+        let questionsGroup = (QUIZ_BANKS[catName] || []).map(normalizeQuestion);
+
+        // Filter by search term
+        if (
+            filterTerm &&
+            !catName.toLowerCase().includes(filterTerm.toLowerCase()) &&
+            !meta.desc.toLowerCase().includes(filterTerm.toLowerCase())
+        ) {
             return;
         }
 
-        // Difficulty filter optimization strategy execution check
-        let questionsGroup = QUIZ_BANKS[catName];
+        // Difficulty filter
         if (diffFilter !== "all") {
-            questionsGroup = questionsGroup.filter(q => q.d === diffFilter);
+            const filtered = questionsGroup.filter(q => q.d === diffFilter);
+            if (filtered.length > 0) questionsGroup = filtered;
         }
-        
-        // Skip visualization if difficulty has 0 questions
+
         if (questionsGroup.length === 0) return;
 
         const card = document.createElement("div");
         card.className = "glass-panel category-card";
         card.setAttribute("tabindex", "0");
-        card.setAttribute("role", "button");
-        card.setAttribute("aria-label", `Play ${catName} Category. 12 questions. Duration ${meta.time}`);
 
         card.innerHTML = `
             <div class="cat-icon-frame">${meta.icon}</div>
@@ -428,22 +488,21 @@ function renderCategoryGrid(filterTerm = "", diffFilter = "all") {
             <p>${meta.desc}</p>
             <div class="cat-meta-footer">
                 <span>📋 12 Qs</span>
-                <span>⚡ ${diffFilter === 'all' ? 'Mixed' : diffFilter}</span>
+                <span>⚡ ${diffFilter === "all" ? "Mixed" : diffFilter}</span>
                 <span>⏱️ ${meta.time}</span>
             </div>
         `;
-        card.style.animationDelay = `${targetGrid.children.length * 60}ms`;
 
-        // Interactivity Bindings
-        const startQuizAction = () => { AudioEngine.play("click"); initQuizEngine(catName, diffFilter); };
-        card.addEventListener("click", startQuizAction);
-        card.addEventListener("keydown", (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); startQuizAction(); } });
+        card.addEventListener("click", () => {
+            AudioEngine.play("click");
+            initQuizEngine(catName, diffFilter);
+        });
 
         targetGrid.appendChild(card);
     });
 
-    if (targetGrid.children.length === 0) {
-        targetGrid.innerHTML = `<p class="grid-empty-state-text">No category assets match your active filter matrix parameters.</p>`;
+    if (!targetGrid.children.length) {
+        targetGrid.innerHTML = `<p>No categories found.</p>`;
     }
 }
 
@@ -593,23 +652,7 @@ function switchViewSection(targetId) {
 
 // ================= RUNTIME CORE INTERACTIVE QUIZ ENGINE =================
 function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
-    let sourcePool = [...QUIZ_BANKS[categoryName]];
-
-    // Filter by difficulty if one is selected. Only fall back to the full
-    // category pool if that difficulty has *zero* questions available —
-    // previously this fell back whenever there were fewer than 12, which
-    // silently ignored the user's difficulty choice while still labeling
-    // the quiz with that difficulty.
-    if (difficultyMode !== "all") {
-        const filtered = sourcePool.filter(q => q.d === difficultyMode);
-        if (filtered.length > 0) sourcePool = filtered;
-    }
-
-    // Fisher-Yates shuffle
-    for (let i = sourcePool.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [sourcePool[i], sourcePool[j]] = [sourcePool[j], sourcePool[i]];
-    }
+  const sourcePool = getShuffledQuestions(categoryName, difficultyMode, 12);
 
     // Use up to 12 questions (may be fewer if the difficulty filter has less available)
     state.activeQuiz = {
@@ -660,7 +703,10 @@ function presentQuestionIndexScenario() {
     answersGrid.innerHTML = "";
 
     // Array construction map tracking original index placements
-    let selectionOptions = dataObj.a.map((ansText, originalIndex) => ({ text: ansText, id: originalIndex }));
+let selectionOptions = dataObj.a.map((text, i) => ({
+    text,
+    id: i
+}));
     
     // Shuffle Selection options array placement order
     for (let i = selectionOptions.length - 1; i > 0; i--) {
