@@ -444,33 +444,30 @@ function renderParticleBackground() {
 // ================= RENDER DYNAMIC COMPONENT INTERFACES =================
 function renderCategoryGrid(filterTerm = "", diffFilter = "all") {
     const targetGrid = document.getElementById("category-grid");
+
+    if (!targetGrid) {
+        console.error("❌ category-grid element not found in HTML");
+        return;
+    }
+
     targetGrid.innerHTML = "";
 
     Object.keys(QUIZ_BANKS).forEach(catName => {
 
-        // ⭐ STEP 5 (safe category fallback injection)
-        if (!CATEGORY_METADATA[catName]) {
-            CATEGORY_METADATA[catName] = {
-                icon: "🧠",
-                desc: "Fresh new quiz category added!",
-                time: "3 mins"
-            };
-        }
-
-        const meta = CATEGORY_METADATA[catName];
+        const meta = CATEGORY_METADATA[catName] || {
+            icon: "🧠",
+            desc: "New quiz category",
+            time: "3 mins"
+        };
 
         let questionsGroup = (QUIZ_BANKS[catName] || []).map(normalizeQuestion);
 
-        // Filter by search term
         if (
             filterTerm &&
             !catName.toLowerCase().includes(filterTerm.toLowerCase()) &&
             !meta.desc.toLowerCase().includes(filterTerm.toLowerCase())
-        ) {
-            return;
-        }
+        ) return;
 
-        // Difficulty filter
         if (diffFilter !== "all") {
             const filtered = questionsGroup.filter(q => q.d === diffFilter);
             if (filtered.length > 0) questionsGroup = filtered;
@@ -480,7 +477,6 @@ function renderCategoryGrid(filterTerm = "", diffFilter = "all") {
 
         const card = document.createElement("div");
         card.className = "glass-panel category-card";
-        card.setAttribute("tabindex", "0");
 
         card.innerHTML = `
             <div class="cat-icon-frame">${meta.icon}</div>
