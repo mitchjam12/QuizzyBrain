@@ -143,7 +143,70 @@ const QUIZ_BANKS = {
         { q: "What geometric shape value name describes an internal angle measurement of exactly 90 degrees?", a: ["Acute", "Obtuse", "Right Angle", "Reflex"], c: 2, d: "Easy" },
         { q: "What structural software computer core kernel layer manages interface requests?", a: ["Operating System", "RAM", "CPU", "Motherboard"], c: 0, d: "Medium" },
         { q: "How many hearts does an octopus possess inside its biological structural layout?", a: ["1", "2", "3", "4"], c: 2, d: "Hard" }
-    ]
+    ],
+    "Australian Geography": [
+  { q: "What is the capital of Australia?", options: ["Sydney", "Canberra", "Melbourne", "Perth"], a: "Canberra", d: "easy" },
+  { q: "Which Australian state is known as the Sunshine State?", options: ["NSW", "Victoria", "Queensland", "Tasmania"], a: "Queensland", d: "medium" },
+  { q: "What is the largest Australian island state?", options: ["Tasmania", "Victoria", "WA", "SA"], a: "Tasmania", d: "easy" },
+  { q: "Which desert covers a large part of central Australia?", options: ["Gobi", "Great Victoria Desert", "Sahara", "Simpson"], a: "Great Victoria Desert", d: "medium" }
+],
+
+"Aussie Slang": [
+  { q: "What does 'arvo' mean in Australian slang?", options: ["Morning", "Afternoon", "Evening", "Night"], a: "Afternoon", d: "easy" },
+  { q: "What is a 'servo'?", options: ["Police station", "Service station", "Restaurant", "School"], a: "Service station", d: "easy" },
+  { q: "What does 'mate' commonly mean in Australia?", options: ["Enemy", "Friend", "Boss", "Stranger"], a: "Friend", d: "easy" },
+  { q: "What is a 'bottle-o'?", options: ["Bakery", "Liquor store", "Post office", "Cafe"], a: "Liquor store", d: "medium" }
+],
+
+"AFL Trivia": [
+  { q: "How many players are on the field per AFL team?", options: ["11", "13", "18", "15"], a: "18", d: "medium" },
+  { q: "Which AFL team is based in Perth?", options: ["Sydney Swans", "West Coast Eagles", "Carlton", "Geelong"], a: "West Coast Eagles", d: "easy" },
+  { q: "What shape is an AFL ball?", options: ["Round", "Oval", "Square", "Pointed"], a: "Oval", d: "easy" }
+],
+
+"Australian Wildlife": [
+  { q: "Which is the largest kangaroo species?", options: ["Red kangaroo", "Tree kangaroo", "Wallaby", "Quokka"], a: "Red kangaroo", d: "medium" },
+  { q: "Which animal is known for carrying its baby in a pouch?", options: ["Koala", "Wombat", "Kangaroo", "Echidna"], a: "Kangaroo", d: "easy" },
+  { q: "What is a baby kangaroo called?", options: ["Cub", "Joey", "Pup", "Calf"], a: "Joey", d: "easy" }
+],
+    "Brain Teasers": [
+  { q: "What has keys but can't open locks?", options: ["Piano", "Map", "Clock", "River"], a: "Piano", d: "medium" },
+  { q: "What gets wetter the more it dries?", options: ["Towel", "Sponge", "Raincoat", "Hair"], a: "Towel", d: "medium" },
+  { q: "I speak without a mouth and hear without ears. What am I?", options: ["Echo", "Shadow", "Wind", "Thought"], a: "Echo", d: "hard" }
+],
+
+"Pattern Logic": [
+  { q: "What comes next: 2, 4, 8, 16, ?", options: ["18", "24", "32", "30"], a: "32", d: "easy" },
+  { q: "What comes next: A, C, E, G, ?", options: ["H", "I", "J", "K"], a: "I", d: "medium" }
+],
+    "Marvel Universe": [
+  { q: "What is Thor's hammer called?", options: ["Stormbreaker", "Mjolnir", "Gungnir", "Axe of Odin"], a: "Mjolnir", d: "easy" },
+  { q: "Who is Iron Man's alter ego?", options: ["Steve Rogers", "Tony Stark", "Bruce Wayne", "Peter Parker"], a: "Tony Stark", d: "easy" },
+  { q: "Which stone controls time?", options: ["Space Stone", "Mind Stone", "Time Stone", "Reality Stone"], a: "Time Stone", d: "medium" }
+],
+
+"Harry Potter": [
+  { q: "What house is Harry Potter sorted into?", options: ["Slytherin", "Ravenclaw", "Gryffindor", "Hufflepuff"], a: "Gryffindor", d: "easy" },
+  { q: "What spell disarms an opponent?", options: ["Lumos", "Expelliarmus", "Avada Kedavra", "Alohomora"], a: "Expelliarmus", d: "easy" }
+],
+    "Internet Memes": [
+  { q: "What does 'LOL' stand for?", options: ["Lots of Love", "Laugh Out Loud", "Leave On Loop", "Light Overload"], a: "Laugh Out Loud", d: "easy" },
+  { q: "Which platform is known for short viral videos?", options: ["Reddit", "TikTok", "Wikipedia", "LinkedIn"], a: "TikTok", d: "easy" }
+],
+
+"Viral Culture": [
+  { q: "What year did TikTok globally rise?", options: ["2015", "2016", "2018", "2020"], a: "2018", d: "medium" }
+],
+    "Tech Basics": [
+  { q: "What does CPU stand for?", options: ["Central Processing Unit", "Core Power Utility", "Computer Personal Unit", "Central Print Unit"], a: "Central Processing Unit", d: "easy" },
+  { q: "What language is mainly used for web pages?", options: ["Python", "C++", "HTML", "Java"], a: "HTML", d: "easy" }
+],
+
+"AI Basics": [
+  { q: "What does AI stand for?", options: ["Automated Input", "Artificial Intelligence", "Advanced Interface", "Applied Internet"], a: "Artificial Intelligence", d: "easy" }
+],
+
+    
 };
 
 // Category Configuration Registry
