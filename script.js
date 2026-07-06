@@ -143,6 +143,20 @@ const QUIZ_BANKS = {
         { q: "What geometric shape value name describes an internal angle measurement of exactly 90 degrees?", a: ["Acute", "Obtuse", "Right Angle", "Reflex"], c: 2, d: "Easy" },
         { q: "What structural software computer core kernel layer manages interface requests?", a: ["Operating System", "RAM", "CPU", "Motherboard"], c: 0, d: "Medium" },
         { q: "How many hearts does an octopus possess inside its biological structural layout?", a: ["1", "2", "3", "4"], c: 2, d: "Hard" }
+    ],
+    "Australian Geography": [
+        { q: "What is the capital city of Australia?", a: ["Sydney", "Melbourne", "Canberra", "Brisbane"], c: 2, d: "Easy" },
+        { q: "Which Australian state is known as the Sunshine State?", a: ["Victoria", "Queensland", "Tasmania", "Western Australia"], c: 1, d: "Easy" },
+        { q: "Which city is home to the Sydney Opera House?", a: ["Perth", "Sydney", "Adelaide", "Canberra"], c: 1, d: "Easy" },
+        { q: "What is the largest Australian state by area?", a: ["Queensland", "South Australia", "Western Australia", "New South Wales"], c: 2, d: "Medium" },
+        { q: "Which Australian territory contains Uluru?", a: ["Australian Capital Territory", "Northern Territory", "Queensland", "Western Australia"], c: 1, d: "Medium" },
+        { q: "What is the capital of Tasmania?", a: ["Launceston", "Devonport", "Burnie", "Hobart"], c: 3, d: "Easy" },
+        { q: "Which reef system lies off the coast of Queensland?", a: ["Ningaloo Reef", "Great Barrier Reef", "Coral Sea Reef", "Ribbon Reef"], c: 1, d: "Easy" },
+        { q: "Which Australian city hosted the 2000 Olympic Games?", a: ["Melbourne", "Brisbane", "Sydney", "Perth"], c: 2, d: "Easy" },
+        { q: "How many states are there in Australia?", a: ["5", "6", "7", "8"], c: 1, d: "Medium" },
+        { q: "Which river is Australia's longest?", a: ["Darling River", "Murray River", "Swan River", "Yarra River"], c: 1, d: "Hard" },
+        { q: "What is the capital city of Western Australia?", a: ["Darwin", "Perth", "Adelaide", "Albany"], c: 1, d: "Easy" },
+        { q: "Which state borders every mainland Australian state and the Northern Territory?", a: ["Queensland", "Victoria", "South Australia", "New South Wales"], c: 2, d: "Hard" }
     ]
 };
 
