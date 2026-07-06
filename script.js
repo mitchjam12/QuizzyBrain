@@ -1,6 +1,6 @@
 /**
  * QuizzyBrain Core Application Architecture Module
- *
+ */
 
 // ================= DATA DEPOSITORIES (12 Unique Questions per Category) =================
 const QUIZ_BANKS = {
