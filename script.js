@@ -172,6 +172,20 @@ const QUIZ_BANKS = {
         { q: "Which Australian mammal is able to glide between trees?", a: ["Sugar Glider", "Koala", "Wallaby", "Tasmanian Devil"], c: 0, d: "Medium" },
         { q: "Which Australian island is famous for its population of Tasmanian Devils?", a: ["Kangaroo Island", "Fraser Island", "Tasmania", "Phillip Island"], c: 2, d: "Easy" }
     ],
+    "Aussie Slang": [
+        { q: "What does 'arvo' mean in Australian slang?", a: ["Morning", "Afternoon", "Evening", "Night"], c: 1, d: "Easy" },
+        { q: "What is a 'servo'?", a: ["Service station", "Police station", "Supermarket", "Cafe"], c: 0, d: "Easy" },
+        { q: "What does 'mate' usually mean in Australia?", a: ["Friend", "Enemy", "Boss", "Stranger"], c: 0, d: "Easy" },
+        { q: "What is a 'bottle-o'?", a: ["Bakery", "Liquor store", "Post office", "Butcher"], c: 1, d: "Medium" },
+        { q: "What does 'brekkie' mean?", a: ["Breakfast", "Dinner", "Lunch", "Snack"], c: 0, d: "Easy" },
+        { q: "What does 'chuck a sickie' mean?", a: ["Go on holiday", "Call in sick from work", "Get injured", "Go to hospital"], c: 1, d: "Medium" },
+        { q: "What does 'thongs' mean in Australia?", a: ["Shoes", "Sandals/flip-flops", "Socks", "Boots"], c: 1, d: "Easy" },
+        { q: "What does 'fair dinkum' mean?", a: ["Fake", "True / genuine", "Funny", "Angry"], c: 1, d: "Medium" },
+        { q: "What does 'heaps' mean?", a: ["None", "A little", "A lot", "Rarely"], c: 2, d: "Easy" },
+        { q: "What does 'ute' refer to?", a: ["Truck", "Car", "Van", "Motorbike"], c: 0, d: "Easy" },
+        { q: "What does 'barbie' mean in Aussie slang?", a: ["Toy", "Barbecue", "Beach", "Drink"], c: 1, d: "Easy" },
+        { q: "What does 'no worries' usually mean?", a: ["Angry response", "It’s okay / don’t worry", "Confused", "Goodbye"], c: 1, d: "Easy" }
+    ]
 };
 
 // Category Configuration Registry
@@ -188,6 +202,7 @@ const CATEGORY_METADATA = {
     "Random Challenge": { icon: "🧩", desc: "An unpredictable mix of science, history, pop culture, and trivia.", time: "4 mins" },
     "Australian Geography": { icon: "🦘", desc: "Explore Australia's states, cities, landmarks and natural wonders.", time: "3 mins"},
     "Australian Wildlife": { icon: "🦘", desc: "Discover Australia's unique animals, birds and native wildlife.", time: "3 mins"},
+    "Aussie Slang": { icon: "🇦🇺", desc: "Decode everyday Australian slang, phrases and expressions.", time: "3 mins"}
 };
 
 // Achievement Definition Bank
