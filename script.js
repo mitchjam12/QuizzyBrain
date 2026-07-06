@@ -143,22 +143,7 @@ const QUIZ_BANKS = {
         { q: "What geometric shape value name describes an internal angle measurement of exactly 90 degrees?", a: ["Acute", "Obtuse", "Right Angle", "Reflex"], c: 2, d: "Easy" },
         { q: "What structural software computer core kernel layer manages interface requests?", a: ["Operating System", "RAM", "CPU", "Motherboard"], c: 0, d: "Medium" },
         { q: "How many hearts does an octopus possess inside its biological structural layout?", a: ["1", "2", "3", "4"], c: 2, d: "Hard" }
-    ],
-    "Australian Geography": [
-        { q: "What is the capital of Australia?", a: ["Sydney", "Canberra", "Melbourne", "Perth"], c: 1, d: "Easy" },
-        { q: "Which Australian state is known as the Sunshine State?", a: ["NSW", "Victoria", "Queensland", "Tasmania"], c: 2, d: "Easy" },
-        { q: "Which city is famous for the Sydney Opera House?", a: ["Melbourne", "Sydney", "Adelaide", "Brisbane"], c: 1, d: "Easy" },
-        { q: "Which Australian state has Hobart as its capital?", a: ["Victoria", "Queensland", "Tasmania", "SA"], c: 2, d: "Easy" },
-        { q: "Which state is Perth the capital of?", a: ["South Australia", "Western Australia", "Northern Territory", "Queensland"], c: 1, d: "Easy" },
-        { q: "What is Australia's largest state by area?", a: ["Queensland", "Western Australia", "NSW", "South Australia"], c: 1, d: "Medium" },
-        { q: "Uluru is located in which territory?", a: ["Queensland", "Northern Territory", "WA", "ACT"], c: 1, d: "Medium" },
-        { q: "Which Australian state is the smallest by area?", a: ["Tasmania", "Victoria", "ACT", "NSW"], c: 1, d: "Medium" },
-        { q: "Which river is Australia's longest?", a: ["Darling River", "Murray River", "Swan River", "Yarra River"], c: 1, d: "Hard" },
-        { q: "The Great Barrier Reef is off the coast of which state?", a: ["WA", "Queensland", "Victoria", "NSW"], c: 1, d: "Easy" },
-        { q: "How many states does Australia have?", a: ["5", "6", "7", "8"], c: 1, d: "Medium" },
-        { q: "Which Australian city hosted the 2000 Olympic Games?", a: ["Melbourne", "Brisbane", "Sydney", "Canberra"], c: 2, d: "Easy" }
-        
-]
+    ]
     
 };
 
