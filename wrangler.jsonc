@@ -8,6 +8,16 @@
   "assets": {
     "directory": "."
   },
+  "routes": [
+    {
+      "pattern": "quizzybrain.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.quizzybrain.com",
+      "custom_domain": true
+    }
+  ],
   "compatibility_flags": [
     "nodejs_compat"
   ]
