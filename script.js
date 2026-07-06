@@ -145,81 +145,21 @@ const QUIZ_BANKS = {
         { q: "How many hearts does an octopus possess inside its biological structural layout?", a: ["1", "2", "3", "4"], c: 2, d: "Hard" }
     ],
     "Australian Geography": [
-    { q: "What is the capital of Australia?", a: ["Sydney", "Canberra", "Melbourne", "Perth"], c: 1, d: "Easy" },
-    { q: "Which Australian state is known as the Sunshine State?", a: ["NSW", "Victoria", "Queensland", "Tasmania"], c: 2, d: "Easy" },
-    { q: "What is the largest Australian island state?", a: ["Tasmania", "Victoria", "WA", "SA"], c: 0, d: "Easy" },
-    { q: "Which desert covers a large part of central Australia?", a: ["Great Victoria Desert", "Sahara", "Gobi", "Simpson"], c: 0, d: "Medium" }
-],
-
-"Aussie Slang": [
-    { q: "What does 'arvo' mean?", a: ["Morning", "Afternoon", "Night", "Weekend"], c: 1, d: "Easy" },
-    { q: "What is a 'servo'?", a: ["Petrol station", "School", "Restaurant", "Hospital"], c: 0, d: "Easy" },
-    { q: "What is a 'bottle-o'?", a: ["Bottle shop", "Cafe", "Bakery", "Post Office"], c: 0, d: "Easy" },
-    { q: "What does 'mate' usually mean?", a: ["Enemy", "Friend", "Teacher", "Boss"], c: 1, d: "Easy" }
-],
-
-"AFL Trivia": [
-    { q: "How many players are on the field for one AFL team?", a: ["15", "16", "18", "20"], c: 2, d: "Easy" },
-    { q: "Which city are the West Coast Eagles based in?", a: ["Melbourne", "Sydney", "Adelaide", "Perth"], c: 3, d: "Easy" },
-    { q: "What shape is an AFL football?", a: ["Round", "Oval", "Square", "Triangle"], c: 1, d: "Easy" },
-    { q: "How many points is a goal worth?", a: ["1", "3", "5", "6"], c: 3, d: "Easy" }
-],
-
-"Australian Wildlife": [
-    { q: "What is a baby kangaroo called?", a: ["Cub", "Joey", "Pup", "Calf"], c: 1, d: "Easy" },
-    { q: "Which animal lays eggs but is also a mammal?", a: ["Koala", "Platypus", "Dingo", "Kangaroo"], c: 1, d: "Medium" },
-    { q: "Which Australian bird is famous for laughing?", a: ["Cockatoo", "Kookaburra", "Emu", "Magpie"], c: 1, d: "Easy" },
-    { q: "Which is the largest kangaroo species?", a: ["Grey Kangaroo", "Tree Kangaroo", "Red Kangaroo", "Wallaby"], c: 2, d: "Medium" }
-],
-
-"Brain Teasers": [
-    { q: "What has keys but can't open locks?", a: ["Piano", "Clock", "Door", "River"], c: 0, d: "Medium" },
-    { q: "What gets wetter the more it dries?", a: ["Sponge", "Towel", "Rain", "Soap"], c: 1, d: "Medium" },
-    { q: "I speak without a mouth and hear without ears. What am I?", a: ["Echo", "Shadow", "Wind", "Thought"], c: 0, d: "Hard" },
-    { q: "What has hands but cannot clap?", a: ["Clock", "Robot", "Statue", "Tree"], c: 0, d: "Easy" }
-],
-
-"Pattern Logic": [
-    { q: "2, 4, 8, 16, ?", a: ["18", "24", "32", "36"], c: 2, d: "Easy" },
-    { q: "A, C, E, G, ?", a: ["H", "I", "J", "K"], c: 1, d: "Medium" },
-    { q: "1, 4, 9, 16, ?", a: ["20", "24", "25", "36"], c: 2, d: "Easy" },
-    { q: "5, 10, 20, 40, ?", a: ["60", "70", "80", "90"], c: 2, d: "Easy" }
-],
-
-"Marvel Universe": [
-    { q: "What is Thor's hammer called?", a: ["Stormbreaker", "Mjolnir", "Gungnir", "Asgard"], c: 1, d: "Easy" },
-    { q: "Who is Iron Man?", a: ["Steve Rogers", "Bruce Banner", "Tony Stark", "Peter Parker"], c: 2, d: "Easy" },
-    { q: "Which Infinity Stone controls time?", a: ["Mind Stone", "Power Stone", "Time Stone", "Soul Stone"], c: 2, d: "Medium" },
-    { q: "What metal is Captain America's shield made from?", a: ["Adamantium", "Titanium", "Vibranium", "Steel"], c: 2, d: "Medium" }
-],
-
-"Harry Potter": [
-    { q: "What house is Harry sorted into?", a: ["Slytherin", "Gryffindor", "Hufflepuff", "Ravenclaw"], c: 1, d: "Easy" },
-    { q: "Who is Harry's owl?", a: ["Crookshanks", "Scabbers", "Hedwig", "Errol"], c: 2, d: "Easy" },
-    { q: "What spell disarms an opponent?", a: ["Expelliarmus", "Lumos", "Alohomora", "Stupefy"], c: 0, d: "Easy" },
-    { q: "Who is the headmaster of Hogwarts for most of the series?", a: ["Snape", "McGonagall", "Dumbledore", "Hagrid"], c: 2, d: "Easy" }
-],
-
-"Internet Memes": [
-    { q: "What does LOL stand for?", a: ["Lots of Love", "Laugh Out Loud", "Long Online Life", "Little Orange Lemon"], c: 1, d: "Easy" },
-    { q: "Which app is famous for short viral videos?", a: ["Facebook", "TikTok", "Wikipedia", "LinkedIn"], c: 1, d: "Easy" },
-    { q: "What does BRB mean?", a: ["Be Right Back", "Bring Real Bananas", "Big Red Boat", "Best Robot Buddy"], c: 0, d: "Easy" },
-    { q: "Which meme animal says 'Doge'?", a: ["Cat", "Shiba Inu", "Wolf", "Fox"], c: 1, d: "Easy" }
-],
-
-"Tech Basics": [
-    { q: "What does CPU stand for?", a: ["Central Processing Unit", "Computer Power Unit", "Core Processing Utility", "Central Program Utility"], c: 0, d: "Easy" },
-    { q: "Which language is used to structure web pages?", a: ["Java", "Python", "HTML", "C++"], c: 2, d: "Easy" },
-    { q: "What does RAM stand for?", a: ["Random Access Memory", "Rapid Access Module", "Remote Application Memory", "Read Access Memory"], c: 0, d: "Medium" },
-    { q: "Which company makes Windows?", a: ["Apple", "Google", "Microsoft", "Intel"], c: 2, d: "Easy" }
-],
-
-"AI Basics": [
-    { q: "What does AI stand for?", a: ["Artificial Intelligence", "Automatic Internet", "Applied Information", "Advanced Interface"], c: 0, d: "Easy" },
-    { q: "Which AI can answer questions in a chat?", a: ["ChatGPT", "Excel", "Paint", "Spotify"], c: 0, d: "Easy" },
-    { q: "AI learns from what?", a: ["Data", "Magic", "Electricity", "Paint"], c: 0, d: "Medium" },
-    { q: "Which field is AI part of?", a: ["Biology", "Computer Science", "History", "Geography"], c: 1, d: "Easy" }
+        { q: "What is the capital of Australia?", a: ["Sydney", "Canberra", "Melbourne", "Perth"], c: 1, d: "Easy" },
+        { q: "Which Australian state is known as the Sunshine State?", a: ["NSW", "Victoria", "Queensland", "Tasmania"], c: 2, d: "Easy" },
+        { q: "Which city is famous for the Sydney Opera House?", a: ["Melbourne", "Sydney", "Adelaide", "Brisbane"], c: 1, d: "Easy" },
+        { q: "Which Australian state has Hobart as its capital?", a: ["Victoria", "Queensland", "Tasmania", "SA"], c: 2, d: "Easy" },
+        { q: "Which state is Perth the capital of?", a: ["South Australia", "Western Australia", "Northern Territory", "Queensland"], c: 1, d: "Easy" },
+        { q: "What is Australia's largest state by area?", a: ["Queensland", "Western Australia", "NSW", "South Australia"], c: 1, d: "Medium" },
+        { q: "Uluru is located in which territory?", a: ["Queensland", "Northern Territory", "WA", "ACT"], c: 1, d: "Medium" },
+        { q: "Which Australian state is the smallest by area?", a: ["Tasmania", "Victoria", "ACT", "NSW"], c: 1, d: "Medium" },
+        { q: "Which river is Australia's longest?", a: ["Darling River", "Murray River", "Swan River", "Yarra River"], c: 1, d: "Hard" },
+        { q: "The Great Barrier Reef is off the coast of which state?", a: ["WA", "Queensland", "Victoria", "NSW"], c: 1, d: "Easy" },
+        { q: "How many states does Australia have?", a: ["5", "6", "7", "8"], c: 1, d: "Medium" },
+        { q: "Which Australian city hosted the 2000 Olympic Games?", a: ["Melbourne", "Brisbane", "Sydney", "Canberra"], c: 2, d: "Easy" }
+        
 ]
+    
 };
 
 // Category Configuration Registry
