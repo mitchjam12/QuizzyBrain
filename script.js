@@ -185,6 +185,20 @@ const QUIZ_BANKS = {
         { q: "What does 'ute' refer to?", a: ["Truck", "Car", "Van", "Motorbike"], c: 0, d: "Easy" },
         { q: "What does 'barbie' mean in Aussie slang?", a: ["Toy", "Barbecue", "Beach", "Drink"], c: 1, d: "Easy" },
         { q: "What does 'no worries' usually mean?", a: ["Angry response", "It’s okay / don’t worry", "Confused", "Goodbye"], c: 1, d: "Easy" }
+    ],
+    "AFL Trivia": [
+        { q: "How many players are on the field per AFL team?", a: ["16", "17", "18", "20"], c: 2, d: "Easy" },
+        { q: "Which AFL team is based in Perth?", a: ["Sydney Swans", "West Coast Eagles", "Carlton", "Geelong"], c: 1, d: "Easy" },
+        { q: "What shape is an AFL ball?", a: ["Round", "Oval", "Square", "Rectangle"], c: 1, d: "Easy" },
+        { q: "How many points is a goal worth in AFL?", a: ["1", "2", "3", "6"], c: 3, d: "Easy" },
+        { q: "What is a behind worth in AFL?", a: ["1", "2", "3", "6"], c: 0, d: "Easy" },
+        { q: "Which city hosts the AFL Grand Final?", a: ["Sydney", "Melbourne", "Perth", "Brisbane"], c: 1, d: "Easy" },
+        { q: "What is the nickname for Collingwood AFL team?", a: ["Tigers", "Magpies", "Lions", "Bombers"], c: 1, d: "Easy" },
+        { q: "Which AFL team is known as the Tigers?", a: ["Richmond", "Carlton", "Essendon", "Fremantle"], c: 0, d: "Easy" },
+        { q: "How long is an AFL quarter?", a: ["10 min", "15 min", "20 min", "25 min"], c: 2, d: "Medium" },
+        { q: "What is the highest governing body of AFL?", a: ["FIFA", "AFL Commission", "ICC", "NRL Board"], c: 1, d: "Medium" },
+        { q: "What is a mark in AFL?", a: ["A goal kick", "A clean catch from a kick", "A tackle", "A throw"], c: 1, d: "Medium" },
+        { q: "Which AFL team is based in Geelong?", a: ["Cats", "Lions", "Hawks", "Swans"], c: 0, d: "Easy" } 
     ]
 };
 
@@ -202,7 +216,8 @@ const CATEGORY_METADATA = {
     "Random Challenge": { icon: "🧩", desc: "An unpredictable mix of science, history, pop culture, and trivia.", time: "4 mins" },
     "Australian Geography": { icon: "🦘", desc: "Explore Australia's states, cities, landmarks and natural wonders.", time: "3 mins"},
     "Australian Wildlife": { icon: "🦘", desc: "Discover Australia's unique animals, birds and native wildlife.", time: "3 mins"},
-    "Aussie Slang": { icon: "🇦🇺", desc: "Decode everyday Australian slang, phrases and expressions.", time: "3 mins"}
+    "Aussie Slang": { icon: "🇦🇺", desc: "Decode everyday Australian slang, phrases and expressions.", time: "3 mins"},
+    "AFL Trivia": { icon: "🏉", desc: "Test your knowledge of Australian Rules Football.", time: "3 mins"}
 };
 
 // Achievement Definition Bank
