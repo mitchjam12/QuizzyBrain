@@ -235,16 +235,6 @@ const CATEGORY_METADATA = {
     "Movie Characters": { icon: "🎬", desc: "Identify cinematic icons, pop-culture heroes, and villains.", time: "3 mins" },
     "Random Challenge": { icon: "🧩", desc: "An unpredictable mix of science, history, pop culture, and trivia.", time: "4 mins" }
     "Australian Geography": { icon: "🦘", desc: "Australia's states, cities and landmarks.", time: "3 mins" },
-"Aussie Slang": { icon: "🇦🇺", desc: "Classic Australian words and sayings.", time: "2 mins" },
-"AFL Trivia": { icon: "🏉", desc: "Everything Australian Rules Football.", time: "3 mins" },
-"Australian Wildlife": { icon: "🐨", desc: "Animals unique to Australia.", time: "3 mins" },
-"Brain Teasers": { icon: "🧠", desc: "Logic riddles and tricky questions.", time: "3 mins" },
-"Pattern Logic": { icon: "🔢", desc: "Number and sequence puzzles.", time: "3 mins" },
-"Marvel Universe": { icon: "🦸", desc: "Marvel heroes, villains and the MCU.", time: "3 mins" },
-"Harry Potter": { icon: "🪄", desc: "The Wizarding World awaits.", time: "3 mins" },
-"Internet Memes": { icon: "😂", desc: "Internet culture and viral memes.", time: "2 mins" },
-"Tech Basics": { icon: "💻", desc: "Computers, hardware and technology.", time: "3 mins" },
-"AI Basics": { icon: "🤖", desc: "Artificial Intelligence made simple.", time: "2 mins" }
 };
 
 // Achievement Definition Bank
