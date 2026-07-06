@@ -157,7 +157,21 @@ const QUIZ_BANKS = {
         { q: "Which river is Australia's longest?", a: ["Darling River", "Murray River", "Swan River", "Yarra River"], c: 1, d: "Hard" },
         { q: "What is the capital city of Western Australia?", a: ["Darwin", "Perth", "Adelaide", "Albany"], c: 1, d: "Easy" },
         { q: "Which state borders every mainland Australian state and the Northern Territory?", a: ["Queensland", "Victoria", "South Australia", "New South Wales"], c: 2, d: "Hard" }
-    ]
+    ],
+    "Australian Wildlife": [
+        { q: "Which is Australia's largest marsupial?", a: ["Koala", "Red Kangaroo", "Wombat", "Wallaby"], c: 1, d: "Easy" },
+        { q: "What is a baby kangaroo called?", a: ["Cub", "Joey", "Calf", "Pup"], c: 1, d: "Easy" },
+        { q: "Which Australian animal lays eggs?", a: ["Koala", "Wombat", "Platypus", "Kangaroo"], c: 2, d: "Easy" },
+        { q: "Which bird is Australia's largest native bird?", a: ["Emu", "Cockatoo", "Kookaburra", "Cassowary"], c: 0, d: "Medium" },
+        { q: "Which Australian mammal is famous for sleeping up to 20 hours a day?", a: ["Koala", "Dingo", "Possum", "Wallaby"], c: 0, d: "Easy" },
+        { q: "What is Australia's wild native dog called?", a: ["Dingo", "Fox", "Wolf", "Jackal"], c: 0, d: "Easy" },
+        { q: "Which Australian reptile is the world's largest lizard?", a: ["Blue-tongue Lizard", "Frill-neck Lizard", "Perentie", "Goanna"], c: 2, d: "Hard" },
+        { q: "Which animal is known for its laughing call?", a: ["Cockatoo", "Kookaburra", "Magpie", "Lorikeet"], c: 1, d: "Easy" },
+        { q: "What colour is the belly of a platypus?", a: ["White", "Brown", "Black", "Grey"], c: 0, d: "Hard" },
+        { q: "Which Australian animal is covered in sharp spines?", a: ["Echidna", "Possum", "Bandicoot", "Bilby"], c: 0, d: "Medium" },
+        { q: "Which Australian mammal is able to glide between trees?", a: ["Sugar Glider", "Koala", "Wallaby", "Tasmanian Devil"], c: 0, d: "Medium" },
+        { q: "Which Australian island is famous for its population of Tasmanian Devils?", a: ["Kangaroo Island", "Fraser Island", "Tasmania", "Phillip Island"], c: 2, d: "Easy" }
+    ],
 };
 
 // Category Configuration Registry
@@ -172,7 +186,8 @@ const CATEGORY_METADATA = {
     "Books": { icon: "📚", desc: "Journey through classic literature, modern novels, and poetry.", time: "4 mins" },
     "Movie Characters": { icon: "🎬", desc: "Identify cinematic icons, pop-culture heroes, and villains.", time: "3 mins" },
     "Random Challenge": { icon: "🧩", desc: "An unpredictable mix of science, history, pop culture, and trivia.", time: "4 mins" },
-    "Australian Geography": { icon: "🦘", desc: "Explore Australia's states, cities, landmarks and natural wonders.", time: "3 mins"}
+    "Australian Geography": { icon: "🦘", desc: "Explore Australia's states, cities, landmarks and natural wonders.", time: "3 mins"},
+    "Australian Wildlife": { icon: "🦘", desc: "Discover Australia's unique animals, birds and native wildlife.", time: "3 mins"},
 };
 
 // Achievement Definition Bank
