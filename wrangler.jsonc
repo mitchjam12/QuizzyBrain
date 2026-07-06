@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "quizzybrain",
+  "compatibility_date": "2026-07-06",
+  "assets": {
+    "directory": "."
+  },
+  "routes": [
+    {
+      "pattern": "quizzybrain.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.quizzybrain.com",
+      "custom_domain": true
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}
