@@ -171,7 +171,8 @@ const CATEGORY_METADATA = {
     "Emoji Quiz": { icon: "😂", desc: "Decode pop culture idioms, titles, and movies hidden in emojis.", time: "3 mins" },
     "Books": { icon: "📚", desc: "Journey through classic literature, modern novels, and poetry.", time: "4 mins" },
     "Movie Characters": { icon: "🎬", desc: "Identify cinematic icons, pop-culture heroes, and villains.", time: "3 mins" },
-    "Random Challenge": { icon: "🧩", desc: "An unpredictable mix of science, history, pop culture, and trivia.", time: "4 mins" }
+    "Random Challenge": { icon: "🧩", desc: "An unpredictable mix of science, history, pop culture, and trivia.", time: "4 mins" },
+    "Australian Geography": { icon: "🦘", desc: "Explore Australia's states, cities, landmarks and natural wonders.", time: "3 mins"}
 };
 
 // Achievement Definition Bank
