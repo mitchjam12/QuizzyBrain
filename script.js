@@ -297,20 +297,20 @@ init() {
 
         if (type === "click") {
             osc.frequency.setValueAtTime(400, now);
-            gain.gain.setValueAtTime(0.05, now);
+            gain.gain.setValueAtTime(0.2, now);
             gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.05);
             osc.start(now); osc.stop(now + 0.05);
         } else if (type === "correct") {
             osc.frequency.setValueAtTime(523.25, now); // C5
             osc.frequency.setValueAtTime(659.25, now + 0.08); // E5
-            gain.gain.setValueAtTime(0.08, now);
+            gain.gain.setValueAtTime(0.2, now);
             gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.25);
             osc.start(now); osc.stop(now + 0.25);
         } else if (type === "wrong") {
             osc.type = "sawtooth";
             osc.frequency.setValueAtTime(180, now);
             osc.frequency.linearRampToValueAtTime(110, now + 0.2);
-            gain.gain.setValueAtTime(0.08, now);
+            gain.gain.setValueAtTime(0.2, now);
             gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.25);
             osc.start(now); osc.stop(now + 0.25);
         } else if (type === "victory") {
@@ -318,7 +318,7 @@ init() {
             osc.frequency.setValueAtTime(659.25, now + 0.1);
             osc.frequency.setValueAtTime(783.99, now + 0.2);
             osc.frequency.setValueAtTime(1046.50, now + 0.3);
-            gain.gain.setValueAtTime(0.1, now);
+            gain.gain.setValueAtTime(0.2, now);
             gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.6);
             osc.start(now); osc.stop(now + 0.6);
         }
