@@ -847,3 +847,39 @@ function triggerConfettiCascadeAnimation() {
         requestAnimationFrame(fall);
     }
 }
+// =========================
+// Timer & SFX Toggle Buttons
+// Place at the bottom of your JS file
+// =========================
+
+let timerEnabled = true;
+let sfxEnabled = true;
+
+const timerBtn = document.getElementById("timerBtn");
+const sfxBtn = document.getElementById("sfxBtn");
+
+// Timer Toggle
+if (timerBtn) {
+    timerBtn.addEventListener("click", () => {
+        timerEnabled = !timerEnabled;
+
+        timerBtn.textContent = timerEnabled
+            ? "⏱ Timer: ON"
+            : "⏱ Timer: OFF";
+
+        console.log("Timer:", timerEnabled);
+    });
+}
+
+// SFX Toggle
+if (sfxBtn) {
+    sfxBtn.addEventListener("click", () => {
+        sfxEnabled = !sfxEnabled;
+
+        sfxBtn.textContent = sfxEnabled
+            ? "🔊 SFX: ON"
+            : "🔇 SFX: OFF";
+
+        console.log("SFX:", sfxEnabled);
+    });
+}
