@@ -588,10 +588,10 @@ function setupCoreEventListeners() {
     });
 
     // Report Card Navigation Action Controls Matrix
-    document.getElementById("res-btn-retry").addEventListener("click", () => {
-        AudioEngine.play("click");
-        initQuizEngine(state.activeQuiz.category, state.activeQuiz.difficulty, state.activeQuiz.isDaily);
-    });
+ document.getElementById("btn-play-daily").addEventListener("click", () => {
+    AudioEngine.play("click");
+    startDailyQuiz();
+});
     document.getElementById("res-btn-home").addEventListener("click", () => {
         AudioEngine.play("click");
         switchViewSection("home-screen");
