@@ -280,13 +280,7 @@ let state = {
 const AudioEngine = {
     ctx: null,
 init() { 
-    if (!this.ctx) {
-        this.ctx = new (window.AudioContext || window.webkitAudioContext)();
-    }
-
-    if (this.ctx.state === "suspended") {
-        this.ctx.resume();
-    }
+    if (!this.ctx) this.ctx = new (window.AudioContext || window.webkitAudioContext)(); 
 }
     play(type) {
         if (!document.getElementById("toggle-sound").checked) return;
