@@ -846,7 +846,6 @@ function triggerConfettiCascadeAnimation() {
         }
         requestAnimationFrame(fall);
     }
-}
 // =========================
 // Timer & SFX Toggle Buttons
 // Place at the bottom of your JS file
@@ -882,4 +881,13 @@ if (sfxBtn) {
 
         console.log("SFX:", sfxEnabled);
     });
+}
+    if (timerEnabled) {
+    startTimer();
+}
+    function playSound(audio) {
+    if (!sfxEnabled) return;
+
+    audio.currentTime = 0;
+    audio.play();
 }
