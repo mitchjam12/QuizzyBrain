@@ -199,6 +199,20 @@ const QUIZ_BANKS = {
         { q: "What is the highest governing body of AFL?", a: ["FIFA", "AFL Commission", "ICC", "NRL Board"], c: 1, d: "Medium" },
         { q: "What is a mark in AFL?", a: ["A goal kick", "A clean catch from a kick", "A tackle", "A throw"], c: 1, d: "Medium" },
         { q: "Which AFL team is based in Geelong?", a: ["Cats", "Lions", "Hawks", "Swans"], c: 0, d: "Easy" } 
+    ],
+    "Brain Teasers": [
+        { q: "What has keys but can’t open locks?", a: ["Piano", "Map", "Clock", "Door"], c: 0, d: "Easy" },
+        { q: "What gets wetter the more it dries?", a: ["Towel", "Sponge", "Ice", "Soap"], c: 0, d: "Easy" },
+        { q: "I speak without a mouth and hear without ears. What am I?", a: ["Echo", "Wind", "Shadow", "Thought"], c: 0, d: "Medium" },
+        { q: "What runs but never walks?", a: ["River", "Car", "Dog", "Clock"], c: 0, d: "Easy" },
+        { q: "What has a head, a tail, but no body?", a: ["Coin", "Snake", "Shadow", "River"], c: 0, d: "Easy" },
+        { q: "What can travel around the world while staying in a corner?", a: ["Stamp", "Coin", "Bird", "Light"], c: 0, d: "Medium" },
+        { q: "What has one eye but cannot see?", a: ["Needle", "Storm", "Cyclone", "Clock"], c: 0, d: "Easy" },
+        { q: "What goes up but never comes down?", a: ["Age", "Balloon", "Smoke", "Bird"], c: 0, d: "Easy" },
+        { q: "What has hands but can’t clap?", a: ["Clock", "Robot", "Statue", "Tree"], c: 0, d: "Easy" },
+        { q: "What begins with T, ends with T, and has T inside?", a: ["Teapot", "Tent", "Toast", "Ticket"], c: 0, d: "Hard" },
+        { q: "What can you break without touching it?", a: ["Promise", "Glass", "Bone", "Door"], c: 0, d: "Medium" },
+        { q: "What has many teeth but can’t bite?", a: ["Comb", "Saw", "Gear", "Fence"], c: 0, d: "Easy" }
     ]
 };
 
@@ -217,7 +231,8 @@ const CATEGORY_METADATA = {
     "Australian Geography": { icon: "🦘", desc: "Explore Australia's states, cities, landmarks and natural wonders.", time: "3 mins"},
     "Australian Wildlife": { icon: "🦘", desc: "Discover Australia's unique animals, birds and native wildlife.", time: "3 mins"},
     "Aussie Slang": { icon: "🇦🇺", desc: "Decode everyday Australian slang, phrases and expressions.", time: "3 mins"},
-    "AFL Trivia": { icon: "🏉", desc: "Test your knowledge of Australian Rules Football.", time: "3 mins"}
+    "AFL Trivia": { icon: "🏉", desc: "Test your knowledge of Australian Rules Football.", time: "3 mins"},
+    "Brain Teasers": { icon: "🧠", desc: "Tricky riddles and logic puzzles to challenge your brain.", time: "3 mins"}
 };
 
 // Achievement Definition Bank
