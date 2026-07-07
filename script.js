@@ -686,7 +686,9 @@ function switchViewSection(targetId) {
 
 // ================= RUNTIME CORE INTERACTIVE QUIZ ENGINE =================
 function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
-    let sourcePool = [...QUIZ_BANKS[categoryName]];
+  let sourcePool = [
+    ...getQuestionPool(categoryName)
+];
 
     // Filter by difficulty if one is selected. Only fall back to the full
     // category pool if that difficulty has *zero* questions available —
