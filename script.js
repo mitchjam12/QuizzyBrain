@@ -672,16 +672,36 @@ function exitFullscreenMode() {
 }
 
 function switchViewSection(targetId) {
+
+    // Remove focus before hiding sections
+    if (document.activeElement) {
+        document.activeElement.blur();
+    }
+
+
     document.querySelectorAll(".view-section").forEach(view => {
+
         if (view.id === targetId) {
+
             view.classList.remove("hidden");
             view.removeAttribute("aria-hidden");
+            view.removeAttribute("inert");
+
         } else {
+
             view.classList.add("hidden");
             view.setAttribute("aria-hidden", "true");
+            view.setAttribute("inert", "");
+
         }
+
     });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
 
 // ================= RUNTIME CORE INTERACTIVE QUIZ ENGINE =================
