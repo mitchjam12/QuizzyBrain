@@ -279,9 +279,13 @@ let state = {
 // ================= NATIVE SYNTHESIZED WEB AUDIO ENGINE =================
 const AudioEngine = {
     ctx: null,
-init(), { 
-    if (!this.ctx) this.ctx = new (window.AudioContext || window.webkitAudioContext)(); 
-}
+    
+init() { 
+    if (!this.ctx) {
+        this.ctx = new (window.AudioContext || window.webkitAudioContext)(); 
+    }
+},
+     
     play(type) {
         if (!document.getElementById("toggle-sound").checked) return;
         this.init();
