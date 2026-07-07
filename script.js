@@ -279,7 +279,7 @@ let state = {
 // ================= NATIVE SYNTHESIZED WEB AUDIO ENGINE =================
 const AudioEngine = {
     ctx: null,
-init() { 
+init(), { 
     if (!this.ctx) this.ctx = new (window.AudioContext || window.webkitAudioContext)(); 
 }
     play(type) {
