@@ -610,7 +610,43 @@ function setupCoreEventListeners() {
         initQuizEngine(keys[nextIdx], "all");
     });
 }
+function startDailyQuiz(){
 
+    const dailyQuestions = generateDailyChallenge();
+
+    state.activeQuiz = {
+
+        category:"Daily Challenge",
+        difficulty:"Mixed",
+        questions:dailyQuestions,
+
+        currentIdx:0,
+        score:0,
+        streak:0,
+        maxStreakThisRun:0,
+
+        startTime:Date.now(),
+        timerVal:15,
+        timerId:null,
+        isDaily:true
+    };
+
+
+    document.getElementById("quiz-category-title").innerText =
+        "Daily Challenge";
+
+    document.getElementById("quiz-difficulty-title").innerText =
+        "Mixed";
+
+
+    document.body.classList.add("quiz-active");
+
+    enterFullscreenMode();
+
+    switchViewSection("quiz-screen");
+
+    presentQuestionIndexScenario();
+}
 // ================= FULLSCREEN QUIZ MODE =================
 function enterFullscreenMode() {
     const el = document.documentElement;
