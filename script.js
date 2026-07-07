@@ -490,7 +490,46 @@ function updateDashboardDisplays() {
         achContainer.appendChild(achNode);
     });
 }
+// ================= DAILY CHALLENGE GENERATOR =================
 
+function getDailySeed() {
+    const today = new Date();
+
+    return today.getFullYear() +
+        "-" +
+        (today.getMonth() + 1) +
+        "-" +
+        today.getDate();
+}
+
+
+function seededRandom(seed) {
+    let x = 0;
+
+    for (let i = 0; i < seed.length; i++) {
+        x += seed.charCodeAt(i);
+    }
+
+    return Math.sin(x) * 10000 % 1;
+}
+
+
+function generateDailyChallenge() {
+
+    const seed = getDailySeed();
+
+    let allQuestions = [];
+
+    Object.values(QUIZ_BANKS).forEach(category => {
+        allQuestions.push(...category);
+    });
+
+
+    allQuestions.sort(() => seededRandom(seed));
+
+
+    return allQuestions.slice(0,12);
+}
 // ================= DAILY CHALLENGE CONFIG MODULES =================
 function initDailyChallengeEngine() {
     function refreshCountdown() {
