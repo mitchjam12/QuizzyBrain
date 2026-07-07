@@ -581,12 +581,6 @@ function setupCoreEventListeners() {
         switchViewSection("home-screen");
     });
 
-    // Daily play initialization routine
-    document.getElementById("btn-play-daily").addEventListener("click", () => {
-        AudioEngine.play("click");
-        initQuizEngine("Random Challenge", "all", true);
-    });
-
     // Report Card Navigation Action Controls Matrix
  document.getElementById("btn-play-daily").addEventListener("click", () => {
     AudioEngine.play("click");
