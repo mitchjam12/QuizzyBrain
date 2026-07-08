@@ -2,36 +2,6 @@
  * QuizzyBrain Core Application Architecture Module
  */
 
-// ================= DATA LIBRARY LOADER =================
-let QUIZ_BANKS = {};
-let CATEGORY_METADATA = {};
-
-function normalizeCategoryMetadata(categories) {
-    return categories.reduce((metadata, category) => {
-        metadata[category.name] = {
-            icon: category.icon,
-            desc: category.desc,
-            time: category.time
-        };
-        return metadata;
-    }, {});
-}
-
-function loadQuestionLibrary() {
-    const library = window.QUIZZYBRAIN_LIBRARY;
-
-    if (!library || !library.questionBanks || !Array.isArray(library.categories)) {
-        throw new Error("Question library failed to load. Rebuild data/question-library.js from data/questions.csv.");
-    }
-
-    QUIZ_BANKS = library.questionBanks;
-    CATEGORY_METADATA = normalizeCategoryMetadata(library.categories);
-}
-
-function getQuestionPool(categoryName) {
-    return QUIZ_BANKS[categoryName] || [];
-}
-
 // Achievement Definition Bank
 const ACHIEVEMENTS_REGISTRY = [
     { id: "first_quiz", title: "🏆 First Quiz", desc: "Complete any quiz category.", condition: s => s.gamesPlayed >= 1 },
@@ -499,24 +469,27 @@ function switchViewSection(targetId) {
 }
 
 // ================= RUNTIME CORE INTERACTIVE QUIZ ENGINE =================
-function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
-  let sourcePool = [
-    ...getQuestionPool(categoryName)
-];
 
-    if (sourcePool.length === 0) {
-        alert(`No questions are available for ${categoryName} yet.`);
-        return;
+function getQuestionPool(categoryName) {
+    if (!categoryName) {
+        return [];
     }
 
-    // Filter by difficulty if one is selected. Only fall back to the full
-    // category pool if that difficulty has *zero* questions available —
-    // previously this fell back whenever there were fewer than 12, which
-    // silently ignored the user's difficulty choice while still labeling
-    // the quiz with that difficulty.
+    return QUIZ_BANKS[categoryName] || [];
+}
+
+
+function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
+
+    let sourcePool = [
+        ...getQuestionPool(categoryName)
+    ];
+
     if (difficultyMode !== "all") {
         const filtered = sourcePool.filter(q => q.d === difficultyMode);
-        if (filtered.length > 0) sourcePool = filtered;
+        if (filtered.length > 0) {
+            sourcePool = filtered;
+        }
     }
 
     // Fisher-Yates shuffle
@@ -525,7 +498,6 @@ function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
         [sourcePool[i], sourcePool[j]] = [sourcePool[j], sourcePool[i]];
     }
 
-    // Use up to 12 questions (may be fewer if the difficulty filter has less available)
     state.activeQuiz = {
         category: categoryName,
         difficulty: difficultyMode,
@@ -541,7 +513,8 @@ function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
     };
 
     document.getElementById("quiz-category-title").innerText = categoryName;
-    document.getElementById("quiz-difficulty-title").innerText = difficultyMode === "all" ? "Mixed" : difficultyMode;
+    document.getElementById("quiz-difficulty-title").innerText =
+        difficultyMode === "all" ? "Mixed" : difficultyMode;
 
     document.body.classList.add("quiz-active");
     enterFullscreenMode();
