@@ -700,11 +700,11 @@ function switchViewSection(targetId) {
 
 // ================= RUNTIME CORE INTERACTIVE QUIZ ENGINE =================
 function getQuestionPool(categoryName) {
-  if (!categoryName) {
-    return [];
-  }
+    if (!categoryName) {
+        return [];
+    }
 
-  return questionPools[categoryName] || [];
+    return QUIZ_BANKS[categoryName] || [];
 }
     // Filter by difficulty if one is selected. Only fall back to the full
     // category pool if that difficulty has *zero* questions available —
