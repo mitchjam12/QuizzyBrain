@@ -699,6 +699,7 @@ function switchViewSection(targetId) {
 }
 
 // ================= RUNTIME CORE INTERACTIVE QUIZ ENGINE =================
+
 function getQuestionPool(categoryName) {
     if (!categoryName) {
         return [];
@@ -706,14 +707,19 @@ function getQuestionPool(categoryName) {
 
     return QUIZ_BANKS[categoryName] || [];
 }
-    // Filter by difficulty if one is selected. Only fall back to the full
-    // category pool if that difficulty has *zero* questions available —
-    // previously this fell back whenever there were fewer than 12, which
-    // silently ignored the user's difficulty choice while still labeling
-    // the quiz with that difficulty.
+
+
+function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
+
+    let sourcePool = [
+        ...getQuestionPool(categoryName)
+    ];
+
     if (difficultyMode !== "all") {
         const filtered = sourcePool.filter(q => q.d === difficultyMode);
-        if (filtered.length > 0) sourcePool = filtered;
+        if (filtered.length > 0) {
+            sourcePool = filtered;
+        }
     }
 
     // Fisher-Yates shuffle
@@ -722,7 +728,6 @@ function getQuestionPool(categoryName) {
         [sourcePool[i], sourcePool[j]] = [sourcePool[j], sourcePool[i]];
     }
 
-    // Use up to 12 questions (may be fewer if the difficulty filter has less available)
     state.activeQuiz = {
         category: categoryName,
         difficulty: difficultyMode,
@@ -738,7 +743,8 @@ function getQuestionPool(categoryName) {
     };
 
     document.getElementById("quiz-category-title").innerText = categoryName;
-    document.getElementById("quiz-difficulty-title").innerText = difficultyMode === "all" ? "Mixed" : difficultyMode;
+    document.getElementById("quiz-difficulty-title").innerText =
+        difficultyMode === "all" ? "Mixed" : difficultyMode;
 
     document.body.classList.add("quiz-active");
     enterFullscreenMode();
