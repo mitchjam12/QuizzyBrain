@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Sports Players",
+    "icon": "🏆",
+    "desc": "Test your knowledge of legendary athletes across all global sports.",
+    "time": "4 mins"
+  },
+  {
+    "name": "Sports",
+    "icon": "⚽",
+    "desc": "Rules, records, and iconic tournaments from around the sports world.",
+    "time": "3 mins"
+  },
+  {
+    "name": "Food",
+    "icon": "🍕",
+    "desc": "A gourmet trip through culinary traditions, spices, and global dishes.",
+    "time": "4 mins"
+  },
+  {
+    "name": "Countries",
+    "icon": "🌍",
+    "desc": "Explore geography, world capitals, borders, and unique cultures.",
+    "time": "3 mins"
+  },
+  {
+    "name": "Video Games",
+    "icon": "🎮",
+    "desc": "From retro arcade classics to modern triple-A gaming masterpieces.",
+    "time": "4 mins"
+  },
+  {
+    "name": "Board Games",
+    "icon": "🎲",
+    "desc": "Strategy classics, modern tabletop hits, and dice-rolling lore.",
+    "time": "4 mins"
+  },
+  {
+    "name": "Emoji Quiz",
+    "icon": "😂",
+    "desc": "Decode pop culture idioms, titles, and movies hidden in emojis.",
+    "time": "3 mins"
+  },
+  {
+    "name": "Books",
+    "icon": "📚",
+    "desc": "Journey through classic literature, modern novels, and poetry.",
+    "time": "4 mins"
+  },
+  {
+    "name": "Movie Characters",
+    "icon": "🎬",
+    "desc": "Identify cinematic icons, pop-culture heroes, and villains.",
+    "time": "3 mins"
+  },
+  {
+    "name": "Random Challenge",
+    "icon": "🧩",
+    "desc": "An unpredictable mix of science, history, pop culture, and trivia.",
+    "time": "4 mins"
+  },
+  {
+    "name": "Australian Geography",
+    "icon": "🦘",
+    "desc": "Explore Australia's states, cities, landmarks and natural wonders.",
+    "time": "3 mins"
+  },
+  {
+    "name": "Australian Wildlife",
+    "icon": "🦘",
+    "desc": "Discover Australia's unique animals, birds and native wildlife.",
+    "time": "3 mins"
+  },
+  {
+    "name": "Aussie Slang",
+    "icon": "🇦🇺",
+    "desc": "Decode everyday Australian slang, phrases and expressions.",
+    "time": "3 mins"
+  },
+  {
+    "name": "AFL Trivia",
+    "icon": "🏉",
+    "desc": "Test your knowledge of Australian Rules Football.",
+    "time": "3 mins"
+  },
+  {
+    "name": "Brain Teasers",
+    "icon": "🧠",
+    "desc": "Tricky riddles and logic puzzles to challenge your brain.",
+    "time": "3 mins"
+  }
+]

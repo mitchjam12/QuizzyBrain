@@ -97,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const steps = [
         loadProgressFromStorage,
         renderParticleBackground,
+        loadQuestionLibrary,
         renderCategoryGrid,
         setupCoreEventListeners,
         updateDashboardDisplays,
@@ -186,6 +187,8 @@ function renderCategoryGrid(filterTerm = "", diffFilter = "all") {
     
     Object.keys(QUIZ_BANKS).forEach(catName => {
         const meta = CATEGORY_METADATA[catName];
+
+        if (!meta) return;
         
         // Search Filter Execution
         if (filterTerm && !catName.toLowerCase().includes(filterTerm.toLowerCase()) && !meta.desc.toLowerCase().includes(filterTerm.toLowerCase())) {
