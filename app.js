@@ -52,7 +52,8 @@ let state = {
         fastestTime: Number.MAX_SAFE_INTEGER, // sentinel "no time yet" value (Infinity doesn't survive JSON.stringify -> becomes null)
         completedCats: [],
         catCounts: {},
-        unlockedAchievements: []
+        unlockedAchievements: [],
+        answeredQuestionIds: []
     },
     activeQuiz: {
         category: null,
@@ -149,6 +150,9 @@ function loadProgressFromStorage() {
             // Guard against older saves where fastestTime was corrupted to null by JSON.stringify(Infinity)
             if (typeof parsed.fastestTime !== "number") parsed.fastestTime = Number.MAX_SAFE_INTEGER;
             state.userStats = { ...state.userStats, ...parsed };
+            if (!Array.isArray(state.userStats.answeredQuestionIds)) {
+                state.userStats.answeredQuestionIds = [];
+            }
         } catch (e) { console.error("Failed to load saved stats from localStorage, starting fresh.", e); }
     }
 }
@@ -159,6 +163,34 @@ function saveProgressToStorage() {
     } catch (e) {
         console.warn("localStorage unavailable in this context; progress won't be saved.", e);
     }
+}
+
+function getAnsweredQuestionSet() {
+    return new Set(state.userStats.answeredQuestionIds || []);
+}
+
+function markQuestionsAnswered(questions) {
+    const answered = getAnsweredQuestionSet();
+    questions.forEach(question => {
+        if (question.id) answered.add(question.id);
+    });
+    state.userStats.answeredQuestionIds = Array.from(answered);
+    saveProgressToStorage();
+}
+
+function getUnansweredQuestionPool(categoryName) {
+    const answered = getAnsweredQuestionSet();
+    return getQuestionPool(categoryName).filter(question => !answered.has(question.id));
+}
+
+function getAvailableCategoryNames(difficultyMode = "all") {
+    return Object.keys(QUIZ_BANKS).filter(categoryName => {
+        let questions = getUnansweredQuestionPool(categoryName);
+        if (difficultyMode !== "all") {
+            questions = questions.filter(question => question.d === difficultyMode);
+        }
+        return questions.length >= 12;
+    });
 }
 
 // ================= CANVAS PARTICLE ENGINE INTERFACE =================
@@ -222,13 +254,13 @@ function renderCategoryGrid(filterTerm = "", diffFilter = "all") {
         }
 
         // Difficulty filter optimization strategy execution check
-        let questionsGroup = QUIZ_BANKS[catName];
+        let questionsGroup = getUnansweredQuestionPool(catName);
         if (diffFilter !== "all") {
             questionsGroup = questionsGroup.filter(q => q.d === diffFilter);
         }
         
-        // Skip visualization if difficulty has 0 questions
-        if (questionsGroup.length === 0) return;
+        // Hide categories that cannot offer a full fresh quiz.
+        if (questionsGroup.length < 12) return;
 
         const card = document.createElement("div");
         card.className = "glass-panel category-card";
@@ -241,7 +273,7 @@ function renderCategoryGrid(filterTerm = "", diffFilter = "all") {
             <h3>${catName}</h3>
             <p>${meta.desc}</p>
             <div class="cat-meta-footer">
-                <span>📋 12 Qs</span>
+                <span>📋 ${questionsGroup.length} fresh Qs</span>
                 <span>⚡ ${diffFilter === 'all' ? 'Mixed' : diffFilter}</span>
                 <span>⏱️ ${meta.time}</span>
             </div>
@@ -257,7 +289,7 @@ function renderCategoryGrid(filterTerm = "", diffFilter = "all") {
     });
 
     if (targetGrid.children.length === 0) {
-        targetGrid.innerHTML = `<p class="grid-empty-state-text">No category assets match your active filter matrix parameters.</p>`;
+        targetGrid.innerHTML = `<p class="grid-empty-state-text">No categories have 12 fresh questions for this filter.</p>`;
     }
 }
 
@@ -316,7 +348,8 @@ function generateDailyChallenge() {
 
     let allQuestions = [];
 
-    Object.values(QUIZ_BANKS).forEach(category => {
+    Object.keys(QUIZ_BANKS).forEach(categoryName => {
+        const category = getUnansweredQuestionPool(categoryName);
         allQuestions.push(...category);
     });
 
@@ -374,6 +407,10 @@ function setupCoreEventListeners() {
         clearInterval(state.activeQuiz.timerId);
         document.body.classList.remove("quiz-active");
         exitFullscreenMode();
+        renderCategoryGrid(
+            document.getElementById("category-search").value,
+            document.getElementById("difficulty-select").value
+        );
         switchViewSection("home-screen");
     });
 
@@ -384,17 +421,31 @@ function setupCoreEventListeners() {
 });
     document.getElementById("res-btn-home").addEventListener("click", () => {
         AudioEngine.play("click");
+        renderCategoryGrid(
+            document.getElementById("category-search").value,
+            document.getElementById("difficulty-select").value
+        );
         switchViewSection("home-screen");
     });
     document.getElementById("res-btn-random").addEventListener("click", () => {
         AudioEngine.play("click");
-        const keys = Object.keys(QUIZ_BANKS);
+        const keys = getAvailableCategoryNames("all");
+        if (keys.length === 0) {
+            switchViewSection("home-screen");
+            renderCategoryGrid();
+            return;
+        }
         const randKey = keys[Math.floor(Math.random() * keys.length)];
         initQuizEngine(randKey, "all");
     });
     document.getElementById("res-btn-next").addEventListener("click", () => {
         AudioEngine.play("click");
-        const keys = Object.keys(QUIZ_BANKS);
+        const keys = getAvailableCategoryNames("all");
+        if (keys.length === 0) {
+            switchViewSection("home-screen");
+            renderCategoryGrid();
+            return;
+        }
         let currIdx = keys.indexOf(state.activeQuiz.category);
         let nextIdx = (currIdx + 1) % keys.length;
         initQuizEngine(keys[nextIdx], "all");
@@ -403,6 +454,15 @@ function setupCoreEventListeners() {
 function startDailyQuiz(){
 
     const dailyQuestions = generateDailyChallenge();
+
+    if (dailyQuestions.length < 12) {
+        alert("There are not enough fresh questions left for today's challenge.");
+        renderCategoryGrid(
+            document.getElementById("category-search").value,
+            document.getElementById("difficulty-select").value
+        );
+        return;
+    }
 
     state.activeQuiz = {
 
@@ -420,6 +480,8 @@ function startDailyQuiz(){
         timerId:null,
         isDaily:true
     };
+
+    markQuestionsAnswered(dailyQuestions);
 
 
     document.getElementById("quiz-category-title").innerText =
@@ -508,14 +570,21 @@ function getQuestionPool(categoryName) {
 function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
 
     let sourcePool = [
-        ...getQuestionPool(categoryName)
+        ...getUnansweredQuestionPool(categoryName)
     ];
 
     if (difficultyMode !== "all") {
         const filtered = sourcePool.filter(q => q.d === difficultyMode);
-        if (filtered.length > 0) {
-            sourcePool = filtered;
-        }
+        sourcePool = filtered;
+    }
+
+    if (sourcePool.length < 12) {
+        alert(`Not enough fresh questions are available for ${categoryName}.`);
+        renderCategoryGrid(
+            document.getElementById("category-search").value,
+            document.getElementById("difficulty-select").value
+        );
+        return;
     }
 
     // Fisher-Yates shuffle
@@ -527,7 +596,7 @@ function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
     state.activeQuiz = {
         category: categoryName,
         difficulty: difficultyMode,
-        questions: sourcePool.slice(0, Math.min(12, sourcePool.length)),
+        questions: sourcePool.slice(0, 12),
         currentIdx: 0,
         score: 0,
         streak: 0,
@@ -537,6 +606,8 @@ function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
         timerId: null,
         isDaily: isDaily
     };
+
+    markQuestionsAnswered(state.activeQuiz.questions);
 
     document.getElementById("quiz-category-title").innerText = categoryName;
     document.getElementById("quiz-difficulty-title").innerText =

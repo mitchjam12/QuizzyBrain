@@ -1,5 +1,7 @@
 import csv
+import hashlib
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -23,6 +25,8 @@ REQUIRED_COLUMNS = [
     "option_d",
     "correct_option",
 ]
+
+OPTIONAL_COLUMNS = {"id"}
 
 
 def read_categories():
@@ -54,18 +58,37 @@ def clean_cell(row, column):
     return str(row.get(column, "")).strip()
 
 
+def slugify(value):
+    value = value.lower().replace("&", "and")
+    return re.sub(r"[^a-z0-9]+", "-", value).strip("-") or "question"
+
+
+def generated_question_id(category, question, options):
+    digest_source = "|".join([category, question, *options])
+    digest = hashlib.sha1(digest_source.encode("utf-8")).hexdigest()[:10]
+    return f"{slugify(category)}-{digest}"
+
+
 def read_questions(category_names):
     if not CSV_PATH.exists():
         raise FileNotFoundError(f"Missing question file: {CSV_PATH}")
 
     questions = []
     errors = []
+    seen_ids = set()
 
     with CSV_PATH.open("r", encoding="utf-8-sig", newline="") as handle:
         reader = csv.DictReader(handle)
         missing = [column for column in REQUIRED_COLUMNS if column not in (reader.fieldnames or [])]
+        unknown = [
+            column
+            for column in (reader.fieldnames or [])
+            if column not in REQUIRED_COLUMNS and column not in OPTIONAL_COLUMNS
+        ]
         if missing:
             raise ValueError(f"questions.csv is missing columns: {', '.join(missing)}")
+        if unknown:
+            raise ValueError(f"questions.csv has unknown columns: {', '.join(unknown)}")
 
         for row_number, row in enumerate(reader, start=2):
             category = clean_cell(row, "category")
@@ -78,7 +101,10 @@ def read_questions(category_names):
                 clean_cell(row, "option_d"),
             ]
             correct_option = clean_cell(row, "correct_option").upper()
+            question_id = clean_cell(row, "id") or generated_question_id(category, question, options)
 
+            if question_id in seen_ids:
+                errors.append(f"row {row_number}: duplicate id '{question_id}'")
             if category not in category_names:
                 errors.append(f"row {row_number}: unknown category '{category}'")
             if difficulty not in DIFFICULTIES:
@@ -93,7 +119,9 @@ def read_questions(category_names):
             if errors and errors[-1].startswith(f"row {row_number}:"):
                 continue
 
+            seen_ids.add(question_id)
             questions.append({
+                "id": question_id,
                 "category": category,
                 "difficulty": difficulty,
                 "question": question,
@@ -111,6 +139,7 @@ def group_questions(questions):
     grouped = {}
     for question in questions:
         grouped.setdefault(question["category"], []).append({
+            "id": question["id"],
             "q": question["question"],
             "a": question["options"],
             "c": question["correctIndex"],

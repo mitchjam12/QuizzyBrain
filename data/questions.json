@@ -1,5 +1,6 @@
 [
   {
+    "id": "sports-players-001",
     "category": "Sports Players",
     "difficulty": "Easy",
     "question": "Who has won the most Ballon d'Or awards in football history?",
@@ -12,6 +13,7 @@
     "correctIndex": 0
   },
   {
+    "id": "sports-players-002",
     "category": "Sports Players",
     "difficulty": "Easy",
     "question": "Which NBA player is known as 'The King'?",
@@ -24,6 +26,7 @@
     "correctIndex": 2
   },
   {
+    "id": "sports-players-003",
     "category": "Sports Players",
     "difficulty": "Medium",
     "question": "How many Grand Slam singles titles has Serena Williams won?",
@@ -36,6 +39,7 @@
     "correctIndex": 2
   },
   {
+    "id": "sports-players-004",
     "category": "Sports Players",
     "difficulty": "Medium",
     "question": "Who is the all-time leading run-scorer in international cricket?",
@@ -48,6 +52,7 @@
     "correctIndex": 1
   },
   {
+    "id": "sports-players-005",
     "category": "Sports Players",
     "difficulty": "Easy",
     "question": "Which swimmer holds the record for most Olympic gold medals?",
@@ -60,6 +65,7 @@
     "correctIndex": 0
   },
   {
+    "id": "sports-players-006",
     "category": "Sports Players",
     "difficulty": "Medium",
     "question": "Who was the first gymnastics athlete to score a perfect 10 at the Olympics?",
@@ -72,6 +78,7 @@
     "correctIndex": 1
   },
   {
+    "id": "sports-players-007",
     "category": "Sports Players",
     "difficulty": "Easy",
     "question": "Which formula 1 driver has the most race victories in history?",
@@ -84,6 +91,7 @@
     "correctIndex": 2
   },
   {
+    "id": "sports-players-008",
     "category": "Sports Players",
     "difficulty": "Easy",
     "question": "What athlete is nicknamed 'The Lightning Bolt'?",
@@ -96,6 +104,7 @@
     "correctIndex": 1
   },
   {
+    "id": "sports-players-009",
     "category": "Sports Players",
     "difficulty": "Easy",
     "question": "Which NHL player is widely known simply as 'The Great One'?",
@@ -108,6 +117,7 @@
     "correctIndex": 0
   },
   {
+    "id": "sports-players-010",
     "category": "Sports Players",
     "difficulty": "Medium",
     "question": "Who was the youngest undisputed heavyweight boxing champion?",
@@ -120,6 +130,7 @@
     "correctIndex": 2
   },
   {
+    "id": "sports-players-011",
     "category": "Sports Players",
     "difficulty": "Expert",
     "question": "Which female tennis player completed a Golden Slam in 1988?",
@@ -132,6 +143,7 @@
     "correctIndex": 0
   },
   {
+    "id": "sports-players-012",
     "category": "Sports Players",
     "difficulty": "Medium",
     "question": "Who was the first MMA fighter to hold UFC championships in two weight classes simultaneously?",
@@ -144,6 +156,7 @@
     "correctIndex": 2
   },
   {
+    "id": "sports-001",
     "category": "Sports",
     "difficulty": "Easy",
     "question": "How long is a standard professional football match?",
@@ -156,6 +169,7 @@
     "correctIndex": 1
   },
   {
+    "id": "sports-002",
     "category": "Sports",
     "difficulty": "Easy",
     "question": "Which sport uses a shuttlecock?",
@@ -168,6 +182,7 @@
     "correctIndex": 1
   },
   {
+    "id": "sports-003",
     "category": "Sports",
     "difficulty": "Medium",
     "question": "In golf, what term describes scoring two strokes under par on a hole?",
@@ -180,6 +195,7 @@
     "correctIndex": 2
   },
   {
+    "id": "sports-004",
     "category": "Sports",
     "difficulty": "Easy",
     "question": "How many players are on the field for one team in a cricket match?",
@@ -192,6 +208,7 @@
     "correctIndex": 2
   },
   {
+    "id": "sports-005",
     "category": "Sports",
     "difficulty": "Hard",
     "question": "Which country won the first ever FIFA World Cup in 1930?",
@@ -204,6 +221,7 @@
     "correctIndex": 3
   },
   {
+    "id": "sports-006",
     "category": "Sports",
     "difficulty": "Easy",
     "question": "What is the length of an Olympic swimming pool?",
@@ -216,6 +234,7 @@
     "correctIndex": 1
   },
   {
+    "id": "sports-007",
     "category": "Sports",
     "difficulty": "Easy",
     "question": "In baseball, how many strikes equal an out?",
@@ -228,6 +247,7 @@
     "correctIndex": 1
   },
   {
+    "id": "sports-008",
     "category": "Sports",
     "difficulty": "Medium",
     "question": "The modern Olympic games were revived in which city in 1896?",
@@ -240,6 +260,7 @@
     "correctIndex": 2
   },
   {
+    "id": "sports-009",
     "category": "Sports",
     "difficulty": "Easy",
     "question": "Which international cycling race features a 'Yellow Jersey' for its leader?",
@@ -252,6 +273,7 @@
     "correctIndex": 2
   },
   {
+    "id": "sports-010",
     "category": "Sports",
     "difficulty": "Hard",
     "question": "What is the only sport to have been played on the Moon?",
@@ -264,6 +286,7 @@
     "correctIndex": 0
   },
   {
+    "id": "sports-011",
     "category": "Sports",
     "difficulty": "Medium",
     "question": "How high is a regulation NBA basketball hoop?",
@@ -276,6 +299,7 @@
     "correctIndex": 1
   },
   {
+    "id": "sports-012",
     "category": "Sports",
     "difficulty": "Hard",
     "question": "In Rugby Union, how many points is a basic 'Try' worth before conversion?",
@@ -288,6 +312,7 @@
     "correctIndex": 1
   },
   {
+    "id": "food-001",
     "category": "Food",
     "difficulty": "Easy",
     "question": "What is the main aromatic herb used to make classic pesto sauce?",
@@ -300,6 +325,7 @@
     "correctIndex": 1
   },
   {
+    "id": "food-002",
     "category": "Food",
     "difficulty": "Medium",
     "question": "Which country is the global origin place of French Fries?",
@@ -312,6 +338,7 @@
     "correctIndex": 1
   },
   {
+    "id": "food-003",
     "category": "Food",
     "difficulty": "Easy",
     "question": "What primary leavening agent causes bread dough to rise?",
@@ -324,6 +351,7 @@
     "correctIndex": 2
   },
   {
+    "id": "food-004",
     "category": "Food",
     "difficulty": "Medium",
     "question": "Which spice is the most expensive in the world by weight?",
@@ -336,6 +364,7 @@
     "correctIndex": 0
   },
   {
+    "id": "food-005",
     "category": "Food",
     "difficulty": "Hard",
     "question": "From what animal milk is authentic Roquefort cheese produced?",
@@ -348,6 +377,7 @@
     "correctIndex": 2
   },
   {
+    "id": "food-006",
     "category": "Food",
     "difficulty": "Medium",
     "question": "What fruit ingredient is utilized to flavor the traditional liqueur Cointreau?",
@@ -360,6 +390,7 @@
     "correctIndex": 0
   },
   {
+    "id": "food-007",
     "category": "Food",
     "difficulty": "Easy",
     "question": "What is the national dish of Spain known for its saffron rice base?",
@@ -372,6 +403,7 @@
     "correctIndex": 1
   },
   {
+    "id": "food-008",
     "category": "Food",
     "difficulty": "Easy",
     "question": "Which food item is traditionally wrapped around Japanese Sushi rolls?",
@@ -384,6 +416,7 @@
     "correctIndex": 0
   },
   {
+    "id": "food-009",
     "category": "Food",
     "difficulty": "Expert",
     "question": "What gives the distinct green paste 'Wasabi' its intense sharp heat style?",
@@ -396,6 +429,7 @@
     "correctIndex": 1
   },
   {
+    "id": "food-010",
     "category": "Food",
     "difficulty": "Medium",
     "question": "Which nut is the foundational core base item of Marzipan paste?",
@@ -408,6 +442,7 @@
     "correctIndex": 3
   },
   {
+    "id": "food-011",
     "category": "Food",
     "difficulty": "Hard",
     "question": "What technical baking term describes cutting fat into flour until tiny crumbs form?",
@@ -420,6 +455,7 @@
     "correctIndex": 1
   },
   {
+    "id": "food-012",
     "category": "Food",
     "difficulty": "Easy",
     "question": "Scoville units are a scale metric measurement used to quantify what attribute?",
@@ -432,6 +468,7 @@
     "correctIndex": 2
   },
   {
+    "id": "countries-001",
     "category": "Countries",
     "difficulty": "Easy",
     "question": "Which nation occupies the largest landmass territory on planet Earth?",
@@ -444,6 +481,7 @@
     "correctIndex": 3
   },
   {
+    "id": "countries-002",
     "category": "Countries",
     "difficulty": "Easy",
     "question": "What is the official capital city of Australia?",
@@ -456,6 +494,7 @@
     "correctIndex": 2
   },
   {
+    "id": "countries-003",
     "category": "Countries",
     "difficulty": "Medium",
     "question": "Which country has the highest population count in Africa?",
@@ -468,6 +507,7 @@
     "correctIndex": 1
   },
   {
+    "id": "countries-004",
     "category": "Countries",
     "difficulty": "Hard",
     "question": "What landlocked country is located entirely inside the borders of South Africa?",
@@ -480,6 +520,7 @@
     "correctIndex": 0
   },
   {
+    "id": "countries-005",
     "category": "Countries",
     "difficulty": "Easy",
     "question": "Which European nation is geographically defined by its layout shaped like a boot?",
@@ -492,6 +533,7 @@
     "correctIndex": 2
   },
   {
+    "id": "countries-006",
     "category": "Countries",
     "difficulty": "Medium",
     "question": "Which South American nation boasts the longest longitudinal coastline length?",
@@ -504,6 +546,7 @@
     "correctIndex": 3
   },
   {
+    "id": "countries-007",
     "category": "Countries",
     "difficulty": "Easy",
     "question": "What country is nicknamed the 'Land of the Rising Sun'?",
@@ -516,6 +559,7 @@
     "correctIndex": 1
   },
   {
+    "id": "countries-008",
     "category": "Countries",
     "difficulty": "Expert",
     "question": "How many individual islands make up the nation of Indonesia?",
@@ -528,6 +572,7 @@
     "correctIndex": 2
   },
   {
+    "id": "countries-009",
     "category": "Countries",
     "difficulty": "Medium",
     "question": "Ulaanbaatar is the official capital city of which country?",
@@ -540,6 +585,7 @@
     "correctIndex": 0
   },
   {
+    "id": "countries-010",
     "category": "Countries",
     "difficulty": "Easy",
     "question": "Which country shares the longest international land border boundary with the USA?",
@@ -552,6 +598,7 @@
     "correctIndex": 2
   },
   {
+    "id": "countries-011",
     "category": "Countries",
     "difficulty": "Easy",
     "question": "In which country can you visit the ancient historical ruins of Machu Picchu?",
@@ -564,6 +611,7 @@
     "correctIndex": 1
   },
   {
+    "id": "countries-012",
     "category": "Countries",
     "difficulty": "Hard",
     "question": "Which country possesses the most natural structural lakes globally?",
@@ -576,6 +624,7 @@
     "correctIndex": 2
   },
   {
+    "id": "video-games-001",
     "category": "Video Games",
     "difficulty": "Easy",
     "question": "What is the best-selling standalone video game of all time?",
@@ -588,6 +637,7 @@
     "correctIndex": 2
   },
   {
+    "id": "video-games-002",
     "category": "Video Games",
     "difficulty": "Hard",
     "question": "What year did the original Nintendo Entertainment System (NES) launch in North America?",
@@ -600,6 +650,7 @@
     "correctIndex": 1
   },
   {
+    "id": "video-games-003",
     "category": "Video Games",
     "difficulty": "Easy",
     "question": "Who is the main protagonist of the 'Halo' sci-fi franchise?",
@@ -612,6 +663,7 @@
     "correctIndex": 2
   },
   {
+    "id": "video-games-004",
     "category": "Video Games",
     "difficulty": "Easy",
     "question": "What is the name of the fictional setting kingdom in The Legend of Zelda?",
@@ -624,6 +676,7 @@
     "correctIndex": 2
   },
   {
+    "id": "video-games-005",
     "category": "Video Games",
     "difficulty": "Easy",
     "question": "Which company created the digital distribution ecosystem marketplace Steam?",
@@ -636,6 +689,7 @@
     "correctIndex": 2
   },
   {
+    "id": "video-games-006",
     "category": "Video Games",
     "difficulty": "Medium",
     "question": "In 'Pac-Man', what is the name of the orange ghost character?",
@@ -648,6 +702,7 @@
     "correctIndex": 3
   },
   {
+    "id": "video-games-007",
     "category": "Video Games",
     "difficulty": "Medium",
     "question": "What game studio developed the 2015 RPG masterpiece 'The Witcher 3: Wild Hunt'?",
@@ -660,6 +715,7 @@
     "correctIndex": 2
   },
   {
+    "id": "video-games-008",
     "category": "Video Games",
     "difficulty": "Medium",
     "question": "What was the original working development title prototype name for character Mario?",
@@ -672,6 +728,7 @@
     "correctIndex": 0
   },
   {
+    "id": "video-games-009",
     "category": "Video Games",
     "difficulty": "Medium",
     "question": "Which video game popularized the 'Battle Royale' genre on a massive global scale first?",
@@ -684,6 +741,7 @@
     "correctIndex": 1
   },
   {
+    "id": "video-games-010",
     "category": "Video Games",
     "difficulty": "Hard",
     "question": "What asset must players collect to power their devices in 'Fallout'?",
@@ -696,6 +754,7 @@
     "correctIndex": 1
   },
   {
+    "id": "video-games-011",
     "category": "Video Games",
     "difficulty": "Easy",
     "question": "What is the name of the final ultimate dimension zone housing the Ender Dragon in Minecraft?",
@@ -708,6 +767,7 @@
     "correctIndex": 3
   },
   {
+    "id": "video-games-012",
     "category": "Video Games",
     "difficulty": "Easy",
     "question": "Which fighting game franchise contains the quote 'Finish Him!'?",
@@ -720,6 +780,7 @@
     "correctIndex": 2
   },
   {
+    "id": "board-games-001",
     "category": "Board Games",
     "difficulty": "Medium",
     "question": "How many spaces are there on a standard classic Monopoly board?",
@@ -732,6 +793,7 @@
     "correctIndex": 1
   },
   {
+    "id": "board-games-002",
     "category": "Board Games",
     "difficulty": "Easy",
     "question": "What color configuration are the layout tiles of a standard Chess board?",
@@ -744,6 +806,7 @@
     "correctIndex": 1
   },
   {
+    "id": "board-games-003",
     "category": "Board Games",
     "difficulty": "Medium",
     "question": "In Settlers of Catan, which resource is combined with wheat to build a development card?",
@@ -756,6 +819,7 @@
     "correctIndex": 0
   },
   {
+    "id": "board-games-004",
     "category": "Board Games",
     "difficulty": "Hard",
     "question": "How many letter tiles are present in an official English Scrabble box?",
@@ -768,6 +832,7 @@
     "correctIndex": 1
   },
   {
+    "id": "board-games-005",
     "category": "Board Games",
     "difficulty": "Easy",
     "question": "Which board game requires players to track a murderer using clues like a wrench or lead pipe?",
@@ -780,6 +845,7 @@
     "correctIndex": 1
   },
   {
+    "id": "board-games-006",
     "category": "Board Games",
     "difficulty": "Easy",
     "question": "What is the primary overarching mechanic objective goal of the game pandemic?",
@@ -792,6 +858,7 @@
     "correctIndex": 2
   },
   {
+    "id": "board-games-007",
     "category": "Board Games",
     "difficulty": "Easy",
     "question": "How many dice are rolled simultaneously by an active player in Yahtzee?",
@@ -804,6 +871,7 @@
     "correctIndex": 1
   },
   {
+    "id": "board-games-008",
     "category": "Board Games",
     "difficulty": "Medium",
     "question": "In the game of Risk, what is the base reinforcement draft bonus value for holding Australia?",
@@ -816,6 +884,7 @@
     "correctIndex": 0
   },
   {
+    "id": "board-games-009",
     "category": "Board Games",
     "difficulty": "Medium",
     "question": "What ancient strategy game involves placement of black and white stones on a 19x19 line grid?",
@@ -828,6 +897,7 @@
     "correctIndex": 2
   },
   {
+    "id": "board-games-010",
     "category": "Board Games",
     "difficulty": "Easy",
     "question": "Which game features custom block components structured in an active tower stack layout configuration?",
@@ -840,6 +910,7 @@
     "correctIndex": 0
   },
   {
+    "id": "board-games-011",
     "category": "Board Games",
     "difficulty": "Medium",
     "question": "What modern tile placement eurogame centers around building French fortresses and roads?",
@@ -852,6 +923,7 @@
     "correctIndex": 1
   },
   {
+    "id": "board-games-012",
     "category": "Board Games",
     "difficulty": "Hard",
     "question": "What is the highest value point tile piece possible in a Scrabble game?",
@@ -864,6 +936,7 @@
     "correctIndex": 0
   },
   {
+    "id": "emoji-quiz-001",
     "category": "Emoji Quiz",
     "difficulty": "Easy",
     "question": "What title is implied: 👑🦁?",
@@ -876,6 +949,7 @@
     "correctIndex": 1
   },
   {
+    "id": "emoji-quiz-002",
     "category": "Emoji Quiz",
     "difficulty": "Easy",
     "question": "Decode this destination: 🗼🥖🍷?",
@@ -888,6 +962,7 @@
     "correctIndex": 2
   },
   {
+    "id": "emoji-quiz-003",
     "category": "Emoji Quiz",
     "difficulty": "Easy",
     "question": "Identify the sci-fi movie: 🦖🏝️🦕?",
@@ -900,6 +975,7 @@
     "correctIndex": 1
   },
   {
+    "id": "emoji-quiz-004",
     "category": "Emoji Quiz",
     "difficulty": "Easy",
     "question": "What is this weather action: ⚡⛈️🌧️?",
@@ -912,6 +988,7 @@
     "correctIndex": 1
   },
   {
+    "id": "emoji-quiz-005",
     "category": "Emoji Quiz",
     "difficulty": "Medium",
     "question": "What hidden phrase is this: ⏰🐷✈️?",
@@ -924,6 +1001,7 @@
     "correctIndex": 1
   },
   {
+    "id": "emoji-quiz-006",
     "category": "Emoji Quiz",
     "difficulty": "Easy",
     "question": "Guess the video game title: 🟩⛏️🧱?",
@@ -936,6 +1014,7 @@
     "correctIndex": 1
   },
   {
+    "id": "emoji-quiz-007",
     "category": "Emoji Quiz",
     "difficulty": "Medium",
     "question": "Decode the classic book story: 🐋⛵🌊?",
@@ -948,6 +1027,7 @@
     "correctIndex": 1
   },
   {
+    "id": "emoji-quiz-008",
     "category": "Emoji Quiz",
     "difficulty": "Medium",
     "question": "Identify the iconic global landmark artist painter: 👨‍🎨🎨👂?",
@@ -960,6 +1040,7 @@
     "correctIndex": 2
   },
   {
+    "id": "emoji-quiz-009",
     "category": "Emoji Quiz",
     "difficulty": "Easy",
     "question": "What popular song track title is this: 👁️🐯?",
@@ -972,6 +1053,7 @@
     "correctIndex": 0
   },
   {
+    "id": "emoji-quiz-010",
     "category": "Emoji Quiz",
     "difficulty": "Easy",
     "question": "Identify the historic space event: 👨‍🚀🚀🌕?",
@@ -984,6 +1066,7 @@
     "correctIndex": 0
   },
   {
+    "id": "emoji-quiz-011",
     "category": "Emoji Quiz",
     "difficulty": "Easy",
     "question": "Decode this common idiom saying: 🐱💧🌧️?",
@@ -996,6 +1079,7 @@
     "correctIndex": 0
   },
   {
+    "id": "emoji-quiz-012",
     "category": "Emoji Quiz",
     "difficulty": "Easy",
     "question": "Identify the classic fairytale story profile: 🍎👧🧝‍♂️?",
@@ -1008,6 +1092,7 @@
     "correctIndex": 1
   },
   {
+    "id": "books-001",
     "category": "Books",
     "difficulty": "Easy",
     "question": "Who wrote the 1984 dystopian masterpiece novel?",
@@ -1020,6 +1105,7 @@
     "correctIndex": 1
   },
   {
+    "id": "books-002",
     "category": "Books",
     "difficulty": "Easy",
     "question": "What is the name of the main fictional wizard academy school in Harry Potter?",
@@ -1032,6 +1118,7 @@
     "correctIndex": 2
   },
   {
+    "id": "books-003",
     "category": "Books",
     "difficulty": "Medium",
     "question": "How many lines comprise a traditional sonnet poetic structural configuration?",
@@ -1044,6 +1131,7 @@
     "correctIndex": 2
   },
   {
+    "id": "books-004",
     "category": "Books",
     "difficulty": "Easy",
     "question": "Who authored the classic epic adventure romance novel 'The Hobbit'?",
@@ -1056,6 +1144,7 @@
     "correctIndex": 1
   },
   {
+    "id": "books-005",
     "category": "Books",
     "difficulty": "Hard",
     "question": "What is the opening iconic sentence line phrase of Herman Melville's Moby Dick?",
@@ -1068,6 +1157,7 @@
     "correctIndex": 0
   },
   {
+    "id": "books-006",
     "category": "Books",
     "difficulty": "Easy",
     "question": "Which tragic Shakespeare play features the rival families Capulet and Montague?",
@@ -1080,6 +1170,7 @@
     "correctIndex": 3
   },
   {
+    "id": "books-007",
     "category": "Books",
     "difficulty": "Easy",
     "question": "Who created the legendary deduction detective investigator character Sherlock Holmes?",
@@ -1092,6 +1183,7 @@
     "correctIndex": 1
   },
   {
+    "id": "books-008",
     "category": "Books",
     "difficulty": "Easy",
     "question": "What American literary classic details the high society life adventures of Jay Gatsby?",
@@ -1104,6 +1196,7 @@
     "correctIndex": 0
   },
   {
+    "id": "books-009",
     "category": "Books",
     "difficulty": "Hard",
     "question": "What was the pen name identity utilized by author Mary Ann Evans?",
@@ -1116,6 +1209,7 @@
     "correctIndex": 0
   },
   {
+    "id": "books-010",
     "category": "Books",
     "difficulty": "Easy",
     "question": "In 'The Chronicles of Narnia', who or what is Aslan?",
@@ -1128,6 +1222,7 @@
     "correctIndex": 2
   },
   {
+    "id": "books-011",
     "category": "Books",
     "difficulty": "Easy",
     "question": "Which classic gothic horror novel features an existential monster assembled from corpses?",
@@ -1140,6 +1235,7 @@
     "correctIndex": 1
   },
   {
+    "id": "books-012",
     "category": "Books",
     "difficulty": "Easy",
     "question": "What is the primary theme setting location name of the Hunger Games trilogy arena?",
@@ -1152,6 +1248,7 @@
     "correctIndex": 0
   },
   {
+    "id": "movie-characters-001",
     "category": "Movie Characters",
     "difficulty": "Easy",
     "question": "What is the true alter-ego civilian identity name of Marvel's Iron Man?",
@@ -1164,6 +1261,7 @@
     "correctIndex": 1
   },
   {
+    "id": "movie-characters-002",
     "category": "Movie Characters",
     "difficulty": "Easy",
     "question": "Which actor portrayed Captain Jack Sparrow in the Pirates of the Caribbean series?",
@@ -1176,6 +1274,7 @@
     "correctIndex": 1
   },
   {
+    "id": "movie-characters-003",
     "category": "Movie Characters",
     "difficulty": "Easy",
     "question": "What is the name of the green evaluation monster character in Shrek?",
@@ -1188,6 +1287,7 @@
     "correctIndex": 0
   },
   {
+    "id": "movie-characters-004",
     "category": "Movie Characters",
     "difficulty": "Easy",
     "question": "Who is the legendary Dark Lord antagonist master villain of the Star Wars universe?",
@@ -1200,6 +1300,7 @@
     "correctIndex": 1
   },
   {
+    "id": "movie-characters-005",
     "category": "Movie Characters",
     "difficulty": "Easy",
     "question": "What character states: 'Why so serious?' in the 2008 film The Dark Knight?",
@@ -1212,6 +1313,7 @@
     "correctIndex": 2
   },
   {
+    "id": "movie-characters-006",
     "category": "Movie Characters",
     "difficulty": "Easy",
     "question": "What is the name of the cowboy doll character in Pixar's Toy Story?",
@@ -1224,6 +1326,7 @@
     "correctIndex": 1
   },
   {
+    "id": "movie-characters-007",
     "category": "Movie Characters",
     "difficulty": "Easy",
     "question": "Which archeologist fictional character carries an iconic bullwhip tool?",
@@ -1236,6 +1339,7 @@
     "correctIndex": 2
   },
   {
+    "id": "movie-characters-008",
     "category": "Movie Characters",
     "difficulty": "Easy",
     "question": "What is the name of the friendly, helper healthcare robot in Big Hero 6?",
@@ -1248,6 +1352,7 @@
     "correctIndex": 1
   },
   {
+    "id": "movie-characters-009",
     "category": "Movie Characters",
     "difficulty": "Easy",
     "question": "Who is the central character ring bearer protagonist of Lord of the Rings?",
@@ -1260,6 +1365,7 @@
     "correctIndex": 0
   },
   {
+    "id": "movie-characters-010",
     "category": "Movie Characters",
     "difficulty": "Easy",
     "question": "What character is known as Agent 007 in British intelligence spy thrillers?",
@@ -1272,6 +1378,7 @@
     "correctIndex": 2
   },
   {
+    "id": "movie-characters-011",
     "category": "Movie Characters",
     "difficulty": "Easy",
     "question": "What is the name of the majestic lion cub prince protagonist character in The Lion King?",
@@ -1284,6 +1391,7 @@
     "correctIndex": 2
   },
   {
+    "id": "movie-characters-012",
     "category": "Movie Characters",
     "difficulty": "Easy",
     "question": "Which character is the loyal, furry Wookiee co-pilot of the Millennium Falcon?",
@@ -1296,6 +1404,7 @@
     "correctIndex": 1
   },
   {
+    "id": "random-challenge-001",
     "category": "Random Challenge",
     "difficulty": "Easy",
     "question": "What is the exact chemical element symbol for Gold on the periodic table?",
@@ -1308,6 +1417,7 @@
     "correctIndex": 1
   },
   {
+    "id": "random-challenge-002",
     "category": "Random Challenge",
     "difficulty": "Medium",
     "question": "How many bones are in a normal adult human skeletal framework anatomy?",
@@ -1320,6 +1430,7 @@
     "correctIndex": 1
   },
   {
+    "id": "random-challenge-003",
     "category": "Random Challenge",
     "difficulty": "Easy",
     "question": "What planet in our solar system is known for its prominent system rings?",
@@ -1332,6 +1443,7 @@
     "correctIndex": 2
   },
   {
+    "id": "random-challenge-004",
     "category": "Random Challenge",
     "difficulty": "Medium",
     "question": "What is the approximate speed of light through a vacuum space environment?",
@@ -1344,6 +1456,7 @@
     "correctIndex": 1
   },
   {
+    "id": "random-challenge-005",
     "category": "Random Challenge",
     "difficulty": "Easy",
     "question": "Which country gifted the historic Statue of Liberty monument to the USA?",
@@ -1356,6 +1469,7 @@
     "correctIndex": 1
   },
   {
+    "id": "random-challenge-006",
     "category": "Random Challenge",
     "difficulty": "Medium",
     "question": "What is the longest river channel located on planet earth?",
@@ -1368,6 +1482,7 @@
     "correctIndex": 1
   },
   {
+    "id": "random-challenge-007",
     "category": "Random Challenge",
     "difficulty": "Easy",
     "question": "How many time zone lines split up the world space chart framework?",
@@ -1380,6 +1495,7 @@
     "correctIndex": 1
   },
   {
+    "id": "random-challenge-008",
     "category": "Random Challenge",
     "difficulty": "Medium",
     "question": "What is the primary gas component constituent making up Earth's atmosphere?",
@@ -1392,6 +1508,7 @@
     "correctIndex": 1
   },
   {
+    "id": "random-challenge-009",
     "category": "Random Challenge",
     "difficulty": "Hard",
     "question": "Which historic explorer led the maritime fleet crew that completed global circumnavigation first?",
@@ -1404,6 +1521,7 @@
     "correctIndex": 1
   },
   {
+    "id": "random-challenge-010",
     "category": "Random Challenge",
     "difficulty": "Easy",
     "question": "What geometric shape value name describes an internal angle measurement of exactly 90 degrees?",
@@ -1416,6 +1534,7 @@
     "correctIndex": 2
   },
   {
+    "id": "random-challenge-011",
     "category": "Random Challenge",
     "difficulty": "Medium",
     "question": "What structural software computer core kernel layer manages interface requests?",
@@ -1428,6 +1547,7 @@
     "correctIndex": 0
   },
   {
+    "id": "random-challenge-012",
     "category": "Random Challenge",
     "difficulty": "Hard",
     "question": "How many hearts does an octopus possess inside its biological structural layout?",
@@ -1440,6 +1560,7 @@
     "correctIndex": 2
   },
   {
+    "id": "australian-geography-001",
     "category": "Australian Geography",
     "difficulty": "Easy",
     "question": "What is the capital city of Australia?",
@@ -1452,6 +1573,7 @@
     "correctIndex": 2
   },
   {
+    "id": "australian-geography-002",
     "category": "Australian Geography",
     "difficulty": "Easy",
     "question": "Which Australian state is known as the Sunshine State?",
@@ -1464,6 +1586,7 @@
     "correctIndex": 1
   },
   {
+    "id": "australian-geography-003",
     "category": "Australian Geography",
     "difficulty": "Easy",
     "question": "Which city is home to the Sydney Opera House?",
@@ -1476,6 +1599,7 @@
     "correctIndex": 1
   },
   {
+    "id": "australian-geography-004",
     "category": "Australian Geography",
     "difficulty": "Medium",
     "question": "What is the largest Australian state by area?",
@@ -1488,6 +1612,7 @@
     "correctIndex": 2
   },
   {
+    "id": "australian-geography-005",
     "category": "Australian Geography",
     "difficulty": "Medium",
     "question": "Which Australian territory contains Uluru?",
@@ -1500,6 +1625,7 @@
     "correctIndex": 1
   },
   {
+    "id": "australian-geography-006",
     "category": "Australian Geography",
     "difficulty": "Easy",
     "question": "What is the capital of Tasmania?",
@@ -1512,6 +1638,7 @@
     "correctIndex": 3
   },
   {
+    "id": "australian-geography-007",
     "category": "Australian Geography",
     "difficulty": "Easy",
     "question": "Which reef system lies off the coast of Queensland?",
@@ -1524,6 +1651,7 @@
     "correctIndex": 1
   },
   {
+    "id": "australian-geography-008",
     "category": "Australian Geography",
     "difficulty": "Easy",
     "question": "Which Australian city hosted the 2000 Olympic Games?",
@@ -1536,6 +1664,7 @@
     "correctIndex": 2
   },
   {
+    "id": "australian-geography-009",
     "category": "Australian Geography",
     "difficulty": "Medium",
     "question": "How many states are there in Australia?",
@@ -1548,6 +1677,7 @@
     "correctIndex": 1
   },
   {
+    "id": "australian-geography-010",
     "category": "Australian Geography",
     "difficulty": "Hard",
     "question": "Which river is Australia's longest?",
@@ -1560,6 +1690,7 @@
     "correctIndex": 1
   },
   {
+    "id": "australian-geography-011",
     "category": "Australian Geography",
     "difficulty": "Easy",
     "question": "What is the capital city of Western Australia?",
@@ -1572,6 +1703,7 @@
     "correctIndex": 1
   },
   {
+    "id": "australian-geography-012",
     "category": "Australian Geography",
     "difficulty": "Hard",
     "question": "Which state borders every mainland Australian state and the Northern Territory?",
@@ -1584,6 +1716,7 @@
     "correctIndex": 2
   },
   {
+    "id": "australian-wildlife-001",
     "category": "Australian Wildlife",
     "difficulty": "Easy",
     "question": "Which is Australia's largest marsupial?",
@@ -1596,6 +1729,7 @@
     "correctIndex": 1
   },
   {
+    "id": "australian-wildlife-002",
     "category": "Australian Wildlife",
     "difficulty": "Easy",
     "question": "What is a baby kangaroo called?",
@@ -1608,6 +1742,7 @@
     "correctIndex": 1
   },
   {
+    "id": "australian-wildlife-003",
     "category": "Australian Wildlife",
     "difficulty": "Easy",
     "question": "Which Australian animal lays eggs?",
@@ -1620,6 +1755,7 @@
     "correctIndex": 2
   },
   {
+    "id": "australian-wildlife-004",
     "category": "Australian Wildlife",
     "difficulty": "Medium",
     "question": "Which bird is Australia's largest native bird?",
@@ -1632,6 +1768,7 @@
     "correctIndex": 0
   },
   {
+    "id": "australian-wildlife-005",
     "category": "Australian Wildlife",
     "difficulty": "Easy",
     "question": "Which Australian mammal is famous for sleeping up to 20 hours a day?",
@@ -1644,6 +1781,7 @@
     "correctIndex": 0
   },
   {
+    "id": "australian-wildlife-006",
     "category": "Australian Wildlife",
     "difficulty": "Easy",
     "question": "What is Australia's wild native dog called?",
@@ -1656,6 +1794,7 @@
     "correctIndex": 0
   },
   {
+    "id": "australian-wildlife-007",
     "category": "Australian Wildlife",
     "difficulty": "Hard",
     "question": "Which Australian reptile is the world's largest lizard?",
@@ -1668,6 +1807,7 @@
     "correctIndex": 2
   },
   {
+    "id": "australian-wildlife-008",
     "category": "Australian Wildlife",
     "difficulty": "Easy",
     "question": "Which animal is known for its laughing call?",
@@ -1680,6 +1820,7 @@
     "correctIndex": 1
   },
   {
+    "id": "australian-wildlife-009",
     "category": "Australian Wildlife",
     "difficulty": "Hard",
     "question": "What colour is the belly of a platypus?",
@@ -1692,6 +1833,7 @@
     "correctIndex": 0
   },
   {
+    "id": "australian-wildlife-010",
     "category": "Australian Wildlife",
     "difficulty": "Medium",
     "question": "Which Australian animal is covered in sharp spines?",
@@ -1704,6 +1846,7 @@
     "correctIndex": 0
   },
   {
+    "id": "australian-wildlife-011",
     "category": "Australian Wildlife",
     "difficulty": "Medium",
     "question": "Which Australian mammal is able to glide between trees?",
@@ -1716,6 +1859,7 @@
     "correctIndex": 0
   },
   {
+    "id": "australian-wildlife-012",
     "category": "Australian Wildlife",
     "difficulty": "Easy",
     "question": "Which Australian island is famous for its population of Tasmanian Devils?",
@@ -1728,6 +1872,7 @@
     "correctIndex": 2
   },
   {
+    "id": "aussie-slang-001",
     "category": "Aussie Slang",
     "difficulty": "Easy",
     "question": "What does 'arvo' mean in Australian slang?",
@@ -1740,6 +1885,7 @@
     "correctIndex": 1
   },
   {
+    "id": "aussie-slang-002",
     "category": "Aussie Slang",
     "difficulty": "Easy",
     "question": "What is a 'servo'?",
@@ -1752,6 +1898,7 @@
     "correctIndex": 0
   },
   {
+    "id": "aussie-slang-003",
     "category": "Aussie Slang",
     "difficulty": "Easy",
     "question": "What does 'mate' usually mean in Australia?",
@@ -1764,6 +1911,7 @@
     "correctIndex": 0
   },
   {
+    "id": "aussie-slang-004",
     "category": "Aussie Slang",
     "difficulty": "Medium",
     "question": "What is a 'bottle-o'?",
@@ -1776,6 +1924,7 @@
     "correctIndex": 1
   },
   {
+    "id": "aussie-slang-005",
     "category": "Aussie Slang",
     "difficulty": "Easy",
     "question": "What does 'brekkie' mean?",
@@ -1788,6 +1937,7 @@
     "correctIndex": 0
   },
   {
+    "id": "aussie-slang-006",
     "category": "Aussie Slang",
     "difficulty": "Medium",
     "question": "What does 'chuck a sickie' mean?",
@@ -1800,6 +1950,7 @@
     "correctIndex": 1
   },
   {
+    "id": "aussie-slang-007",
     "category": "Aussie Slang",
     "difficulty": "Easy",
     "question": "What does 'thongs' mean in Australia?",
@@ -1812,6 +1963,7 @@
     "correctIndex": 1
   },
   {
+    "id": "aussie-slang-008",
     "category": "Aussie Slang",
     "difficulty": "Medium",
     "question": "What does 'fair dinkum' mean?",
@@ -1824,6 +1976,7 @@
     "correctIndex": 1
   },
   {
+    "id": "aussie-slang-009",
     "category": "Aussie Slang",
     "difficulty": "Easy",
     "question": "What does 'heaps' mean?",
@@ -1836,6 +1989,7 @@
     "correctIndex": 2
   },
   {
+    "id": "aussie-slang-010",
     "category": "Aussie Slang",
     "difficulty": "Easy",
     "question": "What does 'ute' refer to?",
@@ -1848,6 +2002,7 @@
     "correctIndex": 0
   },
   {
+    "id": "aussie-slang-011",
     "category": "Aussie Slang",
     "difficulty": "Easy",
     "question": "What does 'barbie' mean in Aussie slang?",
@@ -1860,6 +2015,7 @@
     "correctIndex": 1
   },
   {
+    "id": "aussie-slang-012",
     "category": "Aussie Slang",
     "difficulty": "Easy",
     "question": "What does 'no worries' usually mean?",
@@ -1872,6 +2028,7 @@
     "correctIndex": 1
   },
   {
+    "id": "afl-trivia-001",
     "category": "AFL Trivia",
     "difficulty": "Easy",
     "question": "How many players are on the field per AFL team?",
@@ -1884,6 +2041,7 @@
     "correctIndex": 2
   },
   {
+    "id": "afl-trivia-002",
     "category": "AFL Trivia",
     "difficulty": "Easy",
     "question": "Which AFL team is based in Perth?",
@@ -1896,6 +2054,7 @@
     "correctIndex": 1
   },
   {
+    "id": "afl-trivia-003",
     "category": "AFL Trivia",
     "difficulty": "Easy",
     "question": "What shape is an AFL ball?",
@@ -1908,6 +2067,7 @@
     "correctIndex": 1
   },
   {
+    "id": "afl-trivia-004",
     "category": "AFL Trivia",
     "difficulty": "Easy",
     "question": "How many points is a goal worth in AFL?",
@@ -1920,6 +2080,7 @@
     "correctIndex": 3
   },
   {
+    "id": "afl-trivia-005",
     "category": "AFL Trivia",
     "difficulty": "Easy",
     "question": "What is a behind worth in AFL?",
@@ -1932,6 +2093,7 @@
     "correctIndex": 0
   },
   {
+    "id": "afl-trivia-006",
     "category": "AFL Trivia",
     "difficulty": "Easy",
     "question": "Which city hosts the AFL Grand Final?",
@@ -1944,6 +2106,7 @@
     "correctIndex": 1
   },
   {
+    "id": "afl-trivia-007",
     "category": "AFL Trivia",
     "difficulty": "Easy",
     "question": "What is the nickname for Collingwood AFL team?",
@@ -1956,6 +2119,7 @@
     "correctIndex": 1
   },
   {
+    "id": "afl-trivia-008",
     "category": "AFL Trivia",
     "difficulty": "Easy",
     "question": "Which AFL team is known as the Tigers?",
@@ -1968,6 +2132,7 @@
     "correctIndex": 0
   },
   {
+    "id": "afl-trivia-009",
     "category": "AFL Trivia",
     "difficulty": "Medium",
     "question": "How long is an AFL quarter?",
@@ -1980,6 +2145,7 @@
     "correctIndex": 2
   },
   {
+    "id": "afl-trivia-010",
     "category": "AFL Trivia",
     "difficulty": "Medium",
     "question": "What is the highest governing body of AFL?",
@@ -1992,6 +2158,7 @@
     "correctIndex": 1
   },
   {
+    "id": "afl-trivia-011",
     "category": "AFL Trivia",
     "difficulty": "Medium",
     "question": "What is a mark in AFL?",
@@ -2004,6 +2171,7 @@
     "correctIndex": 1
   },
   {
+    "id": "afl-trivia-012",
     "category": "AFL Trivia",
     "difficulty": "Easy",
     "question": "Which AFL team is based in Geelong?",
@@ -2016,6 +2184,7 @@
     "correctIndex": 0
   },
   {
+    "id": "brain-teasers-001",
     "category": "Brain Teasers",
     "difficulty": "Easy",
     "question": "What has keys but can’t open locks?",
@@ -2028,6 +2197,7 @@
     "correctIndex": 0
   },
   {
+    "id": "brain-teasers-002",
     "category": "Brain Teasers",
     "difficulty": "Easy",
     "question": "What gets wetter the more it dries?",
@@ -2040,6 +2210,7 @@
     "correctIndex": 0
   },
   {
+    "id": "brain-teasers-003",
     "category": "Brain Teasers",
     "difficulty": "Medium",
     "question": "I speak without a mouth and hear without ears. What am I?",
@@ -2052,6 +2223,7 @@
     "correctIndex": 0
   },
   {
+    "id": "brain-teasers-004",
     "category": "Brain Teasers",
     "difficulty": "Easy",
     "question": "What runs but never walks?",
@@ -2064,6 +2236,7 @@
     "correctIndex": 0
   },
   {
+    "id": "brain-teasers-005",
     "category": "Brain Teasers",
     "difficulty": "Easy",
     "question": "What has a head, a tail, but no body?",
@@ -2076,6 +2249,7 @@
     "correctIndex": 0
   },
   {
+    "id": "brain-teasers-006",
     "category": "Brain Teasers",
     "difficulty": "Medium",
     "question": "What can travel around the world while staying in a corner?",
@@ -2088,6 +2262,7 @@
     "correctIndex": 0
   },
   {
+    "id": "brain-teasers-007",
     "category": "Brain Teasers",
     "difficulty": "Easy",
     "question": "What has one eye but cannot see?",
@@ -2100,6 +2275,7 @@
     "correctIndex": 0
   },
   {
+    "id": "brain-teasers-008",
     "category": "Brain Teasers",
     "difficulty": "Easy",
     "question": "What goes up but never comes down?",
@@ -2112,6 +2288,7 @@
     "correctIndex": 0
   },
   {
+    "id": "brain-teasers-009",
     "category": "Brain Teasers",
     "difficulty": "Easy",
     "question": "What has hands but can’t clap?",
@@ -2124,6 +2301,7 @@
     "correctIndex": 0
   },
   {
+    "id": "brain-teasers-010",
     "category": "Brain Teasers",
     "difficulty": "Hard",
     "question": "What begins with T, ends with T, and has T inside?",
@@ -2136,6 +2314,7 @@
     "correctIndex": 0
   },
   {
+    "id": "brain-teasers-011",
     "category": "Brain Teasers",
     "difficulty": "Medium",
     "question": "What can you break without touching it?",
@@ -2148,6 +2327,7 @@
     "correctIndex": 0
   },
   {
+    "id": "brain-teasers-012",
     "category": "Brain Teasers",
     "difficulty": "Easy",
     "question": "What has many teeth but can’t bite?",
