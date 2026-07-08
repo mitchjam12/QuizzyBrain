@@ -214,7 +214,7 @@ const QUIZ_BANKS = {
         { q: "What can you break without touching it?", a: ["Promise", "Glass", "Bone", "Door"], c: 0, d: "Medium" },
         { q: "What has many teeth but can’t bite?", a: ["Comb", "Saw", "Gear", "Fence"], c: 0, d: "Easy" }
     ]
-]
+};
 
 // Category Configuration Registry
 const CATEGORY_METADATA = {
