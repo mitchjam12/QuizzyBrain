@@ -1,0 +1,181 @@
+category,difficulty,question,option_a,option_b,option_c,option_d,correct_option
+Sports Players,Easy,Who has won the most Ballon d'Or awards in football history?,Lionel Messi,Cristiano Ronaldo,Michel Platini,Johan Cruyff,A
+Sports Players,Easy,Which NBA player is known as 'The King'?,Kevin Durant,Stephen Curry,LeBron James,Giannis Antetokounmpo,C
+Sports Players,Medium,How many Grand Slam singles titles has Serena Williams won?,21,22,23,25,C
+Sports Players,Medium,Who is the all-time leading run-scorer in international cricket?,Ricky Ponting,Sachin Tendulkar,Brian Lara,Virat Kohli,B
+Sports Players,Easy,Which swimmer holds the record for most Olympic gold medals?,Michael Phelps,Mark Spitz,Ryan Lochte,Ian Thorpe,A
+Sports Players,Medium,Who was the first gymnastics athlete to score a perfect 10 at the Olympics?,Simone Biles,Nadia Comăneci,Svetlana Khorkina,Mary Lou Retton,B
+Sports Players,Easy,Which formula 1 driver has the most race victories in history?,Michael Schumacher,Ayrton Senna,Lewis Hamilton,Sebastian Vettel,C
+Sports Players,Easy,What athlete is nicknamed 'The Lightning Bolt'?,Asafa Powell,Usain Bolt,Tyson Gay,Yohan Blake,B
+Sports Players,Easy,Which NHL player is widely known simply as 'The Great One'?,Wayne Gretzky,Mario Lemieux,Sidney Crosby,Alex Ovechkin,A
+Sports Players,Medium,Who was the youngest undisputed heavyweight boxing champion?,Muhammad Ali,Joe Frazier,Mike Tyson,Evander Holyfield,C
+Sports Players,Expert,Which female tennis player completed a Golden Slam in 1988?,Steffi Graf,Martina Navratilova,Chris Evert,Margaret Court,A
+Sports Players,Medium,Who was the first MMA fighter to hold UFC championships in two weight classes simultaneously?,Jon Jones,Anderson Silva,Conor McGregor,Khabib Nurmagomedov,C
+Sports,Easy,How long is a standard professional football match?,80 mins,90 mins,100 mins,120 mins,B
+Sports,Easy,Which sport uses a shuttlecock?,Tennis,Badminton,Squash,Table Tennis,B
+Sports,Medium,"In golf, what term describes scoring two strokes under par on a hole?",Bogey,Birdie,Eagle,Albatross,C
+Sports,Easy,How many players are on the field for one team in a cricket match?,9,10,11,12,C
+Sports,Hard,Which country won the first ever FIFA World Cup in 1930?,Argentina,Brazil,Italy,Uruguay,D
+Sports,Easy,What is the length of an Olympic swimming pool?,25m,50m,75m,100m,B
+Sports,Easy,"In baseball, how many strikes equal an out?",2,3,4,5,B
+Sports,Medium,The modern Olympic games were revived in which city in 1896?,Rome,Paris,Athens,London,C
+Sports,Easy,Which international cycling race features a 'Yellow Jersey' for its leader?,Giro d'Italia,Vuelta a España,Tour de France,Paris-Roubaix,C
+Sports,Hard,What is the only sport to have been played on the Moon?,Golf,Tennis,Baseball,Frisbee,A
+Sports,Medium,How high is a regulation NBA basketball hoop?,9 feet,10 feet,11 feet,12 feet,B
+Sports,Hard,"In Rugby Union, how many points is a basic 'Try' worth before conversion?",4,5,6,7,B
+Food,Easy,What is the main aromatic herb used to make classic pesto sauce?,Parsley,Basil,Oregano,Mint,B
+Food,Medium,Which country is the global origin place of French Fries?,France,Belgium,USA,Germany,B
+Food,Easy,What primary leavening agent causes bread dough to rise?,Baking Soda,Baking Powder,Yeast,Cream of Tartar,C
+Food,Medium,Which spice is the most expensive in the world by weight?,Saffron,Vanilla Beans,Cardamom,Cinnamon,A
+Food,Hard,From what animal milk is authentic Roquefort cheese produced?,Cow,Goat,Sheep,Buffalo,C
+Food,Medium,What fruit ingredient is utilized to flavor the traditional liqueur Cointreau?,Orange,Lemon,Cherry,Apple,A
+Food,Easy,What is the national dish of Spain known for its saffron rice base?,Risotto,Paella,Couscous,Jambalaya,B
+Food,Easy,Which food item is traditionally wrapped around Japanese Sushi rolls?,Nori,Kombu,Wakame,Rice Paper,A
+Food,Expert,What gives the distinct green paste 'Wasabi' its intense sharp heat style?,Capsaicin,Allyl Isothiocyanate,Piperine,Oxalic Acid,B
+Food,Medium,Which nut is the foundational core base item of Marzipan paste?,Walnut,Hazelnut,Pistachio,Almond,D
+Food,Hard,What technical baking term describes cutting fat into flour until tiny crumbs form?,Kneading,Rubbing-in,Creaming,Folding,B
+Food,Easy,Scoville units are a scale metric measurement used to quantify what attribute?,Sugar Sweetness,Sour Acidity,Chili Heat Pungency,Salt Salinity,C
+Countries,Easy,Which nation occupies the largest landmass territory on planet Earth?,Canada,China,USA,Russia,D
+Countries,Easy,What is the official capital city of Australia?,Sydney,Melbourne,Canberra,Brisbane,C
+Countries,Medium,Which country has the highest population count in Africa?,Egypt,Nigeria,South Africa,Ethiopia,B
+Countries,Hard,What landlocked country is located entirely inside the borders of South Africa?,Lesotho,Eswatini,Botswana,Namibia,A
+Countries,Easy,Which European nation is geographically defined by its layout shaped like a boot?,Greece,Spain,Italy,Portugal,C
+Countries,Medium,Which South American nation boasts the longest longitudinal coastline length?,Brazil,Peru,Argentina,Chile,D
+Countries,Easy,What country is nicknamed the 'Land of the Rising Sun'?,China,Japan,South Korea,Thailand,B
+Countries,Expert,How many individual islands make up the nation of Indonesia?,"Approx 3,000","Approx 7,000","Approx 17,500","Approx 25,000",C
+Countries,Medium,Ulaanbaatar is the official capital city of which country?,Mongolia,Kazakhstan,Uzbekistan,Nepal,A
+Countries,Easy,Which country shares the longest international land border boundary with the USA?,Mexico,Russia,Canada,Cuba,C
+Countries,Easy,In which country can you visit the ancient historical ruins of Machu Picchu?,Colombia,Peru,Bolivia,Ecuador,B
+Countries,Hard,Which country possesses the most natural structural lakes globally?,USA,Brazil,Canada,Finland,C
+Video Games,Easy,What is the best-selling standalone video game of all time?,GTA V,Tetris,Minecraft,Wii Sports,C
+Video Games,Hard,What year did the original Nintendo Entertainment System (NES) launch in North America?,1983,1985,1987,1989,B
+Video Games,Easy,Who is the main protagonist of the 'Halo' sci-fi franchise?,Marcus Fenix,Doom Slayer,Master Chief,Commander Shepard,C
+Video Games,Easy,What is the name of the fictional setting kingdom in The Legend of Zelda?,Azeroth,Tamriel,Hyrule,Eorzea,C
+Video Games,Easy,Which company created the digital distribution ecosystem marketplace Steam?,Epic Games,EA,Valve,Blizzard,C
+Video Games,Medium,"In 'Pac-Man', what is the name of the orange ghost character?",Blinky,Pinky,Inky,Clyde,D
+Video Games,Medium,What game studio developed the 2015 RPG masterpiece 'The Witcher 3: Wild Hunt'?,Bethesda,BioWare,CD Projekt Red,Ubisoft,C
+Video Games,Medium,What was the original working development title prototype name for character Mario?,Jumpman,Plumber Boy,Red Cap,Mr. Video,A
+Video Games,Medium,Which video game popularized the 'Battle Royale' genre on a massive global scale first?,Apex Legends,PUBG,Fortnite,H1Z1,B
+Video Games,Hard,What asset must players collect to power their devices in 'Fallout'?,Plasma Core,Fusion Core,Microfusion Cell,Capacitor Module,B
+Video Games,Easy,What is the name of the final ultimate dimension zone housing the Ender Dragon in Minecraft?,The Nether,The Aether,The Void,The End,D
+Video Games,Easy,Which fighting game franchise contains the quote 'Finish Him!'?,Street Fighter,Tekken,Mortal Kombat,Soulcalibur,C
+Board Games,Medium,How many spaces are there on a standard classic Monopoly board?,36,40,44,48,B
+Board Games,Easy,What color configuration are the layout tiles of a standard Chess board?,Black and Red,White and Black,Brown and Tan,Blue and White,B
+Board Games,Medium,"In Settlers of Catan, which resource is combined with wheat to build a development card?",Sheep/Wool,Ore,Brick,Wood/Lumber,A
+Board Games,Hard,How many letter tiles are present in an official English Scrabble box?,98,100,102,104,B
+Board Games,Easy,Which board game requires players to track a murderer using clues like a wrench or lead pipe?,Risk,Clue / Cluedo,Stratego,Battleship,B
+Board Games,Easy,What is the primary overarching mechanic objective goal of the game pandemic?,Conquer land,Accumulate money,Cure global diseases,Build a rail network,C
+Board Games,Easy,How many dice are rolled simultaneously by an active player in Yahtzee?,4,5,6,7,B
+Board Games,Medium,"In the game of Risk, what is the base reinforcement draft bonus value for holding Australia?",2,3,4,5,A
+Board Games,Medium,What ancient strategy game involves placement of black and white stones on a 19x19 line grid?,Chess,Checkers,Go,Mahjong,C
+Board Games,Easy,Which game features custom block components structured in an active tower stack layout configuration?,Jenga,Kerplunk,Connect Four,Blokus,A
+Board Games,Medium,What modern tile placement eurogame centers around building French fortresses and roads?,Ticket to Ride,Carcassonne,Agricola,7 Wonders,B
+Board Games,Hard,What is the highest value point tile piece possible in a Scrabble game?,Z and Q,X and Z,Q and E,K and J,A
+Emoji Quiz,Easy,What title is implied: 👑🦁?,The Jungle Book,The Lion King,Madagascar,Tarzan,B
+Emoji Quiz,Easy,Decode this destination: 🗼🥖🍷?,London,Rome,Paris,Madrid,C
+Emoji Quiz,Easy,Identify the sci-fi movie: 🦖🏝️🦕?,King Kong,Jurassic Park,Avatar,Godzilla,B
+Emoji Quiz,Easy,What is this weather action: ⚡⛈️🌧️?,Tornado,Thunderstorm,Blizzard,Hurricane,B
+Emoji Quiz,Medium,What hidden phrase is this: ⏰🐷✈️?,Time flies,When pigs fly,Early bird,Flying high,B
+Emoji Quiz,Easy,Guess the video game title: 🟩⛏️🧱?,Tetris,Minecraft,Roblox,Terraria,B
+Emoji Quiz,Medium,Decode the classic book story: 🐋⛵🌊?,Treasure Island,Moby Dick,The Odyssey,Robinson Crusoe,B
+Emoji Quiz,Medium,Identify the iconic global landmark artist painter: 👨‍🎨🎨👂?,Picasso,Da Vinci,Van Gogh,Monet,C
+Emoji Quiz,Easy,What popular song track title is this: 👁️🐯?,Eye of the Tiger,Roar,Animal,Wild Ones,A
+Emoji Quiz,Easy,Identify the historic space event: 👨‍🚀🚀🌕?,Apollo 11 Moon Landing,Mars Rover Launch,ISS Assembly,Sputnik Orbit,A
+Emoji Quiz,Easy,Decode this common idiom saying: 🐱💧🌧️?,Raining cats and dogs,Curiosity killed the cat,Cat got your tongue,Let the cat out,A
+Emoji Quiz,Easy,Identify the classic fairytale story profile: 🍎👧🧝‍♂️?,Cinderella,Snow White,Rapunzel,Sleeping Beauty,B
+Books,Easy,Who wrote the 1984 dystopian masterpiece novel?,Aldous Huxley,George Orwell,Ray Bradbury,H.G. Wells,B
+Books,Easy,What is the name of the main fictional wizard academy school in Harry Potter?,Durmstrang,Beauxbatons,Hogwarts,Ilvermorny,C
+Books,Medium,How many lines comprise a traditional sonnet poetic structural configuration?,10,12,14,16,C
+Books,Easy,Who authored the classic epic adventure romance novel 'The Hobbit'?,C.S. Lewis,J.R.R. Tolkien,George R.R. Martin,Christopher Paolini,B
+Books,Hard,What is the opening iconic sentence line phrase of Herman Melville's Moby Dick?,Call me Ishmael.,It was a dark night.,I am Jonah.,The sea was wild.,A
+Books,Easy,Which tragic Shakespeare play features the rival families Capulet and Montague?,Hamlet,Macbeth,Othello,Romeo and Juliet,D
+Books,Easy,Who created the legendary deduction detective investigator character Sherlock Holmes?,Agatha Christie,Arthur Conan Doyle,Edgar Allan Poe,Wilkie Collins,B
+Books,Easy,What American literary classic details the high society life adventures of Jay Gatsby?,The Great Gatsby,To Kill a Mockingbird,The Grapes of Wrath,Of Mice and Men,A
+Books,Hard,What was the pen name identity utilized by author Mary Ann Evans?,George Eliot,Jane Austen,Charlotte Brontë,Virginia Woolf,A
+Books,Easy,"In 'The Chronicles of Narnia', who or what is Aslan?",A Centaur,A King,A Lion,A Wizard,C
+Books,Easy,Which classic gothic horror novel features an existential monster assembled from corpses?,Dracula,Frankenstein,The Mummy,Dr. Jekyll and Mr. Hyde,B
+Books,Easy,What is the primary theme setting location name of the Hunger Games trilogy arena?,Panem,Gilead,Oceana,Divergia,A
+Movie Characters,Easy,What is the true alter-ego civilian identity name of Marvel's Iron Man?,Bruce Banner,Tony Stark,Steve Rogers,Peter Parker,B
+Movie Characters,Easy,Which actor portrayed Captain Jack Sparrow in the Pirates of the Caribbean series?,Brad Pitt,Johnny Depp,Tom Cruise,Orlando Bloom,B
+Movie Characters,Easy,What is the name of the green evaluation monster character in Shrek?,Shrek,Donkey,Fiona,Farquaad,A
+Movie Characters,Easy,Who is the legendary Dark Lord antagonist master villain of the Star Wars universe?,Luke Skywalker,Darth Vader,Han Solo,Obi-Wan Kenobi,B
+Movie Characters,Easy,What character states: 'Why so serious?' in the 2008 film The Dark Knight?,Batman,Two-Face,The Joker,Bane,C
+Movie Characters,Easy,What is the name of the cowboy doll character in Pixar's Toy Story?,Buzz,Woody,Slinky,Rex,B
+Movie Characters,Easy,Which archeologist fictional character carries an iconic bullwhip tool?,Lara Croft,Nathan Drake,Indiana Jones,Rick O'Connell,C
+Movie Characters,Easy,"What is the name of the friendly, helper healthcare robot in Big Hero 6?",Wall-E,Baymax,Rodney,Optimus,B
+Movie Characters,Easy,Who is the central character ring bearer protagonist of Lord of the Rings?,Frodo Baggins,Samwise Gamgee,Aragorn,Legolas,A
+Movie Characters,Easy,What character is known as Agent 007 in British intelligence spy thrillers?,Jason Bourne,Ethan Hunt,James Bond,Jack Reacher,C
+Movie Characters,Easy,What is the name of the majestic lion cub prince protagonist character in The Lion King?,Mufasa,Scar,Simba,Nala,C
+Movie Characters,Easy,"Which character is the loyal, furry Wookiee co-pilot of the Millennium Falcon?",Yoda,Chewbacca,Bobafett,Jabba,B
+Random Challenge,Easy,What is the exact chemical element symbol for Gold on the periodic table?,Ag,Au,Fe,Pb,B
+Random Challenge,Medium,How many bones are in a normal adult human skeletal framework anatomy?,106,206,306,406,B
+Random Challenge,Easy,What planet in our solar system is known for its prominent system rings?,Mars,Jupiter,Saturn,Neptune,C
+Random Challenge,Medium,What is the approximate speed of light through a vacuum space environment?,"30,000 km/s","300,000 km/s","3,000,000 km/s",300 km/s,B
+Random Challenge,Easy,Which country gifted the historic Statue of Liberty monument to the USA?,Great Britain,France,Germany,Italy,B
+Random Challenge,Medium,What is the longest river channel located on planet earth?,Amazon,Nile,Mississippi,Yangtze,B
+Random Challenge,Easy,How many time zone lines split up the world space chart framework?,12,24,36,48,B
+Random Challenge,Medium,What is the primary gas component constituent making up Earth's atmosphere?,Oxygen,Nitrogen,Carbon Dioxide,Argon,B
+Random Challenge,Hard,Which historic explorer led the maritime fleet crew that completed global circumnavigation first?,Christopher Columbus,Ferdinand Magellan,Vasco da Gama,James Cook,B
+Random Challenge,Easy,What geometric shape value name describes an internal angle measurement of exactly 90 degrees?,Acute,Obtuse,Right Angle,Reflex,C
+Random Challenge,Medium,What structural software computer core kernel layer manages interface requests?,Operating System,RAM,CPU,Motherboard,A
+Random Challenge,Hard,How many hearts does an octopus possess inside its biological structural layout?,1,2,3,4,C
+Australian Geography,Easy,What is the capital city of Australia?,Sydney,Melbourne,Canberra,Brisbane,C
+Australian Geography,Easy,Which Australian state is known as the Sunshine State?,Victoria,Queensland,Tasmania,Western Australia,B
+Australian Geography,Easy,Which city is home to the Sydney Opera House?,Perth,Sydney,Adelaide,Canberra,B
+Australian Geography,Medium,What is the largest Australian state by area?,Queensland,South Australia,Western Australia,New South Wales,C
+Australian Geography,Medium,Which Australian territory contains Uluru?,Australian Capital Territory,Northern Territory,Queensland,Western Australia,B
+Australian Geography,Easy,What is the capital of Tasmania?,Launceston,Devonport,Burnie,Hobart,D
+Australian Geography,Easy,Which reef system lies off the coast of Queensland?,Ningaloo Reef,Great Barrier Reef,Coral Sea Reef,Ribbon Reef,B
+Australian Geography,Easy,Which Australian city hosted the 2000 Olympic Games?,Melbourne,Brisbane,Sydney,Perth,C
+Australian Geography,Medium,How many states are there in Australia?,5,6,7,8,B
+Australian Geography,Hard,Which river is Australia's longest?,Darling River,Murray River,Swan River,Yarra River,B
+Australian Geography,Easy,What is the capital city of Western Australia?,Darwin,Perth,Adelaide,Albany,B
+Australian Geography,Hard,Which state borders every mainland Australian state and the Northern Territory?,Queensland,Victoria,South Australia,New South Wales,C
+Australian Wildlife,Easy,Which is Australia's largest marsupial?,Koala,Red Kangaroo,Wombat,Wallaby,B
+Australian Wildlife,Easy,What is a baby kangaroo called?,Cub,Joey,Calf,Pup,B
+Australian Wildlife,Easy,Which Australian animal lays eggs?,Koala,Wombat,Platypus,Kangaroo,C
+Australian Wildlife,Medium,Which bird is Australia's largest native bird?,Emu,Cockatoo,Kookaburra,Cassowary,A
+Australian Wildlife,Easy,Which Australian mammal is famous for sleeping up to 20 hours a day?,Koala,Dingo,Possum,Wallaby,A
+Australian Wildlife,Easy,What is Australia's wild native dog called?,Dingo,Fox,Wolf,Jackal,A
+Australian Wildlife,Hard,Which Australian reptile is the world's largest lizard?,Blue-tongue Lizard,Frill-neck Lizard,Perentie,Goanna,C
+Australian Wildlife,Easy,Which animal is known for its laughing call?,Cockatoo,Kookaburra,Magpie,Lorikeet,B
+Australian Wildlife,Hard,What colour is the belly of a platypus?,White,Brown,Black,Grey,A
+Australian Wildlife,Medium,Which Australian animal is covered in sharp spines?,Echidna,Possum,Bandicoot,Bilby,A
+Australian Wildlife,Medium,Which Australian mammal is able to glide between trees?,Sugar Glider,Koala,Wallaby,Tasmanian Devil,A
+Australian Wildlife,Easy,Which Australian island is famous for its population of Tasmanian Devils?,Kangaroo Island,Fraser Island,Tasmania,Phillip Island,C
+Aussie Slang,Easy,What does 'arvo' mean in Australian slang?,Morning,Afternoon,Evening,Night,B
+Aussie Slang,Easy,What is a 'servo'?,Service station,Police station,Supermarket,Cafe,A
+Aussie Slang,Easy,What does 'mate' usually mean in Australia?,Friend,Enemy,Boss,Stranger,A
+Aussie Slang,Medium,What is a 'bottle-o'?,Bakery,Liquor store,Post office,Butcher,B
+Aussie Slang,Easy,What does 'brekkie' mean?,Breakfast,Dinner,Lunch,Snack,A
+Aussie Slang,Medium,What does 'chuck a sickie' mean?,Go on holiday,Call in sick from work,Get injured,Go to hospital,B
+Aussie Slang,Easy,What does 'thongs' mean in Australia?,Shoes,Sandals/flip-flops,Socks,Boots,B
+Aussie Slang,Medium,What does 'fair dinkum' mean?,Fake,True / genuine,Funny,Angry,B
+Aussie Slang,Easy,What does 'heaps' mean?,None,A little,A lot,Rarely,C
+Aussie Slang,Easy,What does 'ute' refer to?,Truck,Car,Van,Motorbike,A
+Aussie Slang,Easy,What does 'barbie' mean in Aussie slang?,Toy,Barbecue,Beach,Drink,B
+Aussie Slang,Easy,What does 'no worries' usually mean?,Angry response,It’s okay / don’t worry,Confused,Goodbye,B
+AFL Trivia,Easy,How many players are on the field per AFL team?,16,17,18,20,C
+AFL Trivia,Easy,Which AFL team is based in Perth?,Sydney Swans,West Coast Eagles,Carlton,Geelong,B
+AFL Trivia,Easy,What shape is an AFL ball?,Round,Oval,Square,Rectangle,B
+AFL Trivia,Easy,How many points is a goal worth in AFL?,1,2,3,6,D
+AFL Trivia,Easy,What is a behind worth in AFL?,1,2,3,6,A
+AFL Trivia,Easy,Which city hosts the AFL Grand Final?,Sydney,Melbourne,Perth,Brisbane,B
+AFL Trivia,Easy,What is the nickname for Collingwood AFL team?,Tigers,Magpies,Lions,Bombers,B
+AFL Trivia,Easy,Which AFL team is known as the Tigers?,Richmond,Carlton,Essendon,Fremantle,A
+AFL Trivia,Medium,How long is an AFL quarter?,10 min,15 min,20 min,25 min,C
+AFL Trivia,Medium,What is the highest governing body of AFL?,FIFA,AFL Commission,ICC,NRL Board,B
+AFL Trivia,Medium,What is a mark in AFL?,A goal kick,A clean catch from a kick,A tackle,A throw,B
+AFL Trivia,Easy,Which AFL team is based in Geelong?,Cats,Lions,Hawks,Swans,A
+Brain Teasers,Easy,What has keys but can’t open locks?,Piano,Map,Clock,Door,A
+Brain Teasers,Easy,What gets wetter the more it dries?,Towel,Sponge,Ice,Soap,A
+Brain Teasers,Medium,I speak without a mouth and hear without ears. What am I?,Echo,Wind,Shadow,Thought,A
+Brain Teasers,Easy,What runs but never walks?,River,Car,Dog,Clock,A
+Brain Teasers,Easy,"What has a head, a tail, but no body?",Coin,Snake,Shadow,River,A
+Brain Teasers,Medium,What can travel around the world while staying in a corner?,Stamp,Coin,Bird,Light,A
+Brain Teasers,Easy,What has one eye but cannot see?,Needle,Storm,Cyclone,Clock,A
+Brain Teasers,Easy,What goes up but never comes down?,Age,Balloon,Smoke,Bird,A
+Brain Teasers,Easy,What has hands but can’t clap?,Clock,Robot,Statue,Tree,A
+Brain Teasers,Hard,"What begins with T, ends with T, and has T inside?",Teapot,Tent,Toast,Ticket,A
+Brain Teasers,Medium,What can you break without touching it?,Promise,Glass,Bone,Door,A
+Brain Teasers,Easy,What has many teeth but can’t bite?,Comb,Saw,Gear,Fence,A
