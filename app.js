@@ -2,6 +2,32 @@
  * QuizzyBrain Core Application Architecture Module
  */
 
+// ================= DATA LIBRARY LOADER =================
+let QUIZ_BANKS = {};
+let CATEGORY_METADATA = {};
+
+function normalizeCategoryMetadata(categories) {
+    return categories.reduce((metadata, category) => {
+        metadata[category.name] = {
+            icon: category.icon,
+            desc: category.desc,
+            time: category.time
+        };
+        return metadata;
+    }, {});
+}
+
+function loadQuestionLibrary() {
+    const library = window.QUIZZYBRAIN_LIBRARY;
+
+    if (!library || !library.questionBanks || !Array.isArray(library.categories)) {
+        throw new Error("Question library failed to load. Rebuild data/question-library.js from data/questions.csv.");
+    }
+
+    QUIZ_BANKS = library.questionBanks;
+    CATEGORY_METADATA = normalizeCategoryMetadata(library.categories);
+}
+
 // Achievement Definition Bank
 const ACHIEVEMENTS_REGISTRY = [
     { id: "first_quiz", title: "🏆 First Quiz", desc: "Complete any quiz category.", condition: s => s.gamesPlayed >= 1 },
