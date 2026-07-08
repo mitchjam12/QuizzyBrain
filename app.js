@@ -699,11 +699,13 @@ function switchViewSection(targetId) {
 }
 
 // ================= RUNTIME CORE INTERACTIVE QUIZ ENGINE =================
-function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
-  let sourcePool = [
-    ...getQuestionPool(categoryName)
-];
+function getQuestionPool(categoryName) {
+  if (!categoryName) {
+    return [];
+  }
 
+  return questionPools[categoryName] || [];
+}
     // Filter by difficulty if one is selected. Only fall back to the full
     // category pool if that difficulty has *zero* questions available —
     // previously this fell back whenever there were fewer than 12, which
