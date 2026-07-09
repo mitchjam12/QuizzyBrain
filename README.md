@@ -34,7 +34,7 @@ The builder validates the CSV and updates:
 
 The app uses `data/question-library.js` in the browser.
 
-QuizzyBrain remembers question IDs already served on each computer using browser local storage. Category cards only appear when they have at least 12 fresh questions available for the selected difficulty.
+QuizzyBrain remembers completed question IDs on each computer using browser local storage. Category cards only appear when they can build a 12-question quiz from fresh questions. If a difficulty has fewer than 12 fresh questions, QuizzyBrain starts with that difficulty and fills the rest from the same category.
 
 ## Run Locally
 
