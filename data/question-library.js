@@ -1896,13 +1896,11 @@ window.QUIZZYBRAIN_LIBRARY = {
         "d": "Hard"
       },
       {
-    "Sports": [
-        {
-            id: "sports-013",
-            d: "Easy",
-            q: "How many players are on a soccer team on the field at one time?",
-            a: ["9", "10", "11", "12"],
-            c: 2
+         id: "sports-013",
+         d: "Easy",
+         q: "How many players are on a soccer team on the field at one time?",
+         a: ["9", "10", "11", "12"],
+         c: 2
         },
         {
             id: "sports-014",
@@ -2108,8 +2106,7 @@ window.QUIZZYBRAIN_LIBRARY = {
             a: ["England", "Scotland", "Ireland", "Wales"],
             c: 1
         },
-      [
-    {
+        {
         id: "sports-043",
         category: "Sports",
         difficulty: "Medium",
@@ -2253,7 +2250,6 @@ window.QUIZZYBRAIN_LIBRARY = {
         a: ["4", "5", "6", "7"],
         c: 1
     },
-        [
     {
         id: "sports-061",
         category: "Sports",
@@ -2414,7 +2410,6 @@ window.QUIZZYBRAIN_LIBRARY = {
         a: ["7", "8", "9", "10"],
         c: 2
     },
-          [
     {
         id: "sports-081",
         category: "Sports",
@@ -2575,7 +2570,6 @@ window.QUIZZYBRAIN_LIBRARY = {
         a: ["England", "Australia", "New Zealand", "South Africa"],
         c: 2
     },
-            [
     {
         id: "sports-101",
         category: "Sports",
