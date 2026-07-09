@@ -808,13 +808,23 @@ function terminateQuizPipeline() {
     document.getElementById("res-m-streak").innerText = active.maxStreakThisRun;
     document.getElementById("res-m-cat").innerText = active.category;
 
-    // Mutate and sync long term lifetime historical records metrics telemetry
-    state.userStats.gamesPlayed++;
-    state.userStats.totalAnswered += active.questions.length;
-    state.userStats.totalCorrect += active.score;
-    if (active.maxStreakThisRun > state.userStats.maxStreak) state.userStats.maxStreak = active.maxStreakThisRun;
-    if (durationSecs < state.userStats.fastestTime) state.userStats.fastestTime = durationSecs;
-    
+   // Mutate and sync long term lifetime historical records metrics telemetry
+state.userStats.gamesPlayed++;
+state.userStats.totalAnswered += active.questions.length;
+state.userStats.totalCorrect += active.score;
+
+// Perfect score tracking
+if (active.score === active.questions.length) {
+    state.userStats.perfectScores++;
+}
+
+if (active.maxStreakThisRun > state.userStats.maxStreak) {
+    state.userStats.maxStreak = active.maxStreakThisRun;
+}
+
+if (durationSecs < state.userStats.fastestTime) {
+    state.userStats.fastestTime = durationSecs;
+}
     if (!state.userStats.completedCats.includes(active.category) && active.score >= 6) {
         state.userStats.completedCats.push(active.category);
     }
