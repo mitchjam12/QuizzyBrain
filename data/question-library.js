@@ -236,6 +236,1518 @@ window.QUIZZYBRAIN_LIBRARY = {
         ],
         "c": 2,
         "d": "Medium"
+      },
+      {
+        "id": "sports-players-013",
+        "q": "What was David Warner's highest batting test score?",
+        "a": [
+          "335 no",
+          "330",
+          "380",
+          "334 no"
+        ],
+        "c": 0,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-014",
+        "q": "Which footballer is famously nicknamed 'CR7'?",
+        "a": [
+          "Cristiano Ronaldo",
+          "Kylian Mbappé",
+          "Neymar",
+          "Luka Modrić"
+        ],
+        "c": 0,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-015",
+        "q": "Which basketball player is famous for wearing jersey number 23 with the Chicago Bulls?",
+        "a": [
+          "Magic Johnson",
+          "Kobe Bryant",
+          "Michael Jordan",
+          "Larry Bird"
+        ],
+        "c": 2,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-016",
+        "q": "Which tennis player is nicknamed 'The King of Clay'?",
+        "a": [
+          "Roger Federer",
+          "Rafael Nadal",
+          "Novak Djokovic",
+          "Andy Murray"
+        ],
+        "c": 1,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-017",
+        "q": "Which golfer has won the most major championships in men's golf?",
+        "a": [
+          "Tiger Woods",
+          "Jack Nicklaus",
+          "Arnold Palmer",
+          "Phil Mickelson"
+        ],
+        "c": 1,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-018",
+        "q": "Which sprinter won gold in the men's 100m at three consecutive Olympic Games?",
+        "a": [
+          "Carl Lewis",
+          "Usain Bolt",
+          "Justin Gatlin",
+          "Yohan Blake"
+        ],
+        "c": 1,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-019",
+        "q": "Which Formula One driver won his first World Championship in 2008?",
+        "a": [
+          "Lewis Hamilton",
+          "Sebastian Vettel",
+          "Fernando Alonso",
+          "Kimi Räikkönen"
+        ],
+        "c": 0,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-020",
+        "q": "Which football legend was known as 'The Black Pearl'?",
+        "a": [
+          "Pelé",
+          "Diego Maradona",
+          "Ronaldo",
+          "Zinedine Zidane"
+        ],
+        "c": 0,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-021",
+        "q": "Which cricket captain led Australia to victory in the 2015 Cricket World Cup?",
+        "a": [
+          "Michael Clarke",
+          "Ricky Ponting",
+          "Pat Cummins",
+          "Steve Waugh"
+        ],
+        "c": 0,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-022",
+        "q": "Which boxer was known as 'The Greatest'?",
+        "a": [
+          "Mike Tyson",
+          "Muhammad Ali",
+          "Sugar Ray Leonard",
+          "Joe Frazier"
+        ],
+        "c": 1,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-023",
+        "q": "Which female gymnast has won the most Olympic medals in gymnastics history?",
+        "a": [
+          "Nadia Comăneci",
+          "Simone Biles",
+          "Larisa Latynina",
+          "Shannon Miller"
+        ],
+        "c": 2,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-024",
+        "q": "Which NBA player is nicknamed 'Chef Curry'?",
+        "a": [
+          "Klay Thompson",
+          "Stephen Curry",
+          "Chris Paul",
+          "Damian Lillard"
+        ],
+        "c": 1,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-025",
+        "q": "Which football goalkeeper is nicknamed 'Buffon'?",
+        "a": [
+          "Iker Casillas",
+          "Gianluigi Buffon",
+          "Manuel Neuer",
+          "Petr Čech"
+        ],
+        "c": 1,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-026",
+        "q": "Which swimmer won eight gold medals at a single Olympic Games?",
+        "a": [
+          "Ian Thorpe",
+          "Caeleb Dressel",
+          "Michael Phelps",
+          "Mark Spitz"
+        ],
+        "c": 2,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-027",
+        "q": "Which footballer captained Portugal to victory at UEFA Euro 2016?",
+        "a": [
+          "Cristiano Ronaldo",
+          "Pepe",
+          "Bruno Fernandes",
+          "Luis Figo"
+        ],
+        "c": 0,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-028",
+        "q": "Which golfer is nicknamed 'Tiger'?",
+        "a": [
+          "Rory McIlroy",
+          "Tiger Woods",
+          "Dustin Johnson",
+          "Jordan Spieth"
+        ],
+        "c": 1,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-029",
+        "q": "Which Australian tennis player won the 2022 Wimbledon men's singles title?",
+        "a": [
+          "Lleyton Hewitt",
+          "Nick Kyrgios",
+          "Alex de Minaur",
+          "None of the above"
+        ],
+        "c": 3,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-030",
+        "q": "Which NFL quarterback won seven Super Bowl titles?",
+        "a": [
+          "Peyton Manning",
+          "Joe Montana",
+          "Tom Brady",
+          "Aaron Rodgers"
+        ],
+        "c": 2,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-031",
+        "q": "Which cyclist won the Tour de France five consecutive times between 1991 and 1995?",
+        "a": [
+          "Miguel Induráin",
+          "Chris Froome",
+          "Eddy Merckx",
+          "Bernard Hinault"
+        ],
+        "c": 0,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-032",
+        "q": "Which female tennis player has won the most Grand Slam singles titles in the Open Era?",
+        "a": [
+          "Steffi Graf",
+          "Serena Williams",
+          "Martina Navratilova",
+          "Chris Evert"
+        ],
+        "c": 1,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-033",
+        "q": "Which footballer scored the famous 'Hand of God' goal?",
+        "a": [
+          "Pelé",
+          "Diego Maradona",
+          "Lionel Messi",
+          "Romário"
+        ],
+        "c": 1,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-034",
+        "q": "Which rugby player is widely regarded as one of New Zealand's greatest captains?",
+        "a": [
+          "Richie McCaw",
+          "Dan Carter",
+          "Jonah Lomu",
+          "Beauden Barrett"
+        ],
+        "c": 0,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-035",
+        "q": "Which NBA legend was nicknamed 'Magic'?",
+        "a": [
+          "Larry Bird",
+          "Kareem Abdul-Jabbar",
+          "Magic Johnson",
+          "Shaquille O'Neal"
+        ],
+        "c": 2,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-036",
+        "q": "Which footballer is known as 'The Egyptian King'?",
+        "a": [
+          "Mohamed Salah",
+          "Sadio Mané",
+          "Riyad Mahrez",
+          "Hakim Ziyech"
+        ],
+        "c": 0,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-037",
+        "q": "Which Australian cricketer scored 334 not out against Pakistan in 2019?",
+        "a": [
+          "David Warner",
+          "Steve Smith",
+          "Usman Khawaja",
+          "Marnus Labuschagne"
+        ],
+        "c": 0,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-038",
+        "q": "Which tennis player has won the most men's Grand Slam singles titles?",
+        "a": [
+          "Roger Federer",
+          "Rafael Nadal",
+          "Novak Djokovic",
+          "Pete Sampras"
+        ],
+        "c": 2,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-039",
+        "q": "Who is the only footballer to have won three FIFA World Cups as a player?",
+        "a": [
+          "Pelé",
+          "Cafu",
+          "Franz Beckenbauer",
+          "Diego Maradona"
+        ],
+        "c": 0,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-040",
+        "q": "Which cricketer was the first to score 100 international centuries?",
+        "a": [
+          "Virat Kohli",
+          "Ricky Ponting",
+          "Sachin Tendulkar",
+          "Kumar Sangakkara"
+        ],
+        "c": 2,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-041",
+        "q": "Which NBA player finished his career as the all-time leader in assists?",
+        "a": [
+          "Magic Johnson",
+          "John Stockton",
+          "Jason Kidd",
+          "Steve Nash"
+        ],
+        "c": 1,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-042",
+        "q": "Which female tennis player won the Golden Slam in 1988?",
+        "a": [
+          "Steffi Graf",
+          "Martina Navratilova",
+          "Monica Seles",
+          "Chris Evert"
+        ],
+        "c": 0,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-043",
+        "q": "Who became Formula One's youngest-ever World Champion in 2010?",
+        "a": [
+          "Lewis Hamilton",
+          "Fernando Alonso",
+          "Sebastian Vettel",
+          "Max Verstappen"
+        ],
+        "c": 2,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-044",
+        "q": "Which boxer retired with a perfect professional record of 50 wins and 0 losses?",
+        "a": [
+          "Sugar Ray Leonard",
+          "Mike Tyson",
+          "Floyd Mayweather Jr.",
+          "Manny Pacquiao"
+        ],
+        "c": 2,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-045",
+        "q": "Who was the first player to score 10000 runs in One Day Internationals?",
+        "a": [
+          "Sachin Tendulkar",
+          "Ricky Ponting",
+          "Sunil Gavaskar",
+          "Viv Richards"
+        ],
+        "c": 0,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-046",
+        "q": "Which golfer is the only player to win the Career Grand Slam three times?",
+        "a": [
+          "Tiger Woods",
+          "Jack Nicklaus",
+          "Ben Hogan",
+          "Gary Player"
+        ],
+        "c": 0,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-047",
+        "q": "Which cyclist won the first five editions of the Tour de France after World War II?",
+        "a": [
+          "Eddy Merckx",
+          "Fausto Coppi",
+          "Jacques Anquetil",
+          "Bernard Hinault"
+        ],
+        "c": 1,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-048",
+        "q": "Who was the first athlete to run the men's 100 metres in under 9.8 seconds legally?",
+        "a": [
+          "Tyson Gay",
+          "Usain Bolt",
+          "Maurice Greene",
+          "Asafa Powell"
+        ],
+        "c": 3,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-049",
+        "q": "Which Australian cricketer took 708 Test wickets during his career?",
+        "a": [
+          "Glenn McGrath",
+          "Shane Warne",
+          "Dennis Lillee",
+          "Nathan Lyon"
+        ],
+        "c": 1,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-050",
+        "q": "Which football goalkeeper won the Yashin Trophy in its inaugural year?",
+        "a": [
+          "Alisson",
+          "Emiliano Martínez",
+          "Thibaut Courtois",
+          "Alisson Becker"
+        ],
+        "c": 0,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-051",
+        "q": "Who was the first Formula One driver to reach 100 Grand Prix victories?",
+        "a": [
+          "Michael Schumacher",
+          "Lewis Hamilton",
+          "Max Verstappen",
+          "Sebastian Vettel"
+        ],
+        "c": 1,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-052",
+        "q": "Which swimmer won seven gold medals at the 1972 Munich Olympics?",
+        "a": [
+          "Ian Thorpe",
+          "Mark Spitz",
+          "Michael Phelps",
+          "Matt Biondi"
+        ],
+        "c": 1,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-053",
+        "q": "Which baseball player is nicknamed 'The Sultan of Swat'?",
+        "a": [
+          "Babe Ruth",
+          "Hank Aaron",
+          "Joe DiMaggio",
+          "Ted Williams"
+        ],
+        "c": 0,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-054",
+        "q": "Who became the youngest undisputed heavyweight boxing champion in history?",
+        "a": [
+          "Muhammad Ali",
+          "Lennox Lewis",
+          "Mike Tyson",
+          "Joe Frazier"
+        ],
+        "c": 2,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-055",
+        "q": "Which tennis player has won the most ATP Finals singles titles?",
+        "a": [
+          "Roger Federer",
+          "Novak Djokovic",
+          "Rafael Nadal",
+          "Pete Sampras"
+        ],
+        "c": 1,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-056",
+        "q": "Which footballer won the Ballon d'Or while playing for AC Milan in 2007?",
+        "a": [
+          "Kaká",
+          "Andriy Shevchenko",
+          "Ronaldinho",
+          "Paolo Maldini"
+        ],
+        "c": 0,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-057",
+        "q": "Which New Zealand rugby legend scored a record 37 Test tries for the All Blacks before retirement?",
+        "a": [
+          "Jonah Lomu",
+          "Doug Howlett",
+          "Richie McCaw",
+          "Christian Cullen"
+        ],
+        "c": 1,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-058",
+        "q": "Who became the first woman to win Olympic gold medals in both the 100m and 200m at consecutive Olympic Games?",
+        "a": [
+          "Shelly-Ann Fraser-Pryce",
+          "Florence Griffith Joyner",
+          "Elaine Thompson-Herah",
+          "Merlene Ottey"
+        ],
+        "c": 2,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-059",
+        "q": "Which cricketer captained Australia to three consecutive Cricket World Cup titles?",
+        "a": [
+          "Steve Waugh",
+          "Michael Clarke",
+          "Ricky Ponting",
+          "Allan Border"
+        ],
+        "c": 2,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-060",
+        "q": "Which basketball player won six NBA Finals MVP awards?",
+        "a": [
+          "Michael Jordan",
+          "LeBron James",
+          "Kareem Abdul-Jabbar",
+          "Magic Johnson"
+        ],
+        "c": 0,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-061",
+        "q": "Which football defender captained Italy to victory at the 2006 FIFA World Cup?",
+        "a": [
+          "Fabio Cannavaro",
+          "Paolo Maldini",
+          "Alessandro Nesta",
+          "Gianluigi Buffon"
+        ],
+        "c": 0,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-062",
+        "q": "Who was the first woman to score a perfect 10 in Olympic gymnastics history?",
+        "a": [
+          "Mary Lou Retton",
+          "Nadia Comăneci",
+          "Simone Biles",
+          "Olga Korbut"
+        ],
+        "c": 1,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-063",
+        "q": "Which Formula One driver won nine Grands Prix in a row during the 2013 season?",
+        "a": [
+          "Lewis Hamilton",
+          "Ayrton Senna",
+          "Sebastian Vettel",
+          "Michael Schumacher"
+        ],
+        "c": 2,
+        "d": "Expert"
+      },
+      {
+        "id": "sports-players-064",
+        "q": "Which footballer scored the winning goal in the 2010 FIFA World Cup Final?",
+        "a": [
+          "David Villa",
+          "Andrés Iniesta",
+          "Fernando Torres",
+          "Xavi Hernández"
+        ],
+        "c": 1,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-065",
+        "q": "Who was the first cricketer to take 800 Test wickets?",
+        "a": [
+          "Muttiah Muralitharan",
+          "Shane Warne",
+          "James Anderson",
+          "Anil Kumble"
+        ],
+        "c": 0,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-066",
+        "q": "Which NBA player recorded the first official quadruple-double in the modern era?",
+        "a": [
+          "Hakeem Olajuwon",
+          "David Robinson",
+          "Nate Thurmond",
+          "Alvin Robertson"
+        ],
+        "c": 2,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-067",
+        "q": "Which tennis player won the first men's Career Golden Slam?",
+        "a": [
+          "Andre Agassi",
+          "Rafael Nadal",
+          "Novak Djokovic",
+          "Roger Federer"
+        ],
+        "c": 0,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-068",
+        "q": "Which Formula One driver won the 1996 World Championship driving for Williams?",
+        "a": [
+          "Nigel Mansell",
+          "Damon Hill",
+          "Jacques Villeneuve",
+          "Alain Prost"
+        ],
+        "c": 1,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-069",
+        "q": "Who was the first woman to break the 22-second barrier in the 200 metres?",
+        "a": [
+          "Florence Griffith Joyner",
+          "Marion Jones",
+          "Elaine Thompson-Herah",
+          "Shelly-Ann Fraser-Pryce"
+        ],
+        "c": 0,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-070",
+        "q": "Which golfer completed the 'Tiger Slam' by winning four consecutive major championships?",
+        "a": [
+          "Jack Nicklaus",
+          "Tiger Woods",
+          "Phil Mickelson",
+          "Rory McIlroy"
+        ],
+        "c": 1,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-071",
+        "q": "Which boxer defeated Muhammad Ali in the 'Rumble in the Jungle'?",
+        "a": [
+          "George Foreman",
+          "Joe Frazier",
+          "Ken Norton",
+          "None of the above"
+        ],
+        "c": 3,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-072",
+        "q": "Which football goalkeeper has the most appearances for Italy?",
+        "a": [
+          "Dino Zoff",
+          "Gianluigi Buffon",
+          "Walter Zenga",
+          "Gianluca Pagliuca"
+        ],
+        "c": 1,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-073",
+        "q": "Which Australian cricketer scored 201 not out in his final Test innings?",
+        "a": [
+          "Steve Waugh",
+          "Ricky Ponting",
+          "Michael Hussey",
+          "Adam Voges"
+        ],
+        "c": 2,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-074",
+        "q": "Which cyclist won a record five consecutive Tour de France titles before Lance Armstrong's victories were stripped?",
+        "a": [
+          "Miguel Induráin",
+          "Bernard Hinault",
+          "Eddy Merckx",
+          "Chris Froome"
+        ],
+        "c": 0,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-075",
+        "q": "Which NBA player was nicknamed 'The Admiral'?",
+        "a": [
+          "Patrick Ewing",
+          "David Robinson",
+          "Tim Duncan",
+          "Karl Malone"
+        ],
+        "c": 1,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-076",
+        "q": "Who was the youngest player to win the men's Wimbledon singles title in the Open Era?",
+        "a": [
+          "Boris Becker",
+          "Björn Borg",
+          "Rafael Nadal",
+          "Michael Chang"
+        ],
+        "c": 0,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-077",
+        "q": "Which footballer won the FIFA Ballon d'Or in 2018?",
+        "a": [
+          "Cristiano Ronaldo",
+          "Luka Modrić",
+          "Antoine Griezmann",
+          "Lionel Messi"
+        ],
+        "c": 1,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-078",
+        "q": "Which swimmer won six gold medals at the 2004 Athens Olympics?",
+        "a": [
+          "Ryan Lochte",
+          "Ian Thorpe",
+          "Michael Phelps",
+          "Pieter van den Hoogenband"
+        ],
+        "c": 2,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-079",
+        "q": "Which rugby player scored the most points in international Test rugby history?",
+        "a": [
+          "Jonny Wilkinson",
+          "Dan Carter",
+          "Neil Jenkins",
+          "Johnny Sexton"
+        ],
+        "c": 1,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-080",
+        "q": "Who was the first Formula One World Champion from Finland?",
+        "a": [
+          "Mika Häkkinen",
+          "Keke Rosberg",
+          "Kimi Räikkönen",
+          "Valtteri Bottas"
+        ],
+        "c": 1,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-081",
+        "q": "Which baseball player broke Babe Ruth's career home run record in 1974?",
+        "a": [
+          "Willie Mays",
+          "Hank Aaron",
+          "Reggie Jackson",
+          "Mickey Mantle"
+        ],
+        "c": 1,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-082",
+        "q": "Which footballer captained France to victory in the 1998 FIFA World Cup?",
+        "a": [
+          "Didier Deschamps",
+          "Zinedine Zidane",
+          "Laurent Blanc",
+          "Marcel Desailly"
+        ],
+        "c": 0,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-083",
+        "q": "Which tennis player defeated Serena Williams in the 2016 Australian Open Final?",
+        "a": [
+          "Angelique Kerber",
+          "Naomi Osaka",
+          "Victoria Azarenka",
+          "Caroline Wozniacki"
+        ],
+        "c": 0,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-084",
+        "q": "Which cricketer was the first player to score a triple century in a Day/Night Test?",
+        "a": [
+          "David Warner",
+          "Steve Smith",
+          "Azhar Ali",
+          "Virender Sehwag"
+        ],
+        "c": 0,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-085",
+        "q": "Which basketball player won three consecutive NBA MVP awards from 1984 to 1986?",
+        "a": [
+          "Magic Johnson",
+          "Larry Bird",
+          "Michael Jordan",
+          "Moses Malone"
+        ],
+        "c": 1,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-086",
+        "q": "Who was the first footballer to score in three different FIFA World Cup Finals?",
+        "a": [
+          "Pelé",
+          "Zinedine Zidane",
+          "Kylian Mbappé",
+          "Vavá"
+        ],
+        "c": 0,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-087",
+        "q": "Which golfer became the youngest Masters Tournament champion at age 21?",
+        "a": [
+          "Jordan Spieth",
+          "Rory McIlroy",
+          "Tiger Woods",
+          "Seve Ballesteros"
+        ],
+        "c": 2,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-088",
+        "q": "Which Formula One driver earned the nickname 'The Flying Finn' during the 1990s?",
+        "a": [
+          "Kimi Räikkönen",
+          "Mika Häkkinen",
+          "Keke Rosberg",
+          "Heikki Kovalainen"
+        ],
+        "c": 1,
+        "d": "Hard"
+      },
+      {
+        "id": "sports-players-089",
+        "q": "Which footballer is known as 'La Pulga' (The Flea)?",
+        "a": [
+          "Lionel Messi",
+          "Cristiano Ronaldo",
+          "Neymar",
+          "Kylian Mbappé"
+        ],
+        "c": 0,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-090",
+        "q": "Which NBA legend was known as 'Air Jordan'?",
+        "a": [
+          "LeBron James",
+          "Kobe Bryant",
+          "Michael Jordan",
+          "Shaquille O'Neal"
+        ],
+        "c": 2,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-091",
+        "q": "Which Australian swimmer won eight Olympic gold medals during his career?",
+        "a": [
+          "Grant Hackett",
+          "Ian Thorpe",
+          "Michael Klim",
+          "Michael Phelps"
+        ],
+        "c": 1,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-092",
+        "q": "Which footballer played most of his career wearing the number 7 for Manchester United?",
+        "a": [
+          "David Beckham",
+          "Cristiano Ronaldo",
+          "Wayne Rooney",
+          "Eric Cantona"
+        ],
+        "c": 1,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-093",
+        "q": "Which tennis player is nicknamed 'The Swiss Maestro'?",
+        "a": [
+          "Roger Federer",
+          "Novak Djokovic",
+          "Rafael Nadal",
+          "Andy Murray"
+        ],
+        "c": 0,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-094",
+        "q": "Which boxer was known as 'Iron Mike'?",
+        "a": [
+          "Mike Tyson",
+          "Muhammad Ali",
+          "Evander Holyfield",
+          "Lennox Lewis"
+        ],
+        "c": 0,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-095",
+        "q": "Which golfer has the nickname 'The Golden Bear'?",
+        "a": [
+          "Tiger Woods",
+          "Jack Nicklaus",
+          "Arnold Palmer",
+          "Phil Mickelson"
+        ],
+        "c": 1,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-096",
+        "q": "Which Australian cricketer is nicknamed 'Punter'?",
+        "a": [
+          "Steve Waugh",
+          "Shane Warne",
+          "Ricky Ponting",
+          "Adam Gilchrist"
+        ],
+        "c": 2,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-097",
+        "q": "Which athlete won the men's 100m at the 2008 Beijing Olympics?",
+        "a": [
+          "Justin Gatlin",
+          "Usain Bolt",
+          "Tyson Gay",
+          "Yohan Blake"
+        ],
+        "c": 1,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-098",
+        "q": "Which footballer is famous for the 'Siuuu!' goal celebration?",
+        "a": [
+          "Erling Haaland",
+          "Cristiano Ronaldo",
+          "Lionel Messi",
+          "Neymar"
+        ],
+        "c": 1,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-099",
+        "q": "Which basketball player spent his entire NBA career with the Los Angeles Lakers and wore number 24?",
+        "a": [
+          "Magic Johnson",
+          "Shaquille O'Neal",
+          "Kobe Bryant",
+          "Kareem Abdul-Jabbar"
+        ],
+        "c": 2,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-100",
+        "q": "Which female tennis player is married to Alexis Ohanian?",
+        "a": [
+          "Naomi Osaka",
+          "Serena Williams",
+          "Coco Gauff",
+          "Iga Świątek"
+        ],
+        "c": 1,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-101",
+        "q": "Which cricketer is nicknamed 'The Little Master'?",
+        "a": [
+          "Virat Kohli",
+          "Sunil Gavaskar",
+          "Sachin Tendulkar",
+          "Rahul Dravid"
+        ],
+        "c": 2,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-102",
+        "q": "Which Formula One driver is known as 'The Iceman'?",
+        "a": [
+          "Lewis Hamilton",
+          "Fernando Alonso",
+          "Kimi Räikkönen",
+          "Valtteri Bottas"
+        ],
+        "c": 2,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-103",
+        "q": "Which football legend famously wore the number 10 shirt for Argentina?",
+        "a": [
+          "Pelé",
+          "Ronaldinho",
+          "Diego Maradona",
+          "Zinedine Zidane"
+        ],
+        "c": 2,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-104",
+        "q": "Which tennis player has the nickname 'Djoker'?",
+        "a": [
+          "Roger Federer",
+          "Andy Murray",
+          "Novak Djokovic",
+          "Rafael Nadal"
+        ],
+        "c": 2,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-105",
+        "q": "Which Australian fast bowler was nicknamed 'Binga'?",
+        "a": [
+          "Mitchell Starc",
+          "Brett Lee",
+          "Glenn McGrath",
+          "Pat Cummins"
+        ],
+        "c": 1,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-106",
+        "q": "Which swimmer is widely regarded as the most decorated Olympian of all time?",
+        "a": [
+          "Mark Spitz",
+          "Ian Thorpe",
+          "Michael Phelps",
+          "Ryan Lochte"
+        ],
+        "c": 2,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-107",
+        "q": "Which footballer is nicknamed 'The Egyptian King'?",
+        "a": [
+          "Mohamed Salah",
+          "Riyad Mahrez",
+          "Sadio Mané",
+          "Achraf Hakimi"
+        ],
+        "c": 0,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-108",
+        "q": "Which NBA player is nicknamed 'Greek Freak'?",
+        "a": [
+          "Nikola Jokić",
+          "Giannis Antetokounmpo",
+          "Luka Dončić",
+          "Joel Embiid"
+        ],
+        "c": 1,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-109",
+        "q": "Which Australian wicketkeeper was famous for saying 'C'mon!' behind the stumps?",
+        "a": [
+          "Adam Gilchrist",
+          "Brad Haddin",
+          "Ian Healy",
+          "Alex Carey"
+        ],
+        "c": 0,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-110",
+        "q": "Which footballer is known for playing most of his career at Barcelona alongside Lionel Messi?",
+        "a": [
+          "Xavi Hernández",
+          "Andrés Iniesta",
+          "Sergio Busquets",
+          "Gerard Piqué"
+        ],
+        "c": 0,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-111",
+        "q": "Which rugby player was nicknamed 'The Bus'?",
+        "a": [
+          "Richie McCaw",
+          "Jonah Lomu",
+          "Sonny Bill Williams",
+          "Beauden Barrett"
+        ],
+        "c": 1,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-112",
+        "q": "Which Formula One driver won his first World Championship in 2021?",
+        "a": [
+          "Lewis Hamilton",
+          "Max Verstappen",
+          "Charles Leclerc",
+          "Lando Norris"
+        ],
+        "c": 1,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-113",
+        "q": "Which footballer is Portugal's all-time leading international goalscorer?",
+        "a": [
+          "Luís Figo",
+          "Cristiano Ronaldo",
+          "Eusébio",
+          "Bruno Fernandes"
+        ],
+        "c": 1,
+        "d": "Easy"
+      },
+      {
+        "id": "sports-players-114",
+        "q": "Which footballer won the Ballon d'Or in 2022?",
+        "a": [
+          "Karim Benzema",
+          "Lionel Messi",
+          "Robert Lewandowski",
+          "Kylian Mbappé"
+        ],
+        "c": 0,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-115",
+        "q": "Who was the first Australian to win a Formula One World Championship?",
+        "a": [
+          "Daniel Ricciardo",
+          "Jack Brabham",
+          "Mark Webber",
+          "Oscar Piastri"
+        ],
+        "c": 1,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-116",
+        "q": "Which NBA player is the all-time leader in career assists?",
+        "a": [
+          "Magic Johnson",
+          "Chris Paul",
+          "John Stockton",
+          "Jason Kidd"
+        ],
+        "c": 2,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-117",
+        "q": "Who defeated Serena Williams in the 2018 US Open Final?",
+        "a": [
+          "Simona Halep",
+          "Naomi Osaka",
+          "Ashleigh Barty",
+          "Angelique Kerber"
+        ],
+        "c": 1,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-118",
+        "q": "Which football club did Cristiano Ronaldo join after leaving Real Madrid in 2018?",
+        "a": [
+          "Manchester United",
+          "Juventus",
+          "Al-Nassr",
+          "Sporting CP"
+        ],
+        "c": 1,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-119",
+        "q": "Which Australian cricketer scored the winning runs in the 2015 Cricket World Cup Final?",
+        "a": [
+          "Steve Smith",
+          "Michael Clarke",
+          "James Faulkner",
+          "Glenn Maxwell"
+        ],
+        "c": 1,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-120",
+        "q": "Which tennis player has won the most Wimbledon men's singles titles in the Open Era?",
+        "a": [
+          "Roger Federer",
+          "Pete Sampras",
+          "Novak Djokovic",
+          "Björn Borg"
+        ],
+        "c": 0,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-121",
+        "q": "Which boxer famously defeated Wladimir Klitschko to become heavyweight champion in 2015?",
+        "a": [
+          "Anthony Joshua",
+          "Tyson Fury",
+          "Deontay Wilder",
+          "Oleksandr Usyk"
+        ],
+        "c": 1,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-122",
+        "q": "Which footballer scored the winning penalty in the 2006 FIFA World Cup Final shootout for Italy?",
+        "a": [
+          "Fabio Grosso",
+          "Andrea Pirlo",
+          "Francesco Totti",
+          "Alessandro Del Piero"
+        ],
+        "c": 0,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-123",
+        "q": "Which golfer won the 2013 Masters Tournament?",
+        "a": [
+          "Tiger Woods",
+          "Phil Mickelson",
+          "Adam Scott",
+          "Rory McIlroy"
+        ],
+        "c": 2,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-124",
+        "q": "Who became the youngest player to score 10000 runs in One Day Internationals?",
+        "a": [
+          "Virat Kohli",
+          "Sachin Tendulkar",
+          "Ricky Ponting",
+          "MS Dhoni"
+        ],
+        "c": 0,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-125",
+        "q": "Which Formula One driver won the 2009 World Championship with Brawn GP?",
+        "a": [
+          "Jenson Button",
+          "Sebastian Vettel",
+          "Lewis Hamilton",
+          "Felipe Massa"
+        ],
+        "c": 0,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-126",
+        "q": "Which footballer scored the winning goal in the UEFA Euro 2016 Final?",
+        "a": [
+          "Cristiano Ronaldo",
+          "Éder",
+          "Nani",
+          "Renato Sanches"
+        ],
+        "c": 1,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-127",
+        "q": "Which Australian swimmer won four gold medals at the 2004 Athens Olympics?",
+        "a": [
+          "Grant Hackett",
+          "Michael Klim",
+          "Ian Thorpe",
+          "Petria Thomas"
+        ],
+        "c": 2,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-128",
+        "q": "Which NBA player is known by the nickname 'The Big Fundamental'?",
+        "a": [
+          "Tim Duncan",
+          "Shaquille O'Neal",
+          "Hakeem Olajuwon",
+          "Dirk Nowitzki"
+        ],
+        "c": 0,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-129",
+        "q": "Which tennis player won the 2021 US Open women's singles title?",
+        "a": [
+          "Emma Raducanu",
+          "Leylah Fernandez",
+          "Ashleigh Barty",
+          "Iga Świątek"
+        ],
+        "c": 0,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-130",
+        "q": "Who captained England to victory in the 2019 Cricket World Cup?",
+        "a": [
+          "Joe Root",
+          "Eoin Morgan",
+          "Ben Stokes",
+          "Jos Buttler"
+        ],
+        "c": 1,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-131",
+        "q": "Which footballer won the FIFA World Cup Golden Boot in 2014?",
+        "a": [
+          "Thomas Müller",
+          "James Rodríguez",
+          "Lionel Messi",
+          "Neymar Jr."
+        ],
+        "c": 1,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-132",
+        "q": "Which Formula One driver was nicknamed 'The Professor'?",
+        "a": [
+          "Niki Lauda",
+          "Alain Prost",
+          "Jackie Stewart",
+          "Nigel Mansell"
+        ],
+        "c": 1,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-133",
+        "q": "Which basketball player won the NBA MVP award in both 2021 and 2022?",
+        "a": [
+          "Joel Embiid",
+          "Giannis Antetokounmpo",
+          "Nikola Jokić",
+          "Stephen Curry"
+        ],
+        "c": 2,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-134",
+        "q": "Which football goalkeeper won the Golden Glove at the 2022 FIFA World Cup?",
+        "a": [
+          "Emiliano Martínez",
+          "Dominik Livaković",
+          "Hugo Lloris",
+          "Yassine Bounou"
+        ],
+        "c": 0,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-135",
+        "q": "Which Australian cricketer took a hat-trick in the 2019 Cricket World Cup?",
+        "a": [
+          "Mitchell Starc",
+          "Pat Cummins",
+          "Nathan Lyon",
+          "Jason Behrendorff"
+        ],
+        "c": 0,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-136",
+        "q": "Which tennis player won the 2022 Australian Open men's singles title?",
+        "a": [
+          "Rafael Nadal",
+          "Daniil Medvedev",
+          "Novak Djokovic",
+          "Stefanos Tsitsipas"
+        ],
+        "c": 0,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-137",
+        "q": "Which footballer scored the winning goal in the 1999 UEFA Champions League Final for Manchester United?",
+        "a": [
+          "Ole Gunnar Solskjær",
+          "David Beckham",
+          "Teddy Sheringham",
+          "Ryan Giggs"
+        ],
+        "c": 0,
+        "d": "Medium"
+      },
+      {
+        "id": "sports-players-138",
+        "q": "Which boxer became undisputed heavyweight champion by defeating Tyson Fury in 2024?",
+        "a": [
+          "Oleksandr Usyk",
+          "Anthony Joshua",
+          "Deontay Wilder",
+          "Joseph Parker"
+        ],
+        "c": 0,
+        "d": "Medium"
       }
     ],
     "Sports": [
