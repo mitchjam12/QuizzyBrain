@@ -117,7 +117,8 @@ let state = {
         startTime: null,
         timerVal: 15,
         timerId: null,
-        isDaily: false
+        isDaily: false,
+        isFinished: false
     }
 };
 // ================= NATIVE SYNTHESIZED WEB AUDIO ENGINE =================
@@ -572,7 +573,8 @@ function startDailyQuiz(){
         startTime:Date.now(),
         timerVal:15,
         timerId:null,
-        isDaily:true
+        isDaily:true,
+        isFinished:false
     };
 
 
@@ -682,7 +684,8 @@ function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
         startTime: Date.now(),
         timerVal: 15,
         timerId: null,
-        isDaily: isDaily
+        isDaily: isDaily,
+        isFinished: false
     };
 
     document.getElementById("quiz-category-title").innerText = categoryName;
@@ -698,6 +701,10 @@ function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
 function presentQuestionIndexScenario() {
     const active = state.activeQuiz;
     clearInterval(active.timerId);
+
+    if (active.isFinished) {
+        return;
+    }
 
     if (active.currentIdx >= active.questions.length) {
         terminateQuizPipeline();
@@ -768,6 +775,10 @@ function evaluateUserSelection(selectedId, selectedButtonNode) {
     const active = state.activeQuiz;
     clearInterval(active.timerId);
 
+    if (active.isFinished || active.currentIdx >= active.questions.length) {
+        return;
+    }
+
     const correctId = active.questions[active.currentIdx].c;
     const buttons = document.querySelectorAll(".answer-option-btn");
     
@@ -797,6 +808,10 @@ function evaluateUserSelection(selectedId, selectedButtonNode) {
     // Brief presentation transition gap pause window before proceeding array indexing items
     setTimeout(() => {
         active.currentIdx++;
+        if (active.currentIdx >= active.questions.length) {
+            terminateQuizPipeline();
+            return;
+        }
         presentQuestionIndexScenario();
     }, 1400);
 }
@@ -804,6 +819,12 @@ function evaluateUserSelection(selectedId, selectedButtonNode) {
 // ================= REPORT SUMMARY COMPILATION MANAGEMENT =================
 function terminateQuizPipeline() {
     const active = state.activeQuiz;
+    if (active.isFinished) {
+        return;
+    }
+    active.isFinished = true;
+    clearInterval(active.timerId);
+
     const durationSecs = Math.round((Date.now() - active.startTime) / 1000);
     const accuracyVal = Math.round((active.score / active.questions.length) * 100);
     const avgTimePerQ = (durationSecs / active.questions.length).toFixed(1);
@@ -873,6 +894,10 @@ if (durationSecs < state.userStats.fastestTime) {
     markQuestionsAnswered(active.questions);
     saveProgressToStorage();
     updateDashboardDisplays();
+    renderCategoryGrid(
+        document.getElementById("category-search").value,
+        document.getElementById("difficulty-select").value
+    );
     document.body.classList.remove("quiz-active");
     exitFullscreenMode();
     switchViewSection("results-screen");
