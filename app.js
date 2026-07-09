@@ -62,7 +62,7 @@ const ACHIEVEMENTS_REGISTRY = [
     // Categories
     { id: "collector", title: "🗂️ Collector", desc: "Complete 5 categories.", condition: s => s.completedCats.length >= 5 },
     { id: "well_rounded", title: "🎓 Well Rounded", desc: "Complete 10 categories.", condition: s => s.completedCats.length >= 10 },
-    { id: "completionist", title: "🏆 Completionist", desc: "Complete every category.", condition: s => s.completedCats.length >= TOTAL_CATEGORIES },
+    { id: "completionist", title: "🏆 Completionist", desc: "Complete every category.", condition: s => s.completedCats.length >= getTotalCategoryCount() },
 
     // Category Achievements
     { id: "bookworm", title: "📚 Bookworm", desc: "Complete Books.", condition: s => s.completedCats.includes("Books") },
@@ -658,6 +658,10 @@ function getQuestionPool(categoryName) {
     }
 
     return QUIZ_BANKS[categoryName] || [];
+}
+
+function getTotalCategoryCount() {
+    return Object.keys(CATEGORY_METADATA).length || Object.keys(QUIZ_BANKS).length;
 }
 
 
