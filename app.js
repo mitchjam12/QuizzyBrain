@@ -76,13 +76,15 @@ let state = {
         totalAnswered: 0,
         totalCorrect: 0,
         maxStreak: 0,
+        perfectScores: 0, // NEW: number of quizzes completed with full score
         favCategory: "N/A",
-        fastestTime: Number.MAX_SAFE_INTEGER, // sentinel "no time yet" value (Infinity doesn't survive JSON.stringify -> becomes null)
+        fastestTime: Number.MAX_SAFE_INTEGER,
         completedCats: [],
         catCounts: {},
         unlockedAchievements: [],
         answeredQuestionIds: []
     },
+
     activeQuiz: {
         category: null,
         difficulty: "all",
@@ -97,7 +99,6 @@ let state = {
         isDaily: false
     }
 };
-
 // ================= NATIVE SYNTHESIZED WEB AUDIO ENGINE =================
 const AudioEngine = {
     ctx: null,
