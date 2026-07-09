@@ -1894,7 +1894,784 @@ window.QUIZZYBRAIN_LIBRARY = {
         ],
         "c": 1,
         "d": "Hard"
-      }
+      },
+      {
+    "Sports": [
+        {
+            id: "sports-013",
+            d: "Easy",
+            q: "How many players are on a soccer team on the field at one time?",
+            a: ["9", "10", "11", "12"],
+            c: 2
+        },
+        {
+            id: "sports-014",
+            d: "Easy",
+            q: "Which sport uses a bat and a ball?",
+            a: ["Tennis", "Baseball", "Golf", "Hockey"],
+            c: 1
+        },
+        {
+            id: "sports-015",
+            d: "Easy",
+            q: "What shape is a soccer ball?",
+            a: ["Cube", "Sphere", "Cylinder", "Cone"],
+            c: 1
+        },
+        {
+            id: "sports-016",
+            d: "Easy",
+            q: "In basketball how many points is a free throw worth?",
+            a: ["1", "2", "3", "4"],
+            c: 0
+        },
+        {
+            id: "sports-017",
+            d: "Easy",
+            q: "Which country hosted the 2000 Summer Olympics?",
+            a: ["Australia", "United States", "China", "Brazil"],
+            c: 0
+        },
+        {
+            id: "sports-018",
+            d: "Easy",
+            q: "Which sport is played at Wimbledon?",
+            a: ["Cricket", "Golf", "Tennis", "Rugby"],
+            c: 2
+        },
+        {
+            id: "sports-019",
+            d: "Easy",
+            q: "How many rings are on the Olympic logo?",
+            a: ["4", "5", "6", "7"],
+            c: 1
+        },
+        {
+            id: "sports-020",
+            d: "Easy",
+            q: "Which sport is known as the Beautiful Game?",
+            a: ["Basketball", "Soccer", "Baseball", "Rugby"],
+            c: 1
+        },
+        {
+            id: "sports-021",
+            d: "Easy",
+            q: "What color card usually sends a player off in soccer?",
+            a: ["Blue", "Green", "Yellow", "Red"],
+            c: 3
+        },
+        {
+            id: "sports-022",
+            d: "Easy",
+            q: "What do golfers try to hit into the hole?",
+            a: ["Puck", "Ball", "Stone", "Disc"],
+            c: 1
+        },
+        {
+            id: "sports-023",
+            d: "Easy",
+            q: "Which sport uses a shuttlecock?",
+            a: ["Tennis", "Badminton", "Squash", "Volleyball"],
+            c: 1
+        },
+        {
+            id: "sports-024",
+            d: "Easy",
+            q: "How many points is a touchdown worth in American football?",
+            a: ["3", "5", "6", "7"],
+            c: 2
+        },
+        {
+            id: "sports-025",
+            d: "Easy",
+            q: "Which sport uses a puck?",
+            a: ["Field Hockey", "Ice Hockey", "Lacrosse", "Rugby"],
+            c: 1
+        },
+        {
+            id: "sports-026",
+            d: "Easy",
+            q: "In which sport do players dribble a ball with their hands?",
+            a: ["Soccer", "Basketball", "Volleyball", "Cricket"],
+            c: 1
+        },
+        {
+            id: "sports-027",
+            d: "Easy",
+            q: "Which sport features the Tour de France?",
+            a: ["Running", "Cycling", "Swimming", "Skiing"],
+            c: 1
+        },
+        {
+            id: "sports-028",
+            d: "Easy",
+            q: "Which sport is played on ice with skates and sticks?",
+            a: ["Curling", "Ice Hockey", "Figure Skating", "Speed Skating"],
+            c: 1
+        },
+        {
+            id: "sports-029",
+            d: "Easy",
+            q: "How many holes are played in a standard round of golf?",
+            a: ["9", "12", "18", "24"],
+            c: 2
+        },
+        {
+            id: "sports-030",
+            d: "Easy",
+            q: "Which sport features the Super Bowl?",
+            a: ["Baseball", "Basketball", "American Football", "Soccer"],
+            c: 2
+        },
+        {
+            id: "sports-031",
+            d: "Easy",
+            q: "Which sport is played with a net a racket and a tennis ball?",
+            a: ["Badminton", "Squash", "Tennis", "Table Tennis"],
+            c: 2
+        },
+        {
+            id: "sports-032",
+            d: "Easy",
+            q: "Which country is famous for the martial art judo?",
+            a: ["China", "Japan", "Thailand", "South Korea"],
+            c: 1
+        },
+        {
+            id: "sports-033",
+            d: "Easy",
+            q: "How many players are on a volleyball team on the court?",
+            a: ["5", "6", "7", "8"],
+            c: 1
+        },
+        {
+            id: "sports-034",
+            d: "Easy",
+            q: "Which sport uses clubs and a small white ball?",
+            a: ["Baseball", "Golf", "Cricket", "Hockey"],
+            c: 1
+        },
+        {
+            id: "sports-035",
+            d: "Easy",
+            q: "What is the highest score possible with one dart?",
+            a: ["50", "60", "100", "180"],
+            c: 1
+        },
+        {
+            id: "sports-036",
+            d: "Easy",
+            q: "Which sport is Usain Bolt famous for?",
+            a: ["Swimming", "Athletics", "Cycling", "Boxing"],
+            c: 1
+        },
+        {
+            id: "sports-037",
+            d: "Easy",
+            q: "Which sport is played at the FIFA World Cup?",
+            a: ["Rugby", "Cricket", "Soccer", "Basketball"],
+            c: 2
+        },
+
+        {
+            id: "sports-038",
+            d: "Medium",
+            q: "How many players are on the field for one rugby union team?",
+            a: ["13", "15", "11", "14"],
+            c: 1
+        },
+        {
+            id: "sports-039",
+            d: "Medium",
+            q: "Which country has won the most FIFA Men's World Cup titles?",
+            a: ["Germany", "Argentina", "Italy", "Brazil"],
+            c: 3
+        },
+        {
+            id: "sports-040",
+            d: "Medium",
+            q: "How many sets must a player win in a men's Grand Slam tennis final?",
+            a: ["2", "3", "4", "5"],
+            c: 1
+        },
+        {
+            id: "sports-041",
+            d: "Medium",
+            q: "In basketball how many points is a shot made from beyond the three-point line worth?",
+            a: ["2", "3", "4", "5"],
+            c: 1
+        },
+        {
+            id: "sports-042",
+            d: "Medium",
+            q: "Which country invented the sport of golf?",
+            a: ["England", "Scotland", "Ireland", "Wales"],
+            c: 1
+        },
+      [
+    {
+        id: "sports-043",
+        category: "Sports",
+        difficulty: "Medium",
+        q: "What is the maximum score possible in ten-pin bowling?",
+        a: ["200", "250", "300", "400"],
+        c: 2
+    },
+    {
+        id: "sports-044",
+        category: "Sports",
+        difficulty: "Medium",
+        q: "Which country hosts the Tour de France?",
+        a: ["Italy", "Spain", "Belgium", "France"],
+        c: 3
+    },
+    {
+        id: "sports-045",
+        category: "Sports",
+        difficulty: "Medium",
+        q: "In baseball, how many strikes make an out?",
+        a: ["2", "3", "4", "5"],
+        c: 1
+    },
+    {
+        id: "sports-046",
+        category: "Sports",
+        difficulty: "Medium",
+        q: "Which sport is known as the king of sports worldwide?",
+        a: ["Cricket", "Soccer", "Tennis", "Basketball"],
+        c: 1
+    },
+    {
+        id: "sports-047",
+        category: "Sports",
+        difficulty: "Medium",
+        q: "How many players are on the court for one basketball team at a time?",
+        a: ["4", "5", "6", "7"],
+        c: 1
+    },
+    {
+        id: "sports-048",
+        category: "Sports",
+        difficulty: "Medium",
+        q: "Which swimming stroke is generally considered the fastest?",
+        a: ["Backstroke", "Breaststroke", "Butterfly", "Freestyle"],
+        c: 3
+    },
+    {
+        id: "sports-049",
+        category: "Sports",
+        difficulty: "Medium",
+        q: "Which country hosted the 2016 Summer Olympics?",
+        a: ["China", "Greece", "Brazil", "Japan"],
+        c: 2
+    },
+    {
+        id: "sports-050",
+        category: "Sports",
+        difficulty: "Medium",
+        q: "What color jersey is worn by the leader of the Tour de France?",
+        a: ["Green", "Yellow", "White", "Red"],
+        c: 1
+    },
+    {
+        id: "sports-051",
+        category: "Sports",
+        difficulty: "Medium",
+        q: "How many periods are played in a standard ice hockey game?",
+        a: ["2", "3", "4", "5"],
+        c: 1
+    },
+    {
+        id: "sports-052",
+        category: "Sports",
+        difficulty: "Medium",
+        q: "Which sport awards a birdie for scoring one under par?",
+        a: ["Cricket", "Tennis", "Golf", "Baseball"],
+        c: 2
+    },
+    {
+        id: "sports-053",
+        category: "Sports",
+        difficulty: "Medium",
+        q: "Which country won the 2023 ICC Cricket World Cup?",
+        a: ["India", "Australia", "England", "New Zealand"],
+        c: 1
+    },
+    {
+        id: "sports-054",
+        category: "Sports",
+        difficulty: "Medium",
+        q: "What is the standard distance of a marathon?",
+        a: ["40.2 km", "41.5 km", "42.195 km", "43 km"],
+        c: 2
+    },
+    {
+        id: "sports-055",
+        category: "Sports",
+        difficulty: "Medium",
+        q: "In volleyball, how many touches is a team allowed before returning the ball?",
+        a: ["2", "3", "4", "5"],
+        c: 1
+    },
+    {
+        id: "sports-056",
+        category: "Sports",
+        difficulty: "Medium",
+        q: "Which country hosted the 2022 FIFA World Cup?",
+        a: ["Russia", "Qatar", "United States", "Brazil"],
+        c: 1
+    },
+    {
+        id: "sports-057",
+        category: "Sports",
+        difficulty: "Medium",
+        q: "What is the highest break possible in snooker?",
+        a: ["147", "155", "180", "200"],
+        c: 0
+    },
+    {
+        id: "sports-058",
+        category: "Sports",
+        difficulty: "Medium",
+        q: "How many players are on a standard baseball team on the field?",
+        a: ["8", "9", "10", "11"],
+        c: 1
+    },
+    {
+        id: "sports-059",
+        category: "Sports",
+        difficulty: "Medium",
+        q: "Which Grand Slam tennis tournament is played on clay courts?",
+        a: ["Wimbledon", "US Open", "Australian Open", "French Open"],
+        c: 3
+    },
+    {
+        id: "sports-060",
+        category: "Sports",
+        difficulty: "Medium",
+        q: "How many Olympic rings are on the Olympic logo?",
+        a: ["4", "5", "6", "7"],
+        c: 1
+    },
+        [
+    {
+        id: "sports-061",
+        category: "Sports",
+        difficulty: "Medium",
+        q: "Which sport uses the terms scrum, lineout, and try?",
+        a: ["Soccer", "Rugby", "Hockey", "Baseball"],
+        c: 1
+    },
+    {
+        id: "sports-062",
+        category: "Sports",
+        difficulty: "Medium",
+        q: "Who is known as the fastest man alive after winning multiple Olympic sprint titles?",
+        a: ["Michael Phelps", "Usain Bolt", "Carl Lewis", "Noah Lyles"],
+        c: 1
+    },
+    {
+        id: "sports-063",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "Which country won the first FIFA Men's World Cup in 1930?",
+        a: ["Argentina", "Brazil", "Uruguay", "Italy"],
+        c: 2
+    },
+    {
+        id: "sports-064",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "How many dimples does a modern golf ball typically have?",
+        a: ["212", "336", "392", "500"],
+        c: 1
+    },
+    {
+        id: "sports-065",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "In which year were women first allowed to compete in the modern Olympic Games?",
+        a: ["1896", "1900", "1904", "1908"],
+        c: 1
+    },
+    {
+        id: "sports-066",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "Which tennis player has won the most men's Grand Slam singles titles?",
+        a: ["Roger Federer", "Rafael Nadal", "Novak Djokovic", "Pete Sampras"],
+        c: 2
+    },
+    {
+        id: "sports-067",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "Which country is the only one to have played in every FIFA Men's World Cup?",
+        a: ["Germany", "Italy", "Brazil", "Argentina"],
+        c: 2
+    },
+    {
+        id: "sports-068",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "Which Formula One driver won the 2021 World Drivers' Championship?",
+        a: ["Lewis Hamilton", "Max Verstappen", "Sebastian Vettel", "Fernando Alonso"],
+        c: 1
+    },
+    {
+        id: "sports-069",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "How many players make up a water polo team in the pool at one time?",
+        a: ["6", "7", "8", "9"],
+        c: 1
+    },
+    {
+        id: "sports-070",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "Who was the first athlete to run the men's 100 metres in under 9.8 seconds?",
+        a: ["Tyson Gay", "Usain Bolt", "Maurice Greene", "Asafa Powell"],
+        c: 3
+    },
+    {
+        id: "sports-071",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "Which country has won the most Rugby World Cup titles?",
+        a: ["England", "South Africa", "New Zealand", "Australia"],
+        c: 1
+    },
+    {
+        id: "sports-072",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "Which golfer is nicknamed The Golden Bear?",
+        a: ["Jack Nicklaus", "Arnold Palmer", "Tiger Woods", "Gary Player"],
+        c: 0
+    },
+    {
+        id: "sports-073",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "In snooker, how many points is the black ball worth?",
+        a: ["5", "6", "7", "8"],
+        c: 2
+    },
+    {
+        id: "sports-074",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "Which nation won the inaugural ICC Cricket World Cup in 1975?",
+        a: ["Australia", "England", "West Indies", "India"],
+        c: 2
+    },
+    {
+        id: "sports-075",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "How many events are contested in a men's decathlon?",
+        a: ["8", "9", "10", "12"],
+        c: 2
+    },
+    {
+        id: "sports-076",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "Which Olympic sport combines cross-country skiing and rifle shooting?",
+        a: ["Nordic Combined", "Biathlon", "Ski Jumping", "Curling"],
+        c: 1
+    },
+    {
+        id: "sports-077",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "Who was the first Formula One World Champion?",
+        a: ["Juan Manuel Fangio", "Giuseppe Farina", "Jim Clark", "Jack Brabham"],
+        c: 1
+    },
+    {
+        id: "sports-078",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "Which country hosted the first Commonwealth Games in 1930?",
+        a: ["England", "Australia", "Canada", "New Zealand"],
+        c: 2
+    },
+    {
+        id: "sports-079",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "Which boxer was known as The Greatest?",
+        a: ["Mike Tyson", "Muhammad Ali", "Sugar Ray Leonard", "Joe Frazier"],
+        c: 1
+    },
+    {
+        id: "sports-080",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "In baseball, how many innings are played in a standard game?",
+        a: ["7", "8", "9", "10"],
+        c: 2
+    },
+          [
+    {
+        id: "sports-081",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "Which country has won the most Olympic gold medals in men's basketball?",
+        a: ["Spain", "Soviet Union", "United States", "Yugoslavia"],
+        c: 2
+    },
+    {
+        id: "sports-082",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "Which football club has won the most UEFA Champions League titles?",
+        a: ["Barcelona", "Bayern Munich", "Liverpool", "Real Madrid"],
+        c: 3
+    },
+    {
+        id: "sports-083",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "Which nation won the FIFA Women's World Cup in 2023?",
+        a: ["England", "Spain", "Sweden", "Australia"],
+        c: 1
+    },
+    {
+        id: "sports-084",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "What is the maximum possible break in snooker under standard rules?",
+        a: ["147", "155", "167", "180"],
+        c: 0
+    },
+    {
+        id: "sports-085",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "Who holds the men's marathon world record as of 2025?",
+        a: ["Eliud Kipchoge", "Kelvin Kiptum", "Kenenisa Bekele", "Tamirat Tola"],
+        c: 1
+    },
+    {
+        id: "sports-086",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "Which country has won the most Davis Cup titles?",
+        a: ["Australia", "France", "United States", "Spain"],
+        c: 2
+    },
+    {
+        id: "sports-087",
+        category: "Sports",
+        difficulty: "Hard",
+        q: "What color jersey is awarded to the King of the Mountains leader in the Tour de France?",
+        a: ["Green", "White", "Yellow", "Polka Dot"],
+        c: 3
+    },
+    {
+        id: "sports-088",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "Which golfer won the 1986 Masters Tournament at the age of 46?",
+        a: ["Tom Watson", "Jack Nicklaus", "Greg Norman", "Seve Ballesteros"],
+        c: 1
+    },
+    {
+        id: "sports-089",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "Who scored the Hand of God goal at the 1986 FIFA World Cup?",
+        a: ["Pele", "Diego Maradona", "Johan Cruyff", "Zinedine Zidane"],
+        c: 1
+    },
+    {
+        id: "sports-090",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "Which nation won the first Rugby World Cup in 1987?",
+        a: ["Australia", "England", "New Zealand", "France"],
+        c: 2
+    },
+    {
+        id: "sports-091",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "How many races made up the inaugural Formula One World Championship in 1950?",
+        a: ["5", "6", "7", "8"],
+        c: 2
+    },
+    {
+        id: "sports-092",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "Which country won the first ICC Champions Trophy in 1998?",
+        a: ["South Africa", "Australia", "India", "Pakistan"],
+        c: 0
+    },
+    {
+        id: "sports-093",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "Who was the first tennis player to win a Career Golden Slam in singles?",
+        a: ["Steffi Graf", "Andre Agassi", "Rafael Nadal", "Novak Djokovic"],
+        c: 0
+    },
+    {
+        id: "sports-094",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "Which horse won the 2018 Triple Crown in the United States?",
+        a: ["American Pharoah", "Justify", "Secretariat", "Affirmed"],
+        c: 1
+    },
+    {
+        id: "sports-095",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "Which athlete won four consecutive Olympic gold medals in the men's long jump?",
+        a: ["Jesse Owens", "Carl Lewis", "Bob Beamon", "Mike Powell"],
+        c: 1
+    },
+    {
+        id: "sports-096",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "Which country won the first FIFA Women's World Cup in 1991?",
+        a: ["Germany", "Norway", "United States", "Sweden"],
+        c: 2
+    },
+    {
+        id: "sports-097",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "In which year did the first modern Olympic Games take place?",
+        a: ["1892", "1896", "1900", "1904"],
+        c: 1
+    },
+    {
+        id: "sports-098",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "Which cricketer scored the first double century in men's One Day International cricket?",
+        a: ["Sachin Tendulkar", "Rohit Sharma", "Virender Sehwag", "Ricky Ponting"],
+        c: 0
+    },
+    {
+        id: "sports-099",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "Which football club became the first to win the UEFA Champions League five consecutive times?",
+        a: ["Liverpool", "Real Madrid", "Ajax", "AC Milan"],
+        c: 1
+    },
+    {
+        id: "sports-100",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "Which nation has appeared in every Rugby World Cup tournament?",
+        a: ["England", "Australia", "New Zealand", "South Africa"],
+        c: 2
+    },
+            [
+    {
+        id: "sports-101",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "Which Formula One circuit hosts the Monaco Grand Prix?",
+        a: ["Monza", "Silverstone", "Circuit de Monaco", "Spa-Francorchamps"],
+        c: 2
+    },
+    {
+        id: "sports-102",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "Who was the youngest men's Wimbledon singles champion in the Open Era?",
+        a: ["Boris Becker", "Bjorn Borg", "Carlos Alcaraz", "Rafael Nadal"],
+        c: 0
+    },
+    {
+        id: "sports-103",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "Which nation won the first FIFA Confederations Cup in 1992?",
+        a: ["Argentina", "Saudi Arabia", "Denmark", "Brazil"],
+        c: 0
+    },
+    {
+        id: "sports-104",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "What is the maximum number of clubs a golfer may carry during a round under the Rules of Golf?",
+        a: ["12", "13", "14", "15"],
+        c: 2
+    },
+    {
+        id: "sports-105",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "Which country won the first Cricket World Cup played in England in 1975?",
+        a: ["Australia", "England", "West Indies", "India"],
+        c: 2
+    },
+    {
+        id: "sports-106",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "Who became the first athlete to win Olympic gold medals in both the 100m and 200m at three consecutive Olympics?",
+        a: ["Carl Lewis", "Usain Bolt", "Michael Johnson", "Noah Lyles"],
+        c: 1
+    },
+    {
+        id: "sports-107",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "Which nation has won the most Olympic gold medals in men's field hockey?",
+        a: ["Australia", "Pakistan", "India", "Netherlands"],
+        c: 2
+    },
+    {
+        id: "sports-108",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "Which boxer retired with a professional record of 50 wins and 0 losses?",
+        a: ["Muhammad Ali", "Floyd Mayweather Jr.", "Rocky Marciano", "Mike Tyson"],
+        c: 1
+    },
+    {
+        id: "sports-109",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "Which country hosted the first FIFA Men's World Cup?",
+        a: ["Brazil", "Italy", "Uruguay", "France"],
+        c: 2
+    },
+    {
+        id: "sports-110",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "Who holds the men's pole vault world record as of 2025?",
+        a: ["Armand Duplantis", "Renaud Lavillenie", "Sam Kendricks", "Thiago Braz"],
+        c: 0
+    },
+    {
+        id: "sports-111",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "Which nation won the first Davis Cup in 1900?",
+        a: ["Great Britain", "United States", "France", "Australia"],
+        c: 1
+    },
+    {
+        id: "sports-112",
+        category: "Sports",
+        difficulty: "Expert",
+        q: "Which football club is nicknamed The Old Lady?",
+        a: ["AC Milan", "Inter Milan", "Juventus", "Roma"],
+        c: 2
+    },
     ],
     "Food": [
       {
