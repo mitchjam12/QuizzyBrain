@@ -183,13 +183,33 @@ function getUnansweredQuestionPool(categoryName) {
     return getQuestionPool(categoryName).filter(question => !answered.has(question.id));
 }
 
+function shuffleQuestions(questions) {
+    const shuffled = [...questions];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
+
+function buildQuestionSelection(categoryName, difficultyMode = "all") {
+    const freshQuestions = getUnansweredQuestionPool(categoryName);
+
+    if (difficultyMode === "all") {
+        return shuffleQuestions(freshQuestions).slice(0, 12);
+    }
+
+    const preferred = freshQuestions.filter(question => question.d === difficultyMode);
+    const fillers = freshQuestions.filter(question => question.d !== difficultyMode);
+    return [
+        ...shuffleQuestions(preferred),
+        ...shuffleQuestions(fillers)
+    ].slice(0, 12);
+}
+
 function getAvailableCategoryNames(difficultyMode = "all") {
     return Object.keys(QUIZ_BANKS).filter(categoryName => {
-        let questions = getUnansweredQuestionPool(categoryName);
-        if (difficultyMode !== "all") {
-            questions = questions.filter(question => question.d === difficultyMode);
-        }
-        return questions.length >= 12;
+        return buildQuestionSelection(categoryName, difficultyMode).length >= 12;
     });
 }
 
@@ -253,11 +273,8 @@ function renderCategoryGrid(filterTerm = "", diffFilter = "all") {
             return;
         }
 
-        // Difficulty filter optimization strategy execution check
-        let questionsGroup = getUnansweredQuestionPool(catName);
-        if (diffFilter !== "all") {
-            questionsGroup = questionsGroup.filter(q => q.d === diffFilter);
-        }
+        const questionsGroup = buildQuestionSelection(catName, diffFilter);
+        const freshCount = getUnansweredQuestionPool(catName).length;
         
         // Hide categories that cannot offer a full fresh quiz.
         if (questionsGroup.length < 12) return;
@@ -273,7 +290,7 @@ function renderCategoryGrid(filterTerm = "", diffFilter = "all") {
             <h3>${catName}</h3>
             <p>${meta.desc}</p>
             <div class="cat-meta-footer">
-                <span>📋 ${questionsGroup.length} fresh Qs</span>
+                <span>📋 ${freshCount} fresh Qs</span>
                 <span>⚡ ${diffFilter === 'all' ? 'Mixed' : diffFilter}</span>
                 <span>⏱️ ${meta.time}</span>
             </div>
@@ -341,23 +358,41 @@ function seededRandom(seed) {
     return Math.sin(x) * 10000 % 1;
 }
 
+function dailyQuestionScore(seed, question) {
+    return seededRandom(`${seed}-${question.id || question.q}`);
+}
+
+function seededQuestionSort(seed, questions) {
+    return [...questions].sort((a, b) => dailyQuestionScore(seed, a) - dailyQuestionScore(seed, b));
+}
 
 function generateDailyChallenge() {
 
     const seed = getDailySeed();
+    const categoryNames = Object.keys(QUIZ_BANKS);
+    const selected = [];
+    const selectedIds = new Set();
 
-    let allQuestions = [];
-
-    Object.keys(QUIZ_BANKS).forEach(categoryName => {
-        const category = getUnansweredQuestionPool(categoryName);
-        allQuestions.push(...category);
+    seededQuestionSort(seed, categoryNames.map(name => ({ id: name, q: name }))).forEach(categoryRef => {
+        const categoryQuestions = seededQuestionSort(seed, getUnansweredQuestionPool(categoryRef.id));
+        if (categoryQuestions.length === 0 || selected.length >= 12) return;
+        selected.push(categoryQuestions[0]);
+        selectedIds.add(categoryQuestions[0].id);
     });
 
+    const remainingQuestions = [];
+    categoryNames.forEach(categoryName => {
+        getUnansweredQuestionPool(categoryName).forEach(question => {
+            if (!selectedIds.has(question.id)) remainingQuestions.push(question);
+        });
+    });
 
-    allQuestions.sort(() => seededRandom(seed));
+    seededQuestionSort(seed, remainingQuestions).forEach(question => {
+        if (selected.length >= 12) return;
+        selected.push(question);
+    });
 
-
-    return allQuestions.slice(0,12);
+    return selected.slice(0, 12);
 }
 // ================= DAILY CHALLENGE CONFIG MODULES =================
 function initDailyChallengeEngine() {
@@ -427,6 +462,15 @@ function setupCoreEventListeners() {
         );
         switchViewSection("home-screen");
     });
+    document.getElementById("res-btn-retry").addEventListener("click", () => {
+        AudioEngine.play("click");
+        const previousQuiz = state.activeQuiz;
+        if (previousQuiz.isDaily) {
+            startDailyQuiz();
+            return;
+        }
+        initQuizEngine(previousQuiz.category, previousQuiz.difficulty);
+    });
     document.getElementById("res-btn-random").addEventListener("click", () => {
         AudioEngine.play("click");
         const keys = getAvailableCategoryNames("all");
@@ -480,8 +524,6 @@ function startDailyQuiz(){
         timerId:null,
         isDaily:true
     };
-
-    markQuestionsAnswered(dailyQuestions);
 
 
     document.getElementById("quiz-category-title").innerText =
@@ -568,17 +610,9 @@ function getQuestionPool(categoryName) {
 
 
 function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
+    const selectedQuestions = buildQuestionSelection(categoryName, difficultyMode);
 
-    let sourcePool = [
-        ...getUnansweredQuestionPool(categoryName)
-    ];
-
-    if (difficultyMode !== "all") {
-        const filtered = sourcePool.filter(q => q.d === difficultyMode);
-        sourcePool = filtered;
-    }
-
-    if (sourcePool.length < 12) {
+    if (selectedQuestions.length < 12) {
         alert(`Not enough fresh questions are available for ${categoryName}.`);
         renderCategoryGrid(
             document.getElementById("category-search").value,
@@ -587,16 +621,10 @@ function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
         return;
     }
 
-    // Fisher-Yates shuffle
-    for (let i = sourcePool.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [sourcePool[i], sourcePool[j]] = [sourcePool[j], sourcePool[i]];
-    }
-
     state.activeQuiz = {
         category: categoryName,
         difficulty: difficultyMode,
-        questions: sourcePool.slice(0, 12),
+        questions: selectedQuestions,
         currentIdx: 0,
         score: 0,
         streak: 0,
@@ -606,8 +634,6 @@ function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
         timerId: null,
         isDaily: isDaily
     };
-
-    markQuestionsAnswered(state.activeQuiz.questions);
 
     document.getElementById("quiz-category-title").innerText = categoryName;
     document.getElementById("quiz-difficulty-title").innerText =
@@ -784,6 +810,7 @@ function terminateQuizPipeline() {
         }
     });
 
+    markQuestionsAnswered(active.questions);
     saveProgressToStorage();
     updateDashboardDisplays();
     document.body.classList.remove("quiz-active");
