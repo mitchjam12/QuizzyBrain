@@ -30,43 +30,56 @@ function loadQuestionLibrary() {
 
 // Achievement Definition Bank
 const ACHIEVEMENTS_REGISTRY = [
+    // Games Played
     { id: "first_quiz", title: "🏆 First Quiz", desc: "Complete any quiz category.", condition: s => s.gamesPlayed >= 1 },
-    { id: "perfect_score", title: "⭐ Perfect Score", desc: "Get 12/12 on any quiz.", condition: s => s.maxStreak >= 12 },
-    { id: "speed_demon", title: "⚡ Speed Demon", desc: "Finish a quiz in under 30 seconds.", condition: s => s.fastestTime < 30 },
-    { id: "bookworm", title: "📚 Bookworm", desc: "Complete the Books category.", condition: s => s.completedCats.includes("Books") },
-    { id: "gamer", title: "🎮 Gamer", desc: "Complete the Video Games category.", condition: s => s.completedCats.includes("Video Games") },
-    { id: "explorer", title: "🌍 Explorer", desc: "Complete the Countries category.", condition: s => s.completedCats.includes("Countries") },
-    { id: "food_expert", title: "🍕 Food Expert", desc: "Complete the Food category.", condition: s => s.completedCats.includes("Food") },
-    { id: "emoji_genius", title: "😂 Emoji Genius", desc: "Complete the Emoji Quiz category.", condition: s => s.completedCats.includes("Emoji Quiz") },
-    { id: "quiz_champ", title: "🏅 Quiz Champion", desc: "Answer 100 total questions correctly.", condition: s => s.totalCorrect >= 100 },
-    { id: "quiz_rookie", title: "🎯 Quiz Rookie", desc: "Answer 50 questions correctly.", condition: s => s.totalCorrect >= 50 },
-    { id: "quiz_master", title: "👑 Quiz Master", desc: "Answer 500 questions correctly.", condition: s => s.totalCorrect >= 500 },
-    { id: "legend", title: "🌟 Quiz Legend", desc: "Answer 1,000 questions correctly.", condition: s => s.totalCorrect >= 1000 },
     { id: "regular_player", title: "🎲 Regular Player", desc: "Complete 10 quizzes.", condition: s => s.gamesPlayed >= 10 },
     { id: "quiz_addict", title: "🔥 Quiz Addict", desc: "Complete 50 quizzes.", condition: s => s.gamesPlayed >= 50 },
     { id: "marathon", title: "🏃 Marathon", desc: "Complete 100 quizzes.", condition: s => s.gamesPlayed >= 100 },
-    { id: "sharpshooter", title: "🎯 Sharpshooter", desc: "Score at least 10/12 on any quiz.", condition: s => s.bestScore >= 10 },
-    { id: "ace", title: "💯 Ace", desc: "Score at least 11/12 on any quiz.", condition: s => s.bestScore >= 11 },
-    { id: "hot_streak", title: "🔥 Hot Streak", desc: "Answer 25 questions correctly in a row.", condition: s => s.maxStreak >= 25 },
-    { id: "unstoppable", title: "🚀 Unstoppable", desc: "Answer 50 questions correctly in a row.", condition: s => s.maxStreak >= 50 },
-    { id: "lightning", title: "⚡ Lightning Fast", desc: "Finish a quiz in under 20 seconds.", condition: s => s.fastestTime < 20 },
-    { id: "flash", title: "💨 The Flash", desc: "Finish a quiz in under 15 seconds.", condition: s => s.fastestTime < 15 },
-    { id: "collector", title: "🗂️ Collector", desc: "Complete 5 different quiz categories.", condition: s => s.completedCats.length >= 5 },
-    { id: "well_rounded", title: "🎓 Well Rounded", desc: "Complete 10 different quiz categories.", condition: s => s.completedCats.length >= 10 },
-    { id: "completionist", title: "🏆 Completionist", desc: "Complete every quiz category.", condition: s => s.completedCats.length >= TOTAL_CATEGORIES },
-    { id: "double_perfect", title: "✨ Double Perfect", desc: "Earn two perfect scores in a row.", condition: s => s.perfectStreak >= 2 },
-    { id: "perfectionist", title: "💎 Perfectionist", desc: "Earn five perfect scores.", condition: s => s.perfectScores >= 5 },
-    { id: "daily_player", title: "📅 Daily Player", desc: "Play quizzes on 7 different days.", condition: s => s.daysPlayed >= 7 },
-    { id: "weekly_warrior", title: "🗓️ Weekly Warrior", desc: "Play quizzes on 30 different days.", condition: s => s.daysPlayed >= 30 },
-    { id: "comeback", title: "💪 Comeback Kid", desc: "Miss the first 2 questions and still score 10/12.", condition: s => s.comebacks >= 1 },
-    { id: "night_owl", title: "🦉 Night Owl", desc: "Complete a quiz after midnight.", condition: s => s.nightQuizzes >= 1 },
-    { id: "early_bird", title: "🌅 Early Bird", desc: "Complete a quiz before 6 AM.", condition: s => s.earlyQuizzes >= 1 },
-    { id: "sports_fan", title: "🏅 Sports Fan", desc: "Complete the Sports category.", condition: s => s.completedCats.includes("Sports") },
-    { id: "sports_legend", title: "⚽ Sports Legend", desc: "Complete the Sports Players category.", condition: s => s.completedCats.includes("Sports Players") },
-    { id: "movie_buff", title: "🎬 Movie Buff", desc: "Complete the Movie Characters category.", condition: s => s.completedCats.includes("Movie Characters") },
-    { id: "strategist", title: "♟️ Strategist", desc: "Complete the Board Games category.", condition: s => s.completedCats.includes("Board Games") },
-    { id: "brainiac", title: "🧠 Brainiac", desc: "Complete the Brain Teasers category.", condition: s => s.completedCats.includes("Brain Teasers") },
-    { id: "aussie_expert", title: "🇦🇺 Aussie Expert", desc: "Complete all Australian categories.", condition: s => ["Australian Geography","Australian Wildlife","Aussie Slang","AFL Trivia"].every(cat => s.completedCats.includes(cat)) }
+
+    // Correct Answers
+    { id: "quiz_rookie", title: "🎯 Quiz Rookie", desc: "Answer 50 questions correctly.", condition: s => s.totalCorrect >= 50 },
+    { id: "quiz_champ", title: "🏅 Quiz Champion", desc: "Answer 100 questions correctly.", condition: s => s.totalCorrect >= 100 },
+    { id: "quiz_master", title: "👑 Quiz Master", desc: "Answer 500 questions correctly.", condition: s => s.totalCorrect >= 500 },
+    { id: "legend", title: "🌟 Quiz Legend", desc: "Answer 1,000 questions correctly.", condition: s => s.totalCorrect >= 1000 },
+
+    // Streaks
+    { id: "hot_streak", title: "🔥 Hot Streak", desc: "Get a 25 question streak.", condition: s => s.maxStreak >= 25 },
+    { id: "unstoppable", title: "🚀 Unstoppable", desc: "Get a 50 question streak.", condition: s => s.maxStreak >= 50 },
+    { id: "streak_legend", title: "💫 Streak Legend", desc: "Get a 100 question streak.", condition: s => s.maxStreak >= 100 },
+
+    // Perfect Scores
+    { id: "perfect_score", title: "⭐ Perfect Score", desc: "Earn your first perfect quiz score.", condition: s => s.perfectScores >= 1 },
+    { id: "perfectionist", title: "💎 Perfectionist", desc: "Earn 5 perfect quiz scores.", condition: s => s.perfectScores >= 5 },
+    { id: "gold_standard", title: "🥇 Gold Standard", desc: "Earn 10 perfect quiz scores.", condition: s => s.perfectScores >= 10 },
+    { id: "flawless", title: "✨ Flawless", desc: "Earn 25 perfect quiz scores.", condition: s => s.perfectScores >= 25 },
+    { id: "quiz_god", title: "👑 Quiz God", desc: "Earn 50 perfect quiz scores.", condition: s => s.perfectScores >= 50 },
+
+    // Speed
+    { id: "speed_demon", title: "⚡ Speed Demon", desc: "Finish a quiz under 30 seconds.", condition: s => s.fastestTime < 30 },
+    { id: "lightning", title: "⚡ Lightning Fast", desc: "Finish a quiz under 20 seconds.", condition: s => s.fastestTime < 20 },
+    { id: "flash", title: "💨 The Flash", desc: "Finish a quiz under 15 seconds.", condition: s => s.fastestTime < 15 },
+
+    // Categories
+    { id: "collector", title: "🗂️ Collector", desc: "Complete 5 categories.", condition: s => s.completedCats.length >= 5 },
+    { id: "well_rounded", title: "🎓 Well Rounded", desc: "Complete 10 categories.", condition: s => s.completedCats.length >= 10 },
+    { id: "completionist", title: "🏆 Completionist", desc: "Complete every category.", condition: s => s.completedCats.length >= TOTAL_CATEGORIES },
+
+    // Category Achievements
+    { id: "bookworm", title: "📚 Bookworm", desc: "Complete Books.", condition: s => s.completedCats.includes("Books") },
+    { id: "gamer", title: "🎮 Gamer", desc: "Complete Video Games.", condition: s => s.completedCats.includes("Video Games") },
+    { id: "explorer", title: "🌍 Explorer", desc: "Complete Countries.", condition: s => s.completedCats.includes("Countries") },
+    { id: "food_expert", title: "🍕 Food Expert", desc: "Complete Food.", condition: s => s.completedCats.includes("Food") },
+    { id: "emoji_genius", title: "😂 Emoji Genius", desc: "Complete Emoji Quiz.", condition: s => s.completedCats.includes("Emoji Quiz") },
+    { id: "sports_fan", title: "🏅 Sports Fan", desc: "Complete Sports.", condition: s => s.completedCats.includes("Sports") },
+    { id: "sports_legend", title: "⚽ Sports Legend", desc: "Complete Sports Players.", condition: s => s.completedCats.includes("Sports Players") },
+    { id: "movie_buff", title: "🎬 Movie Buff", desc: "Complete Movie Characters.", condition: s => s.completedCats.includes("Movie Characters") },
+    { id: "strategist", title: "♟️ Strategist", desc: "Complete Board Games.", condition: s => s.completedCats.includes("Board Games") },
+    { id: "brainiac", title: "🧠 Brainiac", desc: "Complete Brain Teasers.", condition: s => s.completedCats.includes("Brain Teasers") },
+    { id: "aussie_expert", title: "🇦🇺 Aussie Expert", desc: "Complete all Australian categories.", condition: s =>
+        ["Australian Geography","Australian Wildlife","Aussie Slang","AFL Trivia"]
+        .every(cat => s.completedCats.includes(cat))
+    }
+];
 ];
 
 // ================= GLOBAL APPLICATION STATE =================
@@ -97,6 +110,12 @@ let state = {
         timerVal: 15,
         timerId: null,
         isDaily: false
+        if (state.activeQuiz.score === state.activeQuiz.questions.length) {
+    state.userStats.perfectScores++;
+}
+if (!state.userStats.perfectScores) {
+    state.userStats.perfectScores = 0;
+}
     }
 };
 // ================= NATIVE SYNTHESIZED WEB AUDIO ENGINE =================
