@@ -76,20 +76,28 @@ const ACHIEVEMENTS_REGISTRY = [
     { id: "strategist", title: "♟️ Strategist", desc: "Complete Board Games.", condition: s => s.completedCats.includes("Board Games") },
     { id: "brainiac", title: "🧠 Brainiac", desc: "Complete Brain Teasers.", condition: s => s.completedCats.includes("Brain Teasers") },
     { id: "aussie_expert", title: "🇦🇺 Aussie Expert", desc: "Complete all Australian categories.", condition: s =>
-        ["Australian Geography","Australian Wildlife","Aussie Slang","AFL Trivia"]
-        .every(cat => s.completedCats.includes(cat))
+        [
+            "Australian Geography",
+            "Australian Wildlife",
+            "Aussie Slang",
+            "AFL Trivia"
+        ].every(cat => s.completedCats.includes(cat))
     }
 ];
-];
+
 
 // ================= GLOBAL APPLICATION STATE =================
+
 let state = {
     userStats: {
         gamesPlayed: 0,
         totalAnswered: 0,
         totalCorrect: 0,
         maxStreak: 0,
-        perfectScores: 0, // NEW: number of quizzes completed with full score
+
+        // NEW: Tracks number of perfect quizzes completed
+        perfectScores: 0,
+
         favCategory: "N/A",
         fastestTime: Number.MAX_SAFE_INTEGER,
         completedCats: [],
@@ -110,12 +118,6 @@ let state = {
         timerVal: 15,
         timerId: null,
         isDaily: false
-        if (state.activeQuiz.score === state.activeQuiz.questions.length) {
-    state.userStats.perfectScores++;
-}
-if (!state.userStats.perfectScores) {
-    state.userStats.perfectScores = 0;
-}
     }
 };
 // ================= NATIVE SYNTHESIZED WEB AUDIO ENGINE =================
