@@ -149,106 +149,106 @@ sports-009,Sports,Easy,Which international cycling race features a 'Yellow Jerse
 sports-010,Sports,Hard,What is the only sport to have been played on the Moon?,Golf,Tennis,Baseball,Frisbee,A
 sports-011,Sports,Medium,How high is a regulation NBA basketball hoop?,9 feet,10 feet,11 feet,12 feet,B
 sports-012,Sports,Hard,"In Rugby Union how many points is a basic 'Try' worth before conversion?",4,5,6,7,B
-sports-013,easy,How many players are on a soccer team on the field at one time?,9,10,11,12,C
-sports-014,easy,Which sport uses a bat and a ball?,Tennis,Baseball,Golf,Hockey,B
-sports-015,easy,What shape is a soccer ball?,Cube,Sphere,Cylinder,Cone,B
-sports-016,easy,In basketball how many points is a free throw worth?,1,2,3,4,A
-sports-017,easy,Which country hosted the 2000 Summer Olympics?,Australia,United States,China,Brazil,A
-sports-018,easy,Which sport is played at Wimbledon?,Cricket,Golf,Tennis,Rugby,C
-sports-019,easy,How many rings are on the Olympic logo?,4,5,6,7,B
-sports-020,easy,Which sport is known as the beautiful game?,Basketball,Soccer,Baseball,Rugby,B
-sports-021,easy,What color card usually sends a player off in soccer?,Blue,Green,Yellow,Red,D
-sports-022,easy,What do golfers try to hit into the hole?,Puck,Ball,Stone,Disc,B
-sports-023,easy,Which sport uses a shuttlecock?,Tennis,Badminton,Squash,Volleyball,B
-sports-024,easy,How many points is a touchdown worth in American football?,3,5,6,7,C
-sports-025,easy,Which sport uses a puck?,Field Hockey,Ice Hockey,Lacrosse,Rugby,B
-sports-026,easy,In which sport do players dribble a ball with their hands?,Soccer,Basketball,Volleyball,Cricket,B
-sports-027,easy,Which sport features the Tour de France?,Running,Cycling,Swimming,Skiing,B
-sports-028,easy,Which sport is played on ice with skates and sticks?,Curling,Ice Hockey,Figure Skating,Speed Skating,B
-sports-029,easy,How many holes are played in a standard round of golf?,9,12,18,24,C
-sports-030,easy,Which sport features the Super Bowl?,Baseball,Basketball,American Football,Soccer,C
-sports-031,easy,Which sport is played with a net a racket and a tennis ball?,Badminton,Squash,Tennis,Table Tennis,C
-sports-032,easy,Which country is famous for the martial art judo?,China,Japan,Thailand,South Korea,B
-sports-033,easy,How many players are on a volleyball team on the court?,5,6,7,8,B
-sports-034,easy,Which sport uses clubs and a small white ball?,Baseball,Golf,Cricket,Hockey,B
-sports-035,easy,What is the highest score possible with one dart?,50,60,100,180,B
-sports-036,easy,Which sport is Usain Bolt famous for?,Swimming,Athletics,Cycling,Boxing,B
-sports-037,easy,Which sport is played at the FIFA World Cup?,Rugby,Cricket,Soccer,Basketball,C
-sports-038,medium,How many players are on the field for one rugby union team?,13,15,11,14,B
-sports-039,medium,Which country has won the most FIFA Men's World Cup titles?,Germany,Argentina,Italy,Brazil,D
-sports-040,medium,How many sets must a player win in a men's Grand Slam tennis final?,2,3,4,5,B
-sports-041,medium,In basketball how many points is a shot made from beyond the three-point line worth?,2,3,4,5,B
-sports-042,medium,Which country invented the sport of golf?,England,Scotland,Ireland,Wales,B
-sports-043,medium,What is the maximum score possible in ten-pin bowling?,200,250,300,400,C
-sports-044,medium,Which country hosts the Tour de France?,Italy,Spain,Belgium,France,D
-sports-045,medium,In baseball how many strikes make an out?,2,3,4,5,B
-sports-046,medium,Which sport is known as the 'king of sports' worldwide?,Cricket,Soccer,Tennis,Basketball,B
-sports-047,medium,How many players are on the court for one basketball team at a time?,4,5,6,7,B
-sports-048,medium,Which swimming stroke is generally considered the fastest?,Backstroke,Breaststroke,Butterfly,Freestyle,D
-sports-049,medium,Which country hosted the 2016 Summer Olympics?,China,Greece,Brazil,Japan,C
-sports-050,medium,What color jersey is worn by the leader of the Tour de France?,Green,Yellow,White,Red,B
-sports-051,medium,How many periods are played in a standard ice hockey game?,2,3,4,5,B
-sports-052,medium,Which sport awards a 'birdie' for scoring one under par?,Cricket,Tennis,Golf,Baseball,C
-sports-053,medium,Which country won the 2023 ICC Cricket World Cup?,India,Australia,England,New Zealand,B
-sports-054,medium,What is the standard distance of a marathon?,40.2 km,41.5 km,42.195 km,43 km,C
-sports-055,medium,In volleyball how many touches is a team allowed before returning the ball?,2,3,4,5,B
-sports-056,medium,Which country hosted the 2022 FIFA World Cup?,Russia,Qatar,United States,Brazil,B
-sports-057,medium,What is the highest break possible in snooker?,147,155,180,200,A
-sports-058,medium,How many players are on a standard baseball team on the field?,8,9,10,11,B
-sports-059,medium,Which Grand Slam tennis tournament is played on clay courts?,Wimbledon,US Open,Australian Open,French Open,D
-sports-060,medium,How many Olympic rings are blue yellow black green and red together?,4,5,6,7,B
-sports-061,medium,Which sport uses the terms scrum lineout and try?,Soccer,Rugby,Hockey,Baseball,B
-sports-062,medium,Who is known as 'The Fastest Man Alive' after winning multiple Olympic sprint titles?,Michael Phelps,Usain Bolt,Carl Lewis,Noah Lyles,B
-sports-063,hard,Which country won the first FIFA Men's World Cup in 1930?,Argentina,Brazil,Uruguay,Italy,C
-sports-064,hard,How many dimples does a modern golf ball typically have?,212,336,392,500,C
-sports-065,hard,In which year were women first allowed to compete in the modern Olympic Games?,1896,1900,1904,1908,B
-sports-066,hard,Which tennis player has won the most men's Grand Slam singles titles?,Roger Federer,Rafael Nadal,Novak Djokovic,Pete Sampras,C
-sports-067,hard,What is the only country to have played in every FIFA Men's World Cup?,Germany,Italy,Brazil,Argentina,C
-sports-068,hard,Which Formula One driver won the 2021 World Drivers' Championship?,Lewis Hamilton,Max Verstappen,Sebastian Vettel,Fernando Alonso,B
-sports-069,hard,How many players make up a water polo team in the pool at one time?,6,7,8,9,B
-sports-070,hard,Who was the first athlete to run the men's 100 metres in under 9.8 seconds?,Tyson Gay,Usain Bolt,Maurice Greene,Asafa Powell,D
-sports-071,hard,Which country has won the most Rugby World Cup titles?,England,South Africa,New Zealand,Australia,B
-sports-072,hard,Which golfer is nicknamed 'The Golden Bear'?,Jack Nicklaus,Arnold Palmer,Tiger Woods,Gary Player,A
-sports-073,hard,In snooker how many points is the black ball worth?,5,6,7,8,C
-sports-074,hard,Which nation won the inaugural ICC Cricket World Cup in 1975?,Australia,England,West Indies,India,C
-sports-075,hard,How many events are contested in a men's decathlon?,8,9,10,12,C
-sports-076,hard,Which Olympic sport combines cross-country skiing and rifle shooting?,Nordic Combined,Biathlon,Ski Jumping,Curling,B
-sports-077,hard,Who was the first Formula One World Champion?,Juan Manuel Fangio,Giuseppe Farina,Jim Clark,Jack Brabham,B
-sports-078,hard,Which country hosted the first Commonwealth Games in 1930?,England,Australia,Canada,New Zealand,C
-sports-079,hard,Which boxer was known as 'The Greatest'?,Mike Tyson,Muhammad Ali,Sugar Ray Leonard,Joe Frazier,B
-sports-080,hard,In baseball how many innings are played in a standard game?,7,8,9,10,C
-sports-081,hard,Which country has won the most Olympic gold medals in men's basketball?,Spain,Soviet Union,United States,Yugoslavia,C
-sports-082,hard,Which football club has won the most UEFA Champions League titles?,Barcelona,Bayern Munich,Liverpool,Real Madrid,D
-sports-083,hard,Which nation won the FIFA Women's World Cup in 2023?,England,Spain,Sweden,Australia,B
-sports-084,hard,What is the maximum possible break in snooker under standard rules?,147,155,167,180,A
-sports-085,hard,Who holds the men's world record for the marathon as of 2025?,Eliud Kipchoge,Kelvin Kiptum,Kenenisa Bekele,Tamirat Tola,B
-sports-086,hard,Which country has won the most Davis Cup titles?,Australia,France,United States,Spain,C
-sports-087,hard,In cycling what color jersey is awarded to the King of the Mountains leader in the Tour de France?,Green,White,Yellow,Polka Dot,D
-sports-088,expert,Which golfer won the 1986 Masters Tournament at the age of 46?,Tom Watson,Jack Nicklaus,Greg Norman,Seve Ballesteros,B
-sports-089,expert,Who scored the 'Hand of God' goal at the 1986 FIFA World Cup?,Pelé,Diego Maradona,Johan Cruyff,Zinedine Zidane,B
-sports-090,expert,Which nation won the very first Rugby World Cup in 1987?,Australia,England,New Zealand,France,C
-sports-091,expert,How many races made up the inaugural Formula One World Championship in 1950?,5,6,7,8,C
-sports-092,expert,Which country won the first ICC Champions Trophy in 1998?,South Africa,Australia,India,Pakistan,A
-sports-093,expert,Who was the first tennis player to win a Career Golden Slam in singles?,Steffi Graf,Andre Agassi,Rafael Nadal,Novak Djokovic,A
-sports-094,expert,Which horse won the 2018 Triple Crown in the United States?,American Pharoah,Justify,Secretariat,Affirmed,B
-sports-095,expert,Which athlete won four consecutive Olympic gold medals in the men's long jump?,Jesse Owens,Carl Lewis,Bob Beamon,Mike Powell,B
-sports-096,expert,Which country won the first FIFA Women's World Cup in 1991?,Germany,Norway,United States,Sweden,C
-sports-097,expert,In which year did the first modern Olympic Games take place?,1892,1896,1900,1904,B
-sports-098,expert,Which cricketer scored the first ever double century in a men's One Day International?,Sachin Tendulkar,Rohit Sharma,Virender Sehwag,Ricky Ponting,A
-sports-099,expert,Which football club became the first to win the UEFA Champions League five consecutive times?,Liverpool,Real Madrid,Ajax,AC Milan,B
-sports-100,expert,Which country has appeared in every Rugby World Cup tournament?,England,Australia,New Zealand,South Africa,C
-sports-101,expert,Which Formula One circuit hosts the Monaco Grand Prix?,Monza,Silverstone,Circuit de Monaco,Spa-Francorchamps,C
-sports-102,expert,Who was the youngest men's Wimbledon singles champion in the Open Era?,Boris Becker,Björn Borg,Carlos Alcaraz,Rafael Nadal,A
-sports-103,expert,Which nation won the first ever FIFA Confederations Cup in 1992?,Argentina,Saudi Arabia,Denmark,Brazil,A
-sports-104,expert,What is the maximum number of clubs a golfer may carry during a round under the Rules of Golf?,12,13,14,15,C
-sports-105,expert,Which country won the first Cricket World Cup played in England in 1975?,Australia,England,West Indies,India,C
-sports-106,expert,Who became the first athlete to win Olympic gold medals in both the 100 m and 200 m at three consecutive Olympics?,Carl Lewis,Usain Bolt,Michael Johnson,Noah Lyles,B
-sports-107,expert,Which nation has won the most Olympic gold medals in field hockey (men's tournament)?,Australia,Pakistan,India,Netherlands,C
-sports-108,expert,Which boxer retired with a professional record of 50 wins and 0 losses?,Muhammad Ali,Floyd Mayweather Jr.,Rocky Marciano,Mike Tyson,B
-sports-109,expert,Which country hosted the first FIFA Men's World Cup?,Brazil,Italy,Uruguay,France,C
-sports-110,expert,Who holds the men's pole vault world record as of 2025?,Armand Duplantis,Renaud Lavillenie,Sam Kendricks,Thiago Braz,A
-sports-111,expert,Which nation won the first Davis Cup in 1900?,Great Britain,United States,France,Australia,B
-sports-112,expert,Which football club is nicknamed 'The Old Lady'?,AC Milan,Inter Milan,Juventus,Roma,C
+sports-013,Sports,Easy,How many players are on a soccer team on the field at one time?,9,10,11,12,C
+sports-014,Sports,Easy,Which sport uses a bat and a ball?,Tennis,Baseball,Golf,Hockey,B
+sports-015,Sports,Easy,What shape is a soccer ball?,Cube,Sphere,Cylinder,Cone,B
+sports-016,Sports,Easy,In basketball how many points is a free throw worth?,1,2,3,4,A
+sports-017,Sports,Easy,Which country hosted the 2000 Summer Olympics?,Australia,United States,China,Brazil,A
+sports-018,Sports,Easy,Which sport is played at Wimbledon?,Cricket,Golf,Tennis,Rugby,C
+sports-019,Sports,Easy,How many rings are on the Olympic logo?,4,5,6,7,B
+sports-020,Sports,Easy,Which sport is known as the Beautiful Game?,Basketball,Soccer,Baseball,Rugby,B
+sports-021,Sports,Easy,What color card usually sends a player off in soccer?,Blue,Green,Yellow,Red,D
+sports-022,Sports,Easy,What do golfers try to hit into the hole?,Puck,Ball,Stone,Disc,B
+sports-023,Sports,Easy,Which sport uses a shuttlecock?,Tennis,Badminton,Squash,Volleyball,B
+sports-024,Sports,Easy,How many points is a touchdown worth in American football?,3,5,6,7,C
+sports-025,Sports,Easy,Which sport uses a puck?,Field Hockey,Ice Hockey,Lacrosse,Rugby,B
+sports-026,Sports,Easy,In which sport do players dribble a ball with their hands?,Soccer,Basketball,Volleyball,Cricket,B
+sports-027,Sports,Easy,Which sport features the Tour de France?,Running,Cycling,Swimming,Skiing,B
+sports-028,Sports,Easy,Which sport is played on ice with skates and sticks?,Curling,Ice Hockey,Figure Skating,Speed Skating,B
+sports-029,Sports,Easy,How many holes are played in a standard round of golf?,9,12,18,24,C
+sports-030,Sports,Easy,Which sport features the Super Bowl?,Baseball,Basketball,American Football,Soccer,C
+sports-031,Sports,Easy,Which sport is played with a net, a racket and a tennis ball?,Badminton,Squash,Tennis,Table Tennis,C
+sports-032,Sports,Easy,Which country is famous for the martial art judo?,China,Japan,Thailand,South Korea,B
+sports-033,Sports,Easy,How many players are on a volleyball team on the court?,5,6,7,8,B
+sports-034,Sports,Easy,Which sport uses clubs and a small white ball?,Baseball,Golf,Cricket,Hockey,B
+sports-035,Sports,Easy,What is the highest score possible with one dart?,50,60,100,180,B
+sports-036,Sports,Easy,Which sport is Usain Bolt famous for?,Swimming,Athletics,Cycling,Boxing,B
+sports-037,Sports,Easy,Which sport is played at the FIFA World Cup?,Rugby,Cricket,Soccer,Basketball,C
+sports-038,Sports,Medium,How many players are on the field for one rugby union team?,13,15,11,14,B
+sports-039,Sports,Medium,Which country has won the most FIFA Men's World Cup titles?,Germany,Argentina,Italy,Brazil,D
+sports-040,Sports,Medium,How many sets must a player win in a men's Grand Slam tennis final?,2,3,4,5,B
+sports-041,Sports,Medium,In basketball how many points is a shot made from beyond the three-point line worth?,2,3,4,5,B
+sports-042,Sports,Medium,Which country invented the sport of golf?,England,Scotland,Ireland,Wales,B
+sports-043,Sports,Medium,What is the maximum score possible in ten-pin bowling?,200,250,300,400,C
+sports-044,Sports,Medium,Which country hosts the Tour de France?,Italy,Spain,Belgium,France,D
+sports-045,Sports,Medium,In baseball how many strikes make an out?,2,3,4,5,B
+sports-046,Sports,Medium,Which sport is known as the king of sports worldwide?,Cricket,Soccer,Tennis,Basketball,B
+sports-047,Sports,Medium,How many players are on the court for one basketball team at a time?,4,5,6,7,B
+sports-048,Sports,Medium,Which swimming stroke is generally considered the fastest?,Backstroke,Breaststroke,Butterfly,Freestyle,D
+sports-049,Sports,Medium,Which country hosted the 2016 Summer Olympics?,China,Greece,Brazil,Japan,C
+sports-050,Sports,Medium,What color jersey is worn by the leader of the Tour de France?,Green,Yellow,White,Red,B
+sports-051,Sports,Medium,How many periods are played in a standard ice hockey game?,2,3,4,5,B
+sports-052,Sports,Medium,Which sport awards a birdie for scoring one under par?,Cricket,Tennis,Golf,Baseball,C
+sports-053,Sports,Medium,Which country won the 2023 ICC Cricket World Cup?,India,Australia,England,New Zealand,B
+sports-054,Sports,Medium,What is the standard distance of a marathon?,40.2 km,41.5 km,42.195 km,43 km,C
+sports-055,Sports,Medium,In volleyball how many touches is a team allowed before returning the ball?,2,3,4,5,B
+sports-056,Sports,Medium,Which country hosted the 2022 FIFA World Cup?,Russia,Qatar,United States,Brazil,B
+sports-057,Sports,Medium,What is the highest break possible in snooker?,147,155,180,200,A
+sports-058,Sports,Medium,How many players are on a standard baseball team on the field?,8,9,10,11,B
+sports-059,Sports,Medium,Which Grand Slam tennis tournament is played on clay courts?,Wimbledon,US Open,Australian Open,French Open,D
+sports-060,Sports,Medium,How many Olympic rings are blue yellow black green and red together?,4,5,6,7,B
+sports-061,Sports,Medium,Which sport uses the terms scrum lineout and try?,Soccer,Rugby,Hockey,Baseball,B
+sports-062,Sports,Medium,Who is known as the fastest man alive after winning multiple Olympic sprint titles?,Michael Phelps,Usain Bolt,Carl Lewis,Noah Lyles,B
+sports-063,Sports,Hard,Which country won the first FIFA Men's World Cup in 1930?,Argentina,Brazil,Uruguay,Italy,C
+sports-064,Sports,Hard,How many dimples does a modern golf ball typically have?,212,336,392,500,B
+sports-065,Sports,Hard,In which year were women first allowed to compete in the modern Olympic Games?,1896,1900,1904,1908,B
+sports-066,Sports,Hard,Which tennis player has won the most men's Grand Slam singles titles?,Roger Federer,Rafael Nadal,Novak Djokovic,Pete Sampras,C
+sports-067,Sports,Hard,What is the only country to have played in every FIFA Men's World Cup?,Germany,Italy,Brazil,Argentina,C
+sports-068,Sports,Hard,Which Formula One driver won the 2021 World Drivers' Championship?,Lewis Hamilton,Max Verstappen,Sebastian Vettel,Fernando Alonso,B
+sports-069,Sports,Hard,How many players make up a water polo team in the pool at one time?,6,7,8,9,B
+sports-070,Sports,Hard,Who was the first athlete to run the men's 100 metres in under 9.8 seconds?,Tyson Gay,Usain Bolt,Maurice Greene,Asafa Powell,D
+sports-071,Sports,Hard,Which country has won the most Rugby World Cup titles?,England,South Africa,New Zealand,Australia,B
+sports-072,Sports,Hard,Which golfer is nicknamed The Golden Bear?,Jack Nicklaus,Arnold Palmer,Tiger Woods,Gary Player,A
+sports-073,Sports,Hard,In snooker how many points is the black ball worth?,5,6,7,8,C
+sports-074,Sports,Hard,Which nation won the inaugural ICC Cricket World Cup in 1975?,Australia,England,West Indies,India,C
+sports-075,Sports,Hard,How many events are contested in a men's decathlon?,8,9,10,12,C
+sports-076,Sports,Hard,Which Olympic sport combines cross-country skiing and rifle shooting?,Nordic Combined,Biathlon,Ski Jumping,Curling,B
+sports-077,Sports,Hard,Who was the first Formula One World Champion?,Juan Manuel Fangio,Giuseppe Farina,Jim Clark,Jack Brabham,B
+sports-078,Sports,Hard,Which country hosted the first Commonwealth Games in 1930?,England,Australia,Canada,New Zealand,C
+sports-079,Sports,Hard,Which boxer was known as The Greatest?,Mike Tyson,Muhammad Ali,Sugar Ray Leonard,Joe Frazier,B
+sports-080,Sports,Hard,In baseball how many innings are played in a standard game?,7,8,9,10,C
+sports-081,Sports,Hard,Which country has won the most Olympic gold medals in men's basketball?,Spain,Soviet Union,United States,Yugoslavia,C
+sports-082,Sports,Hard,Which football club has won the most UEFA Champions League titles?,Barcelona,Bayern Munich,Liverpool,Real Madrid,D
+sports-083,Sports,Hard,Which nation won the FIFA Women's World Cup in 2023?,England,Spain,Sweden,Australia,B
+sports-084,Sports,Hard,What is the maximum possible break in snooker under standard rules?,147,155,167,180,A
+sports-085,Sports,Hard,Who holds the men's world record for the marathon as of 2025?,Eliud Kipchoge,Kelvin Kiptum,Kenenisa Bekele,Tamirat Tola,B
+sports-086,Sports,Hard,Which country has won the most Davis Cup titles?,Australia,France,United States,Spain,C
+sports-087,Sports,Hard,In cycling what color jersey is awarded to the King of the Mountains leader in the Tour de France?,Green,White,Yellow,Polka Dot,D
+sports-088,Sports,Expert,Which golfer won the 1986 Masters Tournament at the age of 46?,Tom Watson,Jack Nicklaus,Greg Norman,Seve Ballesteros,B
+sports-089,Sports,Expert,Who scored the Hand of God goal at the 1986 FIFA World Cup?,Pele,Diego Maradona,Johan Cruyff,Zinedine Zidane,B
+sports-090,Sports,Expert,Which nation won the very first Rugby World Cup in 1987?,Australia,England,New Zealand,France,C
+sports-091,Sports,Expert,How many races made up the inaugural Formula One World Championship in 1950?,5,6,7,8,C
+sports-092,Sports,Expert,Which country won the first ICC Champions Trophy in 1998?,South Africa,Australia,India,Pakistan,A
+sports-093,Sports,Expert,Who was the first tennis player to win a Career Golden Slam in singles?,Steffi Graf,Andre Agassi,Rafael Nadal,Novak Djokovic,A
+sports-094,Sports,Expert,Which horse won the 2018 Triple Crown in the United States?,American Pharoah,Justify,Secretariat,Affirmed,B
+sports-095,Sports,Expert,Which athlete won four consecutive Olympic gold medals in the men's long jump?,Jesse Owens,Carl Lewis,Bob Beamon,Mike Powell,B
+sports-096,Sports,Expert,Which country won the first FIFA Women's World Cup in 1991?,Germany,Norway,United States,Sweden,C
+sports-097,Sports,Expert,In which year did the first modern Olympic Games take place?,1892,1896,1900,1904,B
+sports-098,Sports,Expert,Which cricketer scored the first ever double century in a men's One Day International?,Sachin Tendulkar,Rohit Sharma,Virender Sehwag,Ricky Ponting,A
+sports-099,Sports,Expert,Which football club became the first to win the UEFA Champions League five consecutive times?,Liverpool,Real Madrid,Ajax,AC Milan,B
+sports-100,Sports,Expert,Which country has appeared in every Rugby World Cup tournament?,England,Australia,New Zealand,South Africa,C
+sports-101,Sports,Expert,Which Formula One circuit hosts the Monaco Grand Prix?,Monza,Silverstone,Circuit de Monaco,Spa-Francorchamps,C
+sports-102,Sports,Expert,Who was the youngest men's Wimbledon singles champion in the Open Era?,Boris Becker,Bjorn Borg,Carlos Alcaraz,Rafael Nadal,A
+sports-103,Sports,Expert,Which nation won the first FIFA Confederations Cup in 1992?,Argentina,Saudi Arabia,Denmark,Brazil,A
+sports-104,Sports,Expert,What is the maximum number of clubs a golfer may carry during a round under the Rules of Golf?,12,13,14,15,C
+sports-105,Sports,Expert,Which country won the first Cricket World Cup played in England in 1975?,Australia,England,West Indies,India,C
+sports-106,Sports,Expert,Who became the first athlete to win Olympic gold medals in both the 100m and 200m at three consecutive Olympics?,Carl Lewis,Usain Bolt,Michael Johnson,Noah Lyles,B
+sports-107,Sports,Expert,Which nation has won the most Olympic gold medals in men's field hockey?,Australia,Pakistan,India,Netherlands,C
+sports-108,Sports,Expert,Which boxer retired with a professional record of 50 wins and 0 losses?,Muhammad Ali,Floyd Mayweather Jr.,Rocky Marciano,Mike Tyson,B
+sports-109,Sports,Expert,Which country hosted the first FIFA Men's World Cup?,Brazil,Italy,Uruguay,France,C
+sports-110,Sports,Expert,Who holds the men's pole vault world record as of 2025?,Armand Duplantis,Renaud Lavillenie,Sam Kendricks,Thiago Braz,A
+sports-111,Sports,Expert,Which nation won the first Davis Cup in 1900?,Great Britain,United States,France,Australia,B
+sports-112,Sports,Expert,Which football club is nicknamed The Old Lady?,AC Milan,Inter Milan,Juventus,Roma,C
 food-001,Food,Easy,What is the main aromatic herb used to make classic pesto sauce?,Parsley,Basil,Oregano,Mint,B
 food-002,Food,Medium,Which country is the global origin place of French Fries?,France,Belgium,USA,Germany,B
 food-003,Food,Easy,What primary leavening agent causes bread dough to rise?,Baking Soda,Baking Powder,Yeast,Cream of Tartar,C
