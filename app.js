@@ -364,17 +364,18 @@ function buildQuestionSelection(categoryName, difficultyMode = "all") {
         return shuffleQuestions(freshQuestions).slice(0, 12);
     }
 
-    const preferred = freshQuestions.filter(question => question.d === difficultyMode);
-    const fillers = freshQuestions.filter(question => question.d !== difficultyMode);
-    return [
-        ...shuffleQuestions(preferred),
-        ...shuffleQuestions(fillers)
-    ].slice(0, 12);
+    return shuffleQuestions(freshQuestions.filter(question => question.d === difficultyMode)).slice(0, 12);
+}
+
+function getFreshQuestionCount(categoryName, difficultyMode = "all") {
+    const freshQuestions = getUnansweredQuestionPool(categoryName);
+    if (difficultyMode === "all") return freshQuestions.length;
+    return freshQuestions.filter(question => question.d === difficultyMode).length;
 }
 
 function getAvailableCategoryNames(difficultyMode = "all") {
     return Object.keys(QUIZ_BANKS).filter(categoryName => {
-        return buildQuestionSelection(categoryName, difficultyMode).length >= 12;
+        return getFreshQuestionCount(categoryName, difficultyMode) >= 12;
     });
 }
 
@@ -438,11 +439,10 @@ function renderCategoryGrid(filterTerm = "", diffFilter = "all") {
             return;
         }
 
-        const questionsGroup = buildQuestionSelection(catName, diffFilter);
-        const freshCount = getUnansweredQuestionPool(catName).length;
+        const freshCount = getFreshQuestionCount(catName, diffFilter);
         
         // Hide categories that cannot offer a full fresh quiz.
-        if (questionsGroup.length < 12) return;
+        if (freshCount < 12) return;
 
         const card = document.createElement("div");
         card.className = "glass-panel category-card";
@@ -475,6 +475,74 @@ function renderCategoryGrid(filterTerm = "", diffFilter = "all") {
     }
 }
 
+function getAnsweredQuestionsByCategory() {
+    const answered = getAnsweredQuestionSet();
+    const grouped = {};
+
+    Object.keys(QUIZ_BANKS).forEach(categoryName => {
+        getQuestionPool(categoryName).forEach(question => {
+            if (!answered.has(question.id)) return;
+            grouped[categoryName] = grouped[categoryName] || [];
+            grouped[categoryName].push(question);
+        });
+    });
+
+    return grouped;
+}
+
+function renderCompletedQuestions() {
+    const container = document.getElementById("completed-questions-container");
+    const countBadge = document.getElementById("completed-question-count");
+    if (!container || !countBadge) return;
+
+    const grouped = getAnsweredQuestionsByCategory();
+    const categoryNames = Object.keys(grouped).sort();
+    const total = categoryNames.reduce((sum, categoryName) => sum + grouped[categoryName].length, 0);
+    countBadge.innerText = `${total} done`;
+    container.innerHTML = "";
+
+    if (total === 0) {
+        container.innerHTML = `<p class="grid-empty-state-text">Completed quiz questions will appear here after a quiz is finished.</p>`;
+        return;
+    }
+
+    categoryNames.forEach(categoryName => {
+        const group = document.createElement("details");
+        group.className = "completed-category";
+        group.open = true;
+        group.innerHTML = `
+            <summary>
+                <span>${categoryName}</span>
+                <strong>${grouped[categoryName].length}</strong>
+            </summary>
+            <div class="completed-question-items"></div>
+        `;
+
+        const items = group.querySelector(".completed-question-items");
+        grouped[categoryName]
+            .sort((a, b) => a.q.localeCompare(b.q))
+            .forEach(question => {
+                const item = document.createElement("article");
+                item.className = "completed-question-card";
+
+                const questionText = document.createElement("p");
+                questionText.className = "completed-question-text";
+                questionText.innerText = question.q;
+
+                const answerText = document.createElement("p");
+                answerText.className = "completed-answer-text";
+                const answerLabel = document.createElement("span");
+                answerLabel.innerText = "Answer";
+                answerText.append(answerLabel, ` ${question.a[question.c]}`);
+
+                item.append(questionText, answerText);
+                items.appendChild(item);
+            });
+
+        container.appendChild(group);
+    });
+}
+
 function updateDashboardDisplays() {
     // Stats Matrix Render
     document.getElementById("stat-games").innerText = state.userStats.gamesPlayed;
@@ -499,6 +567,7 @@ function updateDashboardDisplays() {
         `;
         achContainer.appendChild(achNode);
     });
+    renderCompletedQuestions();
 }
 // ================= DAILY CHALLENGE GENERATOR =================
 
@@ -584,8 +653,16 @@ function setupCoreEventListeners() {
     // Top Hero Scroller
     document.getElementById("btn-start-exploring").addEventListener("click", () => {
         AudioEngine.play("click");
+        setActiveHomeTab("play-panel");
         document.getElementById("category-search").scrollIntoView({ behavior: 'smooth' });
         document.getElementById("category-search").focus();
+    });
+
+    document.querySelectorAll(".home-tab").forEach(tab => {
+        tab.addEventListener("click", () => {
+            AudioEngine.play("click");
+            setActiveHomeTab(tab.dataset.tabTarget);
+        });
     });
 
     // Search input framework
@@ -611,6 +688,7 @@ function setupCoreEventListeners() {
             document.getElementById("category-search").value,
             document.getElementById("difficulty-select").value
         );
+        setActiveHomeTab("play-panel");
         switchViewSection("home-screen");
     });
 
@@ -625,6 +703,7 @@ function setupCoreEventListeners() {
             document.getElementById("category-search").value,
             document.getElementById("difficulty-select").value
         );
+        setActiveHomeTab("play-panel");
         switchViewSection("home-screen");
     });
     document.getElementById("res-btn-retry").addEventListener("click", () => {
@@ -640,6 +719,7 @@ function setupCoreEventListeners() {
         AudioEngine.play("click");
         const keys = getAvailableCategoryNames("all");
         if (keys.length === 0) {
+            setActiveHomeTab("play-panel");
             switchViewSection("home-screen");
             renderCategoryGrid();
             return;
@@ -651,6 +731,7 @@ function setupCoreEventListeners() {
         AudioEngine.play("click");
         const keys = getAvailableCategoryNames("all");
         if (keys.length === 0) {
+            setActiveHomeTab("play-panel");
             switchViewSection("home-screen");
             renderCategoryGrid();
             return;
@@ -660,6 +741,25 @@ function setupCoreEventListeners() {
         initQuizEngine(keys[nextIdx], "all");
     });
 }
+
+function setActiveHomeTab(targetId) {
+    document.querySelectorAll(".home-tab").forEach(tab => {
+        const isActive = tab.dataset.tabTarget === targetId;
+        tab.classList.toggle("active", isActive);
+        tab.setAttribute("aria-selected", String(isActive));
+    });
+
+    document.querySelectorAll(".home-tab-panel").forEach(panel => {
+        const isActive = panel.id === targetId;
+        panel.classList.toggle("active", isActive);
+        panel.hidden = !isActive;
+    });
+
+    if (targetId === "completed-panel") {
+        renderCompletedQuestions();
+    }
+}
+
 function startDailyQuiz(){
 
     const dailyQuestions = generateDailyChallenge();
