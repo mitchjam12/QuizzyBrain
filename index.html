@@ -126,20 +126,40 @@
                 </div>
             </section>
 
-            <section class="search-navigation-bar">
+            <nav class="home-tabs" aria-label="QuizzyBrain sections">
+                <button class="home-tab active" type="button" data-tab-target="play-panel" aria-controls="play-panel" aria-selected="true">Play</button>
+                <button class="home-tab" type="button" data-tab-target="completed-panel" aria-controls="completed-panel" aria-selected="false">Completed Questions</button>
+                <button class="home-tab" type="button" data-tab-target="achievements-panel" aria-controls="achievements-panel" aria-selected="false">Achievements</button>
+            </nav>
+
+            <section id="play-panel" class="home-tab-panel active">
+            <div class="search-navigation-bar">
                 <div class="search-wrapper">
                     <span class="search-icon">🔍</span>
                     <input type="text" id="category-search" placeholder="Search quiz categories or topics..." aria-label="Search quiz categories">
                 </div>
-            </section>
+            </div>
 
             <section class="categories-section">
                 <h2>Browse Categories</h2>
                 <div id="categories-grid" class="categories-grid">
                     </div>
             </section>
+            </section>
 
-            <section class="analytics-section">
+            <section id="completed-panel" class="home-tab-panel" hidden>
+                <div class="section-heading-row">
+                    <div>
+                        <h2>Completed Questions</h2>
+                        <p>Questions answered on this computer, grouped by category.</p>
+                    </div>
+                    <span id="completed-question-count" class="badge badge-alt">0 done</span>
+                </div>
+                <div id="completed-questions-container" class="completed-questions-list"></div>
+            </section>
+
+            <section id="achievements-panel" class="home-tab-panel" hidden>
+            <div class="analytics-section">
                 <div class="glass-panel stats-panel">
                     <h3>📊 Lifetime Statistics</h3>
                     <div class="stats-grid">
@@ -150,11 +170,12 @@
                     </div>
                 </div>
 
-                <div class="glass-panel achievements-panel">
+                <div class="glass-panel achievements-card">
                     <h3>🏆 Unlocked Achievements</h3>
                     <div id="achievements-container" class="achievements-list">
                         </div>
                 </div>
+            </div>
             </section>
 
             <footer class="site-footer">
