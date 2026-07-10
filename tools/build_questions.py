@@ -10,8 +10,6 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 CATEGORIES_PATH = DATA_DIR / "categories.json"
 CSV_PATH = DATA_DIR / "questions.csv"
-JSON_PATH = DATA_DIR / "questions.json"
-JS_PATH = DATA_DIR / "question-library.js"
 
 DIFFICULTIES = {"Easy", "Medium", "Hard", "Expert"}
 CORRECT_OPTIONS = {"A": 0, "B": 1, "C": 2, "D": 3}
@@ -135,19 +133,6 @@ def read_questions(category_names):
     return questions
 
 
-def group_questions(questions):
-    grouped = {}
-    for question in questions:
-        grouped.setdefault(question["category"], []).append({
-            "id": question["id"],
-            "q": question["question"],
-            "a": question["options"],
-            "c": question["correctIndex"],
-            "d": question["difficulty"],
-        })
-    return grouped
-
-
 def validate_category_totals(categories, questions):
     totals = {category["name"]: 0 for category in categories}
     for question in questions:
@@ -170,28 +155,9 @@ def main():
     category_names = {category["name"] for category in categories}
     questions = read_questions(category_names)
     validate_category_totals(categories, questions)
-    grouped = group_questions(questions)
-
-    DATA_DIR.mkdir(exist_ok=True)
-    JSON_PATH.write_text(
-        json.dumps(questions, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
-
-    payload = {
-        "categories": categories,
-        "questionBanks": grouped,
-    }
-    JS_PATH.write_text(
-        "window.QUIZZYBRAIN_LIBRARY = "
-        + json.dumps(payload, ensure_ascii=False, indent=2)
-        + ";\n",
-        encoding="utf-8",
-    )
 
     print(f"Validated {len(questions)} questions across {len(categories)} categories.")
-    print(f"Wrote {JSON_PATH.relative_to(ROOT)}")
-    print(f"Wrote {JS_PATH.relative_to(ROOT)}")
+    print("No generated question files were written. The app reads data/questions.csv directly.")
 
 
 if __name__ == "__main__":

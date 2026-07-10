@@ -6,6 +6,19 @@
 let QUIZ_BANKS = {};
 let CATEGORY_METADATA = {};
 
+const QUESTION_COLUMNS = [
+    "id",
+    "category",
+    "difficulty",
+    "question",
+    "option_a",
+    "option_b",
+    "option_c",
+    "option_d",
+    "correct_option"
+];
+const CORRECT_OPTION_INDEX = { A: 0, B: 1, C: 2, D: 3 };
+
 function normalizeCategoryMetadata(categories) {
     return categories.reduce((metadata, category) => {
         metadata[category.name] = {
@@ -17,15 +30,111 @@ function normalizeCategoryMetadata(categories) {
     }, {});
 }
 
-function loadQuestionLibrary() {
-    const library = window.QUIZZYBRAIN_LIBRARY;
+function parseCsvRows(csvText) {
+    const rows = [];
+    let row = [];
+    let cell = "";
+    let inQuotes = false;
 
-    if (!library || !library.questionBanks || !Array.isArray(library.categories)) {
-        throw new Error("Question library failed to load. Rebuild data/question-library.js from data/questions.csv.");
+    for (let i = 0; i < csvText.length; i++) {
+        const char = csvText[i];
+        const next = csvText[i + 1];
+
+        if (char === '"' && inQuotes && next === '"') {
+            cell += '"';
+            i++;
+        } else if (char === '"') {
+            inQuotes = !inQuotes;
+        } else if (char === "," && !inQuotes) {
+            row.push(cell);
+            cell = "";
+        } else if ((char === "\n" || char === "\r") && !inQuotes) {
+            if (char === "\r" && next === "\n") i++;
+            row.push(cell);
+            if (row.some(value => value.trim())) rows.push(row);
+            row = [];
+            cell = "";
+        } else {
+            cell += char;
+        }
     }
 
-    QUIZ_BANKS = library.questionBanks;
-    CATEGORY_METADATA = normalizeCategoryMetadata(library.categories);
+    row.push(cell);
+    if (row.some(value => value.trim())) rows.push(row);
+    return rows;
+}
+
+function slugifyQuestionId(value) {
+    return value.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "question";
+}
+
+function generatedQuestionId(category, question, options) {
+    const source = [category, question, ...options].join("|");
+    let hash = 0;
+    for (let i = 0; i < source.length; i++) {
+        hash = ((hash << 5) - hash + source.charCodeAt(i)) | 0;
+    }
+    return `${slugifyQuestionId(category)}-${Math.abs(hash).toString(36)}`;
+}
+
+function csvRowsToQuestions(csvText, categoryNames) {
+    const rows = parseCsvRows(csvText);
+    if (rows.length < 2) return {};
+
+    const headers = rows[0].map(header => header.trim().replace(/^\uFEFF/, ""));
+    const missing = QUESTION_COLUMNS.filter(column => !headers.includes(column));
+    if (missing.length) {
+        throw new Error(`questions.csv is missing columns: ${missing.join(", ")}`);
+    }
+
+    const seenIds = new Set();
+    return rows.slice(1).reduce((grouped, values, index) => {
+        const row = headers.reduce((record, header, headerIndex) => {
+            record[header] = (values[headerIndex] || "").trim();
+            return record;
+        }, {});
+
+        const category = row.category;
+        const options = [row.option_a, row.option_b, row.option_c, row.option_d];
+        const correctOption = row.correct_option.toUpperCase();
+        const id = row.id || generatedQuestionId(category, row.question, options);
+        const rowNumber = index + 2;
+
+        if (!categoryNames.has(category)) throw new Error(`questions.csv row ${rowNumber}: unknown category "${category}"`);
+        if (!row.question) throw new Error(`questions.csv row ${rowNumber}: question is blank`);
+        if (options.some(option => !option)) throw new Error(`questions.csv row ${rowNumber}: all four options are required`);
+        if (!Object.prototype.hasOwnProperty.call(CORRECT_OPTION_INDEX, correctOption)) {
+            throw new Error(`questions.csv row ${rowNumber}: correct_option must be A, B, C, or D`);
+        }
+        if (seenIds.has(id)) throw new Error(`questions.csv row ${rowNumber}: duplicate id "${id}"`);
+
+        seenIds.add(id);
+        grouped[category] = grouped[category] || [];
+        grouped[category].push({
+            id,
+            q: row.question,
+            a: options,
+            c: CORRECT_OPTION_INDEX[correctOption],
+            d: row.difficulty
+        });
+        return grouped;
+    }, {});
+}
+
+async function loadQuestionLibrary() {
+    const [categoriesResponse, questionsResponse] = await Promise.all([
+        fetch("data/categories.json"),
+        fetch("data/questions.csv")
+    ]);
+
+    if (!categoriesResponse.ok) throw new Error("Could not load data/categories.json.");
+    if (!questionsResponse.ok) throw new Error("Could not load data/questions.csv.");
+
+    const categories = await categoriesResponse.json();
+    const categoryNames = new Set(categories.map(category => category.name));
+
+    QUIZ_BANKS = csvRowsToQuestions(await questionsResponse.text(), categoryNames);
+    CATEGORY_METADATA = normalizeCategoryMetadata(categories);
 }
 
 // Achievement Definition Bank
@@ -171,20 +280,25 @@ init() {
 };
 
 // ================= APPLICATION CORE ENGINE INITS =================
-document.addEventListener("DOMContentLoaded", () => {
-    const steps = [
-        loadProgressFromStorage,
-        renderParticleBackground,
-        loadQuestionLibrary,
-        renderCategoryGrid,
-        setupCoreEventListeners,
-        updateDashboardDisplays,
-        initDailyChallengeEngine
-    ];
-    steps.forEach(step => {
-        try { step(); } catch (e) { console.error(`QuizzyBrain startup step "${step.name}" failed:`, e); }
-    });
-});
+document.addEventListener("DOMContentLoaded", initializeApplication);
+
+async function initializeApplication() {
+    try {
+        loadProgressFromStorage();
+        renderParticleBackground();
+        await loadQuestionLibrary();
+        renderCategoryGrid();
+        setupCoreEventListeners();
+        updateDashboardDisplays();
+        initDailyChallengeEngine();
+    } catch (e) {
+        console.error("QuizzyBrain startup failed:", e);
+        const targetGrid = document.getElementById("categories-grid");
+        if (targetGrid) {
+            targetGrid.innerHTML = `<p class="grid-empty-state-text">Question library could not be loaded.</p>`;
+        }
+    }
+}
 
 // ================= STORAGE MANAGEMENT INTERFACE =================
 function loadProgressFromStorage() {
