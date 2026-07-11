@@ -336,6 +336,31 @@ food-084,Food,Hard,Which cheese is traditionally used in French onion soup?,Ched
 food-085,Food,Hard,What is the primary ingredient in polenta?,Rice,Cornmeal,Oats,Barley,B
 food-086,Food,Hard,Which country is the largest producer of cocoa beans?,Brazil,Ghana,Côte d'Ivoire,Ecuador,C
 food-087,Food,Hard,What is the culinary term for vegetables cut into very thin matchstick strips?,Brunoise,Julienne,Chiffonade,Macedoine,B
+food-088,Food,Expert,Which French chef is credited with codifying haute cuisine in the early 20th century?,Auguste Escoffier,Paul Bocuse,Joël Robuchon,Alain Ducasse,A
+food-089,Food,Expert,Which Japanese knife is traditionally designed for slicing sashimi in a single stroke?,Santoku,Nakiri,Yanagiba,Deba,C
+food-090,Food,Expert,Which cheese is traditionally used in authentic Italian cacio e pepe?,Parmesan,Pecorino Romano,Gorgonzola,Asiago,B
+food-091,Food,Expert,What is the primary grain used to make traditional risotto?,Basmati Rice,Jasmine Rice,Arborio Rice,Sushi Rice,C
+food-092,Food,Expert,Which country is considered the birthplace of tempura despite its Japanese popularity?,China,Portugal,Korea,Thailand,B
+food-093,Food,Expert,What gives saffron its distinctive golden-yellow color?,Crocin,Curcumin,Capsaicin,Anthocyanin,A
+food-094,Food,Expert,Which region of Italy is famous for producing Parmigiano Reggiano?,Sicily,Tuscany,Emilia-Romagna,Lazio,C
+food-095,Food,Expert,Which microorganism is primarily responsible for alcoholic fermentation in bread and beer?,Lactobacillus,Yeast,Mold,Acetobacter,B
+food-096,Food,Expert,What is the Japanese term for the fifth basic taste?,Kokumi,Umami,Shibui,Katsu,B
+food-097,Food,Expert,Which chocolate-producing country is the world's largest cocoa bean producer?,Brazil,Ghana,Ivory Coast,Ecuador,C
+food-098,Food,Expert,What is the minimum cocoa solids percentage required for dark chocolate in many international standards?,20%,35%,50%,70%,B
+food-099,Food,Expert,Which French cooking term means to cook food in its own juices under a tightly sealed lid?,Confit,En Papillote,À la Minute,Braiser,B
+food-100,Food,Expert,Which spice is derived from the dried stigmas of the Crocus sativus flower?,Turmeric,Saffron,Paprika,Cumin,B
+food-101,Food,Expert,Which Italian dessert literally translates to 'pick me up'?,Cannoli,Gelato,Tiramisu,Panna Cotta,C
+food-102,Food,Expert,Which acid is primarily responsible for the sour taste in vinegar?,Citric Acid,Lactic Acid,Acetic Acid,Malic Acid,C
+food-103,Food,Expert,Which nut is traditionally used to make marzipan?,Hazelnut,Walnut,Almond,Pistachio,C
+food-104,Food,Expert,Which country originated the dessert known as pavlova according to most New Zealand claims?,Australia,New Zealand,United Kingdom,France,B
+food-105,Food,Expert,What is the French culinary term for vegetables cut into very thin matchsticks?,Julienne,Brunoise,Chiffonade,Paysanne,A
+food-106,Food,Expert,Which flour has the highest protein content and is most suitable for bread making?,Cake Flour,Plain Flour,Bread Flour,Self-Raising Flour,C
+food-107,Food,Expert,Which cheese is traditionally made using the mold Penicillium roqueforti?,Brie,Cheddar,Roquefort,Mozzarella,C
+food-108,Food,Expert,What is the main ingredient in traditional Japanese miso paste besides salt?,Rice,Wheat,Soybeans,Seaweed,C
+food-109,Food,Expert,Which cooking technique involves immersing food in fat at a low temperature for an extended period?,Poaching,Confit,Blanching,Searing,B
+food-110,Food,Expert,Which country is internationally renowned as the origin of kimchi?,China,Japan,South Korea,Vietnam,C
+food-111,Food,Expert,Which wine-producing region is famous for sparkling wine made using the traditional method and protected by designation?,Napa Valley,Tuscany,Champagne,Rioja,C
+food-112,Food,Expert,What is the traditional Japanese seasoning made from fermented soybeans wheat salt and koji?,Mirin,Sake,Soy Sauce,Rice Vinegar,C
 countries-001,Countries,Easy,Which nation occupies the largest landmass territory on planet Earth?,Canada,China,USA,Russia,D
 countries-002,Countries,Easy,What is the official capital city of Australia?,Sydney,Melbourne,Canberra,Brisbane,C
 countries-003,Countries,Medium,Which country has the highest population count in Africa?,Egypt,Nigeria,South Africa,Ethiopia,B
