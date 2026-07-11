@@ -286,6 +286,31 @@ food-034,Food,Easy,Which condiment is made mainly from tomatoes?,Mustard,Ketchup
 food-035,Food,Easy,Which fruit is tropical and has a spiky outside?,Pear,Pineapple,Peach,Apple,B
 food-036,Food,Easy,Which grain is commonly used to make pasta?,Corn,Rice,Wheat,Oats,C
 food-037,Food,Easy,Which dessert is traditionally served in a cone?,Cake,Ice Cream,Pudding,Custard,B
+food-038,Food,Medium,Which country is widely credited as the birthplace of pizza?,France,Greece,Italy,Spain,C
+food-039,Food,Medium,What type of pastry is used to make a croissant?,Puff Pastry,Shortcrust Pastry,Filo Pastry,Choux Pastry,A
+food-040,Food,Medium,Which grain is traditionally used to make risotto?,Barley,Rice,Wheat,Oats,B
+food-041,Food,Medium,What is the primary ingredient in tofu?,Soybeans,Chickpeas,Lentils,Peas,A
+food-042,Food,Medium,Which cheese is traditionally used on a Greek salad?,Cheddar,Feta,Brie,Gouda,B
+food-043,Food,Medium,What type of pasta is shaped like small rice grains?,Penne,Fusilli,Orzo,Farfalle,C
+food-044,Food,Medium,Which country is famous for the dish paella?,Italy,Mexico,Spain,Portugal,C
+food-045,Food,Medium,Which vitamin is especially abundant in citrus fruits?,Vitamin A,Vitamin B12,Vitamin C,Vitamin D,C
+food-046,Food,Medium,Which cooking method involves food being submerged in hot oil?,Roasting,Steaming,Deep Frying,Grilling,C
+food-047,Food,Medium,What is the main ingredient in traditional miso paste?,Soybeans,Rice,Wheat,Corn,A
+food-048,Food,Medium,Which nut is used to make marzipan?,Peanut,Almond,Walnut,Cashew,B
+food-049,Food,Medium,Which country is the origin of tacos?,Spain,Mexico,Brazil,Argentina,B
+food-050,Food,Medium,Which herb gives pesto its distinctive flavor?,Parsley,Basil,Coriander,Dill,B
+food-051,Food,Medium,Which cheese is commonly used in a traditional Caesar salad?,Mozzarella,Parmesan,Feta,Blue Cheese,B
+food-052,Food,Medium,What is the Japanese term for raw fish served without rice?,Nigiri,Sashimi,Maki,Tempura,B
+food-053,Food,Medium,Which fruit is the main ingredient in guacamole?,Tomato,Avocado,Lime,Cucumber,B
+food-054,Food,Medium,Which country is famous for producing Gouda cheese?,Belgium,France,Netherlands,Switzerland,C
+food-055,Food,Medium,What is the name of the process of soaking meat in seasoned liquid before cooking?,Basting,Marinating,Braising,Blanching,B
+food-056,Food,Medium,Which type of rice is commonly used for sushi?,Jasmine,Basmati,Sushi Rice,Wild Rice,C
+food-057,Food,Medium,Which spice gives curry its yellow color?,Paprika,Cumin,Turmeric,Cinnamon,C
+food-058,Food,Medium,What is the main ingredient in falafel?,Lentils,Chickpeas,Black Beans,Soybeans,B
+food-059,Food,Medium,Which French dessert consists of caramelized custard with a crisp sugar topping?,Crème Brûlée,Éclair,Macaron,Tarte Tatin,A
+food-060,Food,Medium,Which seafood is traditionally used in clam chowder?,Shrimp,Clams,Mussels,Oysters,B
+food-061,Food,Medium,What type of pastry is used to make profiteroles?,Puff Pastry,Choux Pastry,Filo Pastry,Shortcrust Pastry,B
+food-062,Food,Medium,Which Italian cheese is traditionally made from buffalo milk?,Ricotta,Parmesan,Mozzarella,Gorgonzola,C
 countries-001,Countries,Easy,Which nation occupies the largest landmass territory on planet Earth?,Canada,China,USA,Russia,D
 countries-002,Countries,Easy,What is the official capital city of Australia?,Sydney,Melbourne,Canberra,Brisbane,C
 countries-003,Countries,Medium,Which country has the highest population count in Africa?,Egypt,Nigeria,South Africa,Ethiopia,B
