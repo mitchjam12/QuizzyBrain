@@ -311,6 +311,31 @@ food-059,Food,Medium,Which French dessert consists of caramelized custard with a
 food-060,Food,Medium,Which seafood is traditionally used in clam chowder?,Shrimp,Clams,Mussels,Oysters,B
 food-061,Food,Medium,What type of pastry is used to make profiteroles?,Puff Pastry,Choux Pastry,Filo Pastry,Shortcrust Pastry,B
 food-062,Food,Medium,Which Italian cheese is traditionally made from buffalo milk?,Ricotta,Parmesan,Mozzarella,Gorgonzola,C
+food-063,Food,Hard,Which French cooking term means "everything in its place"?,Sous Vide,Mise en Place,Julienne,Confit,B
+food-064,Food,Hard,Which country is the world's largest producer of vanilla?,Indonesia,Madagascar,Mexico,India,B
+food-065,Food,Hard,What is the main ingredient used to make traditional Japanese miso?,Soybeans,Rice,Wheat,Barley,A
+food-066,Food,Hard,Which Italian cheese is traditionally made from sheep's milk?,Mozzarella,Ricotta,Pecorino Romano,Mascarpone,C
+food-067,Food,Hard,What is the name of the Spanish cured ham made from Iberian pigs?,Prosciutto,Jamón Ibérico,Bresaola,Coppa,B
+food-068,Food,Hard,Which spice is obtained from the dried stigmas of a crocus flower?,Turmeric,Saffron,Cardamom,Cumin,B
+food-069,Food,Hard,Which French mother sauce is made from butter, flour, and milk?,Velouté,Béchamel,Hollandaise,Espagnole,B
+food-070,Food,Hard,Which country is credited with inventing tempura?,China,Japan,Portugal,Thailand,C
+food-071,Food,Hard,What is the main ingredient in the Middle Eastern dip baba ghanoush?,Chickpeas,Eggplant,Lentils,Beetroot,B
+food-072,Food,Hard,Which Italian dessert literally translates to "pick me up"?,Cannoli,Gelato,Tiramisu,Panna Cotta,C
+food-073,Food,Hard,Which country is the origin of kimchi?,Japan,China,South Korea,Vietnam,C
+food-074,Food,Hard,Which type of wheat is traditionally used to make couscous?,Durum,Rye,Spelt,Barley,A
+food-075,Food,Hard,Which nut is the primary ingredient in traditional pesto alla genovese alongside basil?,Walnut,Pine Nut,Cashew,Pistachio,B
+food-076,Food,Hard,Which French dessert is made by folding egg whites into chocolate?,Soufflé,Crème Brûlée,Éclair,Clafoutis,A
+food-077,Food,Hard,Which country is famous for the cheese Roquefort?,Italy,France,Spain,Switzerland,B
+food-078,Food,Hard,Which vitamin is produced naturally when skin is exposed to sunlight?,Vitamin A,Vitamin C,Vitamin D,Vitamin K,C
+food-079,Food,Hard,What is the Japanese seasoning made from fermented soybeans called?,Ponzu,Miso,Wasabi,Dashi,B
+food-080,Food,Hard,Which type of pasta's name means "little tongues" in Italian?,Penne,Linguine,Farfalle,Rigatoni,B
+food-081,Food,Hard,Which country is the birthplace of the Black Forest cake?,Austria,Germany,Switzerland,Belgium,B
+food-082,Food,Hard,What is the main alcoholic ingredient in a traditional tiramisu?,Rum,Brandy,Marsala Wine,Whisky,C
+food-083,Food,Hard,Which seafood is traditionally used in Spanish paella Valenciana?,Salmon,Lobster,Mussels,None of the above,D
+food-084,Food,Hard,Which cheese is traditionally used in French onion soup?,Cheddar,Gruyère,Feta,Brie,B
+food-085,Food,Hard,What is the primary ingredient in polenta?,Rice,Cornmeal,Oats,Barley,B
+food-086,Food,Hard,Which country is the largest producer of cocoa beans?,Brazil,Ghana,Côte d'Ivoire,Ecuador,C
+food-087,Food,Hard,What is the culinary term for vegetables cut into very thin matchstick strips?,Brunoise,Julienne,Chiffonade,Macedoine,B
 countries-001,Countries,Easy,Which nation occupies the largest landmass territory on planet Earth?,Canada,China,USA,Russia,D
 countries-002,Countries,Easy,What is the official capital city of Australia?,Sydney,Melbourne,Canberra,Brisbane,C
 countries-003,Countries,Medium,Which country has the highest population count in Africa?,Egypt,Nigeria,South Africa,Ethiopia,B
