@@ -1,6 +1,6 @@
 # QuizzyBrain
 
-QuizzyBrain is a lightweight kids quiz game.
+QuizzyBrain is a lightweight online quiz game for all ages, with trivia, brain teasers and daily challenges across a wide range of categories.
 
 ## Add Questions
 
