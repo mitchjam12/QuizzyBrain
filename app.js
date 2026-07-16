@@ -287,7 +287,8 @@ let state = {
         completedCats: [],
         catCounts: {},
         unlockedAchievements: [],
-        answeredQuestionIds: []
+        answeredQuestionIds: [],
+        dailyChallengeResult: null
     },
 
     activeQuiz: {
@@ -304,7 +305,8 @@ let state = {
         isDaily: false,
         isFinished: false,
         answerLocked: false,
-        awaitingSelfAssessment: false
+        awaitingSelfAssessment: false,
+        dailySeed: null
     }
 };
 // ================= NATIVE SYNTHESIZED WEB AUDIO ENGINE =================
@@ -506,7 +508,7 @@ function renderCategoryGrid(filterTerm = "", diffFilter = "all") {
     const targetGrid = document.getElementById("categories-grid");
     targetGrid.innerHTML = "";
     
-    Object.keys(QUIZ_BANKS).forEach(catName => {
+    getAvailableCategoryNames(diffFilter).forEach(catName => {
         const meta = CATEGORY_METADATA[catName];
 
         if (!meta) return;
@@ -517,9 +519,6 @@ function renderCategoryGrid(filterTerm = "", diffFilter = "all") {
         }
 
         const freshCount = getFreshQuestionCount(catName, diffFilter);
-        
-        // Hide categories that cannot offer a full fresh quiz.
-        if (freshCount < 12) return;
 
         const card = document.createElement("div");
         card.className = "glass-panel category-card";
@@ -688,7 +687,7 @@ function generateDailyChallenge() {
     const selectedIds = new Set();
 
     seededQuestionSort(seed, categoryNames.map(name => ({ id: name, q: name }))).forEach(categoryRef => {
-        const categoryQuestions = seededQuestionSort(seed, getUnansweredQuestionPool(categoryRef.id));
+        const categoryQuestions = seededQuestionSort(seed, getQuestionPool(categoryRef.id));
         if (categoryQuestions.length === 0 || selected.length >= 12) return;
         selected.push(categoryQuestions[0]);
         selectedIds.add(categoryQuestions[0].id);
@@ -696,7 +695,7 @@ function generateDailyChallenge() {
 
     const remainingQuestions = [];
     categoryNames.forEach(categoryName => {
-        getUnansweredQuestionPool(categoryName).forEach(question => {
+        getQuestionPool(categoryName).forEach(question => {
             if (!selectedIds.has(question.id)) remainingQuestions.push(question);
         });
     });
@@ -708,8 +707,38 @@ function generateDailyChallenge() {
 
     return selected.slice(0, 12);
 }
+
+function getTodaysDailyChallengeResult() {
+    const result = state.userStats.dailyChallengeResult;
+    if (!result || result.date !== getDailySeed()) return null;
+    if (!Number.isInteger(result.score) || !Number.isInteger(result.total)) return null;
+    if (result.total < 1 || result.score < 0 || result.score > result.total) return null;
+    return result;
+}
+
+function updateDailyChallengeCard() {
+    const result = getTodaysDailyChallengeResult();
+    const statusText = document.getElementById("daily-status-text");
+    const countdownLabel = document.getElementById("daily-countdown-label");
+    const playButton = document.getElementById("btn-play-daily");
+
+    if (result) {
+        statusText.innerText = `Today’s score: ${result.score} / ${result.total}`;
+        countdownLabel.innerText = "Next challenge in: ";
+        playButton.hidden = true;
+        playButton.style.display = "none";
+        return;
+    }
+
+    statusText.innerText = `Ready for challenge puzzle of ${new Date().toDateString()}!`;
+    countdownLabel.innerText = "Resets in: ";
+    playButton.hidden = false;
+    playButton.style.removeProperty("display");
+}
 // ================= DAILY CHALLENGE CONFIG MODULES =================
 function initDailyChallengeEngine() {
+    let displayedSeed = getDailySeed();
+
     function refreshCountdown() {
         const now = new Date();
         const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
@@ -720,12 +749,16 @@ function initDailyChallengeEngine() {
         const secs = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
         
         document.getElementById("daily-countdown").innerText = `${hrs}:${mins}:${secs}`;
+
+        const currentSeed = getDailySeed();
+        if (currentSeed !== displayedSeed) {
+            displayedSeed = currentSeed;
+            updateDailyChallengeCard();
+        }
     }
     setInterval(refreshCountdown, 1000);
     refreshCountdown();
-
-    const todayStr = new Date().toDateString();
-    document.getElementById("daily-status-text").innerText = `Ready for challenge puzzle of ${todayStr}!`;
+    updateDailyChallengeCard();
 }
 
 // ================= EVENT LISTENER HUBS =================
@@ -842,6 +875,11 @@ function setActiveHomeTab(targetId) {
 
 function startDailyQuiz(){
 
+    if (getTodaysDailyChallengeResult()) {
+        updateDailyChallengeCard();
+        return;
+    }
+
     const dailyQuestions = generateDailyChallenge();
 
     if (dailyQuestions.length < 12) {
@@ -868,7 +906,10 @@ function startDailyQuiz(){
         timerVal:15,
         timerId:null,
         isDaily:true,
-        isFinished:false
+        isFinished:false,
+        answerLocked:false,
+        awaitingSelfAssessment:false,
+        dailySeed:getDailySeed()
     };
 
 
@@ -985,7 +1026,8 @@ function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
         isDaily: isDaily,
         isFinished: false,
         answerLocked: false,
-        awaitingSelfAssessment: false
+        awaitingSelfAssessment: false,
+        dailySeed: null
     };
 
     document.getElementById("quiz-category-title").innerText = categoryName;
@@ -1287,6 +1329,9 @@ function terminateQuizPipeline() {
     document.getElementById("res-m-avg").innerText = `${avgTimePerQ}s`;
     document.getElementById("res-m-streak").innerText = active.maxStreakThisRun;
     document.getElementById("res-m-cat").innerText = active.category;
+    const retryButton = document.getElementById("res-btn-retry");
+    retryButton.hidden = active.isDaily;
+    retryButton.style.display = active.isDaily ? "none" : "";
 
    // Mutate and sync long term lifetime historical records metrics telemetry
 state.userStats.gamesPlayed++;
@@ -1324,7 +1369,16 @@ if (durationSecs < state.userStats.fastestTime) {
         }
     });
 
-    markQuestionsAnswered(active.questions);
+    if (active.isDaily) {
+        state.userStats.dailyChallengeResult = {
+            date: active.dailySeed,
+            score: active.score,
+            total: active.questions.length
+        };
+        updateDailyChallengeCard();
+    } else {
+        markQuestionsAnswered(active.questions);
+    }
     saveProgressToStorage();
     updateDashboardDisplays();
     renderCategoryGrid(

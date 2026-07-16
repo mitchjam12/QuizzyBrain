@@ -38,7 +38,9 @@ C:\Users\rossj\AppData\Local\Programs\Python\Python314\python.exe tools\build_qu
 
 The validator checks the CSV and does not write generated question files. The app reads `data/questions.csv` directly in the browser, so the CSV is the single source of truth for questions.
 
-QuizzyBrain remembers completed question IDs on each computer using browser local storage. Category cards only appear when they can build a 12-question quiz from fresh questions. If a difficulty has fewer than 12 fresh questions, QuizzyBrain starts with that difficulty and fills the rest from the same category.
+QuizzyBrain remembers completed question IDs on each computer using browser local storage. Category cards appear whenever they can build a 12-question quiz from fresh questions matching the selected difficulty filter.
+
+The Daily Challenge uses a deterministic daily mix without consuming questions from the regular category freshness pool. After it is completed, its card shows the saved score and the countdown to the next challenge instead of another play button.
 
 ## Run Locally
 
