@@ -21,6 +21,8 @@ const QUESTION_COLUMNS = [
     "accepted_answers"
 ];
 const CORRECT_OPTION_INDEX = { A: 0, B: 1, C: 2, D: 3 };
+const DEFAULT_QUESTION_TIME_LIMIT = 15;
+const BRAIN_TEASER_TIME_LIMIT = 60;
 
 function normalizeCategoryMetadata(categories) {
     return categories.reduce((metadata, category) => {
@@ -300,7 +302,8 @@ let state = {
         streak: 0,
         maxStreakThisRun: 0,
         startTime: null,
-        timerVal: 15,
+        timerVal: DEFAULT_QUESTION_TIME_LIMIT,
+        timerLimit: DEFAULT_QUESTION_TIME_LIMIT,
         timerId: null,
         isDaily: false,
         isFinished: false,
@@ -438,6 +441,10 @@ function shuffleQuestions(questions) {
 
 function getQuizQuestionCount(categoryName) {
     return categoryName === "Brain Teasers" ? 5 : 12;
+}
+
+function getQuestionTimeLimit(categoryName) {
+    return categoryName === "Brain Teasers" ? BRAIN_TEASER_TIME_LIMIT : DEFAULT_QUESTION_TIME_LIMIT;
 }
 
 function buildQuestionSelection(categoryName, difficultyMode = "all") {
@@ -909,7 +916,8 @@ function startDailyQuiz(){
         maxStreakThisRun:0,
 
         startTime:Date.now(),
-        timerVal:15,
+        timerVal:DEFAULT_QUESTION_TIME_LIMIT,
+        timerLimit:DEFAULT_QUESTION_TIME_LIMIT,
         timerId:null,
         isDaily:true,
         isFinished:false,
@@ -1028,7 +1036,8 @@ function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
         streak: 0,
         maxStreakThisRun: 0,
         startTime: Date.now(),
-        timerVal: 15,
+        timerVal: getQuestionTimeLimit(categoryName),
+        timerLimit: getQuestionTimeLimit(categoryName),
         timerId: null,
         isDaily: isDaily,
         isFinished: false,
@@ -1100,7 +1109,7 @@ function presentQuestionIndexScenario() {
     // Reset countdown timer clock layout variables
     if (document.getElementById("toggle-timer").checked) {
         document.getElementById("quiz-timer-container").style.display = "block";
-        active.timerVal = 15;
+        active.timerVal = active.timerLimit;
         executeTimerTickCycle();
         active.timerId = setInterval(executeTimerTickCycle, 1000);
     } else {
@@ -1227,7 +1236,7 @@ function executeTimerTickCycle() {
     document.getElementById("quiz-timer-text").innerText = active.timerVal;
     
     // Circular structural path perimeter dashboard update calculation
-    const pathFillPercent = (active.timerVal / 15) * 100;
+    const pathFillPercent = (active.timerVal / active.timerLimit) * 100;
     document.getElementById("timer-progress-path").setAttribute("stroke-dasharray", `${pathFillPercent}, 100`);
 
     if (active.timerVal <= 0) {
