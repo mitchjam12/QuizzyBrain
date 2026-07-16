@@ -22,6 +22,9 @@ REQUIRED_COLUMNS = [
     "option_c",
     "option_d",
     "correct_option",
+    "answer_mode",
+    "canonical_answer",
+    "accepted_answers",
 ]
 
 OPTIONAL_COLUMNS = {"id"}
@@ -53,7 +56,8 @@ def read_categories():
 
 
 def clean_cell(row, column):
-    return str(row.get(column, "")).strip()
+    value = row.get(column, "")
+    return "" if value is None else str(value).strip()
 
 
 def slugify(value):
@@ -61,8 +65,8 @@ def slugify(value):
     return re.sub(r"[^a-z0-9]+", "-", value).strip("-") or "question"
 
 
-def generated_question_id(category, question, options):
-    digest_source = "|".join([category, question, *options])
+def generated_question_id(category, question, answer_values):
+    digest_source = "|".join([category, question, *answer_values])
     digest = hashlib.sha1(digest_source.encode("utf-8")).hexdigest()[:10]
     return f"{slugify(category)}-{digest}"
 
@@ -99,7 +103,15 @@ def read_questions(category_names):
                 clean_cell(row, "option_d"),
             ]
             correct_option = clean_cell(row, "correct_option").upper()
-            question_id = clean_cell(row, "id") or generated_question_id(category, question, options)
+            answer_mode = clean_cell(row, "answer_mode").lower() or "choice"
+            canonical_answer = clean_cell(row, "canonical_answer")
+            accepted_answers = [
+                answer.strip()
+                for answer in clean_cell(row, "accepted_answers").split("|")
+                if answer.strip()
+            ]
+            answer_values = [canonical_answer, *accepted_answers] if answer_mode == "text" else options
+            question_id = clean_cell(row, "id") or generated_question_id(category, question, answer_values)
 
             if question_id in seen_ids:
                 errors.append(f"row {row_number}: duplicate id '{question_id}'")
@@ -109,23 +121,37 @@ def read_questions(category_names):
                 errors.append(f"row {row_number}: difficulty must be one of {', '.join(sorted(DIFFICULTIES))}")
             if not question:
                 errors.append(f"row {row_number}: question is blank")
-            if any(not option for option in options):
-                errors.append(f"row {row_number}: all four options are required")
-            if correct_option not in CORRECT_OPTIONS:
-                errors.append(f"row {row_number}: correct_option must be A, B, C, or D")
+            if answer_mode not in {"choice", "text"}:
+                errors.append(f"row {row_number}: answer_mode must be choice or text")
+            elif answer_mode == "choice":
+                if any(not option for option in options):
+                    errors.append(f"row {row_number}: all four options are required for choice answers")
+                if correct_option not in CORRECT_OPTIONS:
+                    errors.append(f"row {row_number}: correct_option must be A, B, C, or D for choice answers")
+            else:
+                if not canonical_answer:
+                    errors.append(f"row {row_number}: canonical_answer is required for text answers")
+                if any(options) or correct_option:
+                    errors.append(f"row {row_number}: text answers must leave option and correct_option fields blank")
 
             if errors and errors[-1].startswith(f"row {row_number}:"):
                 continue
 
             seen_ids.add(question_id)
-            questions.append({
+            question_record = {
                 "id": question_id,
                 "category": category,
                 "difficulty": difficulty,
                 "question": question,
-                "options": options,
-                "correctIndex": CORRECT_OPTIONS[correct_option],
-            })
+                "answerMode": answer_mode,
+            }
+            if answer_mode == "text":
+                question_record["canonicalAnswer"] = canonical_answer
+                question_record["acceptedAnswers"] = list(dict.fromkeys([canonical_answer, *accepted_answers]))
+            else:
+                question_record["options"] = options
+                question_record["correctIndex"] = CORRECT_OPTIONS[correct_option]
+            questions.append(question_record)
 
     if errors:
         raise ValueError("Question validation failed:\n" + "\n".join(errors))

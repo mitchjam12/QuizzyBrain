@@ -1,4 +1,4 @@
-id,category,difficulty,question,option_a,option_b,option_c,option_d,correct_option
+id,category,difficulty,question,option_a,option_b,option_c,option_d,correct_option,answer_mode,canonical_answer,accepted_answers
 sports-players-001,Sports Players,Easy,Who has won the most Ballon d'Or awards in football history?,Lionel Messi,Cristiano Ronaldo,Michel Platini,Johan Cruyff,A
 sports-players-002,Sports Players,Easy,Which NBA player is known as 'The King'?,Kevin Durant,Stephen Curry,LeBron James,Giannis Antetokounmpo,C
 sports-players-003,Sports Players,Medium,How many Grand Slam singles titles has Serena Williams won?,21,22,23,25,C
@@ -718,15 +718,15 @@ afl-trivia-009,AFL Trivia,Medium,How long is an AFL quarter?,10 min,15 min,20 mi
 afl-trivia-010,AFL Trivia,Medium,What is the highest governing body of AFL?,FIFA,AFL Commission,ICC,NRL Board,B
 afl-trivia-011,AFL Trivia,Medium,What is a mark in AFL?,A goal kick,A clean catch from a kick,A tackle,A throw,B
 afl-trivia-012,AFL Trivia,Easy,Which AFL team is based in Geelong?,Cats,Lions,Hawks,Swans,A
-brain-teasers-001,Brain Teasers,Easy,What has keys but can’t open locks?,Piano,Map,Clock,Door,A
-brain-teasers-002,Brain Teasers,Easy,What gets wetter the more it dries?,Towel,Sponge,Ice,Soap,A
-brain-teasers-003,Brain Teasers,Medium,I speak without a mouth and hear without ears. What am I?,Echo,Wind,Shadow,Thought,A
-brain-teasers-004,Brain Teasers,Easy,What runs but never walks?,River,Car,Dog,Clock,A
-brain-teasers-005,Brain Teasers,Easy,"What has a head, a tail, but no body?",Coin,Snake,Shadow,River,A
-brain-teasers-006,Brain Teasers,Medium,What can travel around the world while staying in a corner?,Stamp,Coin,Bird,Light,A
-brain-teasers-007,Brain Teasers,Easy,What has one eye but cannot see?,Needle,Storm,Cyclone,Clock,A
-brain-teasers-008,Brain Teasers,Easy,What goes up but never comes down?,Age,Balloon,Smoke,Bird,A
-brain-teasers-009,Brain Teasers,Easy,What has hands but can’t clap?,Clock,Robot,Statue,Tree,A
-brain-teasers-010,Brain Teasers,Hard,"What begins with T, ends with T, and has T inside?",Teapot,Tent,Toast,Ticket,A
-brain-teasers-011,Brain Teasers,Medium,What can you break without touching it?,Promise,Glass,Bone,Door,A
-brain-teasers-012,Brain Teasers,Easy,What has many teeth but can’t bite?,Comb,Saw,Gear,Fence,A
+brain-teasers-001,Brain Teasers,Easy,What has keys but can’t open locks?,,,,,,text,Piano,piano|keyboard
+brain-teasers-002,Brain Teasers,Easy,What gets wetter the more it dries?,,,,,,text,Towel,towel
+brain-teasers-003,Brain Teasers,Medium,I speak without a mouth and hear without ears. What am I?,,,,,,text,Echo,echo
+brain-teasers-004,Brain Teasers,Easy,What runs but never walks?,,,,,,text,River,river|water
+brain-teasers-005,Brain Teasers,Easy,"What has a head, a tail, but no body?",,,,,,text,Coin,coin
+brain-teasers-006,Brain Teasers,Medium,What can travel around the world while staying in a corner?,,,,,,text,Stamp,stamp|postage stamp
+brain-teasers-007,Brain Teasers,Easy,What has one eye but cannot see?,,,,,,text,Needle,needle|sewing needle
+brain-teasers-008,Brain Teasers,Easy,What goes up but never comes down?,,,,,,text,Age,age|your age
+brain-teasers-009,Brain Teasers,Easy,What has hands but can’t clap?,,,,,,text,Clock,clock
+brain-teasers-010,Brain Teasers,Hard,"What begins with T, ends with T, and has T inside?",,,,,,text,Teapot,teapot|tea pot
+brain-teasers-011,Brain Teasers,Medium,What can you break without touching it?,,,,,,text,Promise,promise
+brain-teasers-012,Brain Teasers,Easy,What has many teeth but can’t bite?,,,,,,text,Comb,comb|hair comb
