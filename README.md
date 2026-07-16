@@ -9,7 +9,7 @@ Edit `data/questions.csv`.
 Use these columns:
 
 ```csv
-id,category,difficulty,question,option_a,option_b,option_c,option_d,correct_option
+id,category,difficulty,question,option_a,option_b,option_c,option_d,correct_option,answer_mode,canonical_answer,accepted_answers
 ```
 
 Rules:
@@ -17,9 +17,18 @@ Rules:
 - `id` must be unique for each question. If it is left blank, QuizzyBrain creates a stable ID in the browser from the question content.
 - `category` must match one of the names in `data/categories.json`.
 - `difficulty` must be `Easy`, `Medium`, `Hard`, or `Expert`.
-- `correct_option` must be `A`, `B`, `C`, or `D`.
-- Each question needs exactly four answer options.
+- `answer_mode` can be blank or `choice` for multiple-choice questions, or `text` for typed answers.
+- Choice questions need exactly four answer options and a `correct_option` of `A`, `B`, `C`, or `D`.
+- Text questions leave the option and `correct_option` fields blank, provide a `canonical_answer`, and can list alternatives in `accepted_answers` separated by `|`.
 - Each category needs at least 12 questions.
+
+Typed answers ignore capitalisation, punctuation, extra spaces, and leading words such as “a”, “an”, and “the”. QuizzyBrain also tolerates a small spelling error for answers of four or more characters. If a typed answer is not recognised, the official answer is revealed and the player can confirm whether they meant the same thing.
+
+Example text-answer row:
+
+```csv
+brain-teasers-001,Brain Teasers,Easy,What has keys but can’t open locks?,,,,,,text,Piano,piano|keyboard
+```
 
 After editing the CSV, validate the question file:
 

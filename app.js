@@ -15,7 +15,10 @@ const QUESTION_COLUMNS = [
     "option_b",
     "option_c",
     "option_d",
-    "correct_option"
+    "correct_option",
+    "answer_mode",
+    "canonical_answer",
+    "accepted_answers"
 ];
 const CORRECT_OPTION_INDEX = { A: 0, B: 1, C: 2, D: 3 };
 
@@ -68,8 +71,8 @@ function slugifyQuestionId(value) {
     return value.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "question";
 }
 
-function generatedQuestionId(category, question, options) {
-    const source = [category, question, ...options].join("|");
+function generatedQuestionId(category, question, answerValues) {
+    const source = [category, question, ...answerValues].join("|");
     let hash = 0;
     for (let i = 0; i < source.length; i++) {
         hash = ((hash << 5) - hash + source.charCodeAt(i)) | 0;
@@ -95,30 +98,102 @@ function csvRowsToQuestions(csvText, categoryNames) {
         }, {});
 
         const category = row.category;
+        const answerMode = (row.answer_mode || "choice").toLowerCase();
         const options = [row.option_a, row.option_b, row.option_c, row.option_d];
         const correctOption = row.correct_option.toUpperCase();
-        const id = row.id || generatedQuestionId(category, row.question, options);
+        const canonicalAnswer = row.canonical_answer;
+        const acceptedAnswers = row.accepted_answers
+            .split("|")
+            .map(answer => answer.trim())
+            .filter(Boolean);
+        const answerValues = answerMode === "text" ? [canonicalAnswer, ...acceptedAnswers] : options;
+        const id = row.id || generatedQuestionId(category, row.question, answerValues);
         const rowNumber = index + 2;
 
         if (!categoryNames.has(category)) throw new Error(`questions.csv row ${rowNumber}: unknown category "${category}"`);
         if (!row.question) throw new Error(`questions.csv row ${rowNumber}: question is blank`);
-        if (options.some(option => !option)) throw new Error(`questions.csv row ${rowNumber}: all four options are required`);
-        if (!Object.prototype.hasOwnProperty.call(CORRECT_OPTION_INDEX, correctOption)) {
-            throw new Error(`questions.csv row ${rowNumber}: correct_option must be A, B, C, or D`);
+        if (!['choice', 'text'].includes(answerMode)) {
+            throw new Error(`questions.csv row ${rowNumber}: answer_mode must be choice or text`);
+        }
+        if (answerMode === "choice") {
+            if (options.some(option => !option)) throw new Error(`questions.csv row ${rowNumber}: all four options are required`);
+            if (!Object.prototype.hasOwnProperty.call(CORRECT_OPTION_INDEX, correctOption)) {
+                throw new Error(`questions.csv row ${rowNumber}: correct_option must be A, B, C, or D`);
+            }
+        } else {
+            if (!canonicalAnswer) {
+                throw new Error(`questions.csv row ${rowNumber}: canonical_answer is required for text answers`);
+            }
+            if (options.some(Boolean) || correctOption) {
+                throw new Error(`questions.csv row ${rowNumber}: text answers must leave option and correct_option fields blank`);
+            }
         }
         if (seenIds.has(id)) throw new Error(`questions.csv row ${rowNumber}: duplicate id "${id}"`);
 
         seenIds.add(id);
         grouped[category] = grouped[category] || [];
-        grouped[category].push({
+        const question = {
             id,
             q: row.question,
-            a: options,
-            c: CORRECT_OPTION_INDEX[correctOption],
-            d: row.difficulty
-        });
+            d: row.difficulty,
+            mode: answerMode
+        };
+        if (answerMode === "text") {
+            question.answer = canonicalAnswer;
+            question.accepted = Array.from(new Set([canonicalAnswer, ...acceptedAnswers]));
+        } else {
+            question.a = options;
+            question.c = CORRECT_OPTION_INDEX[correctOption];
+        }
+        grouped[category].push(question);
         return grouped;
     }, {});
+}
+
+function normalizeTextAnswer(value) {
+    return String(value || "")
+        .normalize("NFKD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .replace(/[’'`]/g, "")
+        .replace(/[^a-z0-9]+/g, " ")
+        .trim()
+        .replace(/\s+/g, " ")
+        .replace(/^(a|an|the)\s+/, "");
+}
+
+function getEditDistance(first, second) {
+    const previous = Array.from({ length: second.length + 1 }, (_, index) => index);
+    for (let firstIndex = 1; firstIndex <= first.length; firstIndex++) {
+        let diagonal = previous[0];
+        previous[0] = firstIndex;
+        for (let secondIndex = 1; secondIndex <= second.length; secondIndex++) {
+            const above = previous[secondIndex];
+            previous[secondIndex] = Math.min(
+                previous[secondIndex] + 1,
+                previous[secondIndex - 1] + 1,
+                diagonal + (first[firstIndex - 1] === second[secondIndex - 1] ? 0 : 1)
+            );
+            diagonal = above;
+        }
+    }
+    return previous[second.length];
+}
+
+function isAcceptedTextAnswer(value, acceptedAnswers) {
+    const candidate = normalizeTextAnswer(value);
+    if (!candidate) return false;
+
+    return acceptedAnswers.some(answer => {
+        const expected = normalizeTextAnswer(answer);
+        if (candidate === expected) return true;
+
+        const shortestLength = Math.min(candidate.length, expected.length);
+        const longestLength = Math.max(candidate.length, expected.length);
+        if (shortestLength < 3 || longestLength < 4 || candidate[0] !== expected[0]) return false;
+        const allowedDistance = longestLength >= 8 ? 2 : 1;
+        return getEditDistance(candidate, expected) <= allowedDistance;
+    });
 }
 
 async function loadQuestionLibrary() {
@@ -227,7 +302,9 @@ let state = {
         timerVal: 15,
         timerId: null,
         isDaily: false,
-        isFinished: false
+        isFinished: false,
+        answerLocked: false,
+        awaitingSelfAssessment: false
     }
 };
 // ================= NATIVE SYNTHESIZED WEB AUDIO ENGINE =================
@@ -533,7 +610,10 @@ function renderCompletedQuestions() {
                 answerText.className = "completed-answer-text";
                 const answerLabel = document.createElement("span");
                 answerLabel.innerText = "Answer";
-                answerText.append(answerLabel, ` ${question.a[question.c]}`);
+                const correctAnswer = question.mode === "text"
+                    ? question.answer
+                    : question.a[question.c];
+                answerText.append(answerLabel, ` ${correctAnswer}`);
 
                 item.append(questionText, answerText);
                 items.appendChild(item);
@@ -903,7 +983,9 @@ function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
         timerVal: 15,
         timerId: null,
         isDaily: isDaily,
-        isFinished: false
+        isFinished: false,
+        answerLocked: false,
+        awaitingSelfAssessment: false
     };
 
     document.getElementById("quiz-category-title").innerText = categoryName;
@@ -939,29 +1021,32 @@ function presentQuestionIndexScenario() {
 
     const dataObj = active.questions[active.currentIdx];
     document.getElementById("question-text-content").innerText = dataObj.q;
+    active.answerLocked = false;
+    active.awaitingSelfAssessment = false;
 
-    // Shuffle and inject answer options configuration array mapping index maps
     const answersGrid = document.getElementById("quiz-answers-stack");
     answersGrid.innerHTML = "";
+    answersGrid.classList.toggle("text-answer-mode", dataObj.mode === "text");
 
-    // Array construction map tracking original index placements
-    let selectionOptions = dataObj.a.map((ansText, originalIndex) => ({ text: ansText, id: originalIndex }));
-    
-    // Shuffle Selection options array placement order
-    for (let i = selectionOptions.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [selectionOptions[i], selectionOptions[j]] = [selectionOptions[j], selectionOptions[i]];
+    if (dataObj.mode === "text") {
+        renderTextAnswerPrompt(dataObj, answersGrid);
+    } else {
+        // Shuffle and inject answer options while preserving their original indexes.
+        let selectionOptions = dataObj.a.map((ansText, originalIndex) => ({ text: ansText, id: originalIndex }));
+        for (let i = selectionOptions.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [selectionOptions[i], selectionOptions[j]] = [selectionOptions[j], selectionOptions[i]];
+        }
+
+        selectionOptions.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.className = "answer-option-btn";
+            btn.innerText = opt.text;
+            btn.dataset.optId = opt.id;
+            btn.addEventListener("click", () => evaluateUserSelection(opt.id, btn));
+            answersGrid.appendChild(btn);
+        });
     }
-
-    selectionOptions.forEach(opt => {
-        const btn = document.createElement("button");
-        btn.className = "answer-option-btn";
-        btn.innerText = opt.text;
-        btn.dataset.optId = opt.id; // original index, used later to reliably find the correct button
-
-        btn.addEventListener("click", () => evaluateUserSelection(opt.id, btn));
-        answersGrid.appendChild(btn);
-    });
 
     // Reset countdown timer clock layout variables
     if (document.getElementById("toggle-timer").checked) {
@@ -974,6 +1059,120 @@ function presentQuestionIndexScenario() {
     }
 }
 
+function renderTextAnswerPrompt(question, answersGrid) {
+    const form = document.createElement("form");
+    form.className = "text-answer-panel";
+
+    const label = document.createElement("label");
+    label.setAttribute("for", "text-answer-input");
+    label.innerText = "Type your answer";
+
+    const controls = document.createElement("div");
+    controls.className = "text-answer-controls";
+
+    const input = document.createElement("input");
+    input.id = "text-answer-input";
+    input.className = "text-answer-input";
+    input.type = "text";
+    input.autocomplete = "off";
+    input.maxLength = 100;
+    input.placeholder = "Your answer…";
+
+    const submitButton = document.createElement("button");
+    submitButton.className = "btn btn-primary text-answer-submit";
+    submitButton.type = "submit";
+    submitButton.innerText = "Check answer";
+
+    const feedback = document.createElement("div");
+    feedback.className = "text-answer-feedback";
+    feedback.setAttribute("aria-live", "polite");
+    feedback.hidden = true;
+
+    input.addEventListener("input", () => input.setCustomValidity(""));
+    form.addEventListener("submit", event => {
+        event.preventDefault();
+        evaluateTextAnswer(question, input, submitButton, form, feedback);
+    });
+
+    controls.append(input, submitButton);
+    form.append(label, controls, feedback);
+    answersGrid.appendChild(form);
+    requestAnimationFrame(() => input.focus());
+}
+
+function evaluateTextAnswer(question, input, submitButton, panel, feedback) {
+    const active = state.activeQuiz;
+    if (active.isFinished || active.answerLocked) return;
+
+    const value = input.value.trim();
+    if (!value) {
+        input.setCustomValidity("Enter an answer first.");
+        input.reportValidity();
+        return;
+    }
+
+    clearInterval(active.timerId);
+    active.answerLocked = true;
+    input.disabled = true;
+    submitButton.disabled = true;
+
+    if (isAcceptedTextAnswer(value, question.accepted)) {
+        feedback.hidden = false;
+        feedback.innerText = "That counts!";
+        completeQuestionAnswer(true, panel);
+        return;
+    }
+
+    active.awaitingSelfAssessment = true;
+    feedback.hidden = false;
+    feedback.innerHTML = "";
+
+    const message = document.createElement("p");
+    message.innerText = `The expected answer is “${question.answer}”. Did you mean the same thing?`;
+
+    const actions = document.createElement("div");
+    actions.className = "self-assessment-actions";
+
+    const countButton = document.createElement("button");
+    countButton.type = "button";
+    countButton.className = "btn btn-primary";
+    countButton.innerText = "Yes, count it";
+    countButton.addEventListener("click", () => resolveTextSelfAssessment(true, panel));
+
+    const incorrectButton = document.createElement("button");
+    incorrectButton.type = "button";
+    incorrectButton.className = "btn btn-secondary";
+    incorrectButton.innerText = "Not quite";
+    incorrectButton.addEventListener("click", () => resolveTextSelfAssessment(false, panel));
+
+    actions.append(countButton, incorrectButton);
+    feedback.append(message, actions);
+    countButton.focus();
+}
+
+function resolveTextSelfAssessment(isCorrect, panel) {
+    const active = state.activeQuiz;
+    if (!active.awaitingSelfAssessment || active.isFinished) return;
+    active.awaitingSelfAssessment = false;
+    panel.querySelectorAll("button").forEach(button => button.disabled = true);
+    completeQuestionAnswer(isCorrect, panel);
+}
+
+function handleTextAnswerTimeout(question) {
+    const active = state.activeQuiz;
+    if (active.answerLocked || active.isFinished) return;
+    active.answerLocked = true;
+
+    const panel = document.querySelector(".text-answer-panel");
+    if (panel) {
+        panel.querySelectorAll("input, button").forEach(control => control.disabled = true);
+        const feedback = panel.querySelector(".text-answer-feedback");
+        feedback.hidden = false;
+        feedback.innerText = `Time’s up. The answer is “${question.answer}”.`;
+    }
+    completeQuestionAnswer(false, panel);
+}
+
 function executeTimerTickCycle() {
     const active = state.activeQuiz;
     document.getElementById("quiz-timer-text").innerText = active.timerVal;
@@ -984,7 +1183,12 @@ function executeTimerTickCycle() {
 
     if (active.timerVal <= 0) {
         clearInterval(active.timerId);
-        evaluateUserSelection(-1, null); // Timeout event registered as incorrect selection parameter triggers
+        const question = active.questions[active.currentIdx];
+        if (question.mode === "text") {
+            handleTextAnswerTimeout(question);
+        } else {
+            evaluateUserSelection(-1, null);
+        }
     }
     active.timerVal--;
 }
@@ -993,9 +1197,10 @@ function evaluateUserSelection(selectedId, selectedButtonNode) {
     const active = state.activeQuiz;
     clearInterval(active.timerId);
 
-    if (active.isFinished || active.currentIdx >= active.questions.length) {
+    if (active.isFinished || active.answerLocked || active.currentIdx >= active.questions.length) {
         return;
     }
+    active.answerLocked = true;
 
     const correctId = active.questions[active.currentIdx].c;
     const buttons = document.querySelectorAll(".answer-option-btn");
@@ -1003,17 +1208,8 @@ function evaluateUserSelection(selectedId, selectedButtonNode) {
     // Disable alternative input clicks during processing window actions
     buttons.forEach(b => b.style.pointerEvents = "none");
 
-    if (selectedId === correctId) {
-        AudioEngine.play("correct");
-        if (selectedButtonNode) selectedButtonNode.classList.add("correct-pulse");
-        active.score++;
-        active.streak++;
-        if (active.streak > active.maxStreakThisRun) active.maxStreakThisRun = active.streak;
-    } else {
-        AudioEngine.play("wrong");
-        if (selectedButtonNode) selectedButtonNode.classList.add("incorrect-pulse");
-        active.streak = 0;
-
+    const isCorrect = selectedId === correctId;
+    if (!isCorrect) {
         // Highlight the correct option by its original index, not by matching
         // rendered text — text-matching breaks if two answers are identical strings.
         buttons.forEach(b => {
@@ -1021,6 +1217,25 @@ function evaluateUserSelection(selectedId, selectedButtonNode) {
                 b.classList.add("correct-pulse");
             }
         });
+    }
+    completeQuestionAnswer(isCorrect, selectedButtonNode);
+}
+
+function completeQuestionAnswer(isCorrect, selectedNode) {
+    const active = state.activeQuiz;
+    clearInterval(active.timerId);
+    active.awaitingSelfAssessment = false;
+
+    if (isCorrect) {
+        AudioEngine.play("correct");
+        if (selectedNode) selectedNode.classList.add("correct-pulse");
+        active.score++;
+        active.streak++;
+        if (active.streak > active.maxStreakThisRun) active.maxStreakThisRun = active.streak;
+    } else {
+        AudioEngine.play("wrong");
+        if (selectedNode) selectedNode.classList.add("incorrect-pulse");
+        active.streak = 0;
     }
 
     // Brief presentation transition gap pause window before proceeding array indexing items
