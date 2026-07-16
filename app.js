@@ -436,14 +436,19 @@ function shuffleQuestions(questions) {
     return shuffled;
 }
 
+function getQuizQuestionCount(categoryName) {
+    return categoryName === "Brain Teasers" ? 5 : 12;
+}
+
 function buildQuestionSelection(categoryName, difficultyMode = "all") {
     const freshQuestions = getUnansweredQuestionPool(categoryName);
+    const questionCount = getQuizQuestionCount(categoryName);
 
     if (difficultyMode === "all") {
-        return shuffleQuestions(freshQuestions).slice(0, 12);
+        return shuffleQuestions(freshQuestions).slice(0, questionCount);
     }
 
-    return shuffleQuestions(freshQuestions.filter(question => question.d === difficultyMode)).slice(0, 12);
+    return shuffleQuestions(freshQuestions.filter(question => question.d === difficultyMode)).slice(0, questionCount);
 }
 
 function getFreshQuestionCount(categoryName, difficultyMode = "all") {
@@ -454,7 +459,7 @@ function getFreshQuestionCount(categoryName, difficultyMode = "all") {
 
 function getAvailableCategoryNames(difficultyMode = "all") {
     return Object.keys(QUIZ_BANKS).filter(categoryName => {
-        return getFreshQuestionCount(categoryName, difficultyMode) >= 12;
+        return getFreshQuestionCount(categoryName, difficultyMode) >= getQuizQuestionCount(categoryName);
     });
 }
 
@@ -519,12 +524,13 @@ function renderCategoryGrid(filterTerm = "", diffFilter = "all") {
         }
 
         const freshCount = getFreshQuestionCount(catName, diffFilter);
+        const questionCount = getQuizQuestionCount(catName);
 
         const card = document.createElement("div");
         card.className = "glass-panel category-card";
         card.setAttribute("tabindex", "0");
         card.setAttribute("role", "button");
-        card.setAttribute("aria-label", `Play ${catName} Category. 12 questions. Duration ${meta.time}`);
+        card.setAttribute("aria-label", `Play ${catName} Category. ${questionCount} questions. Duration ${meta.time}`);
 
         card.innerHTML = `
             <div class="cat-icon-frame">${meta.icon}</div>
@@ -547,7 +553,7 @@ function renderCategoryGrid(filterTerm = "", diffFilter = "all") {
     });
 
     if (targetGrid.children.length === 0) {
-        targetGrid.innerHTML = `<p class="grid-empty-state-text">No categories have 12 fresh questions for this filter.</p>`;
+        targetGrid.innerHTML = `<p class="grid-empty-state-text">No categories have enough fresh questions for this filter.</p>`;
     }
 }
 
@@ -682,7 +688,7 @@ function seededQuestionSort(seed, questions) {
 function generateDailyChallenge() {
 
     const seed = getDailySeed();
-    const categoryNames = Object.keys(QUIZ_BANKS);
+    const categoryNames = Object.keys(QUIZ_BANKS).filter(categoryName => categoryName !== "Brain Teasers");
     const selected = [];
     const selectedIds = new Set();
 
@@ -1002,8 +1008,9 @@ function getTotalCategoryCount() {
 
 function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
     const selectedQuestions = buildQuestionSelection(categoryName, difficultyMode);
+    const requiredQuestionCount = getQuizQuestionCount(categoryName);
 
-    if (selectedQuestions.length < 12) {
+    if (selectedQuestions.length < requiredQuestionCount) {
         alert(`Not enough fresh questions are available for ${categoryName}.`);
         renderCategoryGrid(
             document.getElementById("category-search").value,
@@ -1309,11 +1316,11 @@ function terminateQuizPipeline() {
     // Podium Medal Scoring Evaluation logic checks
     let medal = "🥉 Bronze";
     let message = "Almost there! Try again and beat your score!";
-    if (active.score === 12) {
+    if (active.score === active.questions.length) {
         medal = "🥇 Gold";
         message = "Outstanding! You're a QuizzyBrain Master!";
         triggerConfettiCascadeAnimation();
-    } else if (active.score >= 9) {
+    } else if (active.score >= Math.ceil(active.questions.length * 0.75)) {
         medal = "🥈 Silver";
         message = "Great work! Keep practicing!";
     }

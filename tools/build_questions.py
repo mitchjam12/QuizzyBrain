@@ -12,6 +12,8 @@ CATEGORIES_PATH = DATA_DIR / "categories.json"
 CSV_PATH = DATA_DIR / "questions.csv"
 
 DIFFICULTIES = {"Easy", "Medium", "Hard", "Expert"}
+MINIMUM_QUESTION_COUNTS = {"Brain Teasers": 5}
+DEFAULT_MINIMUM_QUESTION_COUNT = 12
 CORRECT_OPTIONS = {"A": 0, "B": 1, "C": 2, "D": 3}
 REQUIRED_COLUMNS = [
     "category",
@@ -165,13 +167,13 @@ def validate_category_totals(categories, questions):
         totals[question["category"]] += 1
 
     too_small = [
-        f"{category}: {total}"
+        f"{category}: {total} (minimum {MINIMUM_QUESTION_COUNTS.get(category, DEFAULT_MINIMUM_QUESTION_COUNT)})"
         for category, total in totals.items()
-        if total < 12
+        if total < MINIMUM_QUESTION_COUNTS.get(category, DEFAULT_MINIMUM_QUESTION_COUNT)
     ]
     if too_small:
         raise ValueError(
-            "Each category needs at least 12 questions. Current counts: "
+            "Categories do not have enough questions. Current counts: "
             + "; ".join(too_small)
         )
 
