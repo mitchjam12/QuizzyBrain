@@ -567,7 +567,6 @@ function stopLiveQuizTimer() {
     }
 }
 
-// Synchronized to match HTML timer layout selectors exactly
 function updateTimerVisualLayout() {
     const textVal = document.getElementById("quiz-timer-text");
     const progressPath = document.getElementById("timer-progress-path");
@@ -629,11 +628,10 @@ function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
         dailySeed: isDaily ? getDailySeed() : null
     };
 
-    switchViewportContext("game-view");
+    switchViewportContext("quiz-screen");
     renderActiveQuizQuestion();
 }
 
-// Synchronized to match HTML layout IDs: quiz-answers-stack & question-text-content
 function renderActiveQuizQuestion() {
     state.activeQuiz.answerLocked = false;
     state.activeQuiz.awaitingSelfAssessment = false;
@@ -753,7 +751,6 @@ function handleChoiceSelectionClick(chosenIdx) {
     lockChoiceSelectionLayout(chosenIdx, activeQuestion.c);
 }
 
-// Synchronized to match HTML layout IDs: quiz-answers-stack
 function lockChoiceSelectionLayout(chosenIdx, correctIdx) {
     const box = document.getElementById("quiz-answers-stack");
     if (!box) return;
@@ -973,7 +970,7 @@ function compileQuizSessionSummary() {
         else podium.innerText = "🎗️";
     }
 
-    switchViewportContext("results-view");
+    switchViewportContext("results-screen");
 }
 
 // ================= DYNAMIC CANVAS BACKGROUND SYSTEM =================
@@ -1138,42 +1135,6 @@ function renderCompletedQuestions() {
     });
 }
 
-function updateDashboardDisplays() {
-    const gamesEl = document.getElementById("stat-games");
-    if (gamesEl) gamesEl.innerText = state.userStats.gamesPlayed;
-    
-    const accuracyEl = document.getElementById("stat-accuracy");
-    if (accuracyEl) {
-        const acc = state.userStats.totalAnswered > 0 ? Math.round((state.userStats.totalCorrect / state.userStats.totalAnswered) * 100) : 0;
-        accuracyEl.innerText = `${acc}%`;
-    }
-    
-    const streakEl = document.getElementById("stat-streak");
-    if (streakEl) streakEl.innerText = state.userStats.maxStreak;
-    
-    const favEl = document.getElementById("stat-fav");
-    if (favEl) favEl.innerText = state.userStats.favCategory;
-
-    const achContainer = document.getElementById("achievements-container");
-    if (achContainer) {
-        achContainer.innerHTML = "";
-        ACHIEVEMENTS_REGISTRY.forEach(ach => {
-            const isUnlocked = state.userStats.unlockedAchievements.includes(ach.id);
-            const achNode = document.createElement("div");
-            achNode.className = `achievement-item ${isUnlocked ? 'unlocked' : 'locked'}`;
-            achNode.innerHTML = `
-                <div class="ach-icon">${ach.title.split(" ")[0]}</div>
-                <div class="ach-info">
-                    <h4>${ach.title.substring(2)}</h4>
-                    <p>${ach.desc} ${isUnlocked ? '✅' : '🔒'}</p>
-                </div>
-            `;
-            achContainer.appendChild(achNode);
-        });
-    }
-    renderCompletedQuestions();
-}
-
 // ================= DIURNAL SEEDED CHALLENGE PATTERN ENGINE =================
 function getDailySeed() {
     const today = new Date();
@@ -1277,8 +1238,43 @@ function initDailyChallengeEngine() {
     updateDailyChallengeCard();
 }
 
+function updateDashboardDisplays() {
+    const gamesEl = document.getElementById("stat-games");
+    if (gamesEl) gamesEl.innerText = state.userStats.gamesPlayed;
+    
+    const accuracyEl = document.getElementById("stat-accuracy");
+    if (accuracyEl) {
+        const acc = state.userStats.totalAnswered > 0 ? Math.round((state.userStats.totalCorrect / state.userStats.totalAnswered) * 100) : 0;
+        accuracyEl.innerText = `${acc}%`;
+    }
+    
+    const streakEl = document.getElementById("stat-streak");
+    if (streakEl) streakEl.innerText = state.userStats.maxStreak;
+    
+    const favEl = document.getElementById("stat-fav");
+    if (favEl) favEl.innerText = state.userStats.favCategory;
+
+    const achContainer = document.getElementById("achievements-container");
+    if (achContainer) {
+        achContainer.innerHTML = "";
+        ACHIEVEMENTS_REGISTRY.forEach(ach => {
+            const isUnlocked = state.userStats.unlockedAchievements.includes(ach.id);
+            const achNode = document.createElement("div");
+            achNode.className = `achievement-item ${isUnlocked ? 'unlocked' : 'locked'}`;
+            achNode.innerHTML = `
+                <div class="ach-icon">${ach.title.split(" ")[0]}</div>
+                <div class="ach-info">
+                    <h4>${ach.title.substring(2)}</h4>
+                    <p>${ach.desc} ${isUnlocked ? '✅' : '🔒'}</p>
+                </div>
+            `;
+            achContainer.appendChild(achNode);
+        });
+    }
+    renderCompletedQuestions();
+}
+
 // ================= ROUTING MECHANICS & SCREEN SWITCHERS =================
-// Crucial Fix: Safely remapped to seamlessly bridge original script routing with your template index.html IDs
 function switchViewportContext(viewId) {
     const homeView = document.getElementById("home-screen");
     const gameView = document.getElementById("quiz-screen");
@@ -1288,19 +1284,14 @@ function switchViewportContext(viewId) {
     if (gameView) { gameView.style.display = "none"; gameView.setAttribute("aria-hidden", "true"); }
     if (resultsView) { resultsView.style.display = "none"; resultsView.setAttribute("aria-hidden", "true"); }
 
-    let targetId = viewId;
-    if (viewId === "home-view") targetId = "home-screen";
-    if (viewId === "game-view") targetId = "quiz-screen";
-    if (viewId === "results-view") targetId = "results-screen";
-
-    const activeView = document.getElementById(targetId);
+    const activeView = document.getElementById(viewId);
     if (activeView) {
         activeView.style.display = "block";
         activeView.removeAttribute("aria-hidden");
         activeView.classList.remove("hidden");
     }
     
-    if (viewId === "home-view") {
+    if (viewId === "home-screen") {
         renderCategoryGrid();
     }
 }
@@ -1328,7 +1319,7 @@ function getTotalCategoryCount() {
 function exitToDashboardView() {
     AudioEngine.play("click");
     stopLiveQuizTimer();
-    switchViewportContext("home-view");
+    switchViewportContext("home-screen");
 }
 
 // ================= APPLICATION HUB DELEGATORS =================
