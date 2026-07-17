@@ -1,6 +1,5 @@
 /**
  * QuizzyBrain Core Application Architecture Module
- * Complete Uncut Version 2.0 - HTML Synchronized Edition
  */
 
 // ================= GLOBAL CONFIGURATION & METADATA DATA LIBRARY =================
@@ -26,7 +25,6 @@ const CORRECT_OPTION_INDEX = { A: 0, B: 1, C: 2, D: 3 };
 const DEFAULT_QUESTION_TIME_LIMIT = 15;
 const BRAIN_TEASER_TIME_LIMIT = 60;
 
-// Text normalization replacement mappings for high-accuracy text-matching engine fallback paths
 const DIACRITICS_MAP = {
     'à': 'a', 'á': 'a', 'â': 'a', 'ã': 'a', 'ä': 'a', 'å': 'a', 'æ': 'ae', 'ç': 'c',
     'è': 'e', 'é': 'e', 'ê': 'e', 'ë': 'e', 'ì': 'i', 'í': 'i', 'î': 'i', 'ï': 'i',
@@ -57,7 +55,6 @@ const DYNAMIC_CSS_THEME_RULES = `
     .btn-quiz-next-gen:hover { transform: translateY(-2px); opacity: 0.9; }
 `;
 
-// Achievement Registry Global Definition Matrix
 const ACHIEVEMENTS_REGISTRY = [
     { id: "first_quiz", title: "🏆 First Quiz", desc: "Complete any quiz category.", condition: s => s.gamesPlayed >= 1 },
     { id: "regular_player", title: "🎲 Regular Player", desc: "Complete 10 quizzes.", condition: s => s.gamesPlayed >= 10 },
@@ -101,7 +98,6 @@ const ACHIEVEMENTS_REGISTRY = [
     }
 ];
 
-// Fallback Category Data Payload in case of fetch exception environments
 const FALLBACK_CATEGORIES = [
     { "name": "Books", "icon": "📚", "desc": "Test your knowledge on classic literature, bestsellers, and legendary authors.", "time": "3 mins" },
     { "name": "Video Games", "icon": "🎮", "desc": "From retro arcade classics to modern day AAA blockbusters.", "time": "3 mins" },
@@ -300,7 +296,6 @@ function csvRowsToQuestions(csvText, categoryNames) {
 function normalizeTextAnswer(value) {
     let normalized = String(value || "").toLowerCase();
     
-    // Map diacritic accent modifiers back to baseline english characters
     let output = "";
     for (let i = 0; i < normalized.length; i++) {
         const char = normalized[i];
@@ -369,7 +364,6 @@ async function loadQuestionLibrary() {
     } catch (e) {
         console.warn("Unable to fetch data over network natively. Utilizing local array assets instead.", e);
         categories = FALLBACK_CATEGORIES;
-        // Mock fallback wrapper string data stream structure
         questionsText = `"id","category","difficulty","question","option_a","option_b","option_c","option_d","correct_option","answer_mode","canonical_answer","accepted_answers"\n`;
     }
 
@@ -573,6 +567,7 @@ function stopLiveQuizTimer() {
     }
 }
 
+// Synchronized to match HTML timer layout selectors exactly
 function updateTimerVisualLayout() {
     const textVal = document.getElementById("quiz-timer-text");
     const progressPath = document.getElementById("timer-progress-path");
@@ -638,13 +633,13 @@ function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
     renderActiveQuizQuestion();
 }
 
+// Synchronized to match HTML layout IDs: quiz-answers-stack & question-text-content
 function renderActiveQuizQuestion() {
     state.activeQuiz.answerLocked = false;
     state.activeQuiz.awaitingSelfAssessment = false;
     
     const activeQuestion = state.activeQuiz.questions[state.activeQuiz.currentIdx];
     
-    // HTML Mapped Selectors
     const catTitle = document.getElementById("quiz-category-title");
     if (catTitle) catTitle.innerText = state.activeQuiz.category;
 
@@ -665,7 +660,6 @@ function renderActiveQuizQuestion() {
 
     const choiceContainer = document.getElementById("quiz-answers-stack");
     
-    // Safely remove any legacy dynamics
     let btnNext = document.getElementById("btn-quiz-next");
     if (btnNext) btnNext.remove();
     
@@ -677,10 +671,9 @@ function renderActiveQuizQuestion() {
 
     if (choiceContainer) { 
         choiceContainer.innerHTML = ""; 
-        choiceContainer.style.removeAttribute ? choiceContainer.style.removeAttribute("display") : choiceContainer.style.display = "grid"; 
+        choiceContainer.style.display = "grid"; 
     }
 
-    // Dynamic rendering route paths based on text or discrete choice models
     if (activeQuestion.mode === "choice") {
         if (choiceContainer) {
             activeQuestion.a.forEach((choiceText, index) => {
@@ -696,7 +689,6 @@ function renderActiveQuizQuestion() {
             });
         }
     } else {
-        // Text answer template dynamic injection path framework
         const cardParent = document.querySelector(".question-presentation-card");
         if (cardParent) {
             const formNode = document.createElement("form");
@@ -761,6 +753,7 @@ function handleChoiceSelectionClick(chosenIdx) {
     lockChoiceSelectionLayout(chosenIdx, activeQuestion.c);
 }
 
+// Synchronized to match HTML layout IDs: quiz-answers-stack
 function lockChoiceSelectionLayout(chosenIdx, correctIdx) {
     const box = document.getElementById("quiz-answers-stack");
     if (!box) return;
@@ -944,7 +937,6 @@ function compileQuizSessionSummary() {
     saveProgressToStorage();
     updateDashboardDisplays();
 
-    // Map Metrics Directly to the specific IDs inside results-screen HTML template
     const resHeading = document.getElementById("result-heading");
     if (resHeading) resHeading.innerText = state.activeQuiz.isDaily ? "Daily Challenge Complete!" : "Quiz Finished!";
     
@@ -1188,7 +1180,6 @@ function getDailySeed() {
     return today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
 }
 
-// Seeded generator parameters
 function seededRandom(seed) {
     let x = 0;
     for (let i = 0; i < seed.length; i++) {
@@ -1287,6 +1278,7 @@ function initDailyChallengeEngine() {
 }
 
 // ================= ROUTING MECHANICS & SCREEN SWITCHERS =================
+// Crucial Fix: Safely remapped to seamlessly bridge original script routing with your template index.html IDs
 function switchViewportContext(viewId) {
     const homeView = document.getElementById("home-screen");
     const gameView = document.getElementById("quiz-screen");
@@ -1303,7 +1295,7 @@ function switchViewportContext(viewId) {
 
     const activeView = document.getElementById(targetId);
     if (activeView) {
-        activeView.style.removeAttribute ? activeView.style.removeAttribute("display") : activeView.style.display = "block";
+        activeView.style.display = "block";
         activeView.removeAttribute("aria-hidden");
         activeView.classList.remove("hidden");
     }
