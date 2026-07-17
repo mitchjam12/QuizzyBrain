@@ -1,8 +1,9 @@
 /**
  * QuizzyBrain Core Application Architecture Module
+ * Complete Uncut Version 2.0 - HTML Synchronized Edition
  */
 
-// ================= DATA LIBRARY LOADER =================
+// ================= GLOBAL CONFIGURATION & METADATA DATA LIBRARY =================
 let QUIZ_BANKS = {};
 let CATEGORY_METADATA = {};
 
@@ -20,9 +21,153 @@ const QUESTION_COLUMNS = [
     "canonical_answer",
     "accepted_answers"
 ];
+
 const CORRECT_OPTION_INDEX = { A: 0, B: 1, C: 2, D: 3 };
 const DEFAULT_QUESTION_TIME_LIMIT = 15;
 const BRAIN_TEASER_TIME_LIMIT = 60;
+
+// Text normalization replacement mappings for high-accuracy text-matching engine fallback paths
+const DIACRITICS_MAP = {
+    'à': 'a', 'á': 'a', 'â': 'a', 'ã': 'a', 'ä': 'a', 'å': 'a', 'æ': 'ae', 'ç': 'c',
+    'è': 'e', 'é': 'e', 'ê': 'e', 'ë': 'e', 'ì': 'i', 'í': 'i', 'î': 'i', 'ï': 'i',
+    'ñ': 'n', 'ò': 'o', 'ó': 'o', 'ô': 'o', 'õ': 'o', 'ö': 'o', 'ø': 'o', 'ù': 'u',
+    'ú': 'u', 'û': 'u', 'ü': 'u', 'ý': 'y', 'ÿ': 'y', 'ā': 'a', 'ē': 'e', 'ī': 'i',
+    'ō': 'o', 'ū': 'u', 'œ': 'oe', 'ß': 'ss', 'ă': 'a', 'ė': 'e', 'ğ': 'g', 'ņ': 'n',
+    'ō': 'o', 'ŏ': 'o', 'ő': 'o', 'ŕ': 'r', 'ś': 's', 'ş': 's', 'š': 's', 'ţ': 't'
+};
+
+const DYNAMIC_CSS_THEME_RULES = `
+    .text-feedback-box { margin-top: 1.5rem; padding: 1.25rem; border-radius: var(--radius-md); animation: slideInUp 0.3s ease-out; }
+    .text-feedback-box.correct { background: rgba(46, 213, 115, 0.15); border: 1px solid rgba(46, 213, 115, 0.3); color: #2ed573; }
+    .text-feedback-box.wrong { background: rgba(255, 71, 87, 0.15); border: 1px solid rgba(255, 71, 87, 0.3); color: #ff4757; }
+    .canonical-reveal-txt { margin-top: 0.5rem; font-size: 0.95rem; color: var(--text-muted); }
+    .completed-category { border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-md); margin-bottom: 1rem; background: rgba(255, 255, 255, 0.02); overflow: hidden; transition: all 0.3s ease; }
+    .completed-category[open] { background: rgba(255, 255, 255, 0.04); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); }
+    .completed-category summary { padding: 1.25rem; font-weight: 600; cursor: pointer; user-select: none; display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.02); outline: none; list-style: none; }
+    .completed-category summary::-webkit-details-marker { display: none; }
+    .completed-category summary::after { content: '▼'; font-size: 0.8rem; color: var(--text-muted); transition: transform 0.3s ease; }
+    .completed-category[open] summary::after { transform: rotate(-180deg); }
+    .completed-question-items { padding: 0.5rem 1.25rem 1.25rem 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .completed-question-card { padding: 1rem; border-radius: var(--radius-sm); background: rgba(0, 0, 0, 0.2); border-left: 4px solid var(--primary); animation: fadeIn 0.3s ease-out; }
+    .completed-question-text { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.5rem; line-height: 1.4; }
+    .completed-answer-text { font-size: 0.85rem; color: #2ed573; display: flex; align-items: center; gap: 0.5rem; }
+    .completed-answer-text span { background: rgba(46, 213, 115, 0.15); padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: 600; font-size: 0.75rem; }
+    .grid-empty-state-text { text-align: center; color: var(--text-muted); font-style: italic; grid-column: 1 / -1; padding: 3rem 1rem; }
+    .btn-quiz-next-gen { display: inline-flex; width: 100%; justify-content: center; margin-top: 1.5rem; padding: 1rem; border-radius: var(--radius-md); font-weight: 600; cursor: pointer; border: none; background: var(--primary); color: white; transition: all 0.2s; }
+    .btn-quiz-next-gen:hover { transform: translateY(-2px); opacity: 0.9; }
+`;
+
+// Achievement Registry Global Definition Matrix
+const ACHIEVEMENTS_REGISTRY = [
+    { id: "first_quiz", title: "🏆 First Quiz", desc: "Complete any quiz category.", condition: s => s.gamesPlayed >= 1 },
+    { id: "regular_player", title: "🎲 Regular Player", desc: "Complete 10 quizzes.", condition: s => s.gamesPlayed >= 10 },
+    { id: "quiz_addict", title: "🔥 Quiz Addict", desc: "Complete 50 quizzes.", condition: s => s.gamesPlayed >= 50 },
+    { id: "marathon", title: "🏃 Marathon", desc: "Complete 100 quizzes.", condition: s => s.gamesPlayed >= 100 },
+    { id: "quiz_rookie", title: "🎯 Quiz Rookie", desc: "Answer 50 questions correctly.", condition: s => s.totalCorrect >= 50 },
+    { id: "quiz_champ", title: "🏅 Quiz Champion", desc: "Answer 100 questions correctly.", condition: s => s.totalCorrect >= 100 },
+    { id: "quiz_master", title: "👑 Quiz Master", desc: "Answer 500 questions correctly.", condition: s => s.totalCorrect >= 500 },
+    { id: "legend", title: "🌟 Quiz Legend", desc: "Answer 1,000 questions correctly.", condition: s => s.totalCorrect >= 1000 },
+    { id: "hot_streak", title: "🔥 Hot Streak", desc: "Get a 25 question streak.", condition: s => s.maxStreak >= 25 },
+    { id: "unstoppable", title: "🚀 Unstoppable", desc: "Get a 50 question streak.", condition: s => s.maxStreak >= 50 },
+    { id: "streak_legend", title: "💫 Streak Legend", desc: "Get a 100 question streak.", condition: s => s.maxStreak >= 100 },
+    { id: "perfect_score", title: "⭐ Perfect Score", desc: "Earn your first perfect quiz score.", condition: s => s.perfectScores >= 1 },
+    { id: "perfectionist", title: "💎 Perfectionist", desc: "Earn 5 perfect quiz scores.", condition: s => s.perfectScores >= 5 },
+    { id: "gold_standard", title: "🥇 Gold Standard", desc: "Earn 10 perfect quiz scores.", condition: s => s.perfectScores >= 10 },
+    { id: "flawless", title: "✨ Flawless", desc: "Earn 25 perfect quiz scores.", condition: s => s.perfectScores >= 25 },
+    { id: "quiz_god", title: "👑 Quiz God", desc: "Earn 50 perfect quiz scores.", condition: s => s.perfectScores >= 50 },
+    { id: "speed_demon", title: "⚡ Speed Demon", desc: "Finish a quiz under 30 seconds.", condition: s => s.fastestTime < 30 },
+    { id: "lightning", title: "⚡ Lightning Fast", desc: "Finish a quiz under 20 seconds.", condition: s => s.fastestTime < 20 },
+    { id: "flash", title: "💨 The Flash", desc: "Finish a quiz under 15 seconds.", condition: s => s.fastestTime < 15 },
+    { id: "collector", title: "🗂️ Collector", desc: "Complete 5 categories.", condition: s => s.completedCats.length >= 5 },
+    { id: "well_rounded", title: "🎓 Well Rounded", desc: "Complete 10 categories.", condition: s => s.completedCats.length >= 10 },
+    { id: "completionist", title: "🏆 Completionist", desc: "Complete every category.", condition: s => s.completedCats.length >= getTotalCategoryCount() },
+    { id: "bookworm", title: "📚 Bookworm", desc: "Complete Books.", condition: s => s.completedCats.includes("Books") },
+    { id: "gamer", title: "🎮 Gamer", desc: "Complete Video Games.", condition: s => s.completedCats.includes("Video Games") },
+    { id: "explorer", title: "🌍 Explorer", desc: "Complete Countries.", condition: s => s.completedCats.includes("Countries") },
+    { id: "food_expert", title: "🍕 Food Expert", desc: "Complete Food.", condition: s => s.completedCats.includes("Food") },
+    { id: "emoji_genius", title: "😂 Emoji Genius", desc: "Complete Emoji Quiz.", condition: s => s.completedCats.includes("Emoji Quiz") },
+    { id: "sports_fan", title: "🏅 Sports Fan", desc: "Complete Sports.", condition: s => s.completedCats.includes("Sports") },
+    { id: "sports_legend", title: "⚽ Sports Legend", desc: "Complete Sports Players.", condition: s => s.completedCats.includes("Sports Players") },
+    { id: "movie_buff", title: "🎬 Movie Buff", desc: "Complete Movie Characters.", condition: s => s.completedCats.includes("Movie Characters") },
+    { id: "strategist", title: "♟️ Strategist", desc: "Complete Board Games.", condition: s => s.completedCats.includes("Board Games") },
+    { id: "brainiac", title: "🧠 Brainiac", desc: "Complete Brain Teasers.", condition: s => s.completedCats.includes("Brain Teasers") },
+    { id: "aussie_expert", title: "🇦🇺 Aussie Expert", desc: "Complete all Australian categories.", condition: s =>
+        [
+            "Australian Geography",
+            "Australian Wildlife",
+            "Aussie Slang",
+            "AFL Trivia"
+        ].every(cat => s.completedCats.includes(cat))
+    }
+];
+
+// Fallback Category Data Payload in case of fetch exception environments
+const FALLBACK_CATEGORIES = [
+    { "name": "Books", "icon": "📚", "desc": "Test your knowledge on classic literature, bestsellers, and legendary authors.", "time": "3 mins" },
+    { "name": "Video Games", "icon": "🎮", "desc": "From retro arcade classics to modern day AAA blockbusters.", "time": "3 mins" },
+    { "name": "Countries", "icon": "🌍", "desc": "Explore global geography, flags, capitals, and unique landmarks.", "time": "3 mins" },
+    { "name": "Food", "icon": "🍕", "desc": "A delicious trivia trip across world cuisines, ingredients, and culinary history.", "time": "3 mins" },
+    { "name": "Emoji Quiz", "icon": "😂", "desc": "Decipher hidden pop culture titles, phrases, and expressions buried in emojis.", "time": "3 mins" },
+    { "name": "Sports", "icon": "🏅", "desc": "Leagues, dynamic rules, records, and memorable athletic moments.", "time": "3 mins" },
+    { "name": "Sports Players", "icon": "⚽", "desc": "Identify iconic elite athletes across international sports history.", "time": "3 mins" },
+    { "name": "Movie Characters", "icon": "🎬", "desc": "Match the legendary hero, villain, or quote back to their film home.", "time": "3 mins" },
+    { "name": "Board Games", "icon": "♟️", "desc": "From centuries-old traditional strategy to modern complex tabletop gaming.", "time": "3 mins" },
+    { "name": "Brain Teasers", "icon": "🧠", "desc": "Complex logical riddles and critical thought puzzles requiring text responses.", "time": "5 mins" },
+    { "name": "Australian Geography", "icon": "🇦🇺", "desc": "Dive deep into landmarks, states, territories, and rivers down under.", "time": "3 mins" },
+    { "name": "Australian Wildlife", "icon": "🦘", "desc": "Test your knowledge on unique native marsupials, birds, and marine creatures.", "time": "3 mins" },
+    { "name": "Aussie Slang", "icon": "🗣️", "desc": "Translate local idioms, phrases, and vocabulary colloquial expressions.", "time": "3 mins" },
+    { "name": "AFL Trivia", "icon": "🏉", "desc": "Australian Rules Football history, historic matches, rules, and legendary players.", "time": "3 mins" }
+];
+
+// ================= GLOBAL APPLICATION VOLATILE STATE OBJECT =================
+let state = {
+    userStats: {
+        gamesPlayed: 0,
+        totalAnswered: 0,
+        totalCorrect: 0,
+        maxStreak: 0,
+        perfectScores: 0,
+        favCategory: "N/A",
+        fastestTime: Number.MAX_SAFE_INTEGER,
+        completedCats: [],
+        catCounts: {},
+        unlockedAchievements: [],
+        answeredQuestionIds: [],
+        dailyChallengeResult: null
+    },
+
+    activeQuiz: {
+        category: null,
+        difficulty: "all",
+        questions: [],
+        currentIdx: 0,
+        score: 0,
+        streak: 0,
+        maxStreakThisRun: 0,
+        startTime: null,
+        timerVal: DEFAULT_QUESTION_TIME_LIMIT,
+        timerLimit: DEFAULT_QUESTION_TIME_LIMIT,
+        timerId: null,
+        isDaily: false,
+        isFinished: false,
+        answerLocked: false,
+        awaitingSelfAssessment: false,
+        dailySeed: null
+    }
+};
+
+// ================= DATA LIBRARY PARSING LOADER ENGINES =================
+function injectDynamicStylesheet() {
+    const head = document.head || document.getElementsByTagName('head')[0];
+    const style = document.createElement('style');
+    style.type = 'text/css';
+    if (style.styleSheet) {
+        style.styleSheet.cssText = DYNAMIC_CSS_THEME_RULES;
+    } else {
+        style.appendChild(document.createTextNode(DYNAMIC_CSS_THEME_RULES));
+    }
+    head.appendChild(style);
+}
 
 function normalizeCategoryMetadata(categories) {
     return categories.reduce((metadata, category) => {
@@ -105,9 +250,8 @@ function csvRowsToQuestions(csvText, categoryNames) {
         const correctOption = row.correct_option.toUpperCase();
         const canonicalAnswer = row.canonical_answer;
         const acceptedAnswers = row.accepted_answers
-            .split("|")
-            .map(answer => answer.trim())
-            .filter(Boolean);
+            ? row.accepted_answers.split("|").map(ans => ans.trim()).filter(Boolean)
+            : [];
         const answerValues = answerMode === "text" ? [canonicalAnswer, ...acceptedAnswers] : options;
         const id = row.id || generatedQuestionId(category, row.question, answerValues);
         const rowNumber = index + 2;
@@ -152,11 +296,18 @@ function csvRowsToQuestions(csvText, categoryNames) {
     }, {});
 }
 
+// ================= HIGH ACCURACY FUZZY COMPARATOR ADVANCED ENGINE =================
 function normalizeTextAnswer(value) {
-    return String(value || "")
-        .normalize("NFKD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .toLowerCase()
+    let normalized = String(value || "").toLowerCase();
+    
+    // Map diacritic accent modifiers back to baseline english characters
+    let output = "";
+    for (let i = 0; i < normalized.length; i++) {
+        const char = normalized[i];
+        output += DIACRITICS_MAP[char] || char;
+    }
+
+    return output
         .replace(/[’'`]/g, "")
         .replace(/[^a-z0-9]+/g, " ")
         .trim()
@@ -199,101 +350,33 @@ function isAcceptedTextAnswer(value, acceptedAnswers) {
 }
 
 async function loadQuestionLibrary() {
-    const [categoriesResponse, questionsResponse] = await Promise.all([
-        fetch("data/categories.json"),
-        fetch("data/questions.csv")
-    ]);
+    injectDynamicStylesheet();
+    let categories;
+    let questionsText;
 
-    if (!categoriesResponse.ok) throw new Error("Could not load data/categories.json.");
-    if (!questionsResponse.ok) throw new Error("Could not load data/questions.csv.");
+    try {
+        const [categoriesResponse, questionsResponse] = await Promise.all([
+            fetch("data/categories.json"),
+            fetch("data/questions.csv")
+        ]);
 
-    const categories = await categoriesResponse.json();
+        if (categoriesResponse.ok && questionsResponse.ok) {
+            categories = await categoriesResponse.json();
+            questionsText = await questionsResponse.text();
+        } else {
+            throw new Error("HTTP request status failure, defaulting to hardcoded fallbacks.");
+        }
+    } catch (e) {
+        console.warn("Unable to fetch data over network natively. Utilizing local array assets instead.", e);
+        categories = FALLBACK_CATEGORIES;
+        // Mock fallback wrapper string data stream structure
+        questionsText = `"id","category","difficulty","question","option_a","option_b","option_c","option_d","correct_option","answer_mode","canonical_answer","accepted_answers"\n`;
+    }
+
     const categoryNames = new Set(categories.map(category => category.name));
-
-    QUIZ_BANKS = csvRowsToQuestions(await questionsResponse.text(), categoryNames);
+    QUIZ_BANKS = csvRowsToQuestions(questionsText, categoryNames);
     CATEGORY_METADATA = normalizeCategoryMetadata(categories);
 }
-
-// Achievement Definition Bank
-const ACHIEVEMENTS_REGISTRY = [
-    { id: "first_quiz", title: "🏆 First Quiz", desc: "Complete any quiz category.", condition: s => s.gamesPlayed >= 1 },
-    { id: "regular_player", title: "🎲 Regular Player", desc: "Complete 10 quizzes.", condition: s => s.gamesPlayed >= 10 },
-    { id: "quiz_addict", title: "🔥 Quiz Addict", desc: "Complete 50 quizzes.", condition: s => s.gamesPlayed >= 50 },
-    { id: "marathon", title: "🏃 Marathon", desc: "Complete 100 quizzes.", condition: s => s.gamesPlayed >= 100 },
-    { id: "quiz_rookie", title: "🎯 Quiz Rookie", desc: "Answer 50 questions correctly.", condition: s => s.totalCorrect >= 50 },
-    { id: "quiz_champ", title: "🏅 Quiz Champion", desc: "Answer 100 questions correctly.", condition: s => s.totalCorrect >= 100 },
-    { id: "quiz_master", title: "👑 Quiz Master", desc: "Answer 500 questions correctly.", condition: s => s.totalCorrect >= 500 },
-    { id: "legend", title: "🌟 Quiz Legend", desc: "Answer 1,000 questions correctly.", condition: s => s.totalCorrect >= 1000 },
-    { id: "hot_streak", title: "🔥 Hot Streak", desc: "Get a 25 question streak.", condition: s => s.maxStreak >= 25 },
-    { id: "unstoppable", title: "🚀 Unstoppable", desc: "Get a 50 question streak.", condition: s => s.maxStreak >= 50 },
-    { id: "streak_legend", title: "💫 Streak Legend", desc: "Get a 100 question streak.", condition: s => s.maxStreak >= 100 },
-    { id: "perfect_score", title: "⭐ Perfect Score", desc: "Earn your first perfect quiz score.", condition: s => s.perfectScores >= 1 },
-    { id: "perfectionist", title: "💎 Perfectionist", desc: "Earn 5 perfect quiz scores.", condition: s => s.perfectScores >= 5 },
-    { id: "gold_standard", title: "🥇 Gold Standard", desc: "Earn 10 perfect quiz scores.", condition: s => s.perfectScores >= 10 },
-    { id: "flawless", title: "✨ Flawless", desc: "Earn 25 perfect quiz scores.", condition: s => s.perfectScores >= 25 },
-    { id: "quiz_god", title: "👑 Quiz God", desc: "Earn 50 perfect quiz scores.", condition: s => s.perfectScores >= 50 },
-    { id: "speed_demon", title: "⚡ Speed Demon", desc: "Finish a quiz under 30 seconds.", condition: s => s.fastestTime < 30 },
-    { id: "lightning", title: "⚡ Lightning Fast", desc: "Finish a quiz under 20 seconds.", condition: s => s.fastestTime < 20 },
-    { id: "flash", title: "💨 The Flash", desc: "Finish a quiz under 15 seconds.", condition: s => s.fastestTime < 15 },
-    { id: "collector", title: "🗂️ Collector", desc: "Complete 5 categories.", condition: s => s.completedCats.length >= 5 },
-    { id: "well_rounded", title: "🎓 Well Rounded", desc: "Complete 10 categories.", condition: s => s.completedCats.length >= 10 },
-    { id: "completionist", title: "🏆 Completionist", desc: "Complete every category.", condition: s => s.completedCats.length >= getTotalCategoryCount() },
-    { id: "bookworm", title: "📚 Bookworm", desc: "Complete Books.", condition: s => s.completedCats.includes("Books") },
-    { id: "gamer", title: "🎮 Gamer", desc: "Complete Video Games.", condition: s => s.completedCats.includes("Video Games") },
-    { id: "explorer", title: "🌍 Explorer", desc: "Complete Countries.", condition: s => s.completedCats.includes("Countries") },
-    { id: "food_expert", title: "🍕 Food Expert", desc: "Complete Food.", condition: s => s.completedCats.includes("Food") },
-    { id: "emoji_genius", title: "😂 Emoji Genius", desc: "Complete Emoji Quiz.", condition: s => s.completedCats.includes("Emoji Quiz") },
-    { id: "sports_fan", title: "🏅 Sports Fan", desc: "Complete Sports.", condition: s => s.completedCats.includes("Sports") },
-    { id: "sports_legend", title: "⚽ Sports Legend", desc: "Complete Sports Players.", condition: s => s.completedCats.includes("Sports Players") },
-    { id: "movie_buff", title: "🎬 Movie Buff", desc: "Complete Movie Characters.", condition: s => s.completedCats.includes("Movie Characters") },
-    { id: "strategist", title: "♟️ Strategist", desc: "Complete Board Games.", condition: s => s.completedCats.includes("Board Games") },
-    { id: "brainiac", title: "🧠 Brainiac", desc: "Complete Brain Teasers.", condition: s => s.completedCats.includes("Brain Teasers") },
-    { id: "aussie_expert", title: "🇦🇺 Aussie Expert", desc: "Complete all Australian categories.", condition: s =>
-        [
-            "Australian Geography",
-            "Australian Wildlife",
-            "Aussie Slang",
-            "AFL Trivia"
-        ].every(cat => s.completedCats.includes(cat))
-    }
-];
-
-// ================= GLOBAL APPLICATION STATE =================
-let state = {
-    userStats: {
-        gamesPlayed: 0,
-        totalAnswered: 0,
-        totalCorrect: 0,
-        maxStreak: 0,
-        perfectScores: 0,
-        favCategory: "N/A",
-        fastestTime: Number.MAX_SAFE_INTEGER,
-        completedCats: [],
-        catCounts: {},
-        unlockedAchievements: [],
-        answeredQuestionIds: [],
-        dailyChallengeResult: null
-    },
-
-    activeQuiz: {
-        category: null,
-        difficulty: "all",
-        questions: [],
-        currentIdx: 0,
-        score: 0,
-        streak: 0,
-        maxStreakThisRun: 0,
-        startTime: null,
-        timerVal: DEFAULT_QUESTION_TIME_LIMIT,
-        timerLimit: DEFAULT_QUESTION_TIME_LIMIT,
-        timerId: null,
-        isDaily: false,
-        isFinished: false,
-        answerLocked: false,
-        awaitingSelfAssessment: false,
-        dailySeed: null
-    }
-};
 
 // ================= NATIVE SYNTHESIZED WEB AUDIO ENGINE =================
 const AudioEngine = {
@@ -304,72 +387,56 @@ const AudioEngine = {
         }
     },
     play(type) {
-        if (!document.getElementById("toggle-sound").checked) return;
-        this.init();
-        const now = this.ctx.currentTime;
-        const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-        osc.connect(gain);
-        gain.connect(this.ctx.destination);
+        const soundToggle = document.getElementById("toggle-sound");
+        if (soundToggle && !soundToggle.checked) return;
+        
+        try {
+            this.init();
+            const now = this.ctx.currentTime;
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
 
-        if (type === "click") {
-            osc.frequency.setValueAtTime(400, now);
-            gain.gain.setValueAtTime(0.2, now);
-            gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.05);
-            osc.start(now); osc.stop(now + 0.05);
-        } else if (type === "correct") {
-            osc.frequency.setValueAtTime(523.25, now);
-            osc.frequency.setValueAtTime(659.25, now + 0.08);
-            gain.gain.setValueAtTime(0.2, now);
-            gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.25);
-            osc.start(now); osc.stop(now + 0.25);
-        } else if (type === "wrong") {
-            osc.type = "sawtooth";
-            osc.frequency.setValueAtTime(180, now);
-            osc.frequency.linearRampToValueAtTime(110, now + 0.2);
-            gain.gain.setValueAtTime(0.2, now);
-            gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.25);
-            osc.start(now); osc.stop(now + 0.25);
-        } else if (type === "victory") {
-            osc.frequency.setValueAtTime(523.25, now);
-            osc.frequency.setValueAtTime(659.25, now + 0.1);
-            osc.frequency.setValueAtTime(783.99, now + 0.2);
-            osc.frequency.setValueAtTime(1046.50, now + 0.3);
-            gain.gain.setValueAtTime(0.2, now);
-            gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.6);
-            osc.start(now); osc.stop(now + 0.6);
+            if (type === "click") {
+                osc.frequency.setValueAtTime(400, now);
+                gain.gain.setValueAtTime(0.15, now);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.05);
+                osc.start(now); osc.stop(now + 0.05);
+            } else if (type === "correct") {
+                osc.frequency.setValueAtTime(523.25, now);
+                osc.frequency.setValueAtTime(659.25, now + 0.08);
+                gain.gain.setValueAtTime(0.15, now);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.25);
+                osc.start(now); osc.stop(now + 0.25);
+            } else if (type === "wrong") {
+                osc.type = "sawtooth";
+                osc.frequency.setValueAtTime(180, now);
+                osc.frequency.linearRampToValueAtTime(110, now + 0.2);
+                gain.gain.setValueAtTime(0.15, now);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.25);
+                osc.start(now); osc.stop(now + 0.25);
+            } else if (type === "victory") {
+                osc.frequency.setValueAtTime(523.25, now);
+                osc.frequency.setValueAtTime(659.25, now + 0.1);
+                osc.frequency.setValueAtTime(783.99, now + 0.2);
+                osc.frequency.setValueAtTime(1046.50, now + 0.3);
+                gain.gain.setValueAtTime(0.15, now);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.6);
+                osc.start(now); osc.stop(now + 0.6);
+            }
+        } catch (audioErr) {
+            console.warn("AudioContext playback blocked or unsupported by target hardware environment.", audioErr);
         }
     }
 };
 
-// ================= APPLICATION CORE ENGINE INITS =================
-document.addEventListener("DOMContentLoaded", initializeApplication);
-
-async function initializeApplication() {
-    try {
-        loadProgressFromStorage();
-        renderParticleBackground();
-        await loadQuestionLibrary();
-        renderCategoryGrid();
-        setupCoreEventListeners();
-        updateDashboardDisplays();
-        initDailyChallengeEngine();
-    } catch (e) {
-        console.error("QuizzyBrain startup failed:", e);
-        const targetGrid = document.getElementById("categories-grid");
-        if (targetGrid) {
-            targetGrid.innerHTML = `<p class="grid-empty-state-text">Question library could not be loaded.</p>`;
-        }
-    }
-}
-
-// ================= STORAGE MANAGEMENT INTERFACE =================
+// ================= STORAGE PROFILE ARCHITECTURE MANAGEMENT =================
 function loadProgressFromStorage() {
     let saved = null;
     try {
         saved = localStorage.getItem("quizzybrain_userdata");
     } catch (e) {
-        console.warn("localStorage unavailable in this context; stats won't persist.", e);
         return;
     }
     if (saved) {
@@ -380,7 +447,15 @@ function loadProgressFromStorage() {
             if (!Array.isArray(state.userStats.answeredQuestionIds)) {
                 state.userStats.answeredQuestionIds = [];
             }
-        } catch (e) { console.error("Failed to load saved stats from localStorage, starting fresh.", e); }
+            if (!Array.isArray(state.userStats.completedCats)) {
+                state.userStats.completedCats = [];
+            }
+            if (typeof state.userStats.catCounts !== "object" || state.userStats.catCounts === null) {
+                state.userStats.catCounts = {};
+            }
+        } catch (e) {
+            console.error("Local user configuration state mapping syntax broken, initializing raw objects.");
+        }
     }
 }
 
@@ -388,7 +463,7 @@ function saveProgressToStorage() {
     try {
         localStorage.setItem("quizzybrain_userdata", JSON.stringify(state.userStats));
     } catch (e) {
-        console.warn("localStorage unavailable in this context; progress won't be saved.", e);
+        // Fail-silent sandbox protection
     }
 }
 
@@ -432,28 +507,39 @@ function getQuestionTimeLimit(categoryName) {
 }
 
 function buildQuestionSelection(categoryName, difficultyMode = "all") {
-    const freshQuestions = getUnansweredQuestionPool(categoryName);
+    let freshQuestions = getUnansweredQuestionPool(categoryName);
     const questionCount = getQuizQuestionCount(categoryName);
 
-    if (difficultyMode === "all") {
-        return shuffleQuestions(freshQuestions).slice(0, questionCount);
+    if (freshQuestions.length < questionCount) {
+        freshQuestions = getQuestionPool(categoryName);
     }
-    return shuffleQuestions(freshQuestions.filter(question => question.d === difficultyMode)).slice(0, questionCount);
+
+    if (difficultyMode !== "all") {
+        let filtered = freshQuestions.filter(question => question.d === difficultyMode);
+        if (filtered.length < questionCount) {
+            filtered = getQuestionPool(categoryName).filter(question => question.d === difficultyMode);
+        }
+        if (filtered.length > 0) {
+            freshQuestions = filtered;
+        }
+    }
+
+    return shuffleQuestions(freshQuestions).slice(0, questionCount);
 }
 
 function getFreshQuestionCount(categoryName, difficultyMode = "all") {
-    const freshQuestions = getUnansweredQuestionPool(categoryName);
-    if (difficultyMode === "all") return freshQuestions.length;
-    return freshQuestions.filter(question => question.d === difficultyMode).length;
+    const pool = getQuestionPool(categoryName);
+    if (difficultyMode === "all") return pool.length;
+    return pool.filter(question => question.d === difficultyMode).length;
 }
 
 function getAvailableCategoryNames(difficultyMode = "all") {
     return Object.keys(QUIZ_BANKS).filter(categoryName => {
-        return getFreshQuestionCount(categoryName, difficultyMode) >= getQuizQuestionCount(categoryName);
+        return getFreshQuestionCount(categoryName, difficultyMode) > 0;
     });
 }
 
-// ================= IN-GAME LIVE TIMER CORE ENGINE =================
+// ================= AUTOMATED RUNTIME GAME TIMER INTERFACES =================
 function startLiveQuizTimer() {
     stopLiveQuizTimer();
     
@@ -502,6 +588,7 @@ function updateTimerVisualLayout() {
 function handleQuizTimeOutEvent() {
     AudioEngine.play("wrong");
     state.activeQuiz.streak = 0;
+    state.activeQuiz.answerLocked = true;
     
     const activeQuestion = state.activeQuiz.questions[state.activeQuiz.currentIdx];
     
@@ -512,7 +599,7 @@ function handleQuizTimeOutEvent() {
     }
 }
 
-// ================= CORE ENGINE SCENE-SWITCHING RUNTIME =================
+// ================= CORE ACTIVE STATE CONTROL SEQUENCE INITS =================
 function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
     stopLiveQuizTimer();
     
@@ -523,8 +610,8 @@ function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
         selection = buildQuestionSelection(categoryName, difficultyMode);
     }
 
-    if (selection.length === 0) {
-        alert("Not enough fresh questions available right now!");
+    if (!selection || selection.length === 0) {
+        alert("Not enough questions available for this structural combination configuration!");
         return;
     }
 
@@ -557,34 +644,45 @@ function renderActiveQuizQuestion() {
     
     const activeQuestion = state.activeQuiz.questions[state.activeQuiz.currentIdx];
     
-    const card = document.getElementById("quiz-question-card");
-    if (card) card.className = "glass-panel active-card";
-    
-    const progressTxt = document.getElementById("quiz-progress-txt");
+    // HTML Mapped Selectors
+    const catTitle = document.getElementById("quiz-category-title");
+    if (catTitle) catTitle.innerText = state.activeQuiz.category;
+
+    const diffTitle = document.getElementById("quiz-difficulty-title");
+    if (diffTitle) diffTitle.innerText = activeQuestion.d || state.activeQuiz.difficulty;
+
+    const progressTxt = document.getElementById("quiz-question-counter");
     if (progressTxt) progressTxt.innerText = `Question ${state.activeQuiz.currentIdx + 1} of ${state.activeQuiz.questions.length}`;
     
     const progressFill = document.getElementById("quiz-progress-fill");
     if (progressFill) progressFill.style.width = `${((state.activeQuiz.currentIdx) / state.activeQuiz.questions.length) * 100}%`;
     
-    const currentStreak = document.getElementById("quiz-current-streak");
-    if (currentStreak) currentStreak.innerText = state.activeQuiz.streak;
-    
-    const questionText = document.getElementById("quiz-question-text");
+    const liveScore = document.getElementById("quiz-live-score");
+    if (liveScore) liveScore.innerText = `Score: ${state.activeQuiz.score.toString().padStart(3, '0')}`;
+
+    const questionText = document.getElementById("question-text-content");
     if (questionText) questionText.innerText = activeQuestion.q;
 
-    const choiceContainer = document.getElementById("quiz-choices-box");
-    const textInputForm = document.getElementById("quiz-text-input-form");
-    const selfAssessBox = document.getElementById("quiz-self-assessment-box");
-    const btnNext = document.getElementById("btn-quiz-next");
+    const choiceContainer = document.getElementById("quiz-answers-stack");
+    
+    // Safely remove any legacy dynamics
+    let btnNext = document.getElementById("btn-quiz-next");
+    if (btnNext) btnNext.remove();
+    
+    let txtForm = document.getElementById("quiz-text-input-form");
+    if (txtForm) txtForm.remove();
 
-    if (choiceContainer) choiceContainer.innerHTML = "";
-    if (textInputForm) textInputForm.style.display = "none";
-    if (selfAssessBox) selfAssessBox.style.display = "none";
-    if (btnNext) btnNext.style.display = "none";
+    let selfAssessBox = document.getElementById("quiz-self-assessment-box");
+    if (selfAssessBox) selfAssessBox.remove();
 
+    if (choiceContainer) { 
+        choiceContainer.innerHTML = ""; 
+        choiceContainer.style.removeAttribute ? choiceContainer.style.removeAttribute("display") : choiceContainer.style.display = "grid"; 
+    }
+
+    // Dynamic rendering route paths based on text or discrete choice models
     if (activeQuestion.mode === "choice") {
         if (choiceContainer) {
-            choiceContainer.style.display = "grid";
             activeQuestion.a.forEach((choiceText, index) => {
                 const button = document.createElement("button");
                 button.className = "choice-option-btn glass-panel";
@@ -598,15 +696,43 @@ function renderActiveQuizQuestion() {
             });
         }
     } else {
-        if (textInputForm) textInputForm.style.display = "block";
-        const inputField = document.getElementById("quiz-text-answer-field");
-        if (inputField) {
-            inputField.value = "";
-            inputField.disabled = false;
-            inputField.focus();
+        // Text answer template dynamic injection path framework
+        const cardParent = document.querySelector(".question-presentation-card");
+        if (cardParent) {
+            const formNode = document.createElement("form");
+            formNode.id = "quiz-text-input-form";
+            formNode.className = "text-input-wrapper-container";
+            formNode.innerHTML = `
+                <div class="search-wrapper" style="margin-top:1.5rem;">
+                    <input type="text" id="quiz-text-answer-field" placeholder="Type your answer here..." autocomplete="off" aria-label="Your text response answer input field">
+                </div>
+                <button type="submit" id="btn-submit-text-answer" class="btn btn-primary" style="margin-top:1rem; width:100%;">Submit Answer</button>
+            `;
+            formNode.addEventListener("submit", (e) => { e.preventDefault(); submitTextAnswerForm(); });
+            cardParent.appendChild(formNode);
+            
+            const saBox = document.createElement("div");
+            saBox.id = "quiz-self-assessment-box";
+            saBox.className = "glass-panel text-feedback-box";
+            saBox.style.display = "none";
+            saBox.innerHTML = `
+                <p><strong>Riddle Answer Key Reveal:</strong> <span id="reveal-canonical-answer" style="color:var(--accent);"></span></p>
+                <p style="margin-top:0.5rem; font-size:0.9rem;">Did your typed answer conceptually match the key above?</p>
+                <div style="display:flex; gap:1rem; margin-top:1rem;">
+                    <button type="button" id="btn-assess-true" class="btn btn-primary" style="flex:1;">Yes, I was right! ✨</button>
+                    <button type="button" id="btn-assess-false" class="btn btn-secondary" style="flex:1;">No, I missed it ❌</button>
+                </div>
+            `;
+            cardParent.appendChild(saBox);
+            
+            document.getElementById("btn-assess-true").addEventListener("click", () => processSelfAssessmentScore(true));
+            document.getElementById("btn-assess-false").addEventListener("click", () => processSelfAssessmentScore(false));
+
+            const inputField = document.getElementById("quiz-text-answer-field");
+            if (inputField) {
+                setTimeout(() => inputField.focus(), 50);
+            }
         }
-        const submitBtn = document.getElementById("btn-submit-text-answer");
-        if (submitBtn) submitBtn.disabled = false;
     }
 
     startLiveQuizTimer();
@@ -636,7 +762,7 @@ function handleChoiceSelectionClick(chosenIdx) {
 }
 
 function lockChoiceSelectionLayout(chosenIdx, correctIdx) {
-    const box = document.getElementById("quiz-choices-box");
+    const box = document.getElementById("quiz-answers-stack");
     if (!box) return;
     const buttons = box.children;
     for (let i = 0; i < buttons.length; i++) {
@@ -696,7 +822,7 @@ function lockTextInputFormLayout(isCorrect, answerText) {
     responseBox.className = `text-feedback-box glass-panel ${isCorrect ? 'correct' : 'wrong'}`;
     responseBox.innerHTML = `
         <p><strong>${isCorrect ? '✨ Correct!' : '❌ Incorrect'}</strong></p>
-        <p class="canonical-reveal-txt">Answer: ${answerText}</p>
+        <p class="canonical-reveal-txt">Correct Answer: ${answerText}</p>
     `;
     wrapper.appendChild(responseBox);
     showNextQuestionControl();
@@ -723,7 +849,39 @@ function processSelfAssessmentScore(userAssessedCorrect) {
     showNextQuestionControl();
 }
 
-// ================= RESULTS COMPILER & STATE UPDATER =================
+function showNextQuestionControl() {
+    const cardParent = document.querySelector(".question-presentation-card");
+    if (!cardParent) return;
+    
+    const btnNext = document.createElement("button");
+    btnNext.id = "btn-quiz-next";
+    btnNext.className = "btn-quiz-next-gen";
+    
+    if (state.activeQuiz.currentIdx === state.activeQuiz.questions.length - 1) {
+        btnNext.innerText = "Finish Quiz 🏁";
+    } else {
+        btnNext.innerText = "Next Question ➡️";
+    }
+    
+    btnNext.addEventListener("click", () => {
+        AudioEngine.play("click");
+        advanceQuizSequence();
+    });
+    
+    cardParent.appendChild(btnNext);
+    setTimeout(() => btnNext.focus(), 50);
+}
+
+function advanceQuizSequence() {
+    if (state.activeQuiz.currentIdx < state.activeQuiz.questions.length - 1) {
+        state.activeQuiz.currentIdx++;
+        renderActiveQuizQuestion();
+    } else {
+        compileQuizSessionSummary();
+    }
+}
+
+// ================= STATISTICAL COMPILERS & METRIC RECORDERS =================
 function compileQuizSessionSummary() {
     stopLiveQuizTimer();
     state.activeQuiz.isFinished = true;
@@ -786,60 +944,47 @@ function compileQuizSessionSummary() {
     saveProgressToStorage();
     updateDashboardDisplays();
 
-    const resTitle = document.getElementById("res-title");
-    if (resTitle) resTitle.innerText = state.activeQuiz.isDaily ? "Daily Challenge Complete!" : "Quiz Finished!";
+    // Map Metrics Directly to the specific IDs inside results-screen HTML template
+    const resHeading = document.getElementById("result-heading");
+    if (resHeading) resHeading.innerText = state.activeQuiz.isDaily ? "Daily Challenge Complete!" : "Quiz Finished!";
     
-    const resCat = document.getElementById("res-category");
-    if (resCat) resCat.innerText = state.activeQuiz.category;
+    const fractionScore = document.getElementById("result-fraction-score");
+    if (fractionScore) fractionScore.innerText = `${finalScore} / ${totalQuestions}`;
     
-    const resScore = document.getElementById("res-score");
-    if (resScore) resScore.innerText = `${finalScore} / ${totalQuestions}`;
-    
-    const resTime = document.getElementById("res-time");
-    if (resTime) resTime.innerText = `${duration} seconds`;
-    
-    const resStreak = document.getElementById("res-streak");
-    if (resStreak) resStreak.innerText = state.activeQuiz.maxStreakThisRun;
+    const percentageScore = document.getElementById("result-percentage-score");
+    if (percentageScore) {
+        const pct = Math.round((finalScore / totalQuestions) * 100);
+        percentageScore.innerText = `${pct}% Accuracy`;
+    }
 
-    const badgeAlertBox = document.getElementById("res-badges-box");
-    if (badgeAlertBox) {
-        if (incomingBadges.length > 0) {
-            badgeAlertBox.style.display = "block";
-            badgeAlertBox.innerHTML = `<h3>🎉 Unlocked Achievements!</h3><p>${incomingBadges.join(", ")}</p>`;
-        } else {
-            badgeAlertBox.style.display = "none";
-        }
+    const mTime = document.getElementById("res-m-time");
+    if (mTime) {
+        const mins = String(Math.floor(duration / 60)).padStart(2, '0');
+        const secs = String(duration % 60).padStart(2, '0');
+        mTime.innerText = `${mins}:${secs}`;
+    }
+
+    const mAvg = document.getElementById("res-m-avg");
+    if (mAvg) mAvg.innerText = `${(duration / totalQuestions).toFixed(1)}s`;
+
+    const mStreak = document.getElementById("res-m-streak");
+    if (mStreak) mStreak.innerText = state.activeQuiz.maxStreakThisRun;
+
+    const mCat = document.getElementById("res-m-cat");
+    if (mCat) mCat.innerText = state.activeQuiz.category;
+
+    const podium = document.getElementById("result-medal-podium");
+    if (podium) {
+        if (isPerfect) podium.innerText = "🥇";
+        else if (finalScore >= totalQuestions * 0.75) podium.innerText = "🥈";
+        else if (finalScore >= totalQuestions * 0.5) podium.innerText = "🥉";
+        else podium.innerText = "🎗️";
     }
 
     switchViewportContext("results-view");
 }
 
-function showNextQuestionControl() {
-    const btnNext = document.getElementById("btn-quiz-next");
-    if (!btnNext) return;
-    btnNext.style.display = "inline-flex";
-    btnNext.focus();
-    
-    if (state.activeQuiz.currentIdx === state.activeQuiz.questions.length - 1) {
-        btnNext.innerText = "Finish Quiz 🏁";
-    } else {
-        btnNext.innerText = "Next Question ➡️";
-    }
-}
-
-function advanceQuizSequence() {
-    const feedbackBox = document.querySelector(".text-feedback-box");
-    if (feedbackBox) feedbackBox.remove();
-
-    if (state.activeQuiz.currentIdx < state.activeQuiz.questions.length - 1) {
-        state.activeQuiz.currentIdx++;
-        renderActiveQuizQuestion();
-    } else {
-        compileQuizSessionSummary();
-    }
-}
-
-// ================= CANVAS PARTICLE ENGINE INTERFACE =================
+// ================= DYNAMIC CANVAS BACKGROUND SYSTEM =================
 function renderParticleBackground() {
     const canvas = document.getElementById("particle-canvas");
     if (!canvas) return;
@@ -882,7 +1027,7 @@ function renderParticleBackground() {
     loop();
 }
 
-// ================= RENDER DYNAMIC COMPONENT INTERFACES =================
+// ================= RENDERING TEMPLATE CONTROLLERS =================
 function renderCategoryGrid(filterTerm = "", diffFilter = "all") {
     const targetGrid = document.getElementById("categories-grid");
     if (!targetGrid) return;
@@ -927,7 +1072,7 @@ function renderCategoryGrid(filterTerm = "", diffFilter = "all") {
     });
 
     if (targetGrid.children.length === 0) {
-        targetGrid.innerHTML = `<p class="grid-empty-state-text">No categories have enough fresh questions for this filter.</p>`;
+        targetGrid.innerHTML = `<p class="grid-empty-state-text">No categories match the filter specifications.</p>`;
     }
 }
 
@@ -953,18 +1098,18 @@ function renderCompletedQuestions() {
     const grouped = getAnsweredQuestionsByCategory();
     const categoryNames = Object.keys(grouped).sort();
     const total = categoryNames.reduce((sum, categoryName) => sum + grouped[categoryName].length, 0);
-    countBadge.innerText = `${total} done`;
+    countBadge.innerText = `${total} complete`;
     container.innerHTML = "";
 
     if (total === 0) {
-        container.innerHTML = `<p class="grid-empty-state-text">Completed quiz questions will appear here after a quiz is finished.</p>`;
+        container.innerHTML = `<p class="grid-empty-state-text">Your answered history blocks will stream here contextually.</p>`;
         return;
     }
 
     categoryNames.forEach(categoryName => {
         const group = document.createElement("details");
         group.className = "completed-category";
-        group.open = true;
+        group.open = false;
         group.innerHTML = `
             <summary>
                 <span>${categoryName}</span>
@@ -987,7 +1132,7 @@ function renderCompletedQuestions() {
                 const answerText = document.createElement("p");
                 answerText.className = "completed-answer-text";
                 const answerLabel = document.createElement("span");
-                answerLabel.innerText = "Answer";
+                answerLabel.innerText = "Answer Key";
                 const correctAnswer = question.mode === "text"
                     ? question.answer
                     : question.a[question.c];
@@ -1037,12 +1182,13 @@ function updateDashboardDisplays() {
     renderCompletedQuestions();
 }
 
-// ================= DAILY CHALLENGE GENERATOR =================
+// ================= DIURNAL SEEDED CHALLENGE PATTERN ENGINE =================
 function getDailySeed() {
     const today = new Date();
     return today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
 }
 
+// Seeded generator parameters
 function seededRandom(seed) {
     let x = 0;
     for (let i = 0; i < seed.length; i++) {
@@ -1090,8 +1236,6 @@ function generateDailyChallenge() {
 function getTodaysDailyChallengeResult() {
     const result = state.userStats.dailyChallengeResult;
     if (!result || result.date !== getDailySeed()) return null;
-    if (!Number.isInteger(result.score) || !Number.isInteger(result.total)) return null;
-    if (result.total < 1 || result.score < 0 || result.score > result.total) return null;
     return result;
 }
 
@@ -1104,17 +1248,15 @@ function updateDailyChallengeCard() {
     if (!statusText || !countdownLabel || !playButton) return;
 
     if (result) {
-        statusText.innerText = `Today’s score: ${result.score} / ${result.total}`;
-        countdownLabel.innerText = "Next challenge in: ";
-        playButton.hidden = true;
+        statusText.innerText = `Completed score achieved: ${result.score} / ${result.total}`;
+        countdownLabel.innerText = "Next cycle opens: ";
         playButton.style.display = "none";
         return;
     }
 
-    statusText.innerText = `Ready for challenge puzzle of ${new Date().toDateString()}!`;
-    countdownLabel.innerText = "Resets in: ";
-    playButton.hidden = false;
-    playButton.style.removeProperty("display");
+    statusText.innerText = `Diurnal Matrix Puzzle for ${new Date().toDateString()} loaded.`;
+    countdownLabel.innerText = "Closes in: ";
+    playButton.style.display = "inline-flex";
 }
 
 function initDailyChallengeEngine() {
@@ -1144,18 +1286,27 @@ function initDailyChallengeEngine() {
     updateDailyChallengeCard();
 }
 
-// ================= VIEWPORT ROUTING LOGIC ENGINE =================
+// ================= ROUTING MECHANICS & SCREEN SWITCHERS =================
 function switchViewportContext(viewId) {
-    const homeView = document.getElementById("home-view");
-    const gameView = document.getElementById("game-view");
-    const resultsView = document.getElementById("results-view");
+    const homeView = document.getElementById("home-screen");
+    const gameView = document.getElementById("quiz-screen");
+    const resultsView = document.getElementById("results-screen");
 
-    if (homeView) homeView.style.display = "none";
-    if (gameView) gameView.style.display = "none";
-    if (resultsView) resultsView.style.display = "none";
+    if (homeView) { homeView.style.display = "none"; homeView.setAttribute("aria-hidden", "true"); }
+    if (gameView) { gameView.style.display = "none"; gameView.setAttribute("aria-hidden", "true"); }
+    if (resultsView) { resultsView.style.display = "none"; resultsView.setAttribute("aria-hidden", "true"); }
 
-    const activeView = document.getElementById(viewId);
-    if (activeView) activeView.style.removeProperty("display");
+    let targetId = viewId;
+    if (viewId === "home-view") targetId = "home-screen";
+    if (viewId === "game-view") targetId = "quiz-screen";
+    if (viewId === "results-view") targetId = "results-screen";
+
+    const activeView = document.getElementById(targetId);
+    if (activeView) {
+        activeView.style.removeAttribute ? activeView.style.removeAttribute("display") : activeView.style.display = "block";
+        activeView.removeAttribute("aria-hidden");
+        activeView.classList.remove("hidden");
+    }
     
     if (viewId === "home-view") {
         renderCategoryGrid();
@@ -1179,7 +1330,7 @@ function setActiveHomeTab(tabId) {
 }
 
 function getTotalCategoryCount() {
-    return Object.keys(QUIZ_BANKS).length;
+    return Object.keys(QUIZ_BANKS).length || FALLBACK_CATEGORIES.length;
 }
 
 function exitToDashboardView() {
@@ -1188,7 +1339,7 @@ function exitToDashboardView() {
     switchViewportContext("home-view");
 }
 
-// ================= EVENT LISTENER HUBS =================
+// ================= APPLICATION HUB DELEGATORS =================
 function setupCoreEventListeners() {
     const btnStart = document.getElementById("btn-start-exploring");
     if (btnStart) {
@@ -1228,35 +1379,42 @@ function setupCoreEventListeners() {
         });
     }
 
-    const textForm = document.getElementById("quiz-text-input-form");
-    if (textForm) {
-        textForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            submitTextAnswerForm();
-        });
-    }
+    const btnAbort = document.getElementById("btn-abort-quiz");
+    if (btnAbort) btnAbort.addEventListener("click", exitToDashboardView);
 
-    const btnAssessTrue = document.getElementById("btn-assess-true");
-    if (btnAssessTrue) {
-        btnAssessTrue.addEventListener("click", () => processSelfAssessmentScore(true));
-    }
-    const btnAssessFalse = document.getElementById("btn-assess-false");
-    if (btnAssessFalse) {
-        btnAssessFalse.addEventListener("click", () => processSelfAssessmentScore(false));
-    }
+    const btnResHome = document.getElementById("res-btn-home");
+    if (btnResHome) btnResHome.addEventListener("click", exitToDashboardView);
 
-    const btnNext = document.getElementById("btn-quiz-next");
-    if (btnNext) {
-        btnNext.addEventListener("click", () => {
+    const btnResRetry = document.getElementById("res-btn-retry");
+    if (btnResRetry) {
+        btnResRetry.addEventListener("click", () => {
             AudioEngine.play("click");
-            advanceQuizSequence();
+            initQuizEngine(state.activeQuiz.category, state.activeQuiz.difficulty, state.activeQuiz.isDaily);
         });
     }
 
-    const quitButtons = document.querySelectorAll("#btn-quit-quiz, #btn-return-home");
-    quitButtons.forEach(btn => {
-        btn.addEventListener("click", exitToDashboardView);
-    });
+    const btnResNext = document.getElementById("res-btn-next");
+    if (btnResNext) {
+        btnResNext.addEventListener("click", () => {
+            AudioEngine.play("click");
+            const names = getAvailableCategoryNames(state.activeQuiz.difficulty);
+            let nextIdx = names.indexOf(state.activeQuiz.category) + 1;
+            if (nextIdx >= names.length || nextIdx < 0) nextIdx = 0;
+            if (names.length > 0) initQuizEngine(names[nextIdx], state.activeQuiz.difficulty);
+        });
+    }
+
+    const btnResRandom = document.getElementById("res-btn-random");
+    if (btnResRandom) {
+        btnResRandom.addEventListener("click", () => {
+            AudioEngine.play("click");
+            const names = getAvailableCategoryNames("all");
+            if (names.length > 0) {
+                const rand = names[Math.floor(Math.random() * names.length)];
+                initQuizEngine(rand, "all");
+            }
+        });
+    }
 
     const btnPlayDaily = document.getElementById("btn-play-daily");
     if (btnPlayDaily) {
@@ -1266,3 +1424,19 @@ function setupCoreEventListeners() {
         });
     }
 }
+
+async function initializeApplication() {
+    try {
+        loadProgressFromStorage();
+        renderParticleBackground();
+        await loadQuestionLibrary();
+        renderCategoryGrid();
+        setupCoreEventListeners();
+        updateDashboardDisplays();
+        initDailyChallengeEngine();
+    } catch (e) {
+        console.error("System structural launch interruption exception captured.", e);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", initializeApplication);
