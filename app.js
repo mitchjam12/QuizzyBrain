@@ -440,7 +440,7 @@ function shuffleQuestions(questions) {
 }
 
 function getQuizQuestionCount(categoryName) {
-    return 12;
+    return categoryName === "Brain Teasers" ? 5 : 12;
 }
 
 function getQuestionTimeLimit(categoryName) {
@@ -1189,4 +1189,248 @@ function evaluateTextAnswer(question, input, submitButton, panel, feedback) {
     message.innerText = `The expected answer is “${question.answer}”. Did you mean the same thing?`;
 
     const actions = document.createElement("div");
-    actions.className = "self-assessment-
+    actions.className = "self-assessment-actions";
+
+    const countButton = document.createElement("button");
+    countButton.type = "button";
+    countButton.className = "btn btn-primary";
+    countButton.innerText = "Yes, count it";
+    countButton.addEventListener("click", () => resolveTextSelfAssessment(true, panel));
+
+    const incorrectButton = document.createElement("button");
+    incorrectButton.type = "button";
+    incorrectButton.className = "btn btn-secondary";
+    incorrectButton.innerText = "Not quite";
+    incorrectButton.addEventListener("click", () => resolveTextSelfAssessment(false, panel));
+
+    actions.append(countButton, incorrectButton);
+    feedback.append(message, actions);
+    countButton.focus();
+}
+
+function resolveTextSelfAssessment(isCorrect, panel) {
+    const active = state.activeQuiz;
+    if (!active.awaitingSelfAssessment || active.isFinished) return;
+    active.awaitingSelfAssessment = false;
+    panel.querySelectorAll("button").forEach(button => button.disabled = true);
+    completeQuestionAnswer(isCorrect, panel);
+}
+
+function handleTextAnswerTimeout(question) {
+    const active = state.activeQuiz;
+    if (active.answerLocked || active.isFinished) return;
+    active.answerLocked = true;
+
+    const panel = document.querySelector(".text-answer-panel");
+    if (panel) {
+        panel.querySelectorAll("input, button").forEach(control => control.disabled = true);
+        const feedback = panel.querySelector(".text-answer-feedback");
+        feedback.hidden = false;
+        feedback.innerText = `Time’s up. The answer is “${question.answer}”.`;
+    }
+    completeQuestionAnswer(false, panel);
+}
+
+function executeTimerTickCycle() {
+    const active = state.activeQuiz;
+    document.getElementById("quiz-timer-text").innerText = active.timerVal;
+    
+    // Circular structural path perimeter dashboard update calculation
+    const pathFillPercent = (active.timerVal / active.timerLimit) * 100;
+    document.getElementById("timer-progress-path").setAttribute("stroke-dasharray", `${pathFillPercent}, 100`);
+
+    if (active.timerVal <= 0) {
+        clearInterval(active.timerId);
+        const question = active.questions[active.currentIdx];
+        if (question.mode === "text") {
+            handleTextAnswerTimeout(question);
+        } else {
+            evaluateUserSelection(-1, null);
+        }
+    }
+    active.timerVal--;
+}
+
+function evaluateUserSelection(selectedId, selectedButtonNode) {
+    const active = state.activeQuiz;
+    clearInterval(active.timerId);
+
+    if (active.isFinished || active.answerLocked || active.currentIdx >= active.questions.length) {
+        return;
+    }
+    active.answerLocked = true;
+
+    const correctId = active.questions[active.currentIdx].c;
+    const buttons = document.querySelectorAll(".answer-option-btn");
+    
+    // Disable alternative input clicks during processing window actions
+    buttons.forEach(b => b.style.pointerEvents = "none");
+
+    const isCorrect = selectedId === correctId;
+    if (!isCorrect) {
+        // Highlight the correct option by its original index, not by matching
+        // rendered text — text-matching breaks if two answers are identical strings.
+        buttons.forEach(b => {
+            if (Number(b.dataset.optId) === correctId) {
+                b.classList.add("correct-pulse");
+            }
+        });
+    }
+    completeQuestionAnswer(isCorrect, selectedButtonNode);
+}
+
+function completeQuestionAnswer(isCorrect, selectedNode) {
+    const active = state.activeQuiz;
+    clearInterval(active.timerId);
+    active.awaitingSelfAssessment = false;
+
+    if (isCorrect) {
+        AudioEngine.play("correct");
+        if (selectedNode) selectedNode.classList.add("correct-pulse");
+        active.score++;
+        active.streak++;
+        if (active.streak > active.maxStreakThisRun) active.maxStreakThisRun = active.streak;
+    } else {
+        AudioEngine.play("wrong");
+        if (selectedNode) selectedNode.classList.add("incorrect-pulse");
+        active.streak = 0;
+    }
+
+    // Brief presentation transition gap pause window before proceeding array indexing items
+    setTimeout(() => {
+        active.currentIdx++;
+        if (active.currentIdx >= active.questions.length) {
+            terminateQuizPipeline();
+            return;
+        }
+        presentQuestionIndexScenario();
+    }, 1400);
+}
+
+// ================= REPORT SUMMARY COMPILATION MANAGEMENT =================
+function terminateQuizPipeline() {
+    const active = state.activeQuiz;
+    if (active.isFinished) {
+        return;
+    }
+    active.isFinished = true;
+    clearInterval(active.timerId);
+
+    const durationSecs = Math.round((Date.now() - active.startTime) / 1000);
+    const accuracyVal = Math.round((active.score / active.questions.length) * 100);
+    const avgTimePerQ = (durationSecs / active.questions.length).toFixed(1);
+
+    AudioEngine.play("victory");
+
+    // Podium Medal Scoring Evaluation logic checks
+    let medal = "🥉 Bronze";
+    let message = "Almost there! Try again and beat your score!";
+    if (active.score === active.questions.length) {
+        medal = "🥇 Gold";
+        message = "Outstanding! You're a QuizzyBrain Master!";
+        triggerConfettiCascadeAnimation();
+    } else if (active.score >= Math.ceil(active.questions.length * 0.75)) {
+        medal = "🥈 Silver";
+        message = "Great work! Keep practicing!";
+    }
+
+    // Display updates processing inputs
+    document.getElementById("result-medal-podium").innerText = medal.split(" ")[0];
+    document.getElementById("result-heading").innerText = medal.substring(2) + " Tier Awarded!";
+    document.getElementById("result-feedback-text").innerText = message;
+    document.getElementById("result-fraction-score").innerText = `${active.score} / ${active.questions.length}`;
+    document.getElementById("result-percentage-score").innerText = `${accuracyVal}% Total Accuracy Rating`;
+    
+    document.getElementById("res-m-time").innerText = `${Math.floor(durationSecs / 60)}m ${durationSecs % 60}s`;
+    document.getElementById("res-m-avg").innerText = `${avgTimePerQ}s`;
+    document.getElementById("res-m-streak").innerText = active.maxStreakThisRun;
+    document.getElementById("res-m-cat").innerText = active.category;
+    const retryButton = document.getElementById("res-btn-retry");
+    retryButton.hidden = active.isDaily;
+    retryButton.style.display = active.isDaily ? "none" : "";
+
+   // Mutate and sync long term lifetime historical records metrics telemetry
+state.userStats.gamesPlayed++;
+state.userStats.totalAnswered += active.questions.length;
+state.userStats.totalCorrect += active.score;
+
+// Perfect score tracking
+if (active.score === active.questions.length) {
+    state.userStats.perfectScores++;
+}
+
+if (active.maxStreakThisRun > state.userStats.maxStreak) {
+    state.userStats.maxStreak = active.maxStreakThisRun;
+}
+
+if (durationSecs < state.userStats.fastestTime) {
+    state.userStats.fastestTime = durationSecs;
+}
+    if (!state.userStats.completedCats.includes(active.category) && active.score >= 6) {
+        state.userStats.completedCats.push(active.category);
+    }
+
+    // Tracks favorite category preferences
+    state.userStats.catCounts[active.category] = (state.userStats.catCounts[active.category] || 0) + 1;
+    let maxCount = 0, fav = "N/A";
+    Object.keys(state.userStats.catCounts).forEach(c => {
+        if (state.userStats.catCounts[c] > maxCount) { maxCount = state.userStats.catCounts[c]; fav = c; }
+    });
+    state.userStats.favCategory = fav;
+
+    // Evaluate potential newly met achievements benchmarks targets criteria
+    ACHIEVEMENTS_REGISTRY.forEach(ach => {
+        if (!state.userStats.unlockedAchievements.includes(ach.id) && ach.condition(state.userStats)) {
+            state.userStats.unlockedAchievements.push(ach.id);
+        }
+    });
+
+    if (active.isDaily) {
+        state.userStats.dailyChallengeResult = {
+            date: active.dailySeed,
+            score: active.score,
+            total: active.questions.length
+        };
+        updateDailyChallengeCard();
+    } else {
+        markQuestionsAnswered(active.questions);
+    }
+    saveProgressToStorage();
+    updateDashboardDisplays();
+    renderCategoryGrid(
+        document.getElementById("category-search").value,
+        document.getElementById("difficulty-select").value
+    );
+    document.body.classList.remove("quiz-active");
+    exitFullscreenMode();
+    switchViewSection("results-screen");
+}
+
+// ================= AUXILIARY DESIGN EFFECT ENGINE FUNCTIONS =================
+function triggerConfettiCascadeAnimation() {
+    const box = document.querySelector(".confetti-holder-box");
+    box.innerHTML = "";
+    for (let i = 0; i < 100; i++) {
+        const conf = document.createElement("div");
+        conf.style.position = "absolute";
+        conf.style.width = "8px";
+        conf.style.height = "8px";
+        conf.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        conf.style.left = `${Math.random() * 100}%`;
+        conf.style.top = `${Math.random() * 40}%`;
+        conf.style.borderRadius = "50%";
+        conf.style.opacity = Math.random();
+        conf.style.transform = `rotate(${Math.random() * 360}deg)`;
+        box.appendChild(conf);
+        
+        // Native programmatic drift configuration parameters fall animation paths
+        let currentTop = parseFloat(conf.style.top);
+        function fall() {
+            currentTop += 0.8;
+            conf.style.top = `${currentTop}%`;
+            if (currentTop < 100) requestAnimationFrame(fall);
+            else conf.remove();
+        }
+        requestAnimationFrame(fall);
+    }
+}
