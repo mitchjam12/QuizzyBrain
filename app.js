@@ -440,15 +440,23 @@ function getQuizQuestionCount(categoryName) {
     return categoryName === "Brain Teasers" ? 5 : 12;
 }
 
+function getCategoryCompletionScore(questionCount) {
+    return Math.ceil(questionCount / 2);
+}
+
 function buildQuestionSelection(categoryName, difficultyMode = "all") {
-    const freshQuestions = getUnansweredQuestionPool(categoryName);
+    const answered = getAnsweredQuestionSet();
     const questionCount = getQuizQuestionCount(categoryName);
+    const eligibleQuestions = getQuestionPool(categoryName).filter(question => {
+        return difficultyMode === "all" || question.d === difficultyMode;
+    });
+    const freshQuestions = eligibleQuestions.filter(question => !answered.has(question.id));
+    const replayQuestions = eligibleQuestions.filter(question => answered.has(question.id));
 
-    if (difficultyMode === "all") {
-        return shuffleQuestions(freshQuestions).slice(0, questionCount);
-    }
-
-    return shuffleQuestions(freshQuestions.filter(question => question.d === difficultyMode)).slice(0, questionCount);
+    return [
+        ...shuffleQuestions(freshQuestions),
+        ...shuffleQuestions(replayQuestions)
+    ].slice(0, questionCount);
 }
 
 function getFreshQuestionCount(categoryName, difficultyMode = "all") {
@@ -459,7 +467,10 @@ function getFreshQuestionCount(categoryName, difficultyMode = "all") {
 
 function getAvailableCategoryNames(difficultyMode = "all") {
     return Object.keys(QUIZ_BANKS).filter(categoryName => {
-        return getFreshQuestionCount(categoryName, difficultyMode) >= getQuizQuestionCount(categoryName);
+        const eligibleCount = getQuestionPool(categoryName).filter(question => {
+            return difficultyMode === "all" || question.d === difficultyMode;
+        }).length;
+        return eligibleCount >= getQuizQuestionCount(categoryName);
     });
 }
 
@@ -537,7 +548,7 @@ function renderCategoryGrid(filterTerm = "", diffFilter = "all") {
             <h3>${catName}</h3>
             <p>${meta.desc}</p>
             <div class="cat-meta-footer">
-                <span>📋 ${freshCount} fresh Qs</span>
+                <span>📋 ${freshCount > 0 ? `${freshCount} fresh Qs` : "Replay ready"}</span>
                 <span>⚡ ${diffFilter === 'all' ? 'Mixed' : diffFilter}</span>
                 <span>⏱️ ${meta.time}</span>
             </div>
@@ -1011,7 +1022,7 @@ function initQuizEngine(categoryName, difficultyMode = "all", isDaily = false) {
     const requiredQuestionCount = getQuizQuestionCount(categoryName);
 
     if (selectedQuestions.length < requiredQuestionCount) {
-        alert(`Not enough fresh questions are available for ${categoryName}.`);
+        alert(`Not enough questions are available for ${categoryName}.`);
         renderCategoryGrid(
             document.getElementById("category-search").value,
             document.getElementById("difficulty-select").value
@@ -1357,7 +1368,8 @@ if (active.maxStreakThisRun > state.userStats.maxStreak) {
 if (durationSecs < state.userStats.fastestTime) {
     state.userStats.fastestTime = durationSecs;
 }
-    if (!state.userStats.completedCats.includes(active.category) && active.score >= 6) {
+    const completionScore = getCategoryCompletionScore(active.questions.length);
+    if (!state.userStats.completedCats.includes(active.category) && active.score >= completionScore) {
         state.userStats.completedCats.push(active.category);
     }
 
