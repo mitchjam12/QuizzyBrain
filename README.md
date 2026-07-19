@@ -38,7 +38,7 @@ C:\Users\rossj\AppData\Local\Programs\Python\Python314\python.exe tools\build_qu
 
 The validator checks the CSV and does not write generated question files. The app reads `data/questions.csv` directly in the browser, so the CSV is the single source of truth for questions.
 
-QuizzyBrain remembers completed question IDs on each computer using browser local storage. Each quiz prioritises questions the player has not answered before, then reuses completed questions when needed so every category remains replayable. Category cards appear whenever they have enough matching questions for a round: 12 for standard categories and five for Brain Teasers.
+QuizzyBrain remembers completed question IDs on each computer using browser local storage. Each quiz prioritises questions the player has not answered before, then reuses completed questions when needed so every category remains replayable. Category cards appear whenever they have enough matching questions for a round: 12 for standard categories and five for Brain Teasers. Standard quiz questions allow 15 seconds each, while Brain Teasers allow 60 seconds each.
 
 The Daily Challenge uses a deterministic daily mix of standard quiz categories without consuming questions from the regular category freshness pool. Brain Teasers are excluded because they use their own typed-answer format and five-question rounds. After the Daily Challenge is completed, its card shows the saved score and the countdown to the next challenge instead of another play button.
 
