@@ -1,7 +1,7 @@
-id,category,difficulty,question,option_a,option_b,option_c,option_d,correct_option,answer_mode,canonical_answer,accepted_answers
-sports-players-001,Sports Players,Easy,Who has won the most Ballon d'Or awards in football history?,Lionel Messi,Cristiano Ronaldo,Michel Platini,Johan Cruyff,A,option,Lionel Messi,Lionel Messi
-sports-players-002,Sports Players,Easy,Which NBA player is known as 'The King'?,Kevin Durant,Stephen Curry,LeBron James,Giannis Antetokounmpo,C,option,LeBron James,LeBron James
-sports-players-003,Sports Players,Medium,How many Grand Slam singles titles has Serena Williams won?,21,22,23,25,C,option,23,23
+id,category,difficulty,question,option_a,option_b,option_c,option_d,correct_option
+sports-players-001,Sports Players,Easy,Who has won the most Ballon d'Or awards in football history?,Lionel Messi,Cristiano Ronaldo,Michel Platini,Johan Cruyff,A
+sports-players-002,Sports Players,Easy,Which NBA player is known as 'The King'?,Kevin Durant,Stephen Curry,LeBron James,Giannis Antetokounmpo,C
+sports-players-003,Sports Players,Medium,How many Grand Slam singles titles has Serena Williams won?,21,22,23,25,C
 sports-players-004,Sports Players,Medium,Who is the all-time leading run-scorer in international cricket?,Ricky Ponting,Sachin Tendulkar,Brian Lara,Virat Kohli,B
 sports-players-005,Sports Players,Easy,Which swimmer holds the record for most Olympic gold medals?,Michael Phelps,Mark Spitz,Ryan Lochte,Ian Thorpe,A
 sports-players-006,Sports Players,Medium,Who was the first gymnastics athlete to score a perfect 10 at the Olympics?,Simone Biles,Nadia Comăneci,Svetlana Khorkina,Mary Lou Retton,B
