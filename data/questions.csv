@@ -1,4 +1,4 @@
-id,category,difficulty,question,option_a,option_b,option_c,option_d,correct_option
+id,category,difficulty,question,option_a,option_b,option_c,option_d,correct_option,answer_mode,canonical_answer,accepted_answers
 sports-players-001,Sports Players,Easy,Who has won the most Ballon d'Or awards in football history?,Lionel Messi,Cristiano Ronaldo,Michel Platini,Johan Cruyff,A
 sports-players-002,Sports Players,Easy,Which NBA player is known as 'The King'?,Kevin Durant,Stephen Curry,LeBron James,Giannis Antetokounmpo,C
 sports-players-003,Sports Players,Medium,How many Grand Slam singles titles has Serena Williams won?,21,22,23,25,C
